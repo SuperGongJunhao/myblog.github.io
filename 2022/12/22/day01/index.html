@@ -5,15 +5,28 @@
   
 
   
-  <title>Hexo</title>
+  <title>day01 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://supergongjunhao.github.io/myblog.github.io/index.html">
+  <meta name="description" content="jdk8以及之后的版本，HashMap的数据结构为数组+链表&#x2F;红黑树   准确的说HashMap的底层是哈希表，而Java中哈希表是由数组+链表实现的，每一个数组的节点称之为bucket桶，当桶中由多个元素就以链表的方法进行存储，当添加元素时，通过key的hash算法得出hash值，然后通过hash值映射出存在哪个桶中，如果桶中没有有元素，就添加成功，如果有元素那就代表散列冲突，比较已存在的元素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day01">
+<meta property="og:url" content="https://supergongjunhao.github.io/myblog.github.io/2022/12/22/day01/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jdk8以及之后的版本，HashMap的数据结构为数组+链表&#x2F;红黑树   准确的说HashMap的底层是哈希表，而Java中哈希表是由数组+链表实现的，每一个数组的节点称之为bucket桶，当桶中由多个元素就以链表的方法进行存储，当添加元素时，通过key的hash算法得出hash值，然后通过hash值映射出存在哪个桶中，如果桶中没有有元素，就添加成功，如果有元素那就代表散列冲突，比较已存在的元素">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133248686.png">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133259586.png">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133306934.png">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/81cc9e932d074eea9589b98972054457~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/4fb17af4bae74d2ba373e9bc5f2ef5b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/e49354cb6a684aab915165fc45fb0a69~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp">
+<meta property="og:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220726232155481.png">
+<meta property="article:published_time" content="2022-12-22T08:11:17.000Z">
+<meta property="article:modified_time" content="2022-12-22T08:24:29.543Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133248686.png">
   
     <link rel="alternate" href="/myblog.github.io/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,9 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-day01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-day01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/myblog.github.io/2022/12/22/day01/" class="article-date">
   <time datetime="2022-12-22T08:11:17.000Z" itemprop="datePublished">2022-12-22</time>
@@ -77,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/myblog.github.io/2022/12/22/day01/">day01</a>
+    <h1 class="article-title" itemprop="name">
+      day01
     </h1>
   
 
@@ -117,60 +128,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/myblog.github.io/2022/12/21/hello-world/" class="article-date">
-  <time datetime="2022-12-21T06:48:55.188Z" itemprop="datePublished">2022-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/myblog.github.io/2022/12/21/hello-world/">Hello World</a>
-    </h1>
+    <a href="/myblog.github.io/2022/12/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://supergongjunhao.github.io/myblog.github.io/2022/12/21/hello-world/" data-id="clbytild10001d0cz3lsae1q2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
