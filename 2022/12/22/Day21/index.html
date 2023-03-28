@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>day07 | Hexo</title>
+        <title>day21 | Hexo</title>
         <meta name="author" content="John Doe" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -145,7 +145,7 @@
 
                 <div class="article">
     <div>
-        <h1>day07</h1>
+        <h1>day21</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -171,51 +171,23 @@
     </div>
     
     <div class="content" v-pre>
-        <img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220801194653803.png" alt="image-20220801194653803" style="zoom:50%;" />
-
-<p>spring没有提供AOP方式的日志系统</p>
-<p><strong>AOP为Aspect Oriented Programming</strong>的缩写，意为：<strong>面向切面编程</strong>，通过预编译方式和运行期动态***实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。</p>
-<p>Spring通过对AOP的支持，借助log4j等Apache开源组件实现了日志系统。</p>
-<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208011949073.png" alt="image-20220801194923992" style="zoom:50%;" />
-
-<p>new URL()时必须捕获检查异常，但这个异常是由于字符串格式和URL不符导致的，与网址是否存在无关。URL的toString方法返回字符串，无论网址是否存在。</p>
-<h2 id="面向对象-与面向过程的区别"><a href="#面向对象-与面向过程的区别" class="headerlink" title="面向对象 与面向过程的区别"></a>面向对象 与面向过程的区别</h2><ul>
-<li>面向过程是将解决问题的过程拆分为一个个方法，通过一个个方法的执行来解决问题</li>
-<li>面向过程会先将问题抽象出一个对象，通过对象执行方法的方式解决问题</li>
+        <h2 id="请说出一次完整的-HTTP-请求所经历的7个步骤。"><a href="#请说出一次完整的-HTTP-请求所经历的7个步骤。" class="headerlink" title="请说出一次完整的 HTTP 请求所经历的7个步骤。"></a>请说出一次完整的 HTTP 请求所经历的7个步骤。</h2><ul>
+<li>建立TCP连接</li>
+<li>发送请求行</li>
+<li>发送请求头</li>
+<li>到达服务器，发送状态行</li>
+<li>发送响应头</li>
+<li>发送响应数据</li>
+<li>断开TCP连接</li>
 </ul>
-<p>一般来说，面向对象的方式更易维护、易复用、易扩展</p>
-<h2 id="对象实体和对象引用由什么不同？"><a href="#对象实体和对象引用由什么不同？" class="headerlink" title="对象实体和对象引用由什么不同？"></a>对象实体和对象引用由什么不同？</h2><p>对象实体是new()创建的，存放在堆内存中，对象引用指向对象实例，对象引用存放在栈内存中</p>
-<p>一个对象引用可以指向零个或一个对象，而实例对象可以有N个引用指向它</p>
-<h2 id="对象相等和引用相等的区别"><a href="#对象相等和引用相等的区别" class="headerlink" title="对象相等和引用相等的区别"></a>对象相等和引用相等的区别</h2><ul>
-<li>对象相等：一般比较的是地址中存放的内容是否相等</li>
-<li>引用相等：一般比较的是他们指向的内存地址是否相等</li>
-</ul>
-<h2 id="类的构造方法有什么作用？"><a href="#类的构造方法有什么作用？" class="headerlink" title="类的构造方法有什么作用？"></a>类的构造方法有什么作用？</h2><p>完成对象的初始化工作</p>
-<h2 id="如果一个类没有声明构造方法，该程序能正确执行吗"><a href="#如果一个类没有声明构造方法，该程序能正确执行吗" class="headerlink" title="如果一个类没有声明构造方法，该程序能正确执行吗?"></a>如果一个类没有声明构造方法，该程序能正确执行吗?</h2><p>能正确执行,因为每个类都默认实现了对应的无参构造方法,当我们显式的添加类的有参&#x2F;无参构造后,会覆盖默认的无参构造</p>
-<p>所以当我们重载了有参的构造函数后,最好在补上一个无参构造,避免不必要的错误</p>
-<h2 id="构造方法的特点"><a href="#构造方法的特点" class="headerlink" title="构造方法的特点"></a>构造方法的特点</h2><ul>
-<li>名字与类名相同</li>
-<li>没有返回值但不能用void修饰</li>
-<li>生成类的对象自动执行,无序调用</li>
-<li>不能被重写,但能被重载</li>
-</ul>
-<h2 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是把对象的状态信息(也就是属性)隐藏起来,不允许外部对象直接访问内部信息,但可以对外提供一些方法来操作属性</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>不同类型的类,相互之间经常会有一定数量的共同点,同时,他们又各自保持着一定的特性.</p>
-<p>继承是<strong>使用已存在的类的定义作为基础建立新类的技术</strong>,新类可以定义新的属性或方法,也可以使用父类的功能,但<strong>不能选择性的继承,</strong></p>
-<p>通过使用继承可以快速的创建新类,提高代码的重用以及程序的可维护性,节省大量创建新类的时间,提高我们的开发效率</p>
-<p>注意:</p>
-<ol>
-<li>子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，<strong>只是拥有</strong>。</li>
-<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</li>
-<li>子类可以用自己的方式实现父类的方法。</li>
-</ol>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>表示一个对象具有多种状态,具体表现为<strong>父类的引用指向子类的实例</strong></p>
-<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
-<li>对象类型和引用类型之间是继承(类)或实现(接口)的关系</li>
-<li>引用类型发出的方法调用的是那个类的方法只有在程序允许期间才能确定</li>
-<li>多态调用的方法必须在子类和父类中都存在</li>
-<li>如果子类重写了父类的方法那么调用的是子类的方法,如果没重写就调用的是父类的方法</li>
-</ul>
+<h2 id="cookie与session"><a href="#cookie与session" class="headerlink" title="cookie与session"></a>cookie与session</h2><p>cookie存放在客户端安全性较差，session存放在服务端，安全性相对较高</p>
+<p>单个cookie保存的数据不能超过4K，一般浏览器对每个站点的cookie限制为20个，session无此项限制</p>
+<p>session一段时间内会保存在服务器上，当访问增多，会影响服务器性能，这时应当考虑使用cookie</p>
+<h2 id="请概述一下-HTTP-状态码分为哪几类？每一类分别是什么数字开头？"><a href="#请概述一下-HTTP-状态码分为哪几类？每一类分别是什么数字开头？" class="headerlink" title="请概述一下 HTTP 状态码分为哪几类？每一类分别是什么数字开头？"></a>请概述一下 HTTP 状态码分为哪几类？每一类分别是什么数字开头？</h2><p>HTTP 状态码通常分为五类，分别以 1～5 个数字开头，由三位整数组成。其中：1、1xx 表示请求已被接受，需接后续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束；2、2xx 表示请求已成功被服务器接收、理解并接受；3、3xx 表示要完成请求，需要进一步操作。通常这类状态代码用于重定向；4、4xx 表示请求可能出错，妨碍了服务器的处理；5、5xx 表示服务器尝试处理请求时出现内部错误。这些错误可能是服务器本身的错误，而不是请求出错</p>
+<h2 id="什么是线程池"><a href="#什么是线程池" class="headerlink" title="什么是线程池"></a>什么是线程池</h2><p>线程池，thread pool，是一种线程使用模式，线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。应用程序可以有多个线程，这些线程在休眠状态中需要耗费大量时间来等待事件发生。其他线程可能进入睡眠状态，并且仅定期被唤醒以轮循更改或更新状态信息，然后再次进入休眠状态。为了简化对这些线程的管理，.NET 框架为每个进程提供了一个线程池，一个线程池有若干个等待操作状态，当一个等待操作完成时，线程池中的辅助线程会执行回调函数。线程池中的线程由系统管理，程序员不需要费力于线程管理，可以集中精力处理应用程序任务。</p>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>由JDK提供的，提供了线程本地变量，如果你创建了一个ThreadLocal变量，那么每个访问此变量的线程都会创建一个相应的副本，当多线程对该变量进行操作时，实际上操作的是该线程相对应的副本，从而避免了线程安全问题。</p>
+<p>ThreadLocal底层实际上是一个ThreadLocalMap，而ThreadLocalMap 是一个定制化的Hashmap 。</p>
+<p>在默认情况下， 每个线程中的这两个变量都为null ，只有当前线程第一次调用ThreadLocal 的set 或者get 方法时才会创建它们。其实每个线程的本地变量不是存放在ThreadLocal 实例里面，而是存放在调用线程的threadLocals 变量里面。也就是说， ThreadLocal 类型的本地变量存放在具体的线程内存空间中。如果当前线程一直不消亡， 那么这些本地变量会一直存在， 所以可能会造成内存溢出， 因此使用完毕后要记得调用ThreadLocal 的remove 方法删除对应线程的threadLocals 中的本地变量。</p>
 
     </div>
     
