@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day17 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day17</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><strong>EasyExcel所对应的实体类的属性一定要严格按照驼峰命名</strong></p>
+<p>在委托事件模型中，源生成事件并把它发送给一个或多个监听器，每个监听器必须向事件源注册</p>
+<p>在try中的代码可能会产生多种异常，需要多个catch进行捕获，catch中的参数由子父类关系，应该把子类异常放在父类异常之前捕获</p>
+<p>执行顺序</p>
+<p>静态代码块&gt;构造代码块&gt;构造方法</p>
+<h1 id="String字符串常见的题目"><a href="#String字符串常见的题目" class="headerlink" title="String字符串常见的题目"></a>String字符串常见的题目</h1><h2 id="奇怪的nullnull"><a href="#奇怪的nullnull" class="headerlink" title="奇怪的nullnull"></a>奇怪的<code>nullnull</code></h2><pre><code class="java">public class Test1 &#123;
+    private static String s1;
+    private static String s2;
+
+    public static void main(String[] args) &#123;
+        String s= s1+s2;
+        System.out.println(s);
+    &#125;
+&#125;
+</code></pre>
+<p>这段代码会输出<code>nullnull</code></p>
+<p>首先来查看为null字符串的打印方式</p>
+<pre><code class="java">public void print(String s) &#123;
+    if (s == null) &#123;
+        s = &quot;null&quot;;
+    &#125;
+    write(s);
+&#125;
+</code></pre>
+<p>可以看到，为null的字符串会被转换为字符串“null”然后输出</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112059750.png" alt="0aa00c3f-97fb-42b6-9297-812b2b0b7b60"></p>
+<p>编译器会对字符串相加的操作进行优化，转而使用StringBuilder的append方法拼接字符串。</p>
+<p>如果append的字符串为null则</p>
+<pre><code class="java">public AbstractStringBuilder append(String str) &#123;
+    if (str == null)
+        return appendNull();
+        //...
+&#125;
+</code></pre>
+<p>接着调用其父类AbstractStringBuilder的appendNull方法</p>
+<pre><code class="java">private AbstractStringBuilder appendNull() &#123;
+    int c = count;
+    ensureCapacityInternal(c + 4);
+    final char[] value = this.value;
+    value[c++] = &#39;n&#39;;
+    value[c++] = &#39;u&#39;;
+    value[c++] = &#39;l&#39;;
+    value[c++] = &#39;l&#39;;
+    count = c;
+    return this;
+&#125;
+</code></pre>
+<p>此处使用了char字符数组来存储null字符串的值，所以StringBuilder对null字符串进行了特殊的处理，会将null转换成”null”字符串并将其添加进字符数组，这也就导致了	两个为空的字符串相加后输出为<code>nullnull</code></p>
+<h2 id="String值的问题"><a href="#String值的问题" class="headerlink" title="String值的问题"></a>String值的问题</h2><pre><code class="java">String s=&quot;Hydra&quot;;
+s=&quot;Trunks&quot;;
+</code></pre>
+<p>虽然此处的s值被修改了，但实际上这是新创建了一个String对象，String的值是不可改变的,下面是String的源码</p>
+<pre><code class="java">private final char value[];
+</code></pre>
+<p>可以看书，String在本质上就是一个char数组，且被final修饰，说明不能被更改，这里的不能被更改指的是 无法修改其地址，其数组中的值还是可以被修改的。</p>
+<p>如下所示：</p>
+<pre><code class="JAVA">final char[] one=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;
+char[] two=&#123;&#39;d&#39;,&#39;e&#39;,&#39;f&#39;&#125;;
+one=two;
+</code></pre>
+<p>此处会报错<code>Cannot assign a value to final variable &#39;one&#39;</code>，说明被final修饰的数组的引用无法被修改</p>
+<p>但我们可以直接操作数组内的元素</p>
+<pre><code class="java">final char[] one=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;
+one[1]=&#39;z&#39;;
+</code></pre>
+<p>​	<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112006823.png" alt="img"></p>
+<p>我们直接用hashcode来查看引用指向的对象是否发生改变</p>
+<pre><code class="JAVA">public static void main(String[] args) &#123;
+    String s=&quot;Hydra&quot;;
+    System.out.println(s+&quot;:  &quot;+s.hashCode());
+    s=&quot;Trunks&quot;;
+    System.out.println(s+&quot;: &quot;+s.hashCode());
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112010720.png" alt="b1f213da-223c-4246-aece-e9392a454941"></p>
+<p>可以看到这两个对象的引用指向的对象不是同一个</p>
+<p>可以使用反射来实现不改变对象引用的情况下修改对象的值</p>
+<pre><code class="JAVA">public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException &#123;
+    String s=&quot;Hydra&quot;;
+    System.out.println(s+&quot;:  &quot;+s.hashCode());
+
+    Field field = String.class.getDeclaredField(&quot;value&quot;);
+    field.setAccessible(true);
+    field.set(s,new char[]&#123;&#39;T&#39;,&#39;r&#39;,&#39;u&#39;,&#39;n&#39;,&#39;k&#39;,&#39;s&#39;&#125;);
+    System.out.println(s+&quot;: &quot;+s.hashCode());
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112011534.png" alt="27f11d5a-4106-4aef-8df5-dc178d414470"></p>
+<h2 id="创建几个对象？"><a href="#创建几个对象？" class="headerlink" title="创建几个对象？"></a>创建几个对象？</h2><pre><code class="java">String s = new String(&quot;Hydra&quot;);
+</code></pre>
+<p>以上代码创建了几个对象？</p>
+<p>首先了解常量池的相关知识</p>
+<ul>
+<li>class 文件常量池：在 class 文件中保存了一份常量池（ Constant Pool ），主要 存储编译时确定的数据，包括代码中的字面量( literal )和符号引用 </li>
+<li>运行时常量池：位于方法区中，全局共享，class 文件常量池中的内容会在类加载后 存放到方法区的运行时常量池中。除此之外，在运行期间可以将新的变量放入运行 时常量池中，相对 class 文件常量池而言运行时常量池更具备动态性 </li>
+<li>字符串常量池：位于堆中，全局共享，这里可以先粗略的认为它存储的是 String 对 象的直接引用，而不是直接存放的对象，具体的实例对象是在堆中存放</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112028550.png" alt="28f7d214-c451-4e77-abe9-e65343c4f428"></p>
+<p>字符串常量池StringTable本质上是一张HashTable，运用数组+链表结构</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112028780.png" alt="1d8eb77b-3fb3-4598-865c-ab6792ea866f"></p>
+<p>使用字面量声明 String 对象时，也就是被双引号包围的字符串，在堆上创建对象， 并驻留到字符串常量池中（注意这个用词） </p>
+<p>调用 <strong>intern()</strong> 方法，当字符串常量池没有相等的字符串时，会保存该字符串的引 用</p>
+<p>简单来说，String对象的引用保存在字符串常量池中</p>
+<pre><code class="JAVA">public static void main(String[] args) &#123;
+    String s = &quot;Hydra&quot;;
+&#125;
+</code></pre>
+<p>反编译后：</p>
+<pre><code class="java">public static void main(java.lang.String[]);
+  descriptor: ([Ljava/lang/String;)V
+  flags: ACC_PUBLIC, ACC_STATIC
+  Code:
+    stack=1, locals=2, args_size=1
+       0: ldc           #2                  // String Hydra
+       2: astore_1
+       3: return
+</code></pre>
+<ul>
+<li>0: ldc ，查找后面索引为 #2 对应的项， #2 表示常量在常量池中的位置。在这 个过程中，会触发前面提到的lazy resolve，在 resolve 过程<strong>如果发现 StringTab le 已经有了内容匹配的 String 引用，则直接返回这个引用，反之如果 StringTa ble 里没有内容匹配的 String 对象的引用，则会在堆里创建一个对应内容的 String 对象</strong>，然后在 StringTable 驻留这个对象引用，并返回这个引用，之后再压入操 作数栈中 </li>
+<li>2: astore_1 ，弹出栈顶元素，并将栈顶引用类型值保存到局部变量 1 中，也就 是保存到变量 s 中 </li>
+<li>3: return ，执行 void 函数返回</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112036367.png" alt="92144f5e-a19f-42d1-8629-9cadf2371688"></p>
+<p>显而易见这种方式值创建了一个对象</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s = new String(&quot;Hydra&quot;);
+&#125;
+</code></pre>
+<p>反编译后：</p>
+<pre><code class="java">public static void main(java.lang.String[]);
+  descriptor: ([Ljava/lang/String;)V
+  flags: ACC_PUBLIC, ACC_STATIC
+  Code:
+    stack=3, locals=2, args_size=1
+       0: new           #2                  // class java/lang/String
+       3: dup
+       4: ldc           #3                  // String Hydra
+       6: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+       9: astore_1
+      10: return
+</code></pre>
+<p>和之前的不同之处：</p>
+<ul>
+<li>0: new ，在堆上创建一个 String 对象，并将它的引用压入操作数栈，<strong>注意这时的 对象还只是一个空壳</strong>，并没有调用类的构造方法进行初始化 </li>
+<li>3: dup ，复制栈顶元素，也就是复制了上面的对象引用，并将复制后的对象引用 压入栈顶。这里之所以要进行复制，是因为之后要执行的构造方法会从操作数栈弹 出需要的参数和这个对象引用本身（这个引用起到的作用就是构造方法中的 this 指针），如果不进行复制，在弹出后会无法得到初始化后的对象引用 </li>
+<li>4: ldc ，在堆上创建字符串对象，驻留到字符串常量池，并将字符串的引用压入 操作数栈</li>
+<li>6: invokespecial ，执行 String 的构造方法，这一步执行完成后得到一个完整 对象</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112037755.png" alt="820121d0-ca33-44d4-8968-69d5a9c889f5"></p>
+<p>创建了两个对象</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s = &quot;Hydra&quot;;
+    String s2 = new String(&quot;Hydra&quot;);
+&#125;
+</code></pre>
+<pre><code class="java">Code:
+  stack=3, locals=3, args_size=1
+     0: ldc           #2                  // String Hydra
+     2: astore_1
+     3: new           #3                  // class java/lang/String
+     6: dup
+     7: ldc           #2                  // String Hydra
+     9: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+    12: astore_2
+    13: return
+</code></pre>
+<p>值创建了一个对象</p>
+<p>可以看到两次执行 ldc 指令时后面索引相同，而 ldc 判断是否需要创建新的 String 实例的依据是根据 在第一次执行这条指令时， StringTable 是否已经保存了一个对应内容的 String 实例的引用。所以在 第一次执行 ldc 时会创建 String 实例，而在第二次 ldc 就会直接返回而不需要再创建实例了。</p>
+<h2 id="intern（）"><a href="#intern（）" class="headerlink" title="intern（）"></a>intern（）</h2><p>String 的 intern() 是一个本地方法，可以强制将 String 驻留进入字符串常量池，可 以分为两种情况： </p>
+<ul>
+<li>如果字符串常量池中已经驻留了一个等于此 String 对象内容的字符串引用，则返回 此字符串在常量池中的引用</li>
+<li>否则，在常量池中创建一个引用指向这个 String 对象，然后返回常量池中的这个引 用</li>
+</ul>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s1 = new String(&quot;Hydra&quot;);
+    String s2 = s1.intern();
+    System.out.println(s1 == s2);
+    System.out.println(s1 == &quot;Hydra&quot;);
+    System.out.println(s2 == &quot;Hydra&quot;);
+&#125;
+
+
+输出：
+false
+false
+true
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112048992.png" alt="34a59f7f-c3ee-4fd9-ace8-8be54bc4838d"></p>
+<ul>
+<li><p>在创建 s1 的时候，其实堆里已经创建了两个字符串对象 StringObject1 和 Str ingObject2 ，并且在字符串常量池中驻留了 StringObject2 </p>
+</li>
+<li><p>当执行 s1.intern() 方法时，字符串常量池中已经存在内容等于 “Hydra” 的字 符串 StringObject2 ，直接返回这个引用并赋值给 s2 s1 和 s2 指向的是两个不同的 String 对象，因此返回 fasle</p>
+</li>
+<li><p>s2 指向的就是驻留在字符串常量池的 StringObject2 ，因此 s2&#x3D;&#x3D;”Hydra” 为 true，而 s1 指向的不是常量池中的对象引用所以返回 false</p>
+</li>
+<li><p>s1指向的是创建的对象，s2指向的是常量池中已经存在的对象的引用</p>
+</li>
+</ul>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s1 = new String(&quot;Hy&quot;) + new String(&quot;dra&quot;);
+    s1.intern();
+    String s2 = &quot;Hydra&quot;;
+    System.out.println(s1 == s2);
+&#125;
+
+输出结果：
+    true
+</code></pre>
+<p>第一步会在堆上创建 “Hy” 和 “dra” 的字符串对象，并驻留 到字符串常量池中。</p>
+<p> 接下来，完成字符串的拼接操作，前面我们说过，实际上 jvm 会把拼接优化成 String Builder 的 append 方法，并最终调用 toString 方法返回一个 String 对象。在完成 字符串的拼接后，字符串常量池中并没有驻留一个内容等于 “Hydra” 的字符串。</p>
+<p>所以，执行 s1.intern() 时，会在字符串常量池创建一个引用，指向前面 StringBuilder 创建的那 个字符串，也就是变量 s1 所指向的字符串对象</p>
+<p>String s2 &#x3D; “Hydra”;直接引用常量池中已经存在的字符串对象，所以s1,s2 指向的是同一个对象</p>
+<h2 id="常量折叠"><a href="#常量折叠" class="headerlink" title="常量折叠"></a>常量折叠</h2><p>常量折叠会把常量表达式的值求出来作为常量嵌在最终生成的代码中，这是 Javac 编译器会对源代码做的极少量优化措施之一(代码优化几乎都在即时编译器中进行)。</p>
+<p>对于 <code>String str3 = &quot;str&quot; + &quot;ing&quot;;</code> 编译器会给你优化成 <code>String str3 = &quot;string&quot;;</code></p>
+<p>并不是所有的常量都会进行折叠，只有在编译器能够确定值的常量才可以</p>
+<ul>
+<li>基本数据类型以及String类型</li>
+<li>final修饰的基本数据类型和字符串变量</li>
+<li>字符串的+拼接，基本数据类型的加减乘除和位运算</li>
+<li>声明时就已经初始化</li>
+<li>使用常量表达式进行初始化</li>
+</ul>
+<p>字符串使用final修时后可以让编译器当作常量来使用</p>
+<pre><code class="java">final String str1 = &quot;str&quot;;
+final String str2 = &quot;ing&quot;;
+// 下面两个表达式其实是等价的
+String c = &quot;str&quot; + &quot;ing&quot;;// 常量池中的对象
+String d = str1 + str2; // 常量池中的对象
+System.out.println(c == d);// true
+</code></pre>
+<pre><code class="java">public static void main(String[] args) &#123;
+    final String h1 = &quot;hello&quot;;
+    String h2 = &quot;hello&quot;;
+    String s1 = h1 + &quot;Hydra&quot;;
+    String s2 = h2 + &quot;Hydra&quot;;
+    System.out.println((s1 == &quot;helloHydra&quot;));
+    System.out.println((s2 == &quot;helloHydra&quot;));
+&#125;
+输出结果
+true
+false
+</code></pre>
+<p> <strong>引用的值在程序编译期是无法确定的，编译器无法对其进行优化</strong></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

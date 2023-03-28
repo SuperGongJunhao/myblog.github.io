@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day07 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day07</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220801194653803.png" alt="image-20220801194653803" style="zoom:50%;" />
+
+<p>spring没有提供AOP方式的日志系统</p>
+<p><strong>AOP为Aspect Oriented Programming</strong>的缩写，意为：<strong>面向切面编程</strong>，通过预编译方式和运行期动态***实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。</p>
+<p>Spring通过对AOP的支持，借助log4j等Apache开源组件实现了日志系统。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208011949073.png" alt="image-20220801194923992" style="zoom:50%;" />
+
+<p>new URL()时必须捕获检查异常，但这个异常是由于字符串格式和URL不符导致的，与网址是否存在无关。URL的toString方法返回字符串，无论网址是否存在。</p>
+<h2 id="面向对象-与面向过程的区别"><a href="#面向对象-与面向过程的区别" class="headerlink" title="面向对象 与面向过程的区别"></a>面向对象 与面向过程的区别</h2><ul>
+<li>面向过程是将解决问题的过程拆分为一个个方法，通过一个个方法的执行来解决问题</li>
+<li>面向过程会先将问题抽象出一个对象，通过对象执行方法的方式解决问题</li>
+</ul>
+<p>一般来说，面向对象的方式更易维护、易复用、易扩展</p>
+<h2 id="对象实体和对象引用由什么不同？"><a href="#对象实体和对象引用由什么不同？" class="headerlink" title="对象实体和对象引用由什么不同？"></a>对象实体和对象引用由什么不同？</h2><p>对象实体是new()创建的，存放在堆内存中，对象引用指向对象实例，对象引用存放在栈内存中</p>
+<p>一个对象引用可以指向零个或一个对象，而实例对象可以有N个引用指向它</p>
+<h2 id="对象相等和引用相等的区别"><a href="#对象相等和引用相等的区别" class="headerlink" title="对象相等和引用相等的区别"></a>对象相等和引用相等的区别</h2><ul>
+<li>对象相等：一般比较的是地址中存放的内容是否相等</li>
+<li>引用相等：一般比较的是他们指向的内存地址是否相等</li>
+</ul>
+<h2 id="类的构造方法有什么作用？"><a href="#类的构造方法有什么作用？" class="headerlink" title="类的构造方法有什么作用？"></a>类的构造方法有什么作用？</h2><p>完成对象的初始化工作</p>
+<h2 id="如果一个类没有声明构造方法，该程序能正确执行吗"><a href="#如果一个类没有声明构造方法，该程序能正确执行吗" class="headerlink" title="如果一个类没有声明构造方法，该程序能正确执行吗?"></a>如果一个类没有声明构造方法，该程序能正确执行吗?</h2><p>能正确执行,因为每个类都默认实现了对应的无参构造方法,当我们显式的添加类的有参&#x2F;无参构造后,会覆盖默认的无参构造</p>
+<p>所以当我们重载了有参的构造函数后,最好在补上一个无参构造,避免不必要的错误</p>
+<h2 id="构造方法的特点"><a href="#构造方法的特点" class="headerlink" title="构造方法的特点"></a>构造方法的特点</h2><ul>
+<li>名字与类名相同</li>
+<li>没有返回值但不能用void修饰</li>
+<li>生成类的对象自动执行,无序调用</li>
+<li>不能被重写,但能被重载</li>
+</ul>
+<h2 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是把对象的状态信息(也就是属性)隐藏起来,不允许外部对象直接访问内部信息,但可以对外提供一些方法来操作属性</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>不同类型的类,相互之间经常会有一定数量的共同点,同时,他们又各自保持着一定的特性.</p>
+<p>继承是<strong>使用已存在的类的定义作为基础建立新类的技术</strong>,新类可以定义新的属性或方法,也可以使用父类的功能,但<strong>不能选择性的继承,</strong></p>
+<p>通过使用继承可以快速的创建新类,提高代码的重用以及程序的可维护性,节省大量创建新类的时间,提高我们的开发效率</p>
+<p>注意:</p>
+<ol>
+<li>子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，<strong>只是拥有</strong>。</li>
+<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。</li>
+</ol>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>表示一个对象具有多种状态,具体表现为<strong>父类的引用指向子类的实例</strong></p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>对象类型和引用类型之间是继承(类)或实现(接口)的关系</li>
+<li>引用类型发出的方法调用的是那个类的方法只有在程序允许期间才能确定</li>
+<li>多态调用的方法必须在子类和父类中都存在</li>
+<li>如果子类重写了父类的方法那么调用的是子类的方法,如果没重写就调用的是父类的方法</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

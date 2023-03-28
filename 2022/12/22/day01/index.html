@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day01 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day01</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <ol>
+<li>jdk8以及之后的版本，HashMap的数据结构为数组+链表&#x2F;红黑树</li>
+</ol>
+<ul>
+<li>准确的说HashMap的底层是哈希表，而Java中哈希表是由数组+链表实现的，每一个数组的节点称之为bucket桶，当桶中由多个元素就以链表的方法进行存储，当添加元素时，通过key的hash算法得出hash值，然后通过hash值映射出存在哪个桶中，如果桶中没有有元素，就添加成功，如果有元素那就代表散列冲突，比较已存在的元素和新插入的元素的hash值是否有相同，如果没有相同的则添加成功(情况1)，如果某个元素的hash值和新的元素hash值相同的，则调用key的equals方法继续进行比较，为true则新的值覆盖掉旧的值，为false添加成功(情况2)，对于情况1 和情况2，在jdk1.7是将新的元素添加到原来的头节点，jdk1.8是添加到链表后面，jdk1.8做了一个优化，因为如果链表的长度太长遍历查找复杂度为O(n)，所以引入了红黑树，当桶中的元素&gt;8并且数组长度&gt;64就转为红黑树，复杂度为O(logn)</li>
+</ul>
+<ol start="2">
+<li>C语言中每个字符串末尾都有一个 \0 结束 符号，所以字符串占用的字节数&#x3D;顺序存储字符串的长度+1</li>
+<li>查询数组中第i个元素的平均时间复杂度为O(1)</li>
+</ol>
+<h2 id="循环队列的状态判断（TODO）"><a href="#循环队列的状态判断（TODO）" class="headerlink" title="循环队列的状态判断（TODO）"></a>循环队列的状态判断（TODO）</h2><p>循环队列是一种线性的数据结构，其操作表现基于FIFO（先进先出），并且队尾被连接在队首之后形成一个循环，他也被称为环形缓冲器</p>
+<p>front表示队头指针（指向<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%98%9F%E5%88%97&spm=1001.2101.3001.7020">队列</a>内首元素）<br>rear表示队尾指针（指向队列内尾元素的下一个位置）<br>m表示队列的容量（包括那个留空的位置）<br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133248686.png" alt="在这里插入图片描述"><br><strong>队空：front&#x3D;rear</strong><br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133259586.png" alt="在这里插入图片描述"><br><strong>队满：front&#x3D;(rear+1)%m</strong><br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133306934.png" alt="在这里插入图片描述"><br><strong>队列内元素个数：(rear - front + m) % m</strong></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/81cc9e932d074eea9589b98972054457~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/4fb17af4bae74d2ba373e9bc5f2ef5b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/e49354cb6a684aab915165fc45fb0a69~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><a href="">https://juejin.cn/post/7029958046579327007#heading-24</a></p>
+<h2 id="线性与顺序结构"><a href="#线性与顺序结构" class="headerlink" title="线性与顺序结构"></a>线性与顺序结构</h2><p>线性是线性，顺序是顺序，线性是逻辑结构，顺序是存储结构，两者不是一个概念，线性是指一个元素后继只有唯一的一个元素或节点，非线性是一个元素后面可以有多个后继或前继节点，顺序是指存储结构连续，例如数组是顺序的，链表不是顺序的，但他们都是线性的。当然顺序也可以是非线性的，例如顺序结构存储非线性结构的二叉树！！！</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220726232155481.png" alt="image-20220726232155481"></p>
+<p>线性结构指的是逻辑结构，而不是物理存储结构<br>常用的线性结构有：线性表，堆栈，队列，双队列，数组，串。<br>常见的非线性结构有：二维数组，***数组，广义表，树(二叉树等)，图。</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

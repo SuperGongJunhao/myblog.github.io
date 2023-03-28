@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day16 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day16</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <ul>
+<li>抽象类</li>
+</ul>
+<p>可以实现接口，也可以继承自抽象类 </p>
+<p>必须由“abstract class”修饰</p>
+<p>可以包含也可以不包含抽象方法</p>
+<p>和接口一样不能被实例化</p>
+<ul>
+<li>构造函数</li>
+</ul>
+<p>构造函数不能被继承只能被显式或隐式的调用</p>
+<p>比如子类用super调用父类的构造方法</p>
+<h2 id="maven与Ant"><a href="#maven与Ant" class="headerlink" title="maven与Ant"></a>maven与Ant</h2><h3 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a><strong>Ant</strong></h3><p>是一种基于Java的build工具</p>
+<ul>
+<li>能够用ant编译java类。生成class文件</li>
+<li>ant能够自己定义标签、配置文件，用于构建。</li>
+<li>ant能够把相关层构建成jar包 。</li>
+<li>ant把整个项目生成web包。并公布到Tomcat</li>
+</ul>
+<p>Ant的长处：</p>
+<ul>
+<li><p><strong>跨平台性</strong>：Ant是纯Java语言编写的，因此具有非常好的跨平台性。</p>
+</li>
+<li><p><strong>操作简单</strong>：Ant是由一个内置任务和可选任务组成的。Ant执行时需要一个XML文件(构建文件)。</p>
+</li>
+<li><p><strong>Ant通过调用target树，就能够运行各种task</strong>：每一个task实现了特定接口对象。因为Ant构建文件时XML格式的文件。所以非常easy维护和书写，并且结构非常清晰。</p>
+</li>
+<li><p><strong>Ant能够集成到开发环境中</strong>：因为Ant的跨平台性和操作简单的特点。它非常easy集成到一些开发环境中去。</p>
+</li>
+</ul>
+<h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a><strong>Maven</strong></h3><p>除了以程序构建能力为特色之外，还提供高级项目管理工具。 </p>
+<p>Maven除了具备Ant的功能外。还添加了下面基本的功能：</p>
+<ul>
+<li>使用Project Object Model来对软件项目管理。</li>
+<li>内置了很多其它的隐式规则，使得构建文件更加简单。</li>
+<li>内置依赖管理和Repository来实现依赖的管理和统一存储；</li>
+<li>内置了软件构建的生命周期；</li>
+</ul>
+<p>Maven的长处：</p>
+<ul>
+<li>拥有约定，知道你的代码在哪里，放到哪里去</li>
+<li>拥有一个生命周期，比如运行 mvn install就能够自己主动运行编译，測试。打包等构建过程</li>
+<li>仅仅须要定义一个pom.xml,然后把源代码放到默认的文件夹，Maven帮你处理其它事情</li>
+<li>拥有依赖管理。仓库管理</li>
+</ul>
+<p>总体的比较：</p>
+<p>​    Ant将提供了非常多能够重用的task，比如 copy, move, delete以及junit单元测试，Maven则提供了非常多能够重用的过程。</p>
+<h1 id="泛型-amp-通配符"><a href="#泛型-amp-通配符" class="headerlink" title="泛型&amp;通配符"></a>泛型&amp;通配符</h1><h2 id="什么是泛型"><a href="#什么是泛型" class="headerlink" title="什么是泛型"></a>什么是泛型</h2><p>泛型时JDK5引入的一个新特性，使用泛型可以增强代码的可读性和稳定性。</p>
+<blockquote>
+<p>作用</p>
+</blockquote>
+<p>编译器可以对泛型参数进行检测，并通过泛型参数指定传入的对象类型。没使用泛型前，原生的List的返回类型是Object，需要强转 ，使用了泛型后，编译器自动转换。</p>
+<h2 id="泛型的使用方式"><a href="#泛型的使用方式" class="headerlink" title="泛型的使用方式"></a>泛型的使用方式</h2><ul>
+<li>类</li>
+<li>接口</li>
+<li>方法</li>
+</ul>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><pre><code class="JAVA">//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt;&#123;
+
+    private T key;
+
+    public Generic(T key) &#123;
+        this.key = key;
+    &#125;
+
+    public T getKey()&#123;
+        return key;
+    &#125;
+&#125;
+</code></pre>
+<p>实例化泛型类必须指定具体的类型</p>
+<pre><code class="JAVA">Generic&lt;Integer&gt; genericInteger = new Generic&lt;Integer&gt;(123456);
+</code></pre>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><pre><code class="JAVA">public interface Generator&lt;T&gt; &#123;
+    public T method();
+&#125;
+</code></pre>
+<p>实现接口，不指定类型</p>
+<pre><code class="JAVA">class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public T method() &#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>实现接口，指定类型</p>
+<pre><code class="JAVA">class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public String method() &#123;
+        return &quot;hello&quot;;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><pre><code class="JAVA">   public static &lt; E &gt; void printArray( E[] inputArray )
+   &#123;
+         for ( E element : inputArray )&#123;
+            System.out.printf( &quot;%s &quot;, element );
+         &#125;
+         System.out.println();
+    &#125;
+</code></pre>
+<p>使用</p>
+<pre><code class="JAVA">// 创建不同类型数组： Integer, Double 和 Character
+Integer[] intArray = &#123; 1, 2, 3 &#125;;
+String[] stringArray = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;
+printArray( intArray  );
+printArray( stringArray  );
+</code></pre>
+<h2 id="项目中经常使用泛型的地方"><a href="#项目中经常使用泛型的地方" class="headerlink" title="项目中经常使用泛型的地方"></a>项目中经常使用泛型的地方</h2><h3 id="自定义统一的返回结果"><a href="#自定义统一的返回结果" class="headerlink" title="自定义统一的返回结果"></a>自定义统一的返回结果</h3><pre><code class="JAVA">package com.gong.util;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+/**
+ * @description:传给前端数据的封装
+ * @author:gong
+ * @create: 7/8/2022 下午2:29
+ */
+@Data
+@ApiModel(value = &quot;全局统一返回结果&quot;)
+public class Result&lt;T&gt; &#123;
+    @ApiModelProperty(value = &quot;返回码&quot;)
+    private Integer code;
+
+    @ApiModelProperty(value = &quot;返回消息&quot;)
+    private String message;
+
+    @ApiModelProperty(value = &quot;返回数据&quot;)
+    private T data;
+
+    public Result()&#123;&#125;
+
+    // 返回数据
+    protected static &lt;T&gt; Result&lt;T&gt; build(T data) &#123;
+        Result&lt;T&gt; result = new Result&lt;T&gt;();
+        if (data != null) &#123;
+            result.setData(data);
+        &#125;
+        return result;
+    &#125;
+
+    public static &lt;T&gt; Result&lt;T&gt; build(T body, ResultCodeEnum resultCodeEnum) &#123;
+        Result&lt;T&gt; result = build(body);
+        result.setCode(resultCodeEnum.getCode());
+        result.setMessage(resultCodeEnum.getMessage());
+        return result;
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; ok()&#123;
+        return Result.ok(null);
+    &#125;
+
+    /**
+     * 操作成功
+     * @param data
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; ok(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.SUCCESS);
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; fail()&#123;
+        return Result.fail(null);
+    &#125;
+
+    /**
+     * 操作失败
+     * @param data
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; fail(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.FAIL);
+    &#125;
+
+    public Result&lt;T&gt; message(String msg)&#123;
+        this.setMessage(msg);
+        return this;
+    &#125;
+
+    public Result&lt;T&gt; code(Integer code)&#123;
+        this.setCode(code);
+        return this;
+    &#125;
+
+    public boolean isOk() &#123;
+        if(this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) &#123;
+            return true;
+        &#125;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型"><a href="#定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型" class="headerlink" title="定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型"></a>定义Excel处理类ExcelUtil<T>用于动态指定Excel导出的数据类型</h3><h3 id="构建集合工具类"><a href="#构建集合工具类" class="headerlink" title="构建集合工具类"></a>构建集合工具类</h3><h2 id="泛型擦除"><a href="#泛型擦除" class="headerlink" title="泛型擦除"></a>泛型擦除</h2><p>Java的泛型是伪泛型，Java在编译期间会把所有的泛型信息擦除，这就是通常所说的泛型擦除</p>
+<p>编译器在编译期间会把泛型T擦除为Object类型，T  extends  xxx，会被擦除成xxx类型</p>
+<p>泛型本质上是编译器的行为，泛型擦除是为了保证引入泛型机制但不创建新的类型，减少虚拟机的运行开销，将泛型类转换成一般类</p>
+<pre><code class="JAVA">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+
+list.add(12);
+//1.编译期间直接添加会报错
+list.add(&quot;a&quot;);
+Class&lt;? extends List&gt; clazz = list.getClass();
+Method add = clazz.getDeclaredMethod(&quot;add&quot;, Object.class);
+//2.运行期间通过反射添加，是可以的
+add.invoke(list, &quot;kl&quot;);
+
+System.out.println(list)
+</code></pre>
+<p>这里可以看出在运行期间，泛型已经被擦除了。</p>
+<pre><code class="JAVA">public void print(List&lt;String&gt; list)  &#123; &#125;
+public void print(List&lt;Integer&gt; list) &#123; &#125;
+</code></pre>
+<p>由于擦除问题，导致该重载报错</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208102045850.png" alt="img"></p>
+<h4 id="既然编译器要擦除，那为什么还要用泛型呢？"><a href="#既然编译器要擦除，那为什么还要用泛型呢？" class="headerlink" title="既然编译器要擦除，那为什么还要用泛型呢？"></a>既然编译器要擦除，那为什么还要用泛型呢？</h4><ul>
+<li>使用泛型可以在编译器进行类型检测</li>
+<li>不需要手动添加类型转换，提高代码的可读性和稳定性</li>
+<li>泛型可以使用自限定类型比如 T extends xxx.</li>
+</ul>
+<h2 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h2><p>用于继承泛型类时保证多态</p>
+<pre><code class="JAVA">class Node&lt;T&gt; &#123;
+    public T data;
+    public Node(T data) &#123; this.data = data; &#125;
+    public void setData(T data) &#123;
+        System.out.println(&quot;Node.setData&quot;);
+        this.data = data;
+    &#125;
+&#125;
+
+class MyNode extends Node&lt;Integer&gt; &#123;
+    public MyNode(Integer data) &#123; super(data); &#125;
+
+      // Node&lt;T&gt; 泛型擦除后为 setData(Object data)，而子类 MyNode 中并没有重写该方法，所以编译器会加入该桥方法保证多态
+       public void setData(Object data) &#123;
+        setData((Integer) data);
+    &#125;
+
+    public void setData(Integer data) &#123;
+        System.out.println(&quot;MyNode.setData&quot;);
+        super.setData(data);
+    &#125;
+&#125;
+</code></pre>
+<p>桥方法由编译器自动生成，无需手动编写。</p>
+<h2 id="泛型的一些限制"><a href="#泛型的一些限制" class="headerlink" title="泛型的一些限制"></a>泛型的一些限制</h2><p>一般是因为擦除机制导致的</p>
+<ul>
+<li>只能声明，不能实例化T类型变量</li>
+<li>泛型参数不能是基本数据类型，因为基本数据类型不是Object的子类</li>
+<li>不能实例化泛型数组，擦除后Object无法进行类型判断。《Thinking in java》一书中指出，由于泛型具有擦除机制，在运行时的类型参数会被擦除，Java只知道存储的对象是一个Object而已，而对于Java的数组来说，他必须知道它持有的所有对象的具体类型，而泛型的这种运行时擦除机制违反了数组安全检查的原则。</li>
+<li>泛型无法使用<code>instance  of</code>和<code>getClass</code>判断类型</li>
+<li>不能实现两个不同泛型的同一接口，泛型擦除后多个父类的桥方法将产生冲突</li>
+<li>不能用static修饰泛型变量</li>
+</ul>
+<pre><code class="java">public final class Algorithm &#123;
+    public static &lt;T&gt; T max(T x, T y) &#123;
+        return x &gt; y ? x : y;
+    &#125;
+&#125;
+</code></pre>
+<p>这个代码无法编译，x,y,擦除后都是Object类型，无法用&gt; 进行比较</p>
+<h2 id="什么是通配符"><a href="#什么是通配符" class="headerlink" title="什么是通配符"></a>什么是通配符</h2><p>泛型类型是固定的，不太灵活，通配符可以类型参数变化，解决泛型无法<strong>协变</strong> 的问题。</p>
+<p><strong>协变</strong>指的就是如果Child是Parent的子类，那么List<Child> 也应该是List<Parent> 的子类，但是泛型是不支持的。</p>
+<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3><p>无界通配符可以接收任何泛型类型数据，用于实现不依赖于具体类型参数的简单方法，可以捕获参数类型并交与泛型方法处理</p>
+<pre><code class="JAVA">void testMethod(Person&lt;?&gt; p) &#123;
+  // 泛型方法自行处理
+&#125;
+</code></pre>
+<p>List&lt;?&gt; list :表示持有某种特定类型的List，但不知道具体是哪一种，因此，我们添加元素进去会 报错</p>
+<p>List list :表示元素的数据类型是Object，因此可以添加任何类型的对象</p>
+<pre><code class="JAVA">List&lt;?&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;sss&quot;);//报错
+List list2 = new ArrayList&lt;&gt;();
+list2.add(&quot;sss&quot;);//警告信息
+</code></pre>
+<h3 id="上界通配符"><a href="#上界通配符" class="headerlink" title="上界通配符"></a>上界通配符</h3><p>extends 可以实现泛型的向上转型，即传入的实参的类型必须是指定类型的 子类型</p>
+<pre><code class="JAVA">// 限制必须是 Person 类的子类
+&lt;? extends Person&gt;
+</code></pre>
+<p><strong>T extends xxx 和 ? extends xxx 又有什么区别?</strong></p>
+<p>T extends xxx 用于定义泛型类和方法,擦除后为 xxx 类型, ? extends xxx 用于声明方法形参，接收xxx和其子类型</p>
+<h3 id="下界通配符"><a href="#下界通配符" class="headerlink" title="下界通配符"></a>下界通配符</h3><p>super 与上边界通配符 extends刚好相反,它可以实现泛型的向下转型，即传入的类型实惨 必须是指定类型的父类型 </p>
+<pre><code class="JAVA">//  限制必须是 Employee 类的父类
+List&lt;? super Employee&gt;
+</code></pre>
+<p><strong>? extends xxx 和 ? super xxx 有什么区别?</strong></p>
+<p>接收的参数的范围不同，前者只能 get,后者只能set</p>
+<p>上边界通配符指明了父类型，不确定子类型，因此只能从父类取数据，不能存数据；下边界通配符指明了子类型，不确定父类型，因此只能子类存数据，不能子类取数据。</p>
+<p>Class&lt;?&gt;和Class 的区别</p>
+<p>直接使用Class会产生类型警告，使用Class&lt;?&gt;则没有，因为Class是一个泛型类，接收原生类型会产生警告</p>
+<pre><code class="JAVA">class Shape &#123; /* ... */ &#125;
+class Circle extends Shape &#123; /* ... */ &#125;
+class Rectangle extends Shape &#123; /* ... */ &#125;
+
+class Node&lt;T&gt; &#123; /* ... */ &#125;
+
+ChildNode&lt;Circle&gt; nc = new Node&lt;&gt;();
+Node&lt;Shape&gt;  ns = nc;
+</code></pre>
+<p>不能编译，因为 ChildNode<Circle> 不是 Node<Circle> 的子类</p>
+<pre><code class="java">class Shape &#123; /* ... */ &#125;
+class Circle extends Shape &#123; /* ... */ &#125;
+class Rectangle extends Shape &#123; /* ... */ &#125;
+
+class Node&lt;T&gt; &#123; /* ... */ &#125;
+class ChildNode&lt;T&gt; extends Node&lt;T&gt;&#123;
+
+&#125;
+ChildNode&lt;Circle&gt; nc = new ChildNode&lt;&gt;();
+Node&lt;Circle&gt;  ns = nc;
+</code></pre>
+<p>能编译，因为 ChildNode<Circle> 是 Node<Circle> 的子类</p>
+<pre><code class="JAVA">public static void print(List&lt;? extends Number&gt; list) &#123;
+    for (Number n : list)
+        System.out.print(n + &quot; &quot;);
+    System.out.println();
+&#125;
+</code></pre>
+<p>可以编译， List 可以往外取元素，但是无法调用 add() 添加元素。</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

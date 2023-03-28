@@ -1,0 +1,1843 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/myblog.github.io/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-image="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207241109164.jpg"></div>
+    
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+<div id="home-posts-wrap"  ref="homePostsWrap">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day12/">
+        <h2 class="post-title">day12</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <pre><code class="java">//a的值为2的ASCAII码值50
+int a = &#39;2&#39;;
+//常用的ASCAII 0是48，A是65，a是97
+</code></pre>
+<p>char类型的值只有在变为int的时候才会变为对应的ASCII码，其toString()方法和用String.ValueOf()方法都是将其转换为字符串</p>
+<p>ceil()向上取整，如果参数小于0大于-1，返回-0，如果是浮点型则是-0.0</p>
+<p>floor()向下取整，如果参数是NaN，无穷，+0，-0那么结果与参数相同</p>
+<p>如果是-0.0那么结果是-0.0</p>
+<h2 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h2><p>即Service Provider Interface服务调用方接口，提供给服务提供者和扩展框架功能的开发者使用的接口</p>
+<p>SPI将服务接口和具体的服务实现分开，将服务调用方和实现者解耦，能提升服务的 扩展性和可维护性，修改或替换服务实现并不需要修改服务调用方</p>
+<p>SPI与API</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062110301.png" alt="img"></p>
+<p>一般模块之间都是通过接口通信，在服务调用方与实现方引入一个接口</p>
+<p>由接口实现方定义的接口就是API</p>
+<p>由接口调用方定义的接口就是SPI</p>
+<p><strong>如何实现SPI</strong></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7000572612535386125">https://juejin.cn/post/7000572612535386125</a></p>
+<p>SPI的优缺点：</p>
+<blockquote>
+<p>优点</p>
+</blockquote>
+<p>能大大提高接口设计的灵活性</p>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<p>需要遍历加载所有的实现类，不能做到按需加载，效率较低</p>
+<p>多线程情况下当多个 <code>ServiceLoader</code> 同时 <code>load</code> 时，存在并发问题</p>
+<h2 id="为什么Java只有值传递"><a href="#为什么Java只有值传递" class="headerlink" title="为什么Java只有值传递"></a>为什么Java只有值传递</h2><h3 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h3><ul>
+<li>值传递：方法接收的是实参的拷贝，会创建副本</li>
+<li>引用传递：方法接收的是实参所引用对象在堆中的地址，不会创建副本，对形参的修改将会影响到实参</li>
+</ul>
+<h3 id="Java中只有值传递"><a href="#Java中只有值传递" class="headerlink" title="Java中只有值传递"></a>Java中只有值传递</h3><p>传递基本数据类型</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+    int num1 = 10;
+    int num2 = 20;
+    swap(num1, num2);
+    System.out.println(&quot;num1 = &quot; + num1);
+    System.out.println(&quot;num2 = &quot; + num2);
+&#125;
+
+public static void swap(int a, int b) &#123;
+    int temp = a;
+    a = b;
+    b = temp;
+    System.out.println(&quot;a = &quot; + a);
+    System.out.println(&quot;b = &quot; + b);
+&#125;
+</code></pre>
+<pre><code class="java">a = 20
+b = 10
+num1 = 10
+num2 = 20
+</code></pre>
+<p>以上可知a,b只是num1和num2的副本，副本怎么修改也不会影响到原件本身</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062135750.jpeg" alt="基本数据类型参数"></p>
+<p>一个方法不能修改一个基本数据类型的参数</p>
+<p>传递引用数据类型</p>
+<pre><code class="java">    public static void main(String[] args) &#123;
+      int[] arr = &#123; 1, 2, 3, 4, 5 &#125;;
+      System.out.println(arr[0]);
+      change(arr);
+      System.out.println(arr[0]);
+    &#125;
+
+    public static void change(int[] array) &#123;
+      // 将数组的第一个元素变为0
+      array[0] = 0;
+    &#125;
+</code></pre>
+<pre><code class="java">1
+0
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062137468.jpeg" alt="引用数据类型参数1"></p>
+<p>此时change方法中传递的是arr（实参）的地址，array和arr指向的是同一个数组对象，所以方法内部对形参的修改会影响实参。</p>
+<p>传递引用数据类型</p>
+<pre><code class="java">public class Person &#123;
+    private String name;
+   // 省略构造函数、Getter&amp;Setter方法
+&#125;
+
+public static void main(String[] args) &#123;
+    Person xiaoZhang = new Person(&quot;小张&quot;);
+    Person xiaoLi = new Person(&quot;小李&quot;);
+    swap(xiaoZhang, xiaoLi);
+    System.out.println(&quot;xiaoZhang:&quot; + xiaoZhang.getName());
+    System.out.println(&quot;xiaoLi:&quot; + xiaoLi.getName());
+&#125;
+
+public static void swap(Person person1, Person person2) &#123;
+    Person temp = person1;
+    person1 = person2;
+    person2 = temp;
+    System.out.println(&quot;person1:&quot; + person1.getName());
+    System.out.println(&quot;person2:&quot; + person2.getName());
+&#125;
+</code></pre>
+<pre><code class="java">person1:小李
+person2:小张
+xiaoZhang:小张
+xiaoLi:小李
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062141582.jpeg" alt="引用数据类型参数2"></p>
+<p>此时swap的形参只是拷贝实参的地址，形参之间的交换的是拷贝的地址 ，并不是实参的地址，所以不会影响到实参</p>
+<p>Java 中将实参传递给方法（或函数）的方式是 <strong>值传递</strong> ：</p>
+<ul>
+<li>如果参数是基本类型的话，很简单，传递的就是基本类型的字面量值的拷贝，会创建副本。</li>
+<li>如果参数是引用类型，传递的就是实参所引用的对象在堆中地址值的拷贝，同样也会创建副本。</li>
+</ul>
+<h2 id="Java序列化"><a href="#Java序列化" class="headerlink" title="Java序列化"></a>Java序列化</h2><ul>
+<li><p>序列化：将数据结构和对象转换成二进制字节流的过程</p>
+</li>
+<li><p>反序列化：将在序列化过程中生成的二进制字节流转换为数据结构即对象的过程</p>
+</li>
+</ul>
+<p>序列化的主要目的是为了将对象通过网络传输或者将其存储到文件系统，数据库或内存中</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062202800.png" alt="img"></p>
+<h3 id="需要序列化的场景"><a href="#需要序列化的场景" class="headerlink" title="需要序列化的场景"></a>需要序列化的场景</h3><ul>
+<li>网络传输对象</li>
+<li>对象在文件系统中的存取</li>
+<li>对象在缓存（缓存数据库如redis）中的存取</li>
+</ul>
+<h3 id="序列化协议在TCP-x2F-IP中的哪一层"><a href="#序列化协议在TCP-x2F-IP中的哪一层" class="headerlink" title="序列化协议在TCP&#x2F;IP中的哪一层"></a>序列化协议在TCP&#x2F;IP中的哪一层</h3><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062207809.png" alt="TCP/IP 4层模型"></p>
+<p>这是OSI七层模型，对应TCP&#x2F;IP四层模型为</p>
+<ol>
+<li>数据链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>应用层</li>
+</ol>
+<p>如图所示，<strong>序列化与反序列化在OSI中的表示层和TCP&#x2F;IP的应用层中进行</strong></p>
+<h3 id="常见的序列化协议"><a href="#常见的序列化协议" class="headerlink" title="常见的序列化协议"></a>常见的序列化协议</h3><p>JDK 自带的序列化协议，只需实现java.io.Serializable接口即可</p>
+<p>但这种方法性能较差且不支持跨语言调用，所以一般不用</p>
+<p>Kryo</p>
+<p>Kryo 是一个高性能的序列化&#x2F;反序列化工具，由于其变长存储特性并使用了字节码生成机制，拥有较高的运行速度和较小的字节码体积。</p>
+<p>较为成熟</p>
+<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/EsotericSoftware/kryo">https://github.com/EsotericSoftware/kryoopen in new window</a> 。</p>
+<p>Protobuf</p>
+<p>性能较为优秀，支持跨平台，支持多中语言，但使用较为繁琐</p>
+<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/protocolbuffers/protobuf">https://github.com/protocolbuffers/protobufopen in new window</a>。</p>
+<p>ProtoStuff</p>
+<p>由于 Protobuf 的不易用性，它的哥哥 Protostuff 诞生了。</p>
+<p>protostuff 基于 Google protobuf，但是提供了更多的功能和更简易的用法。虽然更加易用，但是不代表 ProtoStuff 性能更差。</p>
+<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/protostuff/protostuff">https://github.com/protostuff/protostuffopen in new window</a>。</p>
+<p>hessian</p>
+<p>轻量级的自定义描述的二进制RPC 框架，Dubbo的默认序列化方式是hessian2，支持跨语言</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day12/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day11/">
+        <h2 class="post-title">day11</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>try语句块</p>
+<p>程序正常允许不产生异常，就不会执行catch中的代码</p>
+<p>return会先缓存起来，再执行finally语句块，再执行return</p>
+<p>先执行finally语句块的代码再执行try中的return语句</p>
+<ul>
+<li>LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。</li>
+<li>Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP&#x2F;POP3&#x2F;SMTP 代理服务器。</li>
+<li>Lighttpd 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。</li>
+<li>Apache是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。</li>
+</ul>
+<p>接口中字段的修饰符：public,static,final</p>
+<p>接口 中方法的修饰符：public, abstract</p>
+<p>都是默认不写的</p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><ul>
+<li>子进程除了代码段是与父进程共享外，其他所有都是的到父进程的一个副本，子进程可以获得父进程的所有堆和栈的数据，但二者并不共享地址空间</li>
+<li>线程之间共享进程获得的数据资源，所以开销小，不有利于资源的管理和保护，而进程执行开销大，但能很好的进行资源管理和保护</li>
+<li>线程的通信速度更快，切换更快，因为他们共享同一进程的地址空间</li>
+<li>一个进程可以有多个线程，线程是进程的一个实体，是cpu调度的基本单位</li>
+</ul>
+<p>1、abstract类不能用来创建abstract类的对象；</p>
+<p>2、final类不能用来派生子类，因为用final修饰的类不能被继承；</p>
+<p>3、如2所述，final不能与abstract同时修饰一个类，abstract类就是被用来继承的；</p>
+<p>4、类中有abstract方法必须用abstract修饰，但abstract类中可以没有抽象方法，接口中也可以有abstract方法，其中就没有抽象方法。</p>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>再Java中所有的异常都有一个祖先，就是java.lang包下的Throwable</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208042132122.png" alt="types-of-exceptions-in-java"></p>
+<h3 id="Exception和Error的区别"><a href="#Exception和Error的区别" class="headerlink" title="Exception和Error的区别"></a>Exception和Error的区别</h3><ul>
+<li>Exception：程序本身可以处理的异常，分为受检查异常（必须处理）和不受检查异常（可以不处理）</li>
+<li>Error：程序本身无法处理的错误，不建议使用catch捕获，当发生这些异常时，一般虚拟机会选择线程终止</li>
+</ul>
+<h3 id="受检查异常与不受检查异常"><a href="#受检查异常与不受检查异常" class="headerlink" title="受检查异常与不受检查异常"></a>受检查异常与不受检查异常</h3><ul>
+<li>受检查异常：除了RuntimeException机器子类，其余所有的异常都属于受检查异常，如果不对其进行处理（catch或throws）会导致编译不通过</li>
+<li>不受检查异常，即使我们不处理不受检查异常也可以正常通过编译</li>
+</ul>
+<h2 id="Throwable类常用的方法"><a href="#Throwable类常用的方法" class="headerlink" title="Throwable类常用的方法"></a>Throwable类常用的方法</h2><p><code>getMessage()</code>获取异常简要信息</p>
+<p><code>toString()</code>返回异常发生时的详细信息</p>
+<p><code>getLocalizedMessage()</code> 返回对象的本地化信息，如果Throwable的子类覆盖了这个方法，则可以生成本地化信息，否则该方法和hetMessage()返回的结果相同</p>
+<p><code>void printStackTrace()</code>: 在控制台上打印 <code>Throwable</code> 对象封装的异常信息</p>
+<h2 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h2><ul>
+<li>try：用于捕获异常，其后可以接0哥或多个catch块，如果没有catch块，则气候必须接一个finally块</li>
+<li>catch：用于处理try捕获到的异常</li>
+<li>finally：无论是否捕获到异常finally块中的代码都会执行，当try块或catch块中有return语句时，finally块中的代码在return之前执行</li>
+</ul>
+<p><strong>注意：不要再finally块中使用return，这回导致try语句块中的return被覆盖</strong></p>
+<p><strong>finally语句块中的代码也不一定都会执行</strong></p>
+<ul>
+<li>finally之前虚拟机终止运行</li>
+<li>程序所在线程死亡</li>
+<li>关闭CPU</li>
+</ul>
+<h2 id="异常使用的注意"><a href="#异常使用的注意" class="headerlink" title="异常使用的注意"></a>异常使用的注意</h2><ul>
+<li>不要将异常定义为静态常量，这样会导致异常栈信息错乱，每次手动抛出异常，我们都需要手动 new 一个异常对象抛出。</li>
+<li>抛出的异常信息一定要有意义</li>
+<li>抛出的异常应该尽可能的具体</li>
+<li>日志打印异常和抛出异常二者留一个即可</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day11/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day10/">
+        <h2 class="post-title">day10</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="字符串拼接使用“-”还是StringBuilder"><a href="#字符串拼接使用“-”还是StringBuilder" class="headerlink" title="字符串拼接使用“ + ”还是StringBuilder?"></a>字符串拼接使用“ + ”还是StringBuilder?</h2><p>Java语言本身不支持运算符重载，但+和+&#x3D;是专门为String重载过的运算符</p>
+<pre><code class="java">String str1 = &quot;he&quot;;
+String str2 = &quot;llo&quot;;
+String str3 = &quot;world&quot;;
+String str4 = str1 + str2 + str3;
+</code></pre>
+<p>对应以下字节码</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208040728564.png" alt="img"></p>
+<p>我们发现用+拼接字符串实际上就是通过StringBuilder的append方法实现的，拼接完成后调用toString方法的到一个字符串</p>
+<p>但这样做有一个明显的缺陷，就是在循环体中拼接时每次拼接都会创建一个StringBuilder对象</p>
+<p>直接使用StrigBuilder对象进行字符串拼接则不会产生这个问题</p>
+<h2 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h2><p>时JVM为了提升性能和减少内存消耗而专门为String字符串开辟的一块区域，<strong>主要目的时为了避免字符串的重复创建</strong></p>
+<pre><code class="java">// 在堆中创建字符串对象”ab“
+// 将字符串对象”ab“的引用保存在字符串常量池中
+String aa = &quot;ab&quot;;
+// 直接返回字符串常量池中字符串对象”ab“的引用
+String bb = &quot;ab&quot;;
+System.out.println(aa==bb);// true
+</code></pre>
+<h2 id="String-s1-x3D-new-String-“abc”-这句话创建了几个字符串对象？"><a href="#String-s1-x3D-new-String-“abc”-这句话创建了几个字符串对象？" class="headerlink" title="String s1 &#x3D; new String(“abc”);这句话创建了几个字符串对象？"></a>String s1 &#x3D; new String(“abc”);这句话创建了几个字符串对象？</h2><ol>
+<li>当字符串常量池中不存在字符串对象“abc”的引用时，会在堆中创建两个字符串对象</li>
+</ol>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208040737325.png" alt="img"></p>
+<p><code>ldc</code> 命令用于判断字符串常量池中是否保存了对应的字符串对象的引用，如果保存了的话直接返回，如果没有保存的话，会在堆中创建对应的字符串对象并将该字符串对象的引用保存到字符串常量池中。</p>
+<ol start="2">
+<li>当字符串常量池中存在该对象的引用时，只会创建一个字符串对象，并将该对象指向字符串常量池中字符串对象“abc”对应的引用。</li>
+</ol>
+<h2 id="intern-方法有什么作用"><a href="#intern-方法有什么作用" class="headerlink" title="intern 方法有什么作用?"></a>intern 方法有什么作用?</h2><p><code>String.intern()</code> 是一个 native（本地）方法，其作用是将指定的字符串对象的引用保存在字符串常量池中，可以简单分为两种情况：</p>
+<ul>
+<li>如果字符串常量池中保存了对应的字符串对象的引用，就直接返回该引用。</li>
+<li>如果字符串常量池中没有保存了对应的字符串对象的引用，那就在常量池中创建一个指向该字符串对象的引用并返回。</li>
+</ul>
+<pre><code class="java">// 在堆中创建字符串对象”Java“
+// 将字符串对象”Java“的引用保存在字符串常量池中
+String s1 = &quot;Java&quot;;
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s2 = s1.intern();
+// 会在堆中在单独创建一个字符串对象
+String s3 = new String(&quot;Java&quot;);
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s4 = s3.intern();
+// s1 和 s2 指向的是堆中的同一个对象
+System.out.println(s1 == s2); // true
+// s3 和 s4 指向的是堆中不同的对象
+System.out.println(s3 == s4); // false
+// s1 和 s4 指向的是堆中的同一个对象
+System.out.println(s1 == s4); //true
+</code></pre>
+<h2 id="String-类型的变量和常量做“-”运算时发生了什么？"><a href="#String-类型的变量和常量做“-”运算时发生了什么？" class="headerlink" title="String 类型的变量和常量做“+”运算时发生了什么？"></a>String 类型的变量和常量做“+”运算时发生了什么？</h2><p>先来看字符串不加 <code>final</code> 关键字拼接的情况（JDK1.8）：</p>
+<pre><code class="java">String str1 = &quot;str&quot;;
+String str2 = &quot;ing&quot;;
+String str3 = &quot;str&quot; + &quot;ing&quot;;
+String str4 = str1 + str2;
+String str5 = &quot;string&quot;;
+System.out.println(str3 == str4);//false
+System.out.println(str3 == str5);//true
+System.out.println(str4 == str5);//false
+</code></pre>
+<blockquote>
+<p>对于编译器就可以确定值得字符串，也就是字符串常量，JVM会将其加入字符串常量池。并且字符串拼接得到的字符串常量在编译阶段也加入了字符串常量池中，这得益于编译器的优化</p>
+</blockquote>
+<h3 id="常量折叠"><a href="#常量折叠" class="headerlink" title="常量折叠"></a>常量折叠</h3><p>常量折叠会把常量表达式的值求出来作为常量嵌在最终生成的代码中，这是 Javac 编译器会对源代码做的极少量优化措施之一(代码优化几乎都在即时编译器中进行)。</p>
+<p>对于 <code>String str3 = &quot;str&quot; + &quot;ing&quot;;</code> 编译器会给你优化成 <code>String str3 = &quot;string&quot;;</code> </p>
+<p>并不是所有的常量都会进行折叠，只有在编译器能够确定值的常量才可以</p>
+<ul>
+<li>基本数据类型以及String类型</li>
+<li>final修饰的基本数据类型和字符串变量</li>
+<li>字符串的+拼接，基本数据类型的加减乘除和位运算</li>
+</ul>
+<p>字符串使用final修时后可以让编译器当作常量来使用</p>
+<pre><code class="java">final String str1 = &quot;str&quot;;
+final String str2 = &quot;ing&quot;;
+// 下面两个表达式其实是等价的
+String c = &quot;str&quot; + &quot;ing&quot;;// 常量池中的对象
+String d = str1 + str2; // 常量池中的对象
+System.out.println(c == d);// true
+</code></pre>
+<p>​	<strong>引用的值在程序编译期是无法确定的，编译器无法对其进行优化。</strong></p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型时jdk5中引入的一个新特性，可以提高代码的可读性及稳定性</p>
+<p>编译器可以对泛型参数进行检测，通过泛型参数可以指定传入的对象类型</p>
+<h3 id="泛型的使用方式"><a href="#泛型的使用方式" class="headerlink" title="泛型的使用方式"></a>泛型的使用方式</h3><ul>
+<li>泛型类</li>
+</ul>
+<pre><code class="java">//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt;&#123;
+
+    private T key;
+
+    public Generic(T key) &#123;
+        this.key = key;
+    &#125;
+
+    public T getKey()&#123;
+        return key;
+    &#125;
+&#125;
+//实例化
+Generic&lt;Integer&gt; genericInteger = new Generic&lt;Integer&gt;(123456);
+</code></pre>
+<ul>
+<li>泛型接口</li>
+</ul>
+<pre><code class="java">public interface Generator&lt;T&gt; &#123;
+    public T method();
+&#125;
+//实例化，不指定类型
+class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public T method() &#123;
+        return null;
+    &#125;
+&#125;
+//实例化，指定类型
+class GeneratorImpl&lt;T&gt; implements Generator&lt;String&gt;&#123;
+    @Override
+    public String method() &#123;
+        return &quot;hello&quot;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>泛型方法</li>
+</ul>
+<pre><code class="java">   public static &lt; E &gt; void printArray( E[] inputArray )
+   &#123;
+         for ( E element : inputArray )&#123;
+            System.out.printf( &quot;%s &quot;, element );
+         &#125;
+         System.out.println();
+    &#125;
+//实例化
+// 创建不同类型数组： Integer, Double 和 Character
+Integer[] intArray = &#123; 1, 2, 3 &#125;;
+String[] stringArray = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;
+printArray( intArray  );
+printArray( stringArray  );
+</code></pre>
+<blockquote>
+<p>注意: <code>public static &lt; E &gt; void printArray( E[] inputArray )</code> 一般被称为静态泛型方法;在 java 中泛型只是一个占位符，必须在传递类型后才能使用。类在实例化时才能真正的传递类型参数，由于静态方法的加载先于类的实例化，也就是说类中的泛型还没有传递真正的类型参数，静态的方法的加载就已经完成了，所以静态泛型方法是没有办法使用类上声明的泛型的。只能使用自己声明的 <code>&lt;E&gt;</code></p>
+</blockquote>
+<h3 id="一般在哪使用"><a href="#一般在哪使用" class="headerlink" title="一般在哪使用"></a>一般在哪使用</h3><ul>
+<li>自定义接口</li>
+<li>Excel处理类的不同数据类型的动态导出</li>
+<li>集合工具类</li>
+</ul>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射赋予了我们在运行时分析类以及执行类中方法的能力，通过反射可以获取一个类中的所有属性和方法，并且可以调用其方法和属性</p>
+<p>各大框架中都大量的使用到了反射机制</p>
+<p>各大框架中都大量使用到了<code> 动态代理</code>而动态代理依的实现赖于反射</p>
+<p>注解的实现也依赖于反射</p>
+<h3 id="获取Class对象的四种方式"><a href="#获取Class对象的四种方式" class="headerlink" title="获取Class对象的四种方式"></a>获取Class对象的四种方式</h3><ul>
+<li>知道类名的情况下</li>
+</ul>
+<pre><code class="java">    Class alunbarClass = TargetObject.class;
+</code></pre>
+<p>但一般情况下我们是不知道类名的，通过遍历包下的类来获取Class对象，通过此方法获取的Class对象不会初始化</p>
+<ul>
+<li>Class.forName()传入类的全路径获取</li>
+</ul>
+<pre><code class="java">Class myClass = Class.forName(&quot;com.gong.myTest&quot;);
+</code></pre>
+<ul>
+<li>通过对象实例instance.getClass()获取</li>
+</ul>
+<pre><code class="java"> myTest my = new myTest();
+ Class myClass = my.getClass();
+</code></pre>
+<ul>
+<li>通过类加载器**<code>xxxClassLoader.loadClass()</code>**传入类路径获取</li>
+</ul>
+<pre><code class="java">//通过类加载器获取 Class 对象不会进行初始化，意味着不进行包括初始化等一系列步骤，静态代码块和静态对象不会得到执行
+ ClassLoader.getSystemClassLoader.loadClass(&quot;com.gong.myTest&quot;);
+</code></pre>
+<p>基本操作演示：</p>
+<p>创建需要通过反射获取的类</p>
+<pre><code class="java">
+
+public class TargetObject &#123;
+    private String value;
+
+    public TargetObject() &#123;
+        value = &quot;JavaGuide&quot;;
+    &#125;
+
+    public void publicMethod(String s) &#123;
+        System.out.println(&quot;I love &quot; + s);
+    &#125;
+
+    private void privateMethod() &#123;
+        System.out.println(&quot;value is &quot; + value);
+    &#125;
+&#125;
+</code></pre>
+<p>反射获取这个类的方法以及参数</p>
+<pre><code class="java">
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class Main &#123;
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException &#123;
+        /**
+         * 获取 TargetObject 类的 Class 对象并且创建 TargetObject 类实例
+         */
+        Class&lt;?&gt; targetClass = Class.forName(&quot;cn.javaguide.TargetObject&quot;);
+        TargetObject targetObject = (TargetObject) targetClass.newInstance();
+        /**
+         * 获取 TargetObject 类中定义的所有方法
+         */
+        Method[] methods = targetClass.getDeclaredMethods();
+        for (Method method : methods) &#123;
+            System.out.println(method.getName());
+        &#125;
+
+        /**
+         * 获取指定方法并调用
+         */
+        Method publicMethod = targetClass.getDeclaredMethod(&quot;publicMethod&quot;,
+                String.class);
+
+        publicMethod.invoke(targetObject, &quot;JavaGuide&quot;);
+    
+        /**
+         * 获取指定参数并对参数进行修改
+         */
+        Field field = targetClass.getDeclaredField(&quot;value&quot;);
+        //为了对类中的参数进行修改我们取消安全检查
+        field.setAccessible(true);
+        field.set(targetObject, &quot;JavaGuide&quot;);
+
+        /**
+         * 调用 private 方法
+         */
+        Method privateMethod = targetClass.getDeclaredMethod(&quot;privateMethod&quot;);
+        //为了调用private方法我们取消安全检查
+        privateMethod.setAccessible(true);
+        privateMethod.invoke(targetObject);
+    &#125;
+&#125;
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="java">publicMethod
+privateMethod
+I love JavaGuide
+value is JavaGuide
+</code></pre>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p>Annotation（注解）是jdk5开始引入的新特性，注解可以看作是一个特殊的注释，主要用于修饰类，方法和变量，</p>
+<p>注解的本质就是继承了Annotation的特殊接口</p>
+<p>注解的解析方式</p>
+<ul>
+<li>编译期解析：编译Java代码是扫描并处理，比如@Overwrite</li>
+<li>运行期解析：框架中自带的注解比如Spring中的@Component通古果反射来进行处理</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day10/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day09/">
+        <h2 class="post-title">day09</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="Java中的四类八种基本类型"><a href="#Java中的四类八种基本类型" class="headerlink" title="Java中的四类八种基本类型"></a>Java中的四类八种基本类型</h2><p>整数类型</p>
+<ul>
+<li>byte，short,int ,long</li>
+</ul>
+<p>浮点型</p>
+<ul>
+<li>float，double</li>
+</ul>
+<p>逻辑型</p>
+<ul>
+<li>boolean</li>
+</ul>
+<p>字符型</p>
+<ul>
+<li>char</li>
+</ul>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
+<li><p>不能被实例化</p>
+</li>
+<li><p>可以被继承</p>
+</li>
+<li><p>继承的类不一定是抽象类</p>
+</li>
+<li><p>可以被抽象类继承</p>
+</li>
+<li><p>一个类继承了抽象类如果没有实现其抽象方法那这个类必须也为抽象类，如果没有实现抽象方法，抽象类编译不通过</p>
+</li>
+</ul>
+<h2 id="Java类加载器"><a href="#Java类加载器" class="headerlink" title="Java类加载器"></a>Java类加载器</h2><ul>
+<li>引导类加载器（bootstrap class loader）：它用来加载 Java 的核心库，是用原生代码来实现的</li>
+<li>.扩展类加载器（extensions class loader）：它用来加载 Java 的扩展库。 </li>
+<li>系统类加载器（system class loader）：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类 </li>
+<li>tomcat为每个App创建一个Loader，里面保存着此WebApp的ClassLoader。需要加载WebApp下的类时，就取出ClassLoader来使用</li>
+</ul>
+<h2 id="Java虚拟机的作用"><a href="#Java虚拟机的作用" class="headerlink" title="Java虚拟机的作用"></a>Java虚拟机的作用</h2><ul>
+<li>通过ClassLoader寻找和装载class文件</li>
+<li>解释字节码成为指令，为class文件提供允许环境</li>
+<li>在运行期间提供垃圾回收机制</li>
+</ul>
+<blockquote>
+<p>方法中定义的局部变量在该方法执行时被创建<strong>（错）</strong></p>
+</blockquote>
+<ul>
+<li>不是局部变量在该方法被执行&#x2F;调用时创建，而是应该为<strong>在该变量被声明并赋值时创建</strong>，可以理解为“当代码执行到该变量被赋值的代码时才被创建”</li>
+<li>栈会为每个方法在运行的时候分配一块独立的栈帧内存区域，栈帧又包含“局部变量表”、“操作数栈”、“动态链接”以及“方法出口”四个部分</li>
+</ul>
+<p>详见：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98337005">https://zhuanlan.zhihu.com/p/98337005</a></p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>String是不可变的</p>
+<p>StringBuffer和StringBuilder都继承自AbstractStringBuilder类，该类中使用字符数组来保存字符串，并且提供了许多修改字符串的方法</p>
+<p>StringBuffer中的方法都加了同步锁或者对效用的方法加了同步锁，所以它是线程安全的，</p>
+<p>StringBuilder是非线程安全的</p>
+<p>每对String进行操作时，都会新创建一个String对象，然后把指针指向新创建的String对象。StringBuffer和StringBuilder每次都是对对象本身进行操作，不会产生新的对象。</p>
+<p>对这三者的总结</p>
+<ul>
+<li>操作少量数据用<code>String</code></li>
+<li>单线程操作字符串缓冲区下的大量数据，使用<code>StringBuilder</code></li>
+<li>多线程操作字符串缓冲区下的大量数据，使用 <code>StringBuffer</code></li>
+</ul>
+<h3 id="String为什么是不可变的"><a href="#String为什么是不可变的" class="headerlink" title="String为什么是不可变的"></a>String为什么是不可变的</h3><p>String类中使用<code> final</code>修饰符来修饰字符数组且g</p>
+<ul>
+<li>保存字符串的数组被<code>final</code>修饰且为私有，并且<code>String</code> 类没有提供&#x2F;暴露修改这个字符串的方法。</li>
+<li><code>String</code> 类被 <code>final</code> 修饰导致其不能被继承，进而避免了子类破坏 <code>String</code> 不可变。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day09/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day08/">
+        <h2 class="post-title">day08</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="事务隔离级别由谁实现"><a href="#事务隔离级别由谁实现" class="headerlink" title="事务隔离级别由谁实现"></a>事务隔离级别由谁实现</h2><p>数据库系统</p>
+<p>在数据库操作中，为了有效保证并发读取数据的正确性，提出的事务隔离级别；为了解决更新丢失，脏读，不可重读（包括虚读和幻读）等问题在标准SQL规范中，定义了4个事务隔离级别，分别为未授权读取，也称为读未提交（read uncommitted）；授权读取，也称为读提交（read committed）；可重复读取（repeatable read）；序列化（serializable）.</p>
+<h2 id="default和protected的区别"><a href="#default和protected的区别" class="headerlink" title="default和protected的区别"></a>default和protected的区别</h2><p>default只要是外部包，就不允许访问。<br>protected只要是子类就允许访问，即使子类位于外部包。<br>总结：default拒绝一切包外访问；protected接受包外的子类访问</p>
+<img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220802202458841.png" alt="image-20220802202458841" style="zoom:50%;" />
+
+<p>解析：这是一个关于java的垃圾回收机制的题目。垃圾回收主要针对的是堆区的回收，因为栈区的内存是随着线程而释放的。堆区分为三个区：<strong>年轻代</strong>（Young Generation）、<strong>年老代</strong>（Old Generation）、<strong>永久代</strong>（Permanent Generation，也就是方法区）。</p>
+<ul>
+<li><p>年轻代：对象被创建时（new）的对象通常被放在Young（除了一些占据内存比较大的对象）,经过一定的Minor GC（针对年轻代的内存回收）还活着的对象会被移动到年老代（一些具体的移动细节省略）。</p>
+</li>
+<li><p>年老代：就是上述年轻代移动过来的和一些比较大的对象。Minor GC(FullGC)是针对年老代的回收</p>
+</li>
+<li><p>永久代：存储的是final常量，static变量，常量池。</p>
+</li>
+</ul>
+<p>str3,str4都是直接new的对象，而substring的源代码其实也是new一个string对象返回，</p>
+<p>经过fullgc之后，年老区的内存回收，则年轻区的占了15个，不算PermGen。所以答案选C</p>
+<h2 id="switch括号中的值的类型"><a href="#switch括号中的值的类型" class="headerlink" title="switch括号中的值的类型"></a>switch括号中的值的类型</h2><ul>
+<li>在Java7之前，switch只能支持 byte、short、char、int或者其对应的封装类以及Enum类型。</li>
+<li>在Java7中，也支持了String类型 String byte short int char Enum 类型</li>
+</ul>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208022028433.png" alt="image-20220802202816343" style="zoom:50%;" />
+
+<p>A，“任何对象”锁定，太绝对了，你能锁住你没有权限访问的对象吗？<br>B，前半句话讲的是创建线程的方式，后半句讲的是锁定，驴头不对马嘴。<br>C，正确。<br>D，线程调度分为协同式调度和抢占式调度，Java使用的是抢占式调度，也就是每个线程将由操作系统来分配执行时间，线程的切换不由线程本身来决定（协同式调度）。这就是平台独立的原因。<br>以上，选CD</p>
+<h2 id="接口和抽象类的共同点与区别"><a href="#接口和抽象类的共同点与区别" class="headerlink" title="接口和抽象类的共同点与区别"></a>接口和抽象类的共同点与区别</h2><p>共同点</p>
+<ul>
+<li>都不能被实例化</li>
+<li>都可以包含抽象方法</li>
+<li>都可以有默认实现（Java8 可以用default在接口中定义默认方法）</li>
+</ul>
+<p>区别</p>
+<ul>
+<li>一个类只能继承一个类，但可以实现多个接口</li>
+<li>接口主要是用于对类行为的约束。实现了这个接口就具有了对应的行为，抽象类主要用于代码复用，强调所属关系</li>
+<li>接口中的成员变量只能是<code> public static final</code>，不能被修改且必须要有初始值，抽象类中的属性默认是default，可在子类中重新定义也可被重新赋值</li>
+</ul>
+<h2 id="浅拷贝与深拷贝的区别"><a href="#浅拷贝与深拷贝的区别" class="headerlink" title="浅拷贝与深拷贝的区别"></a>浅拷贝与深拷贝的区别</h2><p><strong>浅拷贝</strong>：首先会在堆上创建一个新的对象，不过 要是所拷贝的对象中存在引用类型，浅拷贝会直接赋值内部对象的地址，也就是说，浅拷贝对象和原对象共用一个内部对象</p>
+<pre><code class="java">public class Address implements Cloneable&#123;
+    private String name;
+    // 省略构造函数、Getter&amp;Setter方法
+    @Override
+    public Address clone() &#123;
+        try &#123;
+            return (Address) super.clone();
+        &#125; catch (CloneNotSupportedException e) &#123;
+            throw new AssertionError();
+        &#125;
+    &#125;
+&#125;
+
+public class Person implements Cloneable &#123;
+    private Address address;
+    // 省略构造函数、Getter&amp;Setter方法
+    @Override
+    public Person clone() &#123;
+        try &#123;
+            Person person = (Person) super.clone();
+            return person;
+        &#125; catch (CloneNotSupportedException e) &#123;
+            throw new AssertionError();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Person person1 = new Person(new Address(&quot;武汉&quot;));
+Person person1Copy = person1.clone();
+// true
+System.out.println(person1.getAddress() == person1Copy.getAddress());
+</code></pre>
+<p><strong>深拷贝</strong>：完全复制整个对象，包括这个对象所包含的内部对象</p>
+<pre><code class="java">@Override
+public Person clone() &#123;
+    try &#123;
+        Person person = (Person) super.clone();
+        person.setAddress(person.getAddress().clone());
+        return person;
+    &#125; catch (CloneNotSupportedException e) &#123;
+        throw new AssertionError();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Person person1 = new Person(new Address(&quot;武汉&quot;));
+Person person1Copy = person1.clone();
+// false
+System.out.println(person1.getAddress() == person1Copy.getAddress());
+</code></pre>
+<p>深拷贝，浅拷贝与引用拷贝</p>
+<p>引用对象直接指向的是同一个对象的同一个地址</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208022133125.png" alt="img"></p>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><pre><code class="java">/**
+ * native 方法，用于返回当前运行时对象的 Class 对象，使用了 final 关键字修饰，故不允许子类重写。
+ */
+public final native Class&lt;?&gt; getClass()
+/**
+ * native 方法，用于返回对象的哈希码，主要使用在哈希表中，比如 JDK 中的HashMap。
+ */
+public native int hashCode()
+/**
+ * 用于比较 2 个对象的内存地址是否相等，String 类对该方法进行了重写以用于比较字符串的值是否相等。
+ */
+public boolean equals(Object obj)
+/**
+ * naitive 方法，用于创建并返回当前对象的一份拷贝。
+ */
+protected native Object clone() throws CloneNotSupportedException
+/**
+ * 返回类的名字实例的哈希码的 16 进制的字符串。建议 Object 所有的子类都重写这个方法。
+ */
+public String toString()
+/**
+ * native 方法，并且不能重写。唤醒一个在此对象监视器上等待的线程(监视器相当于就是锁的概念)。如果有多个线程在等待只会任意唤醒一个。
+ */
+public final native void notify()
+/**
+ * native 方法，并且不能重写。跟 notify 一样，唯一的区别就是会唤醒在此对象监视器上等待的所有线程，而不是一个线程。
+ */
+public final native void notifyAll()
+/**
+ * native方法，并且不能重写。暂停线程的执行。注意：sleep 方法没有释放锁，而 wait 方法释放了锁 ，timeout 是等待时间。
+ */
+public final native void wait(long timeout) throws InterruptedException
+/**
+ * 多了 nanos 参数，这个参数表示额外时间（以毫微秒为单位，范围是 0-999999）。 所以超时的时间还需要加上 nanos 毫秒。。
+ */
+public final void wait(long timeout, int nanos) throws InterruptedException
+/**
+ * 跟之前的2个wait方法一样，只不过该方法一直等待，没有超时时间这个概念
+ */
+public final void wait() throws InterruptedException
+/**
+ * 实例被垃圾回收器回收的时候触发的操作
+ */
+protected void finalize() throws Throwable &#123; &#125;
+</code></pre>
+<h2 id="x3D-x3D-和equals-的区别"><a href="#x3D-x3D-和equals-的区别" class="headerlink" title="&#x3D;&#x3D;和equals()的区别"></a>&#x3D;&#x3D;和equals()的区别</h2><ul>
+<li>基本数据类型，&#x3D;&#x3D;比较的是数值</li>
+<li>引用数据类型，&#x3D;&#x3D;比较的是对象的内存地址</li>
+</ul>
+<blockquote>
+<p>因为 Java 只有值传递，所以，对于 &#x3D;&#x3D; 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是引用类型变量存的值是对象的地址。</p>
+</blockquote>
+<p>equals不能判断基本数据类型，只能判断引用数据类型的值是否相等，所有的类都有equals方法</p>
+<ul>
+<li>重写了equals方法，那比较的就是对象属性的值</li>
+<li>没重写阶等价于&#x3D;&#x3D;</li>
+</ul>
+<p>String的equals被重写了 ，所以equals比较的是值比较</p>
+<h2 id="HashSet内元素不重复的判断原理"><a href="#HashSet内元素不重复的判断原理" class="headerlink" title="HashSet内元素不重复的判断原理"></a>HashSet内元素不重复的判断原理</h2><p>HashSet会先计算新加入对象的hashcode值，并于HashSet中已有对象的hashcode值做比较，如果hashcode值相等则调用equals方法来检查这两个对象是否真的相等，如果相等就不会让其加入成功，如果不同的话，就会重新散列到其他位置。hashcode值不相等则直接加入。<strong>这样的操作大大减少了equals比较的次数，并大大的提高了执行的速度</strong></p>
+<p>因为hash算法存在碰撞，所以可能存在值不同但hashcode相同的对象，所以</p>
+<ul>
+<li><p>两个对象的hashcode相同，这两个对象不一定相等（哈希碰撞）</p>
+</li>
+<li><p>hashcode值不相等，那么这两个对象不相等</p>
+</li>
+<li><p>只有当两个对象的hashcode值和equals方法都相等，我们才认为这两个对象是相等的</p>
+</li>
+</ul>
+<h2 id="为什么重写-equals-时必须重写-hashCode-方法？"><a href="#为什么重写-equals-时必须重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 时必须重写 hashCode() 方法？"></a>为什么重写 equals() 时必须重写 hashCode() 方法？</h2><p>因为两个相等的对象的 <code>hashCode</code> 值必须是相等。也就是说如果 <code>equals</code> 方法判断两个对象是相等的，那这两个对象的 <code>hashCode</code> 值也要相等。</p>
+<p>如果重写 <code>equals()</code> 时没有重写 <code>hashCode()</code> 方法的话就可能会导致 <code>equals</code> 方法判断是相等的两个对象，<code>hashCode</code> 值却不相等。</p>
+<p>以上，所以重写equals()必须重写hashcode()</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day08/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day07/">
+        <h2 class="post-title">day07</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220801194653803.png" alt="image-20220801194653803" style="zoom:50%;" />
+
+<p>spring没有提供AOP方式的日志系统</p>
+<p><strong>AOP为Aspect Oriented Programming</strong>的缩写，意为：<strong>面向切面编程</strong>，通过预编译方式和运行期动态***实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。</p>
+<p>Spring通过对AOP的支持，借助log4j等Apache开源组件实现了日志系统。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208011949073.png" alt="image-20220801194923992" style="zoom:50%;" />
+
+<p>new URL()时必须捕获检查异常，但这个异常是由于字符串格式和URL不符导致的，与网址是否存在无关。URL的toString方法返回字符串，无论网址是否存在。</p>
+<h2 id="面向对象-与面向过程的区别"><a href="#面向对象-与面向过程的区别" class="headerlink" title="面向对象 与面向过程的区别"></a>面向对象 与面向过程的区别</h2><ul>
+<li>面向过程是将解决问题的过程拆分为一个个方法，通过一个个方法的执行来解决问题</li>
+<li>面向过程会先将问题抽象出一个对象，通过对象执行方法的方式解决问题</li>
+</ul>
+<p>一般来说，面向对象的方式更易维护、易复用、易扩展</p>
+<h2 id="对象实体和对象引用由什么不同？"><a href="#对象实体和对象引用由什么不同？" class="headerlink" title="对象实体和对象引用由什么不同？"></a>对象实体和对象引用由什么不同？</h2><p>对象实体是new()创建的，存放在堆内存中，对象引用指向对象实例，对象引用存放在栈内存中</p>
+<p>一个对象引用可以指向零个或一个对象，而实例对象可以有N个引用指向它</p>
+<h2 id="对象相等和引用相等的区别"><a href="#对象相等和引用相等的区别" class="headerlink" title="对象相等和引用相等的区别"></a>对象相等和引用相等的区别</h2><ul>
+<li>对象相等：一般比较的是地址中存放的内容是否相等</li>
+<li>引用相等：一般比较的是他们指向的内存地址是否相等</li>
+</ul>
+<h2 id="类的构造方法有什么作用？"><a href="#类的构造方法有什么作用？" class="headerlink" title="类的构造方法有什么作用？"></a>类的构造方法有什么作用？</h2><p>完成对象的初始化工作</p>
+<h2 id="如果一个类没有声明构造方法，该程序能正确执行吗"><a href="#如果一个类没有声明构造方法，该程序能正确执行吗" class="headerlink" title="如果一个类没有声明构造方法，该程序能正确执行吗?"></a>如果一个类没有声明构造方法，该程序能正确执行吗?</h2><p>能正确执行,因为每个类都默认实现了对应的无参构造方法,当我们显式的添加类的有参&#x2F;无参构造后,会覆盖默认的无参构造</p>
+<p>所以当我们重载了有参的构造函数后,最好在补上一个无参构造,避免不必要的错误</p>
+<h2 id="构造方法的特点"><a href="#构造方法的特点" class="headerlink" title="构造方法的特点"></a>构造方法的特点</h2><ul>
+<li>名字与类名相同</li>
+<li>没有返回值但不能用void修饰</li>
+<li>生成类的对象自动执行,无序调用</li>
+<li>不能被重写,但能被重载</li>
+</ul>
+<h2 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是把对象的状态信息(也就是属性)隐藏起来,不允许外部对象直接访问内部信息,但可以对外提供一些方法来操作属性</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>不同类型的类,相互之间经常会有一定数量的共同点,同时,他们又各自保持着一定的特性.</p>
+<p>继承是<strong>使用已存在的类的定义作为基础建立新类的技术</strong>,新类可以定义新的属性或方法,也可以使用父类的功能,但<strong>不能选择性的继承,</strong></p>
+<p>通过使用继承可以快速的创建新类,提高代码的重用以及程序的可维护性,节省大量创建新类的时间,提高我们的开发效率</p>
+<p>注意:</p>
+<ol>
+<li>子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，<strong>只是拥有</strong>。</li>
+<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。</li>
+</ol>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>表示一个对象具有多种状态,具体表现为<strong>父类的引用指向子类的实例</strong></p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>对象类型和引用类型之间是继承(类)或实现(接口)的关系</li>
+<li>引用类型发出的方法调用的是那个类的方法只有在程序允许期间才能确定</li>
+<li>多态调用的方法必须在子类和父类中都存在</li>
+<li>如果子类重写了父类的方法那么调用的是子类的方法,如果没重写就调用的是父类的方法</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day07/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day06/">
+        <h2 class="post-title">day06</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="String值的比较"><a href="#String值的比较" class="headerlink" title="String值的比较"></a>String值的比较</h2><p>String 等值比较的是地址，由于String写了equals方法所以equals比较的是字符串的内容</p>
+<p>String的底层源码equals会判断比较的是否为String类型如果不是就直接返回false</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207312027040.png" alt="image-20220731202722878" style="zoom:50%;" />
+
+<p>选B 看到byte关键字应当知道这是一道Java试题。首先回顾一下，在Java中，byte类型的变量是八位带符号（注意这点）的二进制整数，它的可表示范围为[-128, 127]。题中这条语句的功能是声明一个byte类型的变量b，并将其初始化。</p>
+<p>显然，整数129并不在它的可表示范围中，但注意数字前面有一个(byte)，其作用是<strong>强制类型转换</strong>，表示将整数129强制转换为byte类型的数据。</p>
+<p>考察的是数据类型转换。<br>129 int类型（4个字节）二进制： 00000000 00000000 00000000 10000001<br>在计算机系统中，数值一律用补码来表示（存储），正数的补码和源码相同。<br>int -&gt; byte(1个字节),截取： 10000001<br>补码转反码：1开始则为负数，负数得到反码是末位-1： 10000000<br>负数的反码转原码（最高位即符号位不变）：11111111<br>转换为十进制：-（27-1）&#x3D;-127</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207312053599.png" alt="image-20220731205333513" style="zoom:50%;" />
+
+<p>表达式的数据类型自动提升, 关于类型的自动提升，注意下面的规则。</p>
+<ol>
+<li><p>所有的byte,short,char型的值将被提升为int型；</p>
+</li>
+<li><p>如果有一个操作数是long型，计算结果是long型；</p>
+</li>
+<li><p>如果有一个操作数是float型，计算结果是float型；</p>
+</li>
+<li><p>如果有一个操作数是double型，计算结果是double型；<br>而声明为final的变量会被JVM优化，第3行相当于 b6 &#x3D; 10</p>
+<p>没有final修饰的变量相加后会被自动提升为int型，与目标类型byte不相容，需要强制转换（向下转型）。</p>
+</li>
+</ol>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p>在使用匿名内部类的过程中，我们需要注意如下几点：</p>
+<p>   1、使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口。</p>
+<p>   2、匿名内部类中是不能定义构造函数的（没有名字）。</p>
+<p>   3、匿名内部类中不能存在任何的静态成员变量和静态方法。</p>
+<p>   4、匿名内部类为局部内部类，所以局部内部类的所有限制同样对匿名内部类生效。</p>
+<p>   5、匿名内部类不能是抽象的，它必须要实现继承的类或者实现的接口的所有抽象方法</p>
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><p>Java集合框架主要有Collection和Map两个根接口及其子接口、实现类组成。</p>
+<p>Collection子接口包括List，Set，Queue。Map包括三个实现类，HashMap,HashTable,LinkeHashMap</p>
+<h2 id="final-finally-finalize"><a href="#final-finally-finalize" class="headerlink" title="final,finally,finalize"></a>final,finally,finalize</h2><ul>
+<li>final 可以用来修饰类，方法，变量</li>
+<li>finally是Java保证重点代码一定被执行的一种机制</li>
+<li>finalize()方法是Object类中提供的一个方法，在GC准备释放对象所占用的内存空间之前，它将首先调用finalize()方法。</li>
+</ul>
+<h2 id="可变长参数"><a href="#可变长参数" class="headerlink" title="可变长参数"></a>可变长参数</h2><p>即允许在调用方法是传入不定长度的参数，但不定长参数只能放在参数列表的最后一位</p>
+<pre><code class="java">public static void method2(String arg1, String... args) &#123;
+   //......
+&#125;
+</code></pre>
+<p>在遇到方法重载是会优先匹配固定参数的方法</p>
+<p>Java的可变长参数被编译后会被转换成一个数组</p>
+<pre><code class="java">public class VariableLengthArgument &#123;
+
+    public static void printVariable(String... args) &#123;
+        String[] var1 = args;
+        int var2 = args.length;
+
+        for(int var3 = 0; var3 &lt; var2; ++var3) &#123;
+            String s = var1[var3];
+            System.out.println(s);
+        &#125;
+
+    &#125;
+    // ......
+&#125;
+</code></pre>
+<h2 id="基本类型和包装类型的区别"><a href="#基本类型和包装类型的区别" class="headerlink" title="基本类型和包装类型的区别"></a>基本类型和包装类型的区别</h2><ul>
+<li>成员变量包装类型不赋值就为null，而基本数据类型有默认值且不为null</li>
+<li>包装类可以用于泛型，基本数据类型不能</li>
+<li>基本数据类型的局部变量存放在虚拟机栈中的局部变量表中，基本数据类型的成员变量（非static）存放在堆中，static修饰的存放在方法区中，包装类型属于对象，放在堆中，几乎所有的对象实例都存放在堆中</li>
+<li>相比于对象类型，基本数据类型占用的空间更小</li>
+</ul>
+<p><strong>为什么说是几乎所有对象实例呢？</strong> 这是因为 HotSpot 虚拟机引入了 JIT 优化之后，会对对象进行逃逸分析，如果发现某一个对象并没有逃逸到方法外部，那么就可能通过标量替换来实现栈上分配，而避免堆上分配内存</p>
+<h2 id="包装类型的缓存机制"><a href="#包装类型的缓存机制" class="headerlink" title="包装类型的缓存机制"></a>包装类型的缓存机制</h2><p>基本数据类型的包装类基本上都使用了缓存机制来提升性能（除了float和double）</p>
+<p><code>Byte</code>,<code>Short</code>,<code>Integer</code>,<code>Long</code> 这 4 种包装类默认创建了数值 <strong>[-128，127]</strong> 的相应类型的缓存数据，<code>Character</code> 创建了数值在 <strong>[0,127]</strong> 范围的缓存数据，<code>Boolean</code> 直接返回 <code>True</code> or <code>False</code>。</p>
+<pre><code class="java">Integer i1 = 40;
+Integer i2 = new Integer(40);
+System.out.println(i1==i2);
+</code></pre>
+<p>这段代码会输出false，i1自动装箱且没超过缓存的值直接从缓存中取得40，而i2会直接创建新对象所以等值比较会返回false</p>
+<p><strong>所以注意，所有的包装类之间值的比较全部使用equals比较，记得重写！</strong></p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h2><ul>
+<li>装箱：将基本数据类型用它们对应的引用类型包装起来</li>
+<li>拆箱：将包装类型转换成基本数据类型</li>
+</ul>
+<pre><code class="java">Integer i = 10;  //装箱
+int n = i;   //拆箱
+</code></pre>
+<p>对应的字节码为：</p>
+<pre><code class="java">   L1
+
+    LINENUMBER 8 L1
+
+    ALOAD 0
+
+    BIPUSH 10
+
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+
+    PUTFIELD AutoBoxTest.i : Ljava/lang/Integer;
+
+   L2
+
+    LINENUMBER 9 L2
+
+    ALOAD 0
+
+    ALOAD 0
+
+    GETFIELD AutoBoxTest.i : Ljava/lang/Integer;
+
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+
+    PUTFIELD AutoBoxTest.n : I
+
+    RETURN
+</code></pre>
+<p>可以看到装箱用到了包装类的ValueOf()方法，拆箱就是xxxValue()方法</p>
+<ul>
+<li><code>Integer i = 10</code> 等价于 <code>Integer i = Integer.valueOf(10)</code></li>
+<li><code>int n = i</code> 等价于 <code>int n = i.intValue()</code>;</li>
+</ul>
+<p>注意：<strong>如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。</strong></p>
+<h2 id="浮点数的精度丢失"><a href="#浮点数的精度丢失" class="headerlink" title="浮点数的精度丢失"></a>浮点数的精度丢失</h2><p>这个和计算机保存浮点数的机制有很大关系。我们知道计算机是二进制的，而且计算机在表示一个数字时，宽度是有限的，无限循环的小数存储在计算机时，只能被截断，所以就会导致小数精度发生损失的情况。这也就是解释了为什么浮点数没有办法用二进制精确表示。</p>
+<p><code>BigDecimal</code> 可以实现对浮点数的运算，不会造成精度丢失。通常情况下，大部分需要浮点数精确运算结果的业务场景（比如涉及到钱的场景）都是通过 <code>BigDecimal</code> 来做的。</p>
+<h2 id="超过-long-整型的数据应该如何表示？"><a href="#超过-long-整型的数据应该如何表示？" class="headerlink" title="超过 long 整型的数据应该如何表示？"></a>超过 long 整型的数据应该如何表示？</h2><p>基本数值类型都有一个表达范围，如果超过这个范围就会有数值溢出的风险。</p>
+<p>在 Java 中，64 位 long 整型是最大的整数类型。</p>
+<pre><code class="java">long l = Long.MAX_VALUE;
+System.out.println(l + 1); // -9223372036854775808
+System.out.println(l + 1 == Long.MIN_VALUE); // true
+</code></pre>
+<p><code>BigInteger</code> 内部使用 <code>int[]</code> 数组来存储任意大小的整形数据。</p>
+<p>相对于常规整数类型的运算来说，<code>BigInteger</code> 运算的效率会相对较低。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day06/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day05/">
+        <h2 class="post-title">day05</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302024991.png" alt="image-20220730202445826" style="zoom:50%;" />
+
+<p>Java中&#x3D;&#x3D;比较的是地址，两个integer都是new创建的所以是两个不同的对象，所以&#x3D;&#x3D;返回false，！&#x3D;返回true</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302026124.png" alt="image-20220730202637031" style="zoom: 50%;" />
+
+<p>private 权限限于同一个类中； default 权限限于同一个包中，即包权限＝default权限；protected权限限于同一个包中，以及不在同一个包中的子类 public 权限在不同包中都可以</p>
+<p><strong>即public&gt;protected&gt;default&gt;private</strong></p>
+<p><strong>while()括号中的参数必须为布尔类型</strong></p>
+<h2 id="JSP-共有以下-6-种基本动作："><a href="#JSP-共有以下-6-种基本动作：" class="headerlink" title="JSP 共有以下 6 种基本动作："></a>JSP 共有以下 6 种基本动作：</h2><ul>
+<li>jsp:include：在页面被请求的时候引入一个文件；</li>
+<li>jsp:useBean：寻找或者实例化一个JavaBean。</li>
+<li>jsp:setProperty：设置 JavaBean 的属性。</li>
+<li>jsp:getProperty：输出某个 JavaBean 的属性；</li>
+<li>jsp:forward：把请求转到一个新的页面；</li>
+<li>jsp:plugin：根据浏览器类型为 Java 插件生成 OBJECT 或 EMBED 标记。</li>
+</ul>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220730203556853.png" alt="image-20220730203556853" style="zoom:50%;" />
+
+<ul>
+<li>final修饰的方法可以被重载使用</li>
+<li>接口不应该使用final修饰，没有意义，抽象类不能用final修饰；</li>
+<li>final修饰的方法不能被重写，是对的。将方法声明为final，那就说明你已经知道这个方法提供的功能已经满足你要求，不需要进行扩展，并且也不允许任何从此类继承的类来覆写这个方法，但是继承仍然可以继承这个方法，也就是说可以直接使用。</li>
+</ul>
+<h2 id="类型自动转换"><a href="#类型自动转换" class="headerlink" title="类型自动转换"></a>类型自动转换</h2><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302042674.png" alt="image-20220730204211609" style="zoom:50%;" />
+
+<p>func1和func4报错分别是返回值错误和没有强转</p>
+<p>小转大不用强转，大转小需要强转（大小指精度）。因为大的精度更高，转成小的可能会有精度丢失。</p>
+<h2 id="静态变量的作用"><a href="#静态变量的作用" class="headerlink" title="静态变量的作用"></a>静态变量的作用</h2><p>静态变量可以被类的所有实例所共享，无论一个类创建了多少个变量，他们都共享同一份静态变量</p>
+<p>通常情况下静态变量会被<code> final</code>关键字修饰成常量</p>
+<h2 id="字符型常量与字符串常量的区别"><a href="#字符型常量与字符串常量的区别" class="headerlink" title="字符型常量与字符串常量的区别"></a>字符型常量与字符串常量的区别</h2><ul>
+<li>形式：字符型常量是用单引号括起来的一个字符，字符串常量是由双引号括起来的0个或多个字符</li>
+<li>含义：字符串常量相当于一个整形值（ASCll值）可参加表达式运算，字符串常量代表一个地址值（该字符串在内存中的地址）</li>
+<li>占内存大小;字符常量占2个字节大小，字符串常量占若干个字节</li>
+</ul>
+<h2 id="静态成员为什么不能调用非静态成员"><a href="#静态成员为什么不能调用非静态成员" class="headerlink" title="静态成员为什么不能调用非静态成员"></a>静态成员为什么不能调用非静态成员</h2><ul>
+<li>静态方法属于类，在类加载时就会分配内存，可以通过类名直接访问，而非静态成员属于实例对象，只有在对象实例化后才存在，需要通过实例对象取访问</li>
+<li>静态成员创建时非静态成员可能还未创建，此时调用内存中还未存在的非静态成员属于非法操作。</li>
+</ul>
+<h2 id="静态方法和实例方法的不同"><a href="#静态方法和实例方法的不同" class="headerlink" title="静态方法和实例方法的不同"></a>静态方法和实例方法的不同</h2><ul>
+<li>调用方式：静态方法既可以<code> 类名.方法名</code> 也可以<code> 对象名.方法名</code>, 但实例方法只能通过对象调用，但静态方法推荐使用类名调用，不易混淆</li>
+<li>静态方法只能访问静态成员变量和静态方法，而实例方法则没有这个限制。</li>
+</ul>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>发生在同一个类中（或父类和子类之间）除方法名不能修改外，参数签名，返回值类型，访问修饰符都可不同</p>
+<p>如果多个方法(比如 <code>StringBuilder</code> 的构造方法)有相同的名字、不同的参数， 便产生了重载。</p>
+<pre><code class="java">StringBuilder sb = new StringBuilder();
+StringBuilder sb2 = new StringBuilder(&quot;HelloWorld&quot;);
+</code></pre>
+<p>java允许重载任何方法</p>
+<p><strong>总而言之：重载就是在一个类中多个同名方法根据不同的传参执行不同的逻辑处理</strong></p>
+<h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ul>
+<li>重写发生在运行期间，是子类对父类中允许访问的方法的实现过程的重写编写</li>
+<li>方法名参数签名必须相同，子类的返回值类型应该小于等于父类的返回值类型，抛出的异常范围应该小于等于父类，子类的访问修饰符范围应该大于等于父类</li>
+<li>父类被<code> private ,static,final</code>修饰的方法不能被子类重写，但static修饰的方法能被再次声明</li>
+<li>构造方法无法被重写</li>
+<li>如果方法的返回类型是 void 和基本数据类型，则返回值重写时不可修改。但是如果方法的返回值是引用类型，重写时是可以返回该引用类型的子类的。</li>
+</ul>
+<p><strong>总而言之：重写就是子类对父类的重新改造，外部模样不能变，内部逻辑可以改变。</strong></p>
+<h2 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h2><p>重载是同一个方法能根据参数的不同而做出不同的处理	</p>
+<p>重写是子类继承了父类的方法，输入参数一致，但要做出与父类不一样的操作，这是就要重写该方法来覆盖父类的方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">区别点</th>
+<th align="left">重载方法</th>
+<th align="left">重写方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">发生范围</td>
+<td align="left">同一个类</td>
+<td align="left">子类</td>
+</tr>
+<tr>
+<td align="left">参数列表</td>
+<td align="left">必须修改</td>
+<td align="left">一定不能修改</td>
+</tr>
+<tr>
+<td align="left">返回类型</td>
+<td align="left">可修改</td>
+<td align="left">子类方法返回值类型应比父类方法返回值类型更小或相等</td>
+</tr>
+<tr>
+<td align="left">异常</td>
+<td align="left">可修改</td>
+<td align="left">子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；</td>
+</tr>
+<tr>
+<td align="left">访问修饰符</td>
+<td align="left">可修改</td>
+<td align="left">一定不能做更严格的限制（可以降低限制）</td>
+</tr>
+<tr>
+<td align="left">发生阶段</td>
+<td align="left">编译期</td>
+<td align="left">运行期</td>
+</tr>
+</tbody></table>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day05/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day04/">
+        <h2 class="post-title">day04</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="方法重写的规则"><a href="#方法重写的规则" class="headerlink" title="方法重写的规则"></a>方法重写的规则</h2><p>简单来说</p>
+<ul>
+<li>方法名相同，参数类型相同</li>
+<li>子类的返回类型等于父类的返回类型</li>
+<li>子类抛出的异常小于父类抛出的异常</li>
+<li>子类的访问权限大于等于父类的访问权限</li>
+</ul>
+<p>具体而言</p>
+<ol>
+<li>参数列表必须完全与被重写方法的相同；</li>
+<li>返回类型必须完全与被重写方法的返回类型相同；</li>
+<li>访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected。</li>
+<li>父类的成员方法只能被它的子类重写。</li>
+<li>声明为final的方法不能被重写。</li>
+<li>声明为static的方法不能被重写，但是能够被再次声明。</li>
+<li>子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法。</li>
+<li>子类和父类不在同一个包中，那么子类只能够重写父类的声明为public和protected的非final方法。</li>
+<li>重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</li>
+<li>构造方法不能被重写。</li>
+<li>如果不能继承一个方法，则不能重写这个方法。</li>
+</ol>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292146799.png" alt="image-20220729214630655"></p>
+<p>byte类型的变量在做运算时被会转换为int类型的值，故A、B左为byte，右为int，会报错；</p>
+<p>而C、D语句中用的是a+&#x3D;b的语句，此语句会将被赋值的变量自动强制转化为相对应的类型。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292149113.png" alt="image-20220729214923027"></p>
+<p>string和char数组都是引用类型，引用类型是传地址的，会影响原变量的值，<strong>但是string是特殊引用类型</strong>，为什么呢？因为<strong>string类型的值是不可变的</strong>，为了考虑一些内存，安全等综合原因，把它设置成不可变的; 不可变是怎么实现的？</p>
+<p>Java在内存中专门为string开辟了一个<strong>字符串常量池，用来锁定数据不被篡改</strong>，所以题目中函数中的str变量和原来的str已经不是一个东西了，它是一个局部引用，指向一个testok的字符串，随着函数结束，它也就什么都没了，但是char数组是会改变原值的</p>
+<h2 id="Java和c-的区别"><a href="#Java和c-的区别" class="headerlink" title="Java和c++的区别"></a>Java和c++的区别</h2><p>Java不提供指针来直接访问内存，程序内存更加安全</p>
+<p>Java的类是单继承的，c++支持多继承</p>
+<p>Java又自动的垃圾回收机制GC，不需要程序员手动释放无用内存</p>
+<p>C++同时支持方法重载和操作符重载，但Java只支持方法重载（操作符重载增加了操作的复杂性，与Java最初的设计理念不符）</p>
+<h2 id="标识符与关键字"><a href="#标识符与关键字" class="headerlink" title="标识符与关键字"></a>标识符与关键字</h2><p>标识符就是一个名字</p>
+<p>关键字就是被Java已经使用了的名字，特殊的标识符</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">分类</td>
+<td>关键字</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">访问控制</td>
+<td>private</td>
+<td>protected</td>
+<td>public</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">类，方法和变量修饰符</td>
+<td>abstract</td>
+<td>class</td>
+<td>extends</td>
+<td>final</td>
+<td>implements</td>
+<td>interface</td>
+<td>native</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>new</td>
+<td>static</td>
+<td>strictfp</td>
+<td>synchronized</td>
+<td>transient</td>
+<td>volatile</td>
+<td>enum</td>
+</tr>
+<tr>
+<td align="left">程序控制</td>
+<td>break</td>
+<td>continue</td>
+<td>return</td>
+<td>do</td>
+<td>while</td>
+<td>if</td>
+<td>else</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>for</td>
+<td>instanceof</td>
+<td>switch</td>
+<td>case</td>
+<td>default</td>
+<td>assert</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">错误处理</td>
+<td>try</td>
+<td>catch</td>
+<td>throw</td>
+<td>throws</td>
+<td>finally</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">包相关</td>
+<td>import</td>
+<td>package</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">基本类型</td>
+<td>boolean</td>
+<td>byte</td>
+<td>char</td>
+<td>double</td>
+<td>float</td>
+<td>int</td>
+<td>long</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>short</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">变量引用</td>
+<td>super</td>
+<td>this</td>
+<td>void</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">保留字</td>
+<td>goto</td>
+<td>const</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><code>所有的关键字都是小写的，在 IDE 中会以特殊颜色显示。</code></p>
+<p>&#96;&#96;default<code> 这个关键字很特殊，既属于程序控制，也属于类，方法和变量修饰符，还属于访问控制。</code></p>
+<ul>
+<li><code>在程序控制中，当在 </code>switch<code>中匹配不到任何情况时，可以使用</code>default<code> 来编写默认匹配的情况。</code></li>
+<li><code>在类，方法和变量修饰符中，从 JDK8 开始引入了默认方法，可以使用 </code>default<code> 关键字来定义一个方法的默认实现。</code></li>
+<li><code>在访问控制中，如果一个方法前没有任何修饰符，则默认会有一个修饰符 </code>default<code>，但是这个修饰符加上了就会报错。 </code></li>
+</ul>
+<p>⚠️ 注意 ：虽然 <code>true</code>, <code>false</code>, 和 <code>null</code> 看起来像关键字但实际上他们是字面值，但你也不可以作为标识符来使用。</p>
+<h2 id="自增自减运算符"><a href="#自增自减运算符" class="headerlink" title="自增自减运算符"></a>自增自减运算符</h2><pre><code class="java">System.out.println(a++);//先输出a再自增，a--一样先输出再自减
+
+System.out.println(++a);//先自增再输出，--a也一样先自减再输出
+</code></pre>
+<h2 id="continue，break，return的区别"><a href="#continue，break，return的区别" class="headerlink" title="continue，break，return的区别"></a>continue，break，return的区别</h2><p>continue:跳出此次的循环，继续下一次的循环</p>
+<p>break:跳出循环体，执行循环体外的代码</p>
+<p>return:直接跳出所在的方法，结束该方法的运行</p>
+<ul>
+<li>没有返回值直接return;</li>
+<li>有返回值return value;返回对应类型的值</li>
+</ul>
+<h2 id="成员变量与局部变量的区别"><a href="#成员变量与局部变量的区别" class="headerlink" title="成员变量与局部变量的区别"></a>成员变量与局部变量的区别</h2><ul>
+<li>成员变量属于类，局部变量属于某个代码块或方法中，成员变量可以被修饰符public，private，static等修饰，但 局部变量不能。但两者都能被final修饰</li>
+<li>如果成员变量被static修饰那么这个成员变量随类存储到Java堆中，如果没有使用static修饰，那么随实例存储到Java堆中（简言之：静态变量与常量随Class对象存储于Java堆中，实例常量随实例存储于堆中）</li>
+<li>成员变量随对象的创建而创建，是对象的一部分，局部变量随着方法的调用而自动生成，方法调用结束则销毁。</li>
+<li>成员变量再没有被final修饰符表示的时候如果没有赋初值，会自动以类型的默认值赋值。而局部变量不会以自动赋值。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day04/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day03/">
+        <h2 class="post-title">day03</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="关系数据模型与对象模型之间的匹配关系"><a href="#关系数据模型与对象模型之间的匹配关系" class="headerlink" title="关系数据模型与对象模型之间的匹配关系"></a>关系数据模型与对象模型之间的匹配关系</h2><ul>
+<li>表对应类</li>
+<li>记录对应对象</li>
+<li>字段对应属性</li>
+</ul>
+<h2 id="继承问题"><a href="#继承问题" class="headerlink" title="继承问题"></a>继承问题</h2><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220728212252575.png" alt="image-20220728212252575"></p>
+<p>调用子类构造方法时必须先调用父类的构造方法</p>
+<p>如果父类没有无参构造那么子类中必须显式的调用父类的构造方法super()</p>
+<p><strong>注意：当一个类实现了有参构造，那么其默认将不会实现无参构造</strong></p>
+<p>所以此处会编译错误</p>
+<h2 id="实现或继承了Collection接口的有"><a href="#实现或继承了Collection接口的有" class="headerlink" title="实现或继承了Collection接口的有"></a>实现或继承了Collection接口的有</h2><p>在java.util包中提供了一些集合类，</p>
+<p>常用的有List、Set和Map类，<strong>其中List类和Set类继承了Collection接口。</strong></p>
+<p>这些集合类又称为容器，长度是可变的，数组用来存放基本数据类型的数据，集合用来存放类对象的引用。<br>List接口、Set接口、Map接口以及Collection接口的主要特征如下： </p>
+<ul>
+<li>Collection接口是List接口和Set接口的父接口，通常情况下不被直接使用。</li>
+<li>List接口继承了Collection接口，List接口允许存放重复的对象，排序方式为按照对象的插入顺序。 </li>
+<li>Set接口继承了Collection接口，Set接口不允许存放重复的对象，排序方式为按照自身内部的排序规则。 </li>
+<li>Map接口以键值对（key—value）的形式存放对象，其中键（key）对象不可以重复，值（value）对象可以重复，排序方式为按照自身内部的规则，没有继承或实现Collection接口。</li>
+</ul>
+<p>Vector实现了List接口，即间接实现Collection接口 </p>
+<p>Iterator是Java迭代器最简单的实现，没有继承或实现Collection接口。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220728213228004.png" alt="image-20220728213228004"></p>
+<p>A对：java类单继承，多实现 </p>
+<p>B错：被abstract修饰的类就是抽象类，有没有抽象方法无所谓 </p>
+<p>C错：描述有问题。protected成员在子类的可见性，我最初理解是子类（不继承父类protected成员方法）获取父类被protected修饰的成员属性或方法，可见性是不可能变的，因为修饰符protected就是描述可见性的。     这道题应该是要考察子类继承父类，并重写父类的protected成员方法，该方法的可见性可以修改，这是对的，因为子类继承父类的方法，访问权限可以相同或往大了改  </p>
+<p>D对。</p>
+<p>E错：final修饰的方法只是不能重写，static修饰的方法只能访问类的成员变量 </p>
+<p>F对。</p>
+<h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ol>
+<li>简单易学</li>
+<li><strong>面向对象</strong></li>
+<li>跨平台（JVM） Write Once， Run Anywhere！</li>
+<li>支持多线程</li>
+<li>支持网络编程且方便</li>
+<li>可靠</li>
+<li>安全</li>
+<li>编译与解释并存</li>
+</ol>
+<h2 id="JVM，JDK，JRE"><a href="#JVM，JDK，JRE" class="headerlink" title="JVM，JDK，JRE"></a>JVM，JDK，JRE</h2><p>JVM：即Java虚拟机，运行Java字节码文件，时Java跨平台的关键</p>
+<p>JDK（Java Development Kit）：包含JRE所拥有的一切，除此之外还有编译器（javac）和工具（javadoc,jdb），它能创建和编译程序</p>
+<p>JRE：Java运行时环境，它是运行已编译Java程序所需所有内容的集合，包括JVM，Java类库，Java命令和一些其他构件。但其无法用于创建Java程序。</p>
+<p>如果你只是为了运行一下 Java 程序的话，那么你只需要安装 JRE 就可以了。如果你需要进行一些 Java 编程方面的工作，那么你就需要安装 JDK 了。<strong>但是，这不是绝对的</strong>。有时，即使您不打算在计算机上进行任何 Java 开发，仍然需要安装 JDK。例如，如果要使用 JSP 部署 Web 应用程序，那么从技术上讲，您只是在应用程序服务器中运行 Java 程序。那你为什么需要 JDK 呢？因为应用程序服务器会将 JSP 转换为 Java servlet，并且需要使用 JDK 来编译 servlet。</p>
+<h2 id="什么是字节码？，字节码的好处"><a href="#什么是字节码？，字节码的好处" class="headerlink" title="什么是字节码？，字节码的好处"></a>什么是字节码？，字节码的好处</h2><p>字节码，即能被JVM理解的代码就叫做字节码（.class文件）不面向任何特定的处理器，只面向JVM</p>
+<p>字节码文件是经过编译器预处理过的一种文件,</p>
+<p>是Java的执行文件形式,本身是二进制文件,但是不可以被系统直接执行,</p>
+<p>而是要虚拟机解释执行,由于被预处理过,所以比一般的解释代码要快,但是仍然比系统直接执行的慢</p>
+<p><strong>在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。</strong></p>
+<p>Java程序的执行流程</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207282200132.png" alt="Java程序转变为机器代码的过程"></p>
+<p>没有JIT之前，JVM加载字节码文件，然后通过解释器逐行解释执行，执行速度较慢，</p>
+<p>引进JIT后，由于JIT属于运行时编译，所以当JIT完成一次编译后，会将字节码对应的机器码保存下来以便下次直接使用</p>
+<p>而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 <strong>Java 是编译与解释共存的语言</strong> </p>
+<p><code> HotSpot 采用了惰性评估(Lazy Evaluation)的做法，根据二八定律，消耗大部分系统资源的只有那一小部分的代码（热点代码），而这也就是 JIT 所需要编译的部分。JVM 会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation)，它是直接将字节码编译成机器码，这样就避免了 JIT 预热等各方面的开销。JDK 支持分层编译和 AOT 协作使用</code></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day03/" class="go-post">阅读全文</a>
+</div>
+
+
+            <div class="page-current">
+    <div class="prev">
+        
+        <a class="page-num" href="/myblog.github.io/">
+            <i class="fa-solid fa-caret-left fa-fw"></i>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+            <a class="page-num" href="/myblog.github.io/">1</a>
+        </span>
+        
+        <span class="current">2</span>
+        
+        <span>
+            <a class="page-num" href="/myblog.github.io/page/3/">3</a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a class="page-num" href="/myblog.github.io/page/3/">
+            <i class="fa-solid fa-caret-right fa-fw"></i>
+        </a>
+        
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/myblog.github.io/null" alt="avatar" />
+        </div>
+        <div class="name">John Doe</div>
+        <div class="description">
+            <p>Description<br>…</p>
+
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+    </body>
+</html>

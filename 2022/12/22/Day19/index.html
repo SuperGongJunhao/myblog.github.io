@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day19 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day19</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>线程池使用了池化技术，将线程存放在 一个容器中，来了任务可以利用已有的空闲线程进行处理，处理完之后，归还到容器中，实现线程的复用，线程不够时可以动态的增加线程，多余线程空闲时亦可杀死线程</p>
+<h3 id="线程池的优点"><a href="#线程池的优点" class="headerlink" title="线程池的优点"></a>线程池的优点</h3><ul>
+<li>降低资源消耗：线程复用，降低线程创建和销毁的损耗</li>
+<li>提高响应速度：复用线程，省去了创建线程的时间</li>
+<li>使得线程可控：线程使稀缺资源，不能无限创建，线程池额能统一分配和监控线程</li>
+<li>拓展其他功能：比如定时线程池，能够定时执行任务</li>
+</ul>
+<h3 id="三大方法"><a href="#三大方法" class="headerlink" title="三大方法"></a>三大方法</h3><ul>
+<li>​		<strong>ExecutorService threadPool &#x3D; Executors.newSingleThreadExecutor();&#x2F;&#x2F; 单个线程</strong></li>
+<li>​        <strong>ExecutorService threadPool &#x3D; Executors.newFixedThreadPool(5); &#x2F;&#x2F; 创建一个固定的线程池的大小</strong></li>
+<li>​        <strong>ExecutorService threadPool &#x3D; Executors.newCachedThreadPool(); &#x2F;&#x2F; 可伸缩的，遇强则强，遇弱则弱</strong></li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231421007.png" alt="image-20220723142106296"></p>
+<pre><code class="java">import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+// Executors 工具类、3大方法
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();// 单个线程
+        // ExecutorService threadPool = Executors.newFixedThreadPool(5); // 创建一个固定的线程池的大小
+        // ExecutorService threadPool = Executors.newCachedThreadPool(); // 可伸缩的，遇强则强，遇弱则弱
+        try &#123;
+                for (int i = 0; i &lt; 100; i++) &#123;
+                // 使用了线程池之后，使用线程池来创建线程
+                    threadPool.execute(()-&gt;&#123;
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                    &#125;);
+                &#125;
+            &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            &#125; finally &#123;
+            // 线程池用完，程序结束，关闭线程池
+            threadPool.shutdown();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="七大参数"><a href="#七大参数" class="headerlink" title="七大参数"></a>七大参数</h3><p>源码分析</p>
+<pre><code class="java">public ThreadPoolExecutor(int corePoolSize,//核心线程池大小
+                              int maximumPoolSize,//最大核心线程池大小
+                              long keepAliveTime,//超时等待时间
+                              TimeUnit unit,//超时的时间单位
+                              BlockingQueue&lt;Runnable&gt; workQueue,//阻塞队列
+                              ThreadFactory threadFactory,//线程工厂，创建线程，一般不用动
+                              RejectedExecutionHandler handler) &#123;//拒绝策略
+        if (corePoolSize &lt; 0 ||
+            maximumPoolSize &lt;= 0 ||
+            maximumPoolSize &lt; corePoolSize ||
+            keepAliveTime &lt; 0)
+            throw new IllegalArgumentException();
+        if (workQueue == null || threadFactory == null || handler == null)
+            throw new NullPointerException();
+        this.acc = System.getSecurityManager() == null ?
+                null :
+                AccessController.getContext();
+        this.corePoolSize = corePoolSize;
+        this.maximumPoolSize = maximumPoolSize;
+        this.workQueue = workQueue;
+        this.keepAliveTime = unit.toNanos(keepAliveTime);
+        this.threadFactory = threadFactory;
+        this.handler = handler;
+    &#125;
+</code></pre>
+<h3 id="四种拒绝策略"><a href="#四种拒绝策略" class="headerlink" title="四种拒绝策略"></a>四种拒绝策略</h3><p>AbortPolicy（默认）：直接抛出 RejectedExecutionException异常阻止系统正常运知。<br>CallerRunsPolicy：”调用者运行”一种调节机制，该策略既不会抛弃任务，也不会抛出异常，而是将某些任务回退到调用者，从而降低新任务的流量。<br>DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入队列中尝试再次提交当前任务。<br>DiscardPolicy：直接丢弃任务，不予任何处理也不抛出异常。如果允许任务丢失，这是最好的一种方案</p>
+<ul>
+<li>new ThreadPoolExecutor.AbortPolicy() &#x2F;&#x2F; 银行满了，还有人进来，不处理这个人的，抛出异常</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231444934.png" alt="image-20220723144435888"></li>
+<li>new ThreadPoolExecutor.CallerRunsPolicy() &#x2F;&#x2F; 哪来的去哪里！(如下图所示)</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231441679.png" alt="image-20220723144139643"></li>
+<li>new ThreadPoolExecutor.DiscardPolicy() &#x2F;&#x2F;队列满了，丢掉任务，不会抛出异常！</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231445988.png" alt="image-20220723144517942"></li>
+<li>new ThreadPoolExecutor.DiscardOldestPolicy() &#x2F;&#x2F;队列满了，尝试去和最早的竞争，也不会抛出异常！</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231435823.png" alt="image-20220723143529754">	</p>
+<pre><code class="java">
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
+
+// Executors 工具类、3大方法
+
+/**
+ * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异常
+ * new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里！
+ * new ThreadPoolExecutor.DiscardPolicy() //队列满了，丢掉任务，不会抛出异常！
+ * new ThreadPoolExecutor.DiscardOldestPolicy() //队列满了，尝试去和最早的竞争，也不会抛出异常！
+ */
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+        // 自定义线程池！工作 ThreadPoolExecutor
+
+        // 最大线程到底该如何定义
+        // 1、CPU 密集型，几核，就是几，可以保持CPu的效率最高！
+        // 2、IO  密集型   &gt; 判断你程序中十分耗IO的线程，
+        // 程序   15个大型任务  io十分占用资源！线程池&gt;15
+
+        // 获取CPU的核数
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        List  list = new ArrayList();
+
+        ExecutorService threadPool = new ThreadPoolExecutor(
+                2,
+                5,
+                3,
+                TimeUnit.SECONDS,
+                new LinkedBlockingDeque&lt;&gt;(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardOldestPolicy());  //队列满了，尝试去和最早的竞争，也不会抛出异常！
+        try &#123;
+            // 最大承载：Deque + max
+            // 超过 RejectedExecutionException
+            for (int i = 1; i &lt;= 9; i++) &#123;
+                // 使用了线程池之后，使用线程池来创建线程
+                threadPool.execute(()-&gt;&#123;
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                &#125;);
+            &#125;
+
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            // 线程池用完，程序结束，关闭线程池
+            threadPool.shutdown();
+        &#125;
+
+    &#125;
+&#125;
+
+</code></pre>
+<h2 id="Java并发"><a href="#Java并发" class="headerlink" title="Java并发"></a>Java并发</h2><h3 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h3><p><strong>进程</strong></p>
+<p>进程是程序运行的一次过程，是系统运行程序的基本单位，进程是动态的，系统运行一个程序就是一个进程的创建，运行和销毁的过程</p>
+<p>在Java中，，启动main函数实际上就是在JVM中创建一个进程，main所在的线程称为这个进程的主线程</p>
+<p><strong>线程</strong></p>
+<p>一个进程的执行过程中可以产生多个线程，与进程不同的是，同一个进程的多个线程可以共享堆和方法区中的资源，但每个线程有自己的<strong>程序计数器</strong>，<strong>虚拟机栈和本地方法栈</strong>，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208290947688.png" alt="Java 运行时数据区域（JDK1.8 之后）"></p>
+<p>从上图可以看出：一个进程中可以有多个线程，多个线程共享进程的<strong>堆</strong>和<strong>方法区 (JDK1.8 之后的元空间)**资源，但是每个线程有自己的**程序计数器**、</strong>虚拟机栈** 和 <strong>本地方法栈</strong>。</p>
+<p><strong>总结：</strong> <strong>线程是进程划分成的更小的运行单位。线程和进程最大的不同在于基本上各进程是独立的，而各线程则不一定，因为同一进程中的线程极有可能会相互影响。线程执行开销小，但不利于资源的管理和保护；而进程正相反。</strong></p>
+<p>程序计数器私有主要是为了<strong>线程切换后能恢复到正确的执行位置</strong>。</p>
+<p>为了<strong>保证线程中的局部变量不被别的线程访问到</strong>，虚拟机栈和本地方法栈是线程私有的。</p>
+<h3 id="ReentrantLock的相关面试题"><a href="#ReentrantLock的相关面试题" class="headerlink" title="ReentrantLock的相关面试题"></a>ReentrantLock的相关面试题</h3><p><strong>1）ReentrantLock是如何实现可重入的？</strong><br>不管是公平锁还是非公平锁，在获取锁时调用的tryAcquire()方法，获取成功后会setExclusiveOwnerThread(current)。将本线程设置为主人，之后每次调用tryAcquire()时，发现当前线程就是主人，直接返回true。</p>
+<p><strong>2）简述公平锁与非公平锁的区别？</strong><br>从定义角度：<br>获取锁的顺序与请求锁的时间顺序一致就是公平锁，反之则为非公平锁。公平锁每次都是从同步队列中的第一个节点获取到锁，而非公平性锁则不一定，有可能刚释放锁的线程能再次获取到锁。<br>公平锁为了保证时间上的绝对顺序，需要频繁的上下文切换，而非公平锁会降低一定的上下文切换，降低性能开销。因此，ReentrantLock默认选择的是非公平锁，则是为了减少一部分上下文切换，保证了系统更大的吞吐量。<br>从源码角度：<br>当锁资源已经被占用时，请求每次有请求到达，就在等待队列中排队。此时如果锁资源被释放了，刚好新来一个线程，若是非公平锁则会直接CAS获取锁，成功则返回，不成功则加入到等待队列自旋获取，自旋过程中当前驱是队头，并且tryAcquire成功时则获取成功。<br>若是公平锁，则当前线程必须等待，锁必须给等待队列第一个线程，如果第一个线程被阻塞了，唤醒也是需要时间的，醒了才能拿锁。</p>
+<p><strong>3）AQS中有哪些资源访问模式？区别？</strong><br>独占模式和共享模式。<br>只有一个线程能持有这个锁就是独占模式，由Node节点中的nextWait来标识。<br>ReentrantLock就是一个独占锁；而WriteAndReadLock的读锁则能由多个线程同时获取，但它的写锁则只能由一个线程持有，因此它使用了两种模式。</p>
+<p><strong>4）为什么ReentrantLock.lock()方法不能被其他线程中断？</strong><br>因为当前线程前面可能还有等待线程，在AQS.acquireQueued()的循环里，线程会再次被阻塞。parkAndCheckInterrupt()返回的是Thread.interrupted()，不仅返回中断状态，还会清除中断状态，保证阻塞线程忽略中断。</p>
+<h2 id="手写单例模式"><a href="#手写单例模式" class="headerlink" title="手写单例模式"></a>手写单例模式</h2><pre><code class="java">package com.kuang.Singleton;
+
+/**
+ * @description:饿汉式单例,线程访问单例之前就已经创建好了，线程每次都只能拿到这个唯一的对象，所以是线程安全的
+ * @author:gong
+ * @create: 29/8/2022 下午5:06
+ */
+public class Hunger &#123;
+    private Hunger()&#123;&#125;
+    private static Hunger instance = new Hunger();
+    public static Hunger getInstance()&#123;
+        return instance;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>双检锁&#x2F;双重校验锁（DCL，即 double-checked locking）线程安全，效率高,</strong></p>
+<pre><code class="java">package com.kuang.Singleton;
+
+/**
+ * @description:懒汉式单例，加锁后安全
+ * @author:gong
+ * @create: 29/8/2022 下午5:09
+ */
+public class Lazy &#123;
+    private Lazy()&#123;&#125;
+    private static volatile Lazy instance = null;
+    /**
+     * 线程不安全
+     * */
+//    public static Lazy getInstance()&#123;
+//        if (instance==null)&#123;
+//            instance = new Lazy();
+//        &#125;
+//        return instance;
+//    &#125;
+    /**
+     * 加锁，线程安全但使用 synchronized效率低，每次使用都需要加锁
+     * */
+//    public static synchronized Lazy getInstance()&#123;
+//        if (instance==null)&#123;
+//            instance = new Lazy();
+//        &#125;
+//        return instance;
+//    &#125;
+    /**
+     *双检锁/双重校验锁（DCL，即 double-checked locking）线程安全，效率高,
+     * 此处的instance需要加上volatile：防止指令重排导致的一些错误
+     * 二次判断的原因：在多线程的情况下，A线程获取锁后创建对象，释放锁，
+     * B线程在等待A释放后后也获取到锁，如果不判断的话会导致单例对象的二次创建
+     * */
+    public static Lazy getInstance()&#123;
+        if (instance==null)&#123;
+            synchronized (Lazy.class)&#123;
+                if (instance==null)&#123;
+                    instance = new Lazy();
+                &#125;
+            &#125;
+        &#125;
+        return instance;
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h2><ul>
+<li>HTTP默认端口80，HTTPS默认端口443</li>
+<li>URL前缀不一样：HTTP前缀为http:&#x2F;&#x2F;，HTTPS为https:&#x2F;&#x2F;</li>
+<li>安全性和资源消耗不一样：HTTP的安全性没有HTTPS高，HTTPS比HTTP耗费更多服务器资源<ul>
+<li>HTTP协议属于运行在TCP协议上 的明文传输，客户端和服务端都无法验证其身份</li>
+<li>HTTPS协议运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP上，传输的内容经过加密处理，加密采用对称加密，但对称加密的密钥使用服务端的证书进行了非对称加密</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTPS的加密过程"><a href="#HTTPS的加密过程" class="headerlink" title="HTTPS的加密过程"></a>HTTPS的加密过程</h3><h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><p>SSL&#x2F;TLS 的核心要素是<strong>非对称加密</strong>。非对称加密采用两个密钥——一个公钥，一个私钥。在通信时，私钥仅由解密者保存，公钥由任何一个想与解密者通信的发送者（加密者）</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291518731.png" alt="img" style="zoom:80%;" />
+
+<h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><p>使用 SSL&#x2F;TLS 进行通信的双方需要使用非对称加密方案来通信，但是非对称加密设计了较为复杂的数学算法，在实际通信过程中，计算的代价较高，效率太低，因此，SSL&#x2F;TLS 实际对消息的加密使用的是对称加密</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291519414.png" alt="img"></p>
+<p>但以上两种加密方法在传输公钥是可能会出现以下情况</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291521043.png" alt="img"></p>
+<p>导致用户数据泄露，所以为了解决公钥的传输问题，证书颁发机构（CA）应运而生</p>
+<p>带有证书的公钥传输机制如下：</p>
+<ol>
+<li>设有服务器 S，客户端 C，和第三方信赖机构 CA。</li>
+<li>S 信任 CA，CA 是知道 S 公钥的，CA 向 S 颁发证书。并附上 CA 私钥对消息摘要的加密签名。</li>
+<li>S 获得 CA 颁发的证书，将该证书传递给 C。</li>
+<li>C 获得 S 的证书，信任 CA 并知晓 CA 公钥，使用 CA 公钥对 S 证书上的签名解密，同时对消息进行散列处理，得到摘要。比较摘要，验证 S 证书的真实性。</li>
+<li>如果 C 验证 S 证书是真实的，则信任 S 的公钥（在 S 证书中）。</li>
+</ol>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p><strong>缓存穿透</strong></p>
+<p>指查询数据库中不存在的数据，因为这个数据不存在所以一定不会被缓存，所以每次都会去请求数据库</p>
+<p>解决方案</p>
+<blockquote>
+<p>缓存空结果</p>
+</blockquote>
+<p>如果系统发现 Redis 及 DB 中都不存在该资源，就缓存空结果一段时间。需要注意哈，这次的失效时间不能设置的太长，否则数据的实效性会产生很大的问题。</p>
+<blockquote>
+<p>用户合法性检验</p>
+</blockquote>
+<p>对用户请求的合法性进行检验，拦截恶意重复请求</p>
+<blockquote>
+<p>布隆过滤器</p>
+</blockquote>
+<p>暂不了解</p>
+<p><strong>缓存击穿</strong></p>
+<p>热点数据失效的瞬间产生大量的请求，从而产生大量的数据库请求，导致数据库崩溃</p>
+<p>解决方案</p>
+<blockquote>
+<p>热点数据永不过期</p>
+</blockquote>
+<p>比如：将某个key的过期时间设置为25小时，每隔24小时刷新一次热点 数据</p>
+<blockquote>
+<p>使用互斥锁</p>
+</blockquote>
+<p>但容易影响吞吐量</p>
+<p><strong>缓存雪崩</strong></p>
+<p>是指在我们设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部转发到数据库，最终导致数据库瞬时压力过大而崩溃。</p>
+<p>解决方案</p>
+<blockquote>
+<p>redis失效时间上加上随机数</p>
+</blockquote>
+<p>Redis 失效时间加上随机数，是一种比较取巧的解决方案。在一定程度上减轻了 DB 的瞬时压力，但是这种方案也在一定程度上增加了维护的成本。</p>
+<blockquote>
+<p>设置数据永不过期</p>
+</blockquote>
+<ul>
+<li>缓存穿透—穿过（绕过） Redis 和 DB 来搞你</li>
+<li>缓存击穿—定点打击来搞你</li>
+<li>缓存雪崩—多个热点 key 在某一个时刻同时失效</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

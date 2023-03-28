@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day08 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day08</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="事务隔离级别由谁实现"><a href="#事务隔离级别由谁实现" class="headerlink" title="事务隔离级别由谁实现"></a>事务隔离级别由谁实现</h2><p>数据库系统</p>
+<p>在数据库操作中，为了有效保证并发读取数据的正确性，提出的事务隔离级别；为了解决更新丢失，脏读，不可重读（包括虚读和幻读）等问题在标准SQL规范中，定义了4个事务隔离级别，分别为未授权读取，也称为读未提交（read uncommitted）；授权读取，也称为读提交（read committed）；可重复读取（repeatable read）；序列化（serializable）.</p>
+<h2 id="default和protected的区别"><a href="#default和protected的区别" class="headerlink" title="default和protected的区别"></a>default和protected的区别</h2><p>default只要是外部包，就不允许访问。<br>protected只要是子类就允许访问，即使子类位于外部包。<br>总结：default拒绝一切包外访问；protected接受包外的子类访问</p>
+<img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220802202458841.png" alt="image-20220802202458841" style="zoom:50%;" />
+
+<p>解析：这是一个关于java的垃圾回收机制的题目。垃圾回收主要针对的是堆区的回收，因为栈区的内存是随着线程而释放的。堆区分为三个区：<strong>年轻代</strong>（Young Generation）、<strong>年老代</strong>（Old Generation）、<strong>永久代</strong>（Permanent Generation，也就是方法区）。</p>
+<ul>
+<li><p>年轻代：对象被创建时（new）的对象通常被放在Young（除了一些占据内存比较大的对象）,经过一定的Minor GC（针对年轻代的内存回收）还活着的对象会被移动到年老代（一些具体的移动细节省略）。</p>
+</li>
+<li><p>年老代：就是上述年轻代移动过来的和一些比较大的对象。Minor GC(FullGC)是针对年老代的回收</p>
+</li>
+<li><p>永久代：存储的是final常量，static变量，常量池。</p>
+</li>
+</ul>
+<p>str3,str4都是直接new的对象，而substring的源代码其实也是new一个string对象返回，</p>
+<p>经过fullgc之后，年老区的内存回收，则年轻区的占了15个，不算PermGen。所以答案选C</p>
+<h2 id="switch括号中的值的类型"><a href="#switch括号中的值的类型" class="headerlink" title="switch括号中的值的类型"></a>switch括号中的值的类型</h2><ul>
+<li>在Java7之前，switch只能支持 byte、short、char、int或者其对应的封装类以及Enum类型。</li>
+<li>在Java7中，也支持了String类型 String byte short int char Enum 类型</li>
+</ul>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208022028433.png" alt="image-20220802202816343" style="zoom:50%;" />
+
+<p>A，“任何对象”锁定，太绝对了，你能锁住你没有权限访问的对象吗？<br>B，前半句话讲的是创建线程的方式，后半句讲的是锁定，驴头不对马嘴。<br>C，正确。<br>D，线程调度分为协同式调度和抢占式调度，Java使用的是抢占式调度，也就是每个线程将由操作系统来分配执行时间，线程的切换不由线程本身来决定（协同式调度）。这就是平台独立的原因。<br>以上，选CD</p>
+<h2 id="接口和抽象类的共同点与区别"><a href="#接口和抽象类的共同点与区别" class="headerlink" title="接口和抽象类的共同点与区别"></a>接口和抽象类的共同点与区别</h2><p>共同点</p>
+<ul>
+<li>都不能被实例化</li>
+<li>都可以包含抽象方法</li>
+<li>都可以有默认实现（Java8 可以用default在接口中定义默认方法）</li>
+</ul>
+<p>区别</p>
+<ul>
+<li>一个类只能继承一个类，但可以实现多个接口</li>
+<li>接口主要是用于对类行为的约束。实现了这个接口就具有了对应的行为，抽象类主要用于代码复用，强调所属关系</li>
+<li>接口中的成员变量只能是<code> public static final</code>，不能被修改且必须要有初始值，抽象类中的属性默认是default，可在子类中重新定义也可被重新赋值</li>
+</ul>
+<h2 id="浅拷贝与深拷贝的区别"><a href="#浅拷贝与深拷贝的区别" class="headerlink" title="浅拷贝与深拷贝的区别"></a>浅拷贝与深拷贝的区别</h2><p><strong>浅拷贝</strong>：首先会在堆上创建一个新的对象，不过 要是所拷贝的对象中存在引用类型，浅拷贝会直接赋值内部对象的地址，也就是说，浅拷贝对象和原对象共用一个内部对象</p>
+<pre><code class="java">public class Address implements Cloneable&#123;
+    private String name;
+    // 省略构造函数、Getter&amp;Setter方法
+    @Override
+    public Address clone() &#123;
+        try &#123;
+            return (Address) super.clone();
+        &#125; catch (CloneNotSupportedException e) &#123;
+            throw new AssertionError();
+        &#125;
+    &#125;
+&#125;
+
+public class Person implements Cloneable &#123;
+    private Address address;
+    // 省略构造函数、Getter&amp;Setter方法
+    @Override
+    public Person clone() &#123;
+        try &#123;
+            Person person = (Person) super.clone();
+            return person;
+        &#125; catch (CloneNotSupportedException e) &#123;
+            throw new AssertionError();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Person person1 = new Person(new Address(&quot;武汉&quot;));
+Person person1Copy = person1.clone();
+// true
+System.out.println(person1.getAddress() == person1Copy.getAddress());
+</code></pre>
+<p><strong>深拷贝</strong>：完全复制整个对象，包括这个对象所包含的内部对象</p>
+<pre><code class="java">@Override
+public Person clone() &#123;
+    try &#123;
+        Person person = (Person) super.clone();
+        person.setAddress(person.getAddress().clone());
+        return person;
+    &#125; catch (CloneNotSupportedException e) &#123;
+        throw new AssertionError();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Person person1 = new Person(new Address(&quot;武汉&quot;));
+Person person1Copy = person1.clone();
+// false
+System.out.println(person1.getAddress() == person1Copy.getAddress());
+</code></pre>
+<p>深拷贝，浅拷贝与引用拷贝</p>
+<p>引用对象直接指向的是同一个对象的同一个地址</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208022133125.png" alt="img"></p>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><pre><code class="java">/**
+ * native 方法，用于返回当前运行时对象的 Class 对象，使用了 final 关键字修饰，故不允许子类重写。
+ */
+public final native Class&lt;?&gt; getClass()
+/**
+ * native 方法，用于返回对象的哈希码，主要使用在哈希表中，比如 JDK 中的HashMap。
+ */
+public native int hashCode()
+/**
+ * 用于比较 2 个对象的内存地址是否相等，String 类对该方法进行了重写以用于比较字符串的值是否相等。
+ */
+public boolean equals(Object obj)
+/**
+ * naitive 方法，用于创建并返回当前对象的一份拷贝。
+ */
+protected native Object clone() throws CloneNotSupportedException
+/**
+ * 返回类的名字实例的哈希码的 16 进制的字符串。建议 Object 所有的子类都重写这个方法。
+ */
+public String toString()
+/**
+ * native 方法，并且不能重写。唤醒一个在此对象监视器上等待的线程(监视器相当于就是锁的概念)。如果有多个线程在等待只会任意唤醒一个。
+ */
+public final native void notify()
+/**
+ * native 方法，并且不能重写。跟 notify 一样，唯一的区别就是会唤醒在此对象监视器上等待的所有线程，而不是一个线程。
+ */
+public final native void notifyAll()
+/**
+ * native方法，并且不能重写。暂停线程的执行。注意：sleep 方法没有释放锁，而 wait 方法释放了锁 ，timeout 是等待时间。
+ */
+public final native void wait(long timeout) throws InterruptedException
+/**
+ * 多了 nanos 参数，这个参数表示额外时间（以毫微秒为单位，范围是 0-999999）。 所以超时的时间还需要加上 nanos 毫秒。。
+ */
+public final void wait(long timeout, int nanos) throws InterruptedException
+/**
+ * 跟之前的2个wait方法一样，只不过该方法一直等待，没有超时时间这个概念
+ */
+public final void wait() throws InterruptedException
+/**
+ * 实例被垃圾回收器回收的时候触发的操作
+ */
+protected void finalize() throws Throwable &#123; &#125;
+</code></pre>
+<h2 id="x3D-x3D-和equals-的区别"><a href="#x3D-x3D-和equals-的区别" class="headerlink" title="&#x3D;&#x3D;和equals()的区别"></a>&#x3D;&#x3D;和equals()的区别</h2><ul>
+<li>基本数据类型，&#x3D;&#x3D;比较的是数值</li>
+<li>引用数据类型，&#x3D;&#x3D;比较的是对象的内存地址</li>
+</ul>
+<blockquote>
+<p>因为 Java 只有值传递，所以，对于 &#x3D;&#x3D; 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是引用类型变量存的值是对象的地址。</p>
+</blockquote>
+<p>equals不能判断基本数据类型，只能判断引用数据类型的值是否相等，所有的类都有equals方法</p>
+<ul>
+<li>重写了equals方法，那比较的就是对象属性的值</li>
+<li>没重写阶等价于&#x3D;&#x3D;</li>
+</ul>
+<p>String的equals被重写了 ，所以equals比较的是值比较</p>
+<h2 id="HashSet内元素不重复的判断原理"><a href="#HashSet内元素不重复的判断原理" class="headerlink" title="HashSet内元素不重复的判断原理"></a>HashSet内元素不重复的判断原理</h2><p>HashSet会先计算新加入对象的hashcode值，并于HashSet中已有对象的hashcode值做比较，如果hashcode值相等则调用equals方法来检查这两个对象是否真的相等，如果相等就不会让其加入成功，如果不同的话，就会重新散列到其他位置。hashcode值不相等则直接加入。<strong>这样的操作大大减少了equals比较的次数，并大大的提高了执行的速度</strong></p>
+<p>因为hash算法存在碰撞，所以可能存在值不同但hashcode相同的对象，所以</p>
+<ul>
+<li><p>两个对象的hashcode相同，这两个对象不一定相等（哈希碰撞）</p>
+</li>
+<li><p>hashcode值不相等，那么这两个对象不相等</p>
+</li>
+<li><p>只有当两个对象的hashcode值和equals方法都相等，我们才认为这两个对象是相等的</p>
+</li>
+</ul>
+<h2 id="为什么重写-equals-时必须重写-hashCode-方法？"><a href="#为什么重写-equals-时必须重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 时必须重写 hashCode() 方法？"></a>为什么重写 equals() 时必须重写 hashCode() 方法？</h2><p>因为两个相等的对象的 <code>hashCode</code> 值必须是相等。也就是说如果 <code>equals</code> 方法判断两个对象是相等的，那这两个对象的 <code>hashCode</code> 值也要相等。</p>
+<p>如果重写 <code>equals()</code> 时没有重写 <code>hashCode()</code> 方法的话就可能会导致 <code>equals</code> 方法判断是相等的两个对象，<code>hashCode</code> 值却不相等。</p>
+<p>以上，所以重写equals()必须重写hashcode()</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

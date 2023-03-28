@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day03 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day03</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="关系数据模型与对象模型之间的匹配关系"><a href="#关系数据模型与对象模型之间的匹配关系" class="headerlink" title="关系数据模型与对象模型之间的匹配关系"></a>关系数据模型与对象模型之间的匹配关系</h2><ul>
+<li>表对应类</li>
+<li>记录对应对象</li>
+<li>字段对应属性</li>
+</ul>
+<h2 id="继承问题"><a href="#继承问题" class="headerlink" title="继承问题"></a>继承问题</h2><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220728212252575.png" alt="image-20220728212252575"></p>
+<p>调用子类构造方法时必须先调用父类的构造方法</p>
+<p>如果父类没有无参构造那么子类中必须显式的调用父类的构造方法super()</p>
+<p><strong>注意：当一个类实现了有参构造，那么其默认将不会实现无参构造</strong></p>
+<p>所以此处会编译错误</p>
+<h2 id="实现或继承了Collection接口的有"><a href="#实现或继承了Collection接口的有" class="headerlink" title="实现或继承了Collection接口的有"></a>实现或继承了Collection接口的有</h2><p>在java.util包中提供了一些集合类，</p>
+<p>常用的有List、Set和Map类，<strong>其中List类和Set类继承了Collection接口。</strong></p>
+<p>这些集合类又称为容器，长度是可变的，数组用来存放基本数据类型的数据，集合用来存放类对象的引用。<br>List接口、Set接口、Map接口以及Collection接口的主要特征如下： </p>
+<ul>
+<li>Collection接口是List接口和Set接口的父接口，通常情况下不被直接使用。</li>
+<li>List接口继承了Collection接口，List接口允许存放重复的对象，排序方式为按照对象的插入顺序。 </li>
+<li>Set接口继承了Collection接口，Set接口不允许存放重复的对象，排序方式为按照自身内部的排序规则。 </li>
+<li>Map接口以键值对（key—value）的形式存放对象，其中键（key）对象不可以重复，值（value）对象可以重复，排序方式为按照自身内部的规则，没有继承或实现Collection接口。</li>
+</ul>
+<p>Vector实现了List接口，即间接实现Collection接口 </p>
+<p>Iterator是Java迭代器最简单的实现，没有继承或实现Collection接口。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220728213228004.png" alt="image-20220728213228004"></p>
+<p>A对：java类单继承，多实现 </p>
+<p>B错：被abstract修饰的类就是抽象类，有没有抽象方法无所谓 </p>
+<p>C错：描述有问题。protected成员在子类的可见性，我最初理解是子类（不继承父类protected成员方法）获取父类被protected修饰的成员属性或方法，可见性是不可能变的，因为修饰符protected就是描述可见性的。     这道题应该是要考察子类继承父类，并重写父类的protected成员方法，该方法的可见性可以修改，这是对的，因为子类继承父类的方法，访问权限可以相同或往大了改  </p>
+<p>D对。</p>
+<p>E错：final修饰的方法只是不能重写，static修饰的方法只能访问类的成员变量 </p>
+<p>F对。</p>
+<h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ol>
+<li>简单易学</li>
+<li><strong>面向对象</strong></li>
+<li>跨平台（JVM） Write Once， Run Anywhere！</li>
+<li>支持多线程</li>
+<li>支持网络编程且方便</li>
+<li>可靠</li>
+<li>安全</li>
+<li>编译与解释并存</li>
+</ol>
+<h2 id="JVM，JDK，JRE"><a href="#JVM，JDK，JRE" class="headerlink" title="JVM，JDK，JRE"></a>JVM，JDK，JRE</h2><p>JVM：即Java虚拟机，运行Java字节码文件，时Java跨平台的关键</p>
+<p>JDK（Java Development Kit）：包含JRE所拥有的一切，除此之外还有编译器（javac）和工具（javadoc,jdb），它能创建和编译程序</p>
+<p>JRE：Java运行时环境，它是运行已编译Java程序所需所有内容的集合，包括JVM，Java类库，Java命令和一些其他构件。但其无法用于创建Java程序。</p>
+<p>如果你只是为了运行一下 Java 程序的话，那么你只需要安装 JRE 就可以了。如果你需要进行一些 Java 编程方面的工作，那么你就需要安装 JDK 了。<strong>但是，这不是绝对的</strong>。有时，即使您不打算在计算机上进行任何 Java 开发，仍然需要安装 JDK。例如，如果要使用 JSP 部署 Web 应用程序，那么从技术上讲，您只是在应用程序服务器中运行 Java 程序。那你为什么需要 JDK 呢？因为应用程序服务器会将 JSP 转换为 Java servlet，并且需要使用 JDK 来编译 servlet。</p>
+<h2 id="什么是字节码？，字节码的好处"><a href="#什么是字节码？，字节码的好处" class="headerlink" title="什么是字节码？，字节码的好处"></a>什么是字节码？，字节码的好处</h2><p>字节码，即能被JVM理解的代码就叫做字节码（.class文件）不面向任何特定的处理器，只面向JVM</p>
+<p>字节码文件是经过编译器预处理过的一种文件,</p>
+<p>是Java的执行文件形式,本身是二进制文件,但是不可以被系统直接执行,</p>
+<p>而是要虚拟机解释执行,由于被预处理过,所以比一般的解释代码要快,但是仍然比系统直接执行的慢</p>
+<p><strong>在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。</strong></p>
+<p>Java程序的执行流程</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207282200132.png" alt="Java程序转变为机器代码的过程"></p>
+<p>没有JIT之前，JVM加载字节码文件，然后通过解释器逐行解释执行，执行速度较慢，</p>
+<p>引进JIT后，由于JIT属于运行时编译，所以当JIT完成一次编译后，会将字节码对应的机器码保存下来以便下次直接使用</p>
+<p>而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 <strong>Java 是编译与解释共存的语言</strong> </p>
+<p><code> HotSpot 采用了惰性评估(Lazy Evaluation)的做法，根据二八定律，消耗大部分系统资源的只有那一小部分的代码（热点代码），而这也就是 JIT 所需要编译的部分。JVM 会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation)，它是直接将字节码编译成机器码，这样就避免了 JIT 预热等各方面的开销。JDK 支持分层编译和 AOT 协作使用</code></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

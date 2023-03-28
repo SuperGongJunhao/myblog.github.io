@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day20 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day20</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>MySQL相关知识</p>
+<h2 id="底层数据结构选型"><a href="#底层数据结构选型" class="headerlink" title="底层数据结构选型"></a><strong>底层数据结构选型</strong></h2><blockquote>
+<p>hash表</p>
+</blockquote>
+<p>根据哈希算法计算出key的地址，使用拉链法解决哈希碰撞</p>
+<p>单独查找一个数据时效率尚可，但范围查询会遍历所有数据并加载到内存中，没有效率可言</p>
+<blockquote>
+<p>二叉查找树</p>
+</blockquote>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050923984.jpeg" alt="图片" style="zoom:50%;" />
+
+<p>二叉查找树的时间复杂度是 O(lgn)，比如针对上面这个二叉树结构，我们需要计算比较 3 次就可以检索到 id&#x3D;7 的数据，相对于直接遍历查询省了一半的时间，从检索效率上看来是能做到高速检索的。范围查找类似，只需向一遍查找即可</p>
+<p>但其在极端情况下会退化成链表，而且在数据库中主键一般默认自增，就必然导致这种极端情况，所以不能直接用于MySQL底层数据结构</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050925319.jpeg" alt="图片" style="zoom:50%;" />
+
+<blockquote>
+<p>红黑树</p>
+</blockquote>
+<p>红黑树，这是一颗会自动调整树形态的树结构，比如当二叉树处于一个不平衡状态时，红黑树就会自动左旋右旋节点以及节点变色，调整树的形态，使其保持基本的平衡状态（时间复杂度为 O（logn）），也就保证了查找效率不会明显减低。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050928596.jpeg" alt="图片" style="zoom:50%;" />
+
+
+
+<p>但会出现类似于二叉查找树的效率变低的情况：“右倾”</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050930028.jpeg" alt="图片"></p>
+<blockquote>
+<p>AVL自平衡二叉树</p>
+</blockquote>
+<p>解决了红黑树效率下降的问题</p>
+<ol>
+<li>不错的查找性能（O（logn）），不存在极端的低效查找的情况。</li>
+<li>可以实现范围查找、数据排序。</li>
+</ol>
+<p>但AVL进行的磁盘IO次数较多且磁盘 IO 有个有个特点，就是从磁盘读取 1B 数据和 1KB 数据所消耗的时间是基本一样的，</p>
+<p>可以在每个树节点上多存储一些数据，这就是B树与B+树</p>
+<blockquote>
+<p>B树</p>
+</blockquote>
+<p>下面这个 B 树，每个节点限制最多存储两个 key，一个节点如果超过两个 key 就会自动分裂。比如下面这个存储了 7 个数据 B 树，只需要查询两个节点就可以知道 id&#x3D;7 这数据的具体位置，也就是两次磁盘 IO 就可以查询到指定数据，优于 AVL 树。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050939755.png" alt="图片" style="zoom:50%;" />
+
+<p>优化前：</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050940822.jpeg" alt="图片" style="zoom:50%;" />
+
+<p>和AVL一样4次IO</p>
+<p>优化后：每个节点存储6个key</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050941874.png" alt="图片" style="zoom:50%;" />
+
+
+
+<p>总的来说：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/j3gficicyOvav2NnHcnC0EYGibDyRm8CF1f324y0VFCaicDJ9iciaEgxLrGNQxubZ0mBzaggSGhet8Nlep86qiaHgcf6Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>只需两次IO即可</p>
+<ol>
+<li>优秀检索速度，时间复杂度：B 树的查找性能等于 O（h*logn），其中 h 为树高，n 为每个节点关键词的个数；</li>
+<li>尽可能少的磁盘 IO，加快了检索速度；</li>
+<li>可以支持范围查找。</li>
+</ol>
+<blockquote>
+<p>B+树</p>
+</blockquote>
+<p>第一，B 树一个节点里存的是数据，而 B+树存储的是索引（地址），所以 B 树里一个节点存不了很多个数据，但是 B+树一个节点能存很多索引，B+树叶子节点存所有的数据。</p>
+<p>第二，B+树的叶子节点是数据阶段用了一个链表串联起来，便于范围查找。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/j3gficicyOvav2NnHcnC0EYGibDyRm8CF1fkqlDXCR7FpW5DgIibY0EEmic0I8WJMyYh1zaSkjfm3BF0ZcNqjNFFmFA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>通过 B 树和 B+树的对比我们看出，B+树节点存储的是索引，在单个节点存储容量有限的情况下，单节点也能存储大量索引，使得整个 B+树高度降低，减少了磁盘 IO。其次，B+树的叶子节点是真正数据存储的地方，叶子节点用了链表连接起来，这个链表本身就是有序的，在数据范围查找时，更具备效率。因此 Mysql 的索引用的就是 B+树，B+树在查找效率、范围查找中都有着非常不错的性能。</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>要么都成功，要么都失败</p>
+<p>要么全部执行，要么一个都不执行</p>
+<pre><code class="sql"># 开启一个事务
+START TRANSACTION;
+# 多条 SQL 语句
+SQL1,SQL2...
+## 提交事务
+COMMIT;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050958266.png" alt="图片"></p>
+<p><strong>ACID特性</strong></p>
+<p>原子性（Atomicity）：事务是最小的执行单位，不允许分割，要么全成功，要么全失败</p>
+<p>一致性（Consistency）：即执行事务前后，数据保持一致，比如转账业务中，总金额 不会发生改变</p>
+<p>隔离性（Isolation）：并发访问数据库时，各个事务之间相互隔离，各并发事务之间数据库是独立的，互不干扰</p>
+<p>持久性（Durabilily）：事务一旦成功提交，对数据库的改变就是持久的，即使数据库发生故障也不应该对其有任何影响</p>
+<p>ADI是保证C的手段，C是事务的最终目的</p>
+<p><strong>并发事务的一些问题</strong></p>
+<ul>
+<li>脏读：一个事务修改了数据但还未提交时，另一个事务访问到了还未提交的数据</li>
+<li>丢失修改：两个事务同时对一个数据进行修改，因为两个事务读取的都是修改前的数据，所以会导致其中一个事务对数据的修改丢失</li>
+<li>不可重复读：指一个事务在对数据进行多次读取时，另一个事务对对数据进行修改，导致之前的事务对数据的读取情况不一致的情况</li>
+<li>幻读：指一个事务读取几行数据，接着另一个事务对数据进行插入或删除，导致第一个事务在随后的查询中发现一些原本不存在的数据</li>
+</ul>
+<p><strong>不可重复读和幻读区别</strong> ：不可重复读的重点是修改比如多次读取一条记录发现其中某些列的值被修改，幻读的重点在于新增或者删除比如多次查询同一条查询语句（DQL）时，记录发现记录增多或减少了。</p>
+<p><strong>事务隔离级别</strong></p>
+<p>SQL 标准定义了四个隔离级别：</p>
+<ul>
+<li><strong>READ-UNCOMMITTED(读取未提交)</strong> ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。</li>
+<li><strong>READ-COMMITTED(读取已提交)</strong> ：允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生。</li>
+<li><strong>REPEATABLE-READ(可重复读)</strong> ：对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</li>
+<li><strong>SERIALIZABLE(可串行化)</strong> ：最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。</li>
+</ul>
+<p>MySQL 的隔离级别基于锁和 MVCC 机制共同实现的。</p>
+<p>SERIALIZABLE 隔离级别，是通过锁来实现的。除了 SERIALIZABLE 隔离级别，其他的隔离级别都是基于 MVCC 实现。</p>
+<p>不过， SERIALIZABLE 之外的其他隔离级别可能也需要用到锁机制，就比如 REPEATABLE-READ 在当前读情况下需要使用加锁读来保证不会出现幻读</p>
+<p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 <strong>REPEATABLE-READ（可重读）</strong>。我们可以通过<code>SELECT @@tx_isolation;</code>命令来查看，MySQL 8.0 该命令改为<code>SELECT @@transaction_isolation;</code></p>
+<p><strong>InnoDB 实现的 REPEATABLE-READ 隔离级别其实是可以解决幻读问题发生的，主要有下面两种情况：</strong></p>
+<ul>
+<li><strong>快照读</strong> ：由 MVCC 机制来保证不出现幻读。</li>
+<li><strong>当前读</strong> ：使用 Next-Key Lock 进行加锁来保证不出现幻读，Next-Key Lock 是行锁（Record Lock）和间隙锁（Gap Lock）的结合，行锁只能锁住已经存在的行，为了避免插入新行，需要依赖间隙锁。</li>
+</ul>
+<p><strong>InnoDB 存储引擎在分布式事务的情况下一般会用到 SERIALIZABLE 隔离级别。</strong></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

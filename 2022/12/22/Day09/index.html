@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day09 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day09</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="Java中的四类八种基本类型"><a href="#Java中的四类八种基本类型" class="headerlink" title="Java中的四类八种基本类型"></a>Java中的四类八种基本类型</h2><p>整数类型</p>
+<ul>
+<li>byte，short,int ,long</li>
+</ul>
+<p>浮点型</p>
+<ul>
+<li>float，double</li>
+</ul>
+<p>逻辑型</p>
+<ul>
+<li>boolean</li>
+</ul>
+<p>字符型</p>
+<ul>
+<li>char</li>
+</ul>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
+<li><p>不能被实例化</p>
+</li>
+<li><p>可以被继承</p>
+</li>
+<li><p>继承的类不一定是抽象类</p>
+</li>
+<li><p>可以被抽象类继承</p>
+</li>
+<li><p>一个类继承了抽象类如果没有实现其抽象方法那这个类必须也为抽象类，如果没有实现抽象方法，抽象类编译不通过</p>
+</li>
+</ul>
+<h2 id="Java类加载器"><a href="#Java类加载器" class="headerlink" title="Java类加载器"></a>Java类加载器</h2><ul>
+<li>引导类加载器（bootstrap class loader）：它用来加载 Java 的核心库，是用原生代码来实现的</li>
+<li>.扩展类加载器（extensions class loader）：它用来加载 Java 的扩展库。 </li>
+<li>系统类加载器（system class loader）：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类 </li>
+<li>tomcat为每个App创建一个Loader，里面保存着此WebApp的ClassLoader。需要加载WebApp下的类时，就取出ClassLoader来使用</li>
+</ul>
+<h2 id="Java虚拟机的作用"><a href="#Java虚拟机的作用" class="headerlink" title="Java虚拟机的作用"></a>Java虚拟机的作用</h2><ul>
+<li>通过ClassLoader寻找和装载class文件</li>
+<li>解释字节码成为指令，为class文件提供允许环境</li>
+<li>在运行期间提供垃圾回收机制</li>
+</ul>
+<blockquote>
+<p>方法中定义的局部变量在该方法执行时被创建<strong>（错）</strong></p>
+</blockquote>
+<ul>
+<li>不是局部变量在该方法被执行&#x2F;调用时创建，而是应该为<strong>在该变量被声明并赋值时创建</strong>，可以理解为“当代码执行到该变量被赋值的代码时才被创建”</li>
+<li>栈会为每个方法在运行的时候分配一块独立的栈帧内存区域，栈帧又包含“局部变量表”、“操作数栈”、“动态链接”以及“方法出口”四个部分</li>
+</ul>
+<p>详见：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98337005">https://zhuanlan.zhihu.com/p/98337005</a></p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>String是不可变的</p>
+<p>StringBuffer和StringBuilder都继承自AbstractStringBuilder类，该类中使用字符数组来保存字符串，并且提供了许多修改字符串的方法</p>
+<p>StringBuffer中的方法都加了同步锁或者对效用的方法加了同步锁，所以它是线程安全的，</p>
+<p>StringBuilder是非线程安全的</p>
+<p>每对String进行操作时，都会新创建一个String对象，然后把指针指向新创建的String对象。StringBuffer和StringBuilder每次都是对对象本身进行操作，不会产生新的对象。</p>
+<p>对这三者的总结</p>
+<ul>
+<li>操作少量数据用<code>String</code></li>
+<li>单线程操作字符串缓冲区下的大量数据，使用<code>StringBuilder</code></li>
+<li>多线程操作字符串缓冲区下的大量数据，使用 <code>StringBuffer</code></li>
+</ul>
+<h3 id="String为什么是不可变的"><a href="#String为什么是不可变的" class="headerlink" title="String为什么是不可变的"></a>String为什么是不可变的</h3><p>String类中使用<code> final</code>修饰符来修饰字符数组且g</p>
+<ul>
+<li>保存字符串的数组被<code>final</code>修饰且为私有，并且<code>String</code> 类没有提供&#x2F;暴露修改这个字符串的方法。</li>
+<li><code>String</code> 类被 <code>final</code> 修饰导致其不能被继承，进而避免了子类破坏 <code>String</code> 不可变。</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

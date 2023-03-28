@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day15 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day15</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>常见的代码优化技术有：复写传播，删除死代码, 强度削弱，归纳变量删除</p>
+<p>servlet的生命周期</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208091937217.png" alt="image-20220809193728113"></p>
+<p>final修饰的变量不是一定要在定义时初始化，也可以在构造函数中完成初始化</p>
+<p>final修饰的方法不能被子类重写，但可以重载</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092043375.png" alt="image-20220809204315289" style="zoom:33%;" />
+
+<p>File类的一下常用方法和说明<br><strong>1.访问文件名相关方法：</strong></p>
+<p>String getName(); 返回此File对象所表示的文件名和路径名（如果是路径，则返回最后一级子路径名）。<br>String getPath(); 返回此File对象所对应的路径名。<br>File getAbsolutePath(); 返回此File对象所对应的绝对路径名。<br>String getParent(); 返回此File对象所对应目录（最后一级子目录）的父路径名。<br>boolean renameTo(File newName); 重命名此File对象所对应的文件或目录，如果重命名成功，则返回true:否则返回false.（A）<br><strong>2.文件检测相关方法</strong></p>
+<p>boolean exists(); 判断File对象所对应的文件或目录是否存在。<br>boolean canWrite(); 判断File对象所对应的目录或文件是否可写。<br>boolean canRead(); 判断File对象所对应的目录或文件是否可读。<br>boolean isFile(); 判断File对象所对应的是否是文件，而不是目录。<br>boolean isDirectory(); 判断File对象所对应的是否是目录，而不是文件。<br>boolean isAbsolute(); 判断File对象所对应的文件或目录是否是绝对路径。该方法消除了不同平台的差异，可以直接判断File对象是否为绝对路径。在UNIX&#x2F;Linux&#x2F;BSD等系统上，如果路径名开头是一条斜线（&#x2F;）,则表明该File对象对应一个绝对路径；在Windows等系统上，如果路径开头是盘符，则说明它是绝对路径。<br><strong>3.获取常规文件信息</strong></p>
+<p>long lastModified(); 返回文件最后修改时间。<br>long length(); 返回文件内容的长度。<br><strong>4.文件操作相关的方法</strong></p>
+<p>boolean createNewFile(); 当此File对象所对应的文件不存在时，该方法将新建的一个该File对象所指定的新文件，如果创建成功则返回true；否则返回false.(C)<br>boolean delete(); 删除File对象所对应的文件或路径。<br>static File CreateTempFile(String prefix,String suffix);在默认的临时文件目录创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。preFix参数必须至少是3个字节长。建议前缀使用一个短的、有意义的字符串。建议前缀使用一个短的、有意义的字符串，比如”hjb“ 或”main”. suffix参数可以为null,在这种情况下，将使用默认的后缀”.tmp”.<br>static File CreateTempFile(String prefix,String suffix,File directory);在directory所指定的目录中创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。<br>void deleteOnExit(); 注册一个删除钩子，指定当Java虚拟机退出时，删除File对象随对应的文件和目录。<br><strong>5.目录操作相关方法（D）</strong></p>
+<p>boolean mkdir(); 试图创建一个File对象所对应的目录，如果创建成功，则返回true;否则返回false. 调用该方法时File对象必须对应一个路径，而不是一个文件。<br>String[] list(); 列出File对象的所有子文件名和路径名，返回String数组。<br>File[] listFiles(); 列出File对象的所有子文件和路径，返回File数组。<br>static File[] listRoots(); 列出系统所有的根路径。这是一个静态方法，可以直接通过File类来调用。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092043004.png" alt="image-20220809204333910" style="zoom:33%;" />
+
+<p>1、为了更好地组织类，Java提供了包机制。包是类的容器，用于分隔类名空间。如果没有指定包名，所有的示例都属于一个默认的无名包。Java中的包一般均包含相关的类，java是跨平台的，所以java中的包和操作系统没有任何关系，java的包是用来组织文件的一种虚拟文件系统。A错</p>
+<ol start="2">
+<li>import语句并没有将对应的java源文件拷贝到此处仅仅是引入，告诉编译器有使用外部文件，编译的时候要去读取这个外部文件。B错3、Java提供的包机制与IDE没有关系。C错4、定义在同一个包（package）内的类可以不经过import而直接相互使用。</li>
+</ol>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="八中基本数据类型"><a href="#八中基本数据类型" class="headerlink" title="八中基本数据类型"></a>八中基本数据类型</h2><ol>
+<li>byte 占用一个字节 默认值为 0</li>
+<li>short 占用两个字节 默认值为 0</li>
+<li>int  占用四个字节 默认值为 0</li>
+<li>long 占用八个字节 默认值为 0L</li>
+<li>float 占用四个字节 默认值为 0f</li>
+<li>double 占用八个字节 默认值为 0d</li>
+<li>boolean 逻辑上占一位，实际情况中可能会有不同 默认值为 false</li>
+<li>char 占用两个字节 默认值为 ‘u0000’</li>
+</ol>
+<h2 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h2><ul>
+<li>Byte</li>
+<li>Short</li>
+<li>Integer</li>
+<li>Long</li>
+<li>Float</li>
+<li>Double</li>
+<li>Boolean</li>
+<li>Character</li>
+</ul>
+<h3 id="包装类和基本数据类型的区别"><a href="#包装类和基本数据类型的区别" class="headerlink" title="包装类和基本数据类型的区别"></a>包装类和基本数据类型的区别</h3><p>包装类不赋值默认为null，基本数据类型有默认值且不为null</p>
+<p>基本数据类型存放在JVM中的栈空间中的局部变量表中，包装类属于对象，我们知道几乎所有的对象都存放在堆中，相对于包装类，基本数据类型占用的空间非常小。</p>
+<h3 id="包装类中的常量池技术"><a href="#包装类中的常量池技术" class="headerlink" title="包装类中的常量池技术"></a>包装类中的常量池技术</h3><p>Byte，Short，Integer，Long都实现了常量池的技术，并默认创建了[-128~127]的相应类型的缓存，Character创建了[0,127]的缓存数据</p>
+<p>Boolean直接返回true或false</p>
+<p>例如：</p>
+<pre><code class="java">/**
+*此方法将始终缓存-128 到 127（包括端点）范围内的值，并可以缓存此范围之外的其他值。
+*/
+public static Integer valueOf(int i) &#123;
+    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+      return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+&#125;
+private static class IntegerCache &#123;
+    static final int low = -128;
+    static final int high;
+    static final Integer cache[];
+&#125;
+</code></pre>
+<p>如果超出对应的范围，还是会去创建新的对象，缓存的范围区间大小在性能和资源之间权衡</p>
+<p>Float和Double没有实现常量池技术</p>
+<pre><code class="java">Integer i1 = 33;
+Integer i2 = 33;
+System.out.println(i1 == i2);// 输出 true
+Float i11 = 333f;
+Float i22 = 333f;
+System.out.println(i11 == i22);// 输出 false
+Double i3 = 1.2;
+Double i4 = 1.2;
+System.out.println(i3 == i4);// 输出 false
+</code></pre>
+<p>所有包装类对象之间的比较，都用equals方法</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092010747.png" alt="img"></p>
+<h2 id="为什么要有包装类"><a href="#为什么要有包装类" class="headerlink" title="为什么要有包装类"></a>为什么要有包装类</h2><p>因为Java 本身就是一个面向对象的语言（OOP），对象时Java的灵魂</p>
+<p>让基本数据类型具有了对象的性质，并且为其添加了属性和方法，丰富了基本类型的操作。</p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h2><pre><code class="java">Integer i = 10;  //装箱
+int n = i;   //拆箱
+</code></pre>
+<p>对应的字节码 为</p>
+<pre><code class="JAVA">   L1
+    LINENUMBER 8 L1
+    ALOAD 0
+    BIPUSH 10
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    PUTFIELD AutoBoxTest.i : Ljava/lang/Integer;
+   L2
+    LINENUMBER 9 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD AutoBoxTest.i : Ljava/lang/Integer;
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    PUTFIELD AutoBoxTest.n : I
+    RETURN
+</code></pre>
+<p>可以看到装箱实际上就是调用了valueOf()的方法</p>
+<p>拆箱实际上就是调用了xxxValue()的方法</p>
+<h3 id="自动拆箱引发的NPE-NullPointException-问题"><a href="#自动拆箱引发的NPE-NullPointException-问题" class="headerlink" title="自动拆箱引发的NPE(NullPointException)问题"></a>自动拆箱引发的NPE(NullPointException)问题</h3><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092016526.png" alt="img"></p>
+<p><strong>数据库拆箱结果可能为NUll，因为自动拆箱，用基本数据类型有NEP的风险</strong></p>
+<pre><code class="JAVA">public class AutoBoxTest &#123;
+    @Test
+    void  should_Throw_NullPointerException()&#123;
+        long id = getNum();
+    &#125;
+    public Long getNum()&#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>​	等价于</p>
+<pre><code class="JAVA">long id = getBum().longValue;
+</code></pre>
+<p>因为getNum()为null，用null调用一个方法，报错NEP</p>
+<p>此外三目运算符也可能会产生NEP</p>
+<pre><code class="JAVA">public class Main &#123;
+    public static void main(String[] args) &#123;
+        Integer i = null;
+        Boolean flag = false;
+        System.out.println(flag ? 0 : i);
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092022418.png" alt="img"></p>
+<p>此时三木运算符中存在基本数据类型0，会产生自动拆箱的操作，i 被自动拆箱所以产生异常NEP</p>
+<p>正确写法如下：</p>
+<pre><code class="JAVA">Integer i = null;
+Boolean flag = false;
+System.out.println(flag ? new Integer(0) : i);// 两者类型一致就不会有拆箱导致的 NPE 问题了
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092023076.png" alt="img"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

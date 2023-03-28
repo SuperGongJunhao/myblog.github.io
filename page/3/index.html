@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/myblog.github.io/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-image="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207241109164.jpg"></div>
+    
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+<div id="home-posts-wrap"  ref="homePostsWrap">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day02/">
+        <h2 class="post-title">day02</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="java中的关键字"><a href="#java中的关键字" class="headerlink" title="java中的关键字"></a>java中的关键字</h2><p>Java中的关键字全是小写的，所以NULL不是关键字</p>
+<p>Java 关键字列表 所有的关键字都是小写</p>
+<p>abstract, assert,boolean, break, byte, case, catch, char, class, const, continue, default, do, double, else, enum,extends, final, finally, float, for, if, implements, import, instanceof, int, interface, long, native, new, package, private, protected, public, return, short, static, strictfp, super, switch, synchronized, this, throw, throws, transient, try, void, volatile, while</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java中只有栈帧没有堆帧，PC寄存器就是程序计数器</p>
+<p>程序计数器是一个以线程私有的一块较小的内存空间，用于记录所属线程所执行的字节码的行号指示器；字节码解释器工作时，通过改变程序计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳准、异常处理、线程恢复等基础功能都需要依赖程序计数器来完成<br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220727201905352.png" alt="image-20220727201905352"></p>
+<h2 id="HashMap与Hashtable的区别"><a href="#HashMap与Hashtable的区别" class="headerlink" title="HashMap与Hashtable的区别"></a>HashMap与Hashtable的区别</h2><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220727202057580.png" alt="image-20220727202057580"></p>
+<ul>
+<li>这两货继承的类不同，但是都实现了map接口。</li>
+<li>从线程安全的角度来看：</li>
+<li>Hashtable是线程安全的，它的每个方法中都加入了Synchronize方法。在多线程并发的环境下，可以直接使用Hashtable，不需要自己为它的方法实现同步</li>
+<li>HashMap不是线程安全的，在多线程并发的环境下，可能会产生死锁等问题。具体的原因在下一篇文章中会详细进行分析。使用HashMap时就必须要自己增加同步处理，</li>
+<li>虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。</li>
+<li>再来看看Properties的继承关系，发现d是对的。</li>
+<li>java.util类 Properties   java.lang.Object </li>
+<li>java.util.Dictionary </li>
+<li>java.util.Hashtable </li>
+<li>java.util.Properties</li>
+</ul>
+<h2 id="Java的三大特性"><a href="#Java的三大特性" class="headerlink" title="Java的三大特性"></a>Java的三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>把同一类事物对的共性抽离成为一个类，</p>
+<p>可以隐藏类的内部细节，用户无需了解其内部实现，只需调用对象提供的外部接口访问此类</p>
+<p>实现专业的分工，程序员可以按需调用</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>子类继承父类，子类可以拥有弗雷除私有属性，方法和构造方法外的所有的属性和方法</p>
+<p>继承堆修改关闭，对扩展开放，遵循里氏代换原则，子类可以写自己特有的属性和方法，也可以复写弗雷的方法，这就叫方法重写</p>
+<p><strong>继承可以实现代码的复用</strong></p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><strong>对象的多态性，父类的引用指向子类的对象（或子类的对象赋给父类的引用）</strong></p>
+<p>多态存在的三个必要条件</p>
+<ol>
+<li><p>继承</p>
+</li>
+<li><p>重写</p>
+</li>
+<li><p>父类引用指向子类对象</p>
+<p>相同的事物，使用相同的参数调用相同的方法，结果却不相同。</p>
+<p>子类以父类的身份出现时，需要向上转型，这是JVM自动实现的，是安全的，</p>
+<p>但向下转型是不安全的，需要强制转换，</p>
+<p>子类以父类身份出现时自己特有的属性和方法不能使用</p>
+</li>
+</ol>
+<h2 id="Java的基本数据类型以及包装类"><a href="#Java的基本数据类型以及包装类" class="headerlink" title="Java的基本数据类型以及包装类"></a>Java的基本数据类型以及包装类</h2><table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>大小（字节）</th>
+<th>默认值</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1</td>
+<td>(byte)0</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>(short)0</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>0</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8</td>
+<td>0L</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>0.0f</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>0.0d</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>-</td>
+<td>false</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2</td>
+<td>null(\u0000)</td>
+<td>Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>boolean在数组中只占1个字节，不在数组中是占4个字节</li>
+<li>基本数据类型所占用的空间是不变的，这也是Java具有可移植性的原因之一</li>
+<li>基本数据类型放在栈中，直接 存储</li>
+</ul>
+<p>为什么需要包装类</p>
+<ul>
+<li>基本类型不是类，不能new出来，因此不具备面对对象的功能，无法调用方法。</li>
+<li>在一个类或接口或方法中定义一个泛型的数据类型，当使用这个类、接口、方法时，要把泛型定义成具体的基本数据类型就必须使用基本数据类型对应的包装类进行定义。</li>
+</ul>
+<p>包装类与基本数据类型的不同</p>
+<ul>
+<li>基本类型只能按值传递，而封装类型按引用传递</li>
+<li>基本类型在栈中创建，而对于对象类型，对象在堆中创建，对象的引用在栈中创建，基本类型由于在栈中，执行效率会比较高，但可能存在内存泄漏的问题。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day02/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/day01/">
+        <h2 class="post-title">day01</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <ol>
+<li>jdk8以及之后的版本，HashMap的数据结构为数组+链表&#x2F;红黑树</li>
+</ol>
+<ul>
+<li>准确的说HashMap的底层是哈希表，而Java中哈希表是由数组+链表实现的，每一个数组的节点称之为bucket桶，当桶中由多个元素就以链表的方法进行存储，当添加元素时，通过key的hash算法得出hash值，然后通过hash值映射出存在哪个桶中，如果桶中没有有元素，就添加成功，如果有元素那就代表散列冲突，比较已存在的元素和新插入的元素的hash值是否有相同，如果没有相同的则添加成功(情况1)，如果某个元素的hash值和新的元素hash值相同的，则调用key的equals方法继续进行比较，为true则新的值覆盖掉旧的值，为false添加成功(情况2)，对于情况1 和情况2，在jdk1.7是将新的元素添加到原来的头节点，jdk1.8是添加到链表后面，jdk1.8做了一个优化，因为如果链表的长度太长遍历查找复杂度为O(n)，所以引入了红黑树，当桶中的元素&gt;8并且数组长度&gt;64就转为红黑树，复杂度为O(logn)</li>
+</ul>
+<ol start="2">
+<li>C语言中每个字符串末尾都有一个 \0 结束 符号，所以字符串占用的字节数&#x3D;顺序存储字符串的长度+1</li>
+<li>查询数组中第i个元素的平均时间复杂度为O(1)</li>
+</ol>
+<h2 id="循环队列的状态判断（TODO）"><a href="#循环队列的状态判断（TODO）" class="headerlink" title="循环队列的状态判断（TODO）"></a>循环队列的状态判断（TODO）</h2><p>循环队列是一种线性的数据结构，其操作表现基于FIFO（先进先出），并且队尾被连接在队首之后形成一个循环，他也被称为环形缓冲器</p>
+<p>front表示队头指针（指向<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%98%9F%E5%88%97&spm=1001.2101.3001.7020">队列</a>内首元素）<br>rear表示队尾指针（指向队列内尾元素的下一个位置）<br>m表示队列的容量（包括那个留空的位置）<br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133248686.png" alt="在这里插入图片描述"><br><strong>队空：front&#x3D;rear</strong><br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133259586.png" alt="在这里插入图片描述"><br><strong>队满：front&#x3D;(rear+1)%m</strong><br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/20190121133306934.png" alt="在这里插入图片描述"><br><strong>队列内元素个数：(rear - front + m) % m</strong></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/81cc9e932d074eea9589b98972054457~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/4fb17af4bae74d2ba373e9bc5f2ef5b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/e49354cb6a684aab915165fc45fb0a69~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
+<p><a href="">https://juejin.cn/post/7029958046579327007#heading-24</a></p>
+<h2 id="线性与顺序结构"><a href="#线性与顺序结构" class="headerlink" title="线性与顺序结构"></a>线性与顺序结构</h2><p>线性是线性，顺序是顺序，线性是逻辑结构，顺序是存储结构，两者不是一个概念，线性是指一个元素后继只有唯一的一个元素或节点，非线性是一个元素后面可以有多个后继或前继节点，顺序是指存储结构连续，例如数组是顺序的，链表不是顺序的，但他们都是线性的。当然顺序也可以是非线性的，例如顺序结构存储非线性结构的二叉树！！！</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220726232155481.png" alt="image-20220726232155481"></p>
+<p>线性结构指的是逻辑结构，而不是物理存储结构<br>常用的线性结构有：线性表，堆栈，队列，双队列，数组，串。<br>常见的非线性结构有：二维数组，***数组，广义表，树(二叉树等)，图。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/day01/" class="go-post">阅读全文</a>
+</div>
+
+
+            <div class="page-current">
+    <div class="prev">
+        
+        <a class="page-num" href="/myblog.github.io/page/2/">
+            <i class="fa-solid fa-caret-left fa-fw"></i>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+                
+                <a class="page-num" href="/myblog.github.io/">1</a>
+                
+                
+            
+            <a class="page-num" href="/myblog.github.io/page/2/">2</a>
+        </span>
+        
+        <span class="current">3</span>
+        
+    </div>
+    <div class="next">
+        
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/myblog.github.io/null" alt="avatar" />
+        </div>
+        <div class="name">John Doe</div>
+        <div class="description">
+            <p>Description<br>…</p>
+
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+    </body>
+</html>

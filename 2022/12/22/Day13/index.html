@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day13 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day13</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="Java代理模式"><a href="#Java代理模式" class="headerlink" title="Java代理模式"></a>Java代理模式</h2><p>就是用代理对象来代替真实的对象访问，这样就可以在<strong>不修改真实对象的情况下提供额外的操作，扩展对象的功能</strong></p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>对目标方法 的增强都是手动实现的，非常不灵活，一旦接口发生改变，代理对象和目标对象都要做出修改</p>
+<p>而且对每个目标类都要单独写一个代理类</p>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>创建一个接口和其实现类</li>
+<li>创建一个代理对象也是按这个接口</li>
+<li>将目标对象注入到代理对象中</li>
+<li>在代理类中调用目标类中的方法，可以屏蔽目标对象的访问</li>
+</ul>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>从JVM的角度来说，动态代理实在运行时动态生成类字节码，并加载到JVM 中</p>
+<p>spring的AOP，RPC框架</p>
+<p><strong>动态代理在我们日常开发中使用的相对较少，但是在框架中的几乎是必用的一门技术。学会了动态代理之后，对于我们理解和学习各种框架的原理也非常有帮助。</strong></p>
+<h4 id="JDK动态代理机制"><a href="#JDK动态代理机制" class="headerlink" title="JDK动态代理机制"></a>JDK动态代理机制</h4><p><strong>在 Java 动态代理机制中 <code>InvocationHandler</code> 接口和 <code>Proxy</code> 类是核心。</strong></p>
+<p><code>Proxy</code> 类中使用频率最高的方法是：<code>newProxyInstance()</code> ，这个方法主要用来生成一个代理对象。</p>
+<pre><code class="java">    public static Object newProxyInstance(ClassLoader loader,
+                                          Class&lt;?&gt;[] interfaces,
+                                          InvocationHandler h)
+        throws IllegalArgumentException
+    &#123;
+        ......
+    &#125;
+</code></pre>
+<ol>
+<li><strong>loader</strong> :类加载器，用于加载代理对象。</li>
+<li><strong>interfaces</strong> : 被代理类实现的一些接口；</li>
+<li><strong>h</strong> : 实现了 <code>InvocationHandler</code> 接口的对象；(目标对象)</li>
+</ol>
+<p>要实现动态代理的话，还必须需要实现<code>InvocationHandler</code> 来自定义处理逻辑。 当我们的动态代理对象调用一个方法时，这个方法的调用就会被转发到实现<code>InvocationHandler</code> 接口类的 <code>invoke</code> 方法来调用。</p>
+<pre><code class="JAVA">public interface InvocationHandler &#123;
+
+    /**
+     * 当你使用代理对象调用方法的时候实际会调用到这个方法
+     */
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable;
+&#125;
+</code></pre>
+<ol>
+<li><strong>proxy</strong> :动态生成的代理类</li>
+<li><strong>method</strong> : 与代理类对象调用的方法相对应</li>
+<li><strong>args</strong> : 当前 method 方法的参数</li>
+</ol>
+<p>也就是说：<strong>你通过<code>Proxy</code> 类的 <code>newProxyInstance()</code> 创建的代理对象在调用方法的时候，实际会调用到实现<code>InvocationHandler</code> 接口的类的 <code>invoke()</code>方法。</strong> 你可以在 <code>invoke()</code> 方法中自定义处理逻辑，比如在方法执行前后做什么事情。</p>
+<p>使用步骤：</p>
+<ol>
+<li>定义一个接口及其实现类；</li>
+<li>自定义 <code>InvocationHandler</code> 并重写<code>invoke</code>方法，在 <code>invoke</code> 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑；</li>
+<li>通过 <code>Proxy.newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</code> 方法创建代理对象；</li>
+</ol>
+<h4 id="CGLIB动态代理"><a href="#CGLIB动态代理" class="headerlink" title="CGLIB动态代理"></a>CGLIB动态代理</h4><p><strong>JDK 动态代理有一个最致命的问题是其只能代理实现了接口的类。</strong></p>
+<p><strong>为了解决这个问题，我们可以用 CGLIB 动态代理机制来避免。</strong></p>
+<p><strong>在 CGLIB 动态代理机制中 <code>MethodInterceptor</code> 接口和 <code>Enhancer</code> 类是核心。</strong></p>
+<p>自定义MethodInterceptor，并重写Enhancer</p>
+<pre><code class="JAVA">public interface MethodInterceptor
+extends Callback&#123;
+    // 拦截被代理类中的方法
+    public Object intercept(Object obj, java.lang.reflect.Method method, Object[] args,MethodProxy proxy) throws Throwable;
+&#125;
+
+</code></pre>
+<ol>
+<li><strong>obj</strong> : 动态生成的代理对象</li>
+<li><strong>method</strong> : 被拦截的方法（需要增强的方法）</li>
+<li><strong>args</strong> : 方法入参</li>
+<li><strong>proxy</strong> : 用于调用原始方法</li>
+</ol>
+<p>你可以通过 <code>Enhancer</code>类来动态获取被代理类，当代理类调用方法的时候，实际调用的是 <code>MethodInterceptor</code> 中的 <code>intercept</code> 方法</p>
+<p>使用步骤：</p>
+<ol>
+<li>定义一个类；</li>
+<li>自定义 <code>MethodInterceptor</code> 并重写 <code>intercept</code> 方法，<code>intercept</code> 用于拦截增强被代理类的方法，和 JDK 动态代理中的 <code>invoke</code> 方法类似；</li>
+<li>通过 <code>Enhancer</code> 类的 <code>create()</code>创建代理类</li>
+</ol>
+<h3 id="JDK动态代理与CGLIB动态代理的对比"><a href="#JDK动态代理与CGLIB动态代理的对比" class="headerlink" title="JDK动态代理与CGLIB动态代理的对比"></a>JDK动态代理与CGLIB动态代理的对比</h3><ul>
+<li><strong>DK 动态代理只能代理实现了接口的类或者直接代理接口，而 CGLIB 可以代理未实现任何接口的类。</strong></li>
+<li>CGLIB是通过生成被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为 final 类型的类和方法</li>
+<li>就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK 版本的升级，这个优势更加明显。</li>
+</ul>
+<h3 id="静态代理与动态代理"><a href="#静态代理与动态代理" class="headerlink" title="静态代理与动态代理"></a>静态代理与动态代理</h3><ol>
+<li><strong>灵活性</strong> ：动态代理更加灵活，不需要必须实现接口，可以直接代理实现类，并且可以不需要针对每个目标类都创建一个代理类。另外，静态代理中，接口一旦新增加方法，目标对象和代理对象都要进行修改，这是非常麻烦的！</li>
+<li><strong>JVM 层面</strong> ：静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class 文件。而动态代理是在运行时动态生成类字节码，并加载到 JVM 中的</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

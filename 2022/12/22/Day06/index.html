@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day06 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day06</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="String值的比较"><a href="#String值的比较" class="headerlink" title="String值的比较"></a>String值的比较</h2><p>String 等值比较的是地址，由于String写了equals方法所以equals比较的是字符串的内容</p>
+<p>String的底层源码equals会判断比较的是否为String类型如果不是就直接返回false</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207312027040.png" alt="image-20220731202722878" style="zoom:50%;" />
+
+<p>选B 看到byte关键字应当知道这是一道Java试题。首先回顾一下，在Java中，byte类型的变量是八位带符号（注意这点）的二进制整数，它的可表示范围为[-128, 127]。题中这条语句的功能是声明一个byte类型的变量b，并将其初始化。</p>
+<p>显然，整数129并不在它的可表示范围中，但注意数字前面有一个(byte)，其作用是<strong>强制类型转换</strong>，表示将整数129强制转换为byte类型的数据。</p>
+<p>考察的是数据类型转换。<br>129 int类型（4个字节）二进制： 00000000 00000000 00000000 10000001<br>在计算机系统中，数值一律用补码来表示（存储），正数的补码和源码相同。<br>int -&gt; byte(1个字节),截取： 10000001<br>补码转反码：1开始则为负数，负数得到反码是末位-1： 10000000<br>负数的反码转原码（最高位即符号位不变）：11111111<br>转换为十进制：-（27-1）&#x3D;-127</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207312053599.png" alt="image-20220731205333513" style="zoom:50%;" />
+
+<p>表达式的数据类型自动提升, 关于类型的自动提升，注意下面的规则。</p>
+<ol>
+<li><p>所有的byte,short,char型的值将被提升为int型；</p>
+</li>
+<li><p>如果有一个操作数是long型，计算结果是long型；</p>
+</li>
+<li><p>如果有一个操作数是float型，计算结果是float型；</p>
+</li>
+<li><p>如果有一个操作数是double型，计算结果是double型；<br>而声明为final的变量会被JVM优化，第3行相当于 b6 &#x3D; 10</p>
+<p>没有final修饰的变量相加后会被自动提升为int型，与目标类型byte不相容，需要强制转换（向下转型）。</p>
+</li>
+</ol>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p>在使用匿名内部类的过程中，我们需要注意如下几点：</p>
+<p>   1、使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口。</p>
+<p>   2、匿名内部类中是不能定义构造函数的（没有名字）。</p>
+<p>   3、匿名内部类中不能存在任何的静态成员变量和静态方法。</p>
+<p>   4、匿名内部类为局部内部类，所以局部内部类的所有限制同样对匿名内部类生效。</p>
+<p>   5、匿名内部类不能是抽象的，它必须要实现继承的类或者实现的接口的所有抽象方法</p>
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><p>Java集合框架主要有Collection和Map两个根接口及其子接口、实现类组成。</p>
+<p>Collection子接口包括List，Set，Queue。Map包括三个实现类，HashMap,HashTable,LinkeHashMap</p>
+<h2 id="final-finally-finalize"><a href="#final-finally-finalize" class="headerlink" title="final,finally,finalize"></a>final,finally,finalize</h2><ul>
+<li>final 可以用来修饰类，方法，变量</li>
+<li>finally是Java保证重点代码一定被执行的一种机制</li>
+<li>finalize()方法是Object类中提供的一个方法，在GC准备释放对象所占用的内存空间之前，它将首先调用finalize()方法。</li>
+</ul>
+<h2 id="可变长参数"><a href="#可变长参数" class="headerlink" title="可变长参数"></a>可变长参数</h2><p>即允许在调用方法是传入不定长度的参数，但不定长参数只能放在参数列表的最后一位</p>
+<pre><code class="java">public static void method2(String arg1, String... args) &#123;
+   //......
+&#125;
+</code></pre>
+<p>在遇到方法重载是会优先匹配固定参数的方法</p>
+<p>Java的可变长参数被编译后会被转换成一个数组</p>
+<pre><code class="java">public class VariableLengthArgument &#123;
+
+    public static void printVariable(String... args) &#123;
+        String[] var1 = args;
+        int var2 = args.length;
+
+        for(int var3 = 0; var3 &lt; var2; ++var3) &#123;
+            String s = var1[var3];
+            System.out.println(s);
+        &#125;
+
+    &#125;
+    // ......
+&#125;
+</code></pre>
+<h2 id="基本类型和包装类型的区别"><a href="#基本类型和包装类型的区别" class="headerlink" title="基本类型和包装类型的区别"></a>基本类型和包装类型的区别</h2><ul>
+<li>成员变量包装类型不赋值就为null，而基本数据类型有默认值且不为null</li>
+<li>包装类可以用于泛型，基本数据类型不能</li>
+<li>基本数据类型的局部变量存放在虚拟机栈中的局部变量表中，基本数据类型的成员变量（非static）存放在堆中，static修饰的存放在方法区中，包装类型属于对象，放在堆中，几乎所有的对象实例都存放在堆中</li>
+<li>相比于对象类型，基本数据类型占用的空间更小</li>
+</ul>
+<p><strong>为什么说是几乎所有对象实例呢？</strong> 这是因为 HotSpot 虚拟机引入了 JIT 优化之后，会对对象进行逃逸分析，如果发现某一个对象并没有逃逸到方法外部，那么就可能通过标量替换来实现栈上分配，而避免堆上分配内存</p>
+<h2 id="包装类型的缓存机制"><a href="#包装类型的缓存机制" class="headerlink" title="包装类型的缓存机制"></a>包装类型的缓存机制</h2><p>基本数据类型的包装类基本上都使用了缓存机制来提升性能（除了float和double）</p>
+<p><code>Byte</code>,<code>Short</code>,<code>Integer</code>,<code>Long</code> 这 4 种包装类默认创建了数值 <strong>[-128，127]</strong> 的相应类型的缓存数据，<code>Character</code> 创建了数值在 <strong>[0,127]</strong> 范围的缓存数据，<code>Boolean</code> 直接返回 <code>True</code> or <code>False</code>。</p>
+<pre><code class="java">Integer i1 = 40;
+Integer i2 = new Integer(40);
+System.out.println(i1==i2);
+</code></pre>
+<p>这段代码会输出false，i1自动装箱且没超过缓存的值直接从缓存中取得40，而i2会直接创建新对象所以等值比较会返回false</p>
+<p><strong>所以注意，所有的包装类之间值的比较全部使用equals比较，记得重写！</strong></p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h2><ul>
+<li>装箱：将基本数据类型用它们对应的引用类型包装起来</li>
+<li>拆箱：将包装类型转换成基本数据类型</li>
+</ul>
+<pre><code class="java">Integer i = 10;  //装箱
+int n = i;   //拆箱
+</code></pre>
+<p>对应的字节码为：</p>
+<pre><code class="java">   L1
+
+    LINENUMBER 8 L1
+
+    ALOAD 0
+
+    BIPUSH 10
+
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+
+    PUTFIELD AutoBoxTest.i : Ljava/lang/Integer;
+
+   L2
+
+    LINENUMBER 9 L2
+
+    ALOAD 0
+
+    ALOAD 0
+
+    GETFIELD AutoBoxTest.i : Ljava/lang/Integer;
+
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+
+    PUTFIELD AutoBoxTest.n : I
+
+    RETURN
+</code></pre>
+<p>可以看到装箱用到了包装类的ValueOf()方法，拆箱就是xxxValue()方法</p>
+<ul>
+<li><code>Integer i = 10</code> 等价于 <code>Integer i = Integer.valueOf(10)</code></li>
+<li><code>int n = i</code> 等价于 <code>int n = i.intValue()</code>;</li>
+</ul>
+<p>注意：<strong>如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。</strong></p>
+<h2 id="浮点数的精度丢失"><a href="#浮点数的精度丢失" class="headerlink" title="浮点数的精度丢失"></a>浮点数的精度丢失</h2><p>这个和计算机保存浮点数的机制有很大关系。我们知道计算机是二进制的，而且计算机在表示一个数字时，宽度是有限的，无限循环的小数存储在计算机时，只能被截断，所以就会导致小数精度发生损失的情况。这也就是解释了为什么浮点数没有办法用二进制精确表示。</p>
+<p><code>BigDecimal</code> 可以实现对浮点数的运算，不会造成精度丢失。通常情况下，大部分需要浮点数精确运算结果的业务场景（比如涉及到钱的场景）都是通过 <code>BigDecimal</code> 来做的。</p>
+<h2 id="超过-long-整型的数据应该如何表示？"><a href="#超过-long-整型的数据应该如何表示？" class="headerlink" title="超过 long 整型的数据应该如何表示？"></a>超过 long 整型的数据应该如何表示？</h2><p>基本数值类型都有一个表达范围，如果超过这个范围就会有数值溢出的风险。</p>
+<p>在 Java 中，64 位 long 整型是最大的整数类型。</p>
+<pre><code class="java">long l = Long.MAX_VALUE;
+System.out.println(l + 1); // -9223372036854775808
+System.out.println(l + 1 == Long.MIN_VALUE); // true
+</code></pre>
+<p><code>BigInteger</code> 内部使用 <code>int[]</code> 数组来存储任意大小的整形数据。</p>
+<p>相对于常规整数类型的运算来说，<code>BigInteger</code> 运算的效率会相对较低。</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

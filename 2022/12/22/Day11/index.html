@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day11 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day11</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>try语句块</p>
+<p>程序正常允许不产生异常，就不会执行catch中的代码</p>
+<p>return会先缓存起来，再执行finally语句块，再执行return</p>
+<p>先执行finally语句块的代码再执行try中的return语句</p>
+<ul>
+<li>LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。</li>
+<li>Nginx (“engine x”) 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP&#x2F;POP3&#x2F;SMTP 代理服务器。</li>
+<li>Lighttpd 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。</li>
+<li>Apache是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。</li>
+</ul>
+<p>接口中字段的修饰符：public,static,final</p>
+<p>接口 中方法的修饰符：public, abstract</p>
+<p>都是默认不写的</p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><ul>
+<li>子进程除了代码段是与父进程共享外，其他所有都是的到父进程的一个副本，子进程可以获得父进程的所有堆和栈的数据，但二者并不共享地址空间</li>
+<li>线程之间共享进程获得的数据资源，所以开销小，不有利于资源的管理和保护，而进程执行开销大，但能很好的进行资源管理和保护</li>
+<li>线程的通信速度更快，切换更快，因为他们共享同一进程的地址空间</li>
+<li>一个进程可以有多个线程，线程是进程的一个实体，是cpu调度的基本单位</li>
+</ul>
+<p>1、abstract类不能用来创建abstract类的对象；</p>
+<p>2、final类不能用来派生子类，因为用final修饰的类不能被继承；</p>
+<p>3、如2所述，final不能与abstract同时修饰一个类，abstract类就是被用来继承的；</p>
+<p>4、类中有abstract方法必须用abstract修饰，但abstract类中可以没有抽象方法，接口中也可以有abstract方法，其中就没有抽象方法。</p>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>再Java中所有的异常都有一个祖先，就是java.lang包下的Throwable</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208042132122.png" alt="types-of-exceptions-in-java"></p>
+<h3 id="Exception和Error的区别"><a href="#Exception和Error的区别" class="headerlink" title="Exception和Error的区别"></a>Exception和Error的区别</h3><ul>
+<li>Exception：程序本身可以处理的异常，分为受检查异常（必须处理）和不受检查异常（可以不处理）</li>
+<li>Error：程序本身无法处理的错误，不建议使用catch捕获，当发生这些异常时，一般虚拟机会选择线程终止</li>
+</ul>
+<h3 id="受检查异常与不受检查异常"><a href="#受检查异常与不受检查异常" class="headerlink" title="受检查异常与不受检查异常"></a>受检查异常与不受检查异常</h3><ul>
+<li>受检查异常：除了RuntimeException机器子类，其余所有的异常都属于受检查异常，如果不对其进行处理（catch或throws）会导致编译不通过</li>
+<li>不受检查异常，即使我们不处理不受检查异常也可以正常通过编译</li>
+</ul>
+<h2 id="Throwable类常用的方法"><a href="#Throwable类常用的方法" class="headerlink" title="Throwable类常用的方法"></a>Throwable类常用的方法</h2><p><code>getMessage()</code>获取异常简要信息</p>
+<p><code>toString()</code>返回异常发生时的详细信息</p>
+<p><code>getLocalizedMessage()</code> 返回对象的本地化信息，如果Throwable的子类覆盖了这个方法，则可以生成本地化信息，否则该方法和hetMessage()返回的结果相同</p>
+<p><code>void printStackTrace()</code>: 在控制台上打印 <code>Throwable</code> 对象封装的异常信息</p>
+<h2 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h2><ul>
+<li>try：用于捕获异常，其后可以接0哥或多个catch块，如果没有catch块，则气候必须接一个finally块</li>
+<li>catch：用于处理try捕获到的异常</li>
+<li>finally：无论是否捕获到异常finally块中的代码都会执行，当try块或catch块中有return语句时，finally块中的代码在return之前执行</li>
+</ul>
+<p><strong>注意：不要再finally块中使用return，这回导致try语句块中的return被覆盖</strong></p>
+<p><strong>finally语句块中的代码也不一定都会执行</strong></p>
+<ul>
+<li>finally之前虚拟机终止运行</li>
+<li>程序所在线程死亡</li>
+<li>关闭CPU</li>
+</ul>
+<h2 id="异常使用的注意"><a href="#异常使用的注意" class="headerlink" title="异常使用的注意"></a>异常使用的注意</h2><ul>
+<li>不要将异常定义为静态常量，这样会导致异常栈信息错乱，每次手动抛出异常，我们都需要手动 new 一个异常对象抛出。</li>
+<li>抛出的异常信息一定要有意义</li>
+<li>抛出的异常应该尽可能的具体</li>
+<li>日志打印异常和抛出异常二者留一个即可</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

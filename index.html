@@ -206,6 +206,2309 @@
     <a href="/myblog.github.io/2023/03/28/hello-world/" class="go-post">阅读全文</a>
 </div>
 
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day21/">
+        <h2 class="post-title">day21</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="请说出一次完整的-HTTP-请求所经历的7个步骤。"><a href="#请说出一次完整的-HTTP-请求所经历的7个步骤。" class="headerlink" title="请说出一次完整的 HTTP 请求所经历的7个步骤。"></a>请说出一次完整的 HTTP 请求所经历的7个步骤。</h2><ul>
+<li>建立TCP连接</li>
+<li>发送请求行</li>
+<li>发送请求头</li>
+<li>到达服务器，发送状态行</li>
+<li>发送响应头</li>
+<li>发送响应数据</li>
+<li>断开TCP连接</li>
+</ul>
+<h2 id="cookie与session"><a href="#cookie与session" class="headerlink" title="cookie与session"></a>cookie与session</h2><p>cookie存放在客户端安全性较差，session存放在服务端，安全性相对较高</p>
+<p>单个cookie保存的数据不能超过4K，一般浏览器对每个站点的cookie限制为20个，session无此项限制</p>
+<p>session一段时间内会保存在服务器上，当访问增多，会影响服务器性能，这时应当考虑使用cookie</p>
+<h2 id="请概述一下-HTTP-状态码分为哪几类？每一类分别是什么数字开头？"><a href="#请概述一下-HTTP-状态码分为哪几类？每一类分别是什么数字开头？" class="headerlink" title="请概述一下 HTTP 状态码分为哪几类？每一类分别是什么数字开头？"></a>请概述一下 HTTP 状态码分为哪几类？每一类分别是什么数字开头？</h2><p>HTTP 状态码通常分为五类，分别以 1～5 个数字开头，由三位整数组成。其中：1、1xx 表示请求已被接受，需接后续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束；2、2xx 表示请求已成功被服务器接收、理解并接受；3、3xx 表示要完成请求，需要进一步操作。通常这类状态代码用于重定向；4、4xx 表示请求可能出错，妨碍了服务器的处理；5、5xx 表示服务器尝试处理请求时出现内部错误。这些错误可能是服务器本身的错误，而不是请求出错</p>
+<h2 id="什么是线程池"><a href="#什么是线程池" class="headerlink" title="什么是线程池"></a>什么是线程池</h2><p>线程池，thread pool，是一种线程使用模式，线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。应用程序可以有多个线程，这些线程在休眠状态中需要耗费大量时间来等待事件发生。其他线程可能进入睡眠状态，并且仅定期被唤醒以轮循更改或更新状态信息，然后再次进入休眠状态。为了简化对这些线程的管理，.NET 框架为每个进程提供了一个线程池，一个线程池有若干个等待操作状态，当一个等待操作完成时，线程池中的辅助线程会执行回调函数。线程池中的线程由系统管理，程序员不需要费力于线程管理，可以集中精力处理应用程序任务。</p>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>由JDK提供的，提供了线程本地变量，如果你创建了一个ThreadLocal变量，那么每个访问此变量的线程都会创建一个相应的副本，当多线程对该变量进行操作时，实际上操作的是该线程相对应的副本，从而避免了线程安全问题。</p>
+<p>ThreadLocal底层实际上是一个ThreadLocalMap，而ThreadLocalMap 是一个定制化的Hashmap 。</p>
+<p>在默认情况下， 每个线程中的这两个变量都为null ，只有当前线程第一次调用ThreadLocal 的set 或者get 方法时才会创建它们。其实每个线程的本地变量不是存放在ThreadLocal 实例里面，而是存放在调用线程的threadLocals 变量里面。也就是说， ThreadLocal 类型的本地变量存放在具体的线程内存空间中。如果当前线程一直不消亡， 那么这些本地变量会一直存在， 所以可能会造成内存溢出， 因此使用完毕后要记得调用ThreadLocal 的remove 方法删除对应线程的threadLocals 中的本地变量。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day21/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day20/">
+        <h2 class="post-title">day20</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>MySQL相关知识</p>
+<h2 id="底层数据结构选型"><a href="#底层数据结构选型" class="headerlink" title="底层数据结构选型"></a><strong>底层数据结构选型</strong></h2><blockquote>
+<p>hash表</p>
+</blockquote>
+<p>根据哈希算法计算出key的地址，使用拉链法解决哈希碰撞</p>
+<p>单独查找一个数据时效率尚可，但范围查询会遍历所有数据并加载到内存中，没有效率可言</p>
+<blockquote>
+<p>二叉查找树</p>
+</blockquote>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050923984.jpeg" alt="图片" style="zoom:50%;" />
+
+<p>二叉查找树的时间复杂度是 O(lgn)，比如针对上面这个二叉树结构，我们需要计算比较 3 次就可以检索到 id&#x3D;7 的数据，相对于直接遍历查询省了一半的时间，从检索效率上看来是能做到高速检索的。范围查找类似，只需向一遍查找即可</p>
+<p>但其在极端情况下会退化成链表，而且在数据库中主键一般默认自增，就必然导致这种极端情况，所以不能直接用于MySQL底层数据结构</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050925319.jpeg" alt="图片" style="zoom:50%;" />
+
+<blockquote>
+<p>红黑树</p>
+</blockquote>
+<p>红黑树，这是一颗会自动调整树形态的树结构，比如当二叉树处于一个不平衡状态时，红黑树就会自动左旋右旋节点以及节点变色，调整树的形态，使其保持基本的平衡状态（时间复杂度为 O（logn）），也就保证了查找效率不会明显减低。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050928596.jpeg" alt="图片" style="zoom:50%;" />
+
+
+
+<p>但会出现类似于二叉查找树的效率变低的情况：“右倾”</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050930028.jpeg" alt="图片"></p>
+<blockquote>
+<p>AVL自平衡二叉树</p>
+</blockquote>
+<p>解决了红黑树效率下降的问题</p>
+<ol>
+<li>不错的查找性能（O（logn）），不存在极端的低效查找的情况。</li>
+<li>可以实现范围查找、数据排序。</li>
+</ol>
+<p>但AVL进行的磁盘IO次数较多且磁盘 IO 有个有个特点，就是从磁盘读取 1B 数据和 1KB 数据所消耗的时间是基本一样的，</p>
+<p>可以在每个树节点上多存储一些数据，这就是B树与B+树</p>
+<blockquote>
+<p>B树</p>
+</blockquote>
+<p>下面这个 B 树，每个节点限制最多存储两个 key，一个节点如果超过两个 key 就会自动分裂。比如下面这个存储了 7 个数据 B 树，只需要查询两个节点就可以知道 id&#x3D;7 这数据的具体位置，也就是两次磁盘 IO 就可以查询到指定数据，优于 AVL 树。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050939755.png" alt="图片" style="zoom:50%;" />
+
+<p>优化前：</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050940822.jpeg" alt="图片" style="zoom:50%;" />
+
+<p>和AVL一样4次IO</p>
+<p>优化后：每个节点存储6个key</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050941874.png" alt="图片" style="zoom:50%;" />
+
+
+
+<p>总的来说：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/j3gficicyOvav2NnHcnC0EYGibDyRm8CF1f324y0VFCaicDJ9iciaEgxLrGNQxubZ0mBzaggSGhet8Nlep86qiaHgcf6Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>只需两次IO即可</p>
+<ol>
+<li>优秀检索速度，时间复杂度：B 树的查找性能等于 O（h*logn），其中 h 为树高，n 为每个节点关键词的个数；</li>
+<li>尽可能少的磁盘 IO，加快了检索速度；</li>
+<li>可以支持范围查找。</li>
+</ol>
+<blockquote>
+<p>B+树</p>
+</blockquote>
+<p>第一，B 树一个节点里存的是数据，而 B+树存储的是索引（地址），所以 B 树里一个节点存不了很多个数据，但是 B+树一个节点能存很多索引，B+树叶子节点存所有的数据。</p>
+<p>第二，B+树的叶子节点是数据阶段用了一个链表串联起来，便于范围查找。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/j3gficicyOvav2NnHcnC0EYGibDyRm8CF1fkqlDXCR7FpW5DgIibY0EEmic0I8WJMyYh1zaSkjfm3BF0ZcNqjNFFmFA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>通过 B 树和 B+树的对比我们看出，B+树节点存储的是索引，在单个节点存储容量有限的情况下，单节点也能存储大量索引，使得整个 B+树高度降低，减少了磁盘 IO。其次，B+树的叶子节点是真正数据存储的地方，叶子节点用了链表连接起来，这个链表本身就是有序的，在数据范围查找时，更具备效率。因此 Mysql 的索引用的就是 B+树，B+树在查找效率、范围查找中都有着非常不错的性能。</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>要么都成功，要么都失败</p>
+<p>要么全部执行，要么一个都不执行</p>
+<pre><code class="sql"># 开启一个事务
+START TRANSACTION;
+# 多条 SQL 语句
+SQL1,SQL2...
+## 提交事务
+COMMIT;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202209050958266.png" alt="图片"></p>
+<p><strong>ACID特性</strong></p>
+<p>原子性（Atomicity）：事务是最小的执行单位，不允许分割，要么全成功，要么全失败</p>
+<p>一致性（Consistency）：即执行事务前后，数据保持一致，比如转账业务中，总金额 不会发生改变</p>
+<p>隔离性（Isolation）：并发访问数据库时，各个事务之间相互隔离，各并发事务之间数据库是独立的，互不干扰</p>
+<p>持久性（Durabilily）：事务一旦成功提交，对数据库的改变就是持久的，即使数据库发生故障也不应该对其有任何影响</p>
+<p>ADI是保证C的手段，C是事务的最终目的</p>
+<p><strong>并发事务的一些问题</strong></p>
+<ul>
+<li>脏读：一个事务修改了数据但还未提交时，另一个事务访问到了还未提交的数据</li>
+<li>丢失修改：两个事务同时对一个数据进行修改，因为两个事务读取的都是修改前的数据，所以会导致其中一个事务对数据的修改丢失</li>
+<li>不可重复读：指一个事务在对数据进行多次读取时，另一个事务对对数据进行修改，导致之前的事务对数据的读取情况不一致的情况</li>
+<li>幻读：指一个事务读取几行数据，接着另一个事务对数据进行插入或删除，导致第一个事务在随后的查询中发现一些原本不存在的数据</li>
+</ul>
+<p><strong>不可重复读和幻读区别</strong> ：不可重复读的重点是修改比如多次读取一条记录发现其中某些列的值被修改，幻读的重点在于新增或者删除比如多次查询同一条查询语句（DQL）时，记录发现记录增多或减少了。</p>
+<p><strong>事务隔离级别</strong></p>
+<p>SQL 标准定义了四个隔离级别：</p>
+<ul>
+<li><strong>READ-UNCOMMITTED(读取未提交)</strong> ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。</li>
+<li><strong>READ-COMMITTED(读取已提交)</strong> ：允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生。</li>
+<li><strong>REPEATABLE-READ(可重复读)</strong> ：对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</li>
+<li><strong>SERIALIZABLE(可串行化)</strong> ：最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。</li>
+</ul>
+<p>MySQL 的隔离级别基于锁和 MVCC 机制共同实现的。</p>
+<p>SERIALIZABLE 隔离级别，是通过锁来实现的。除了 SERIALIZABLE 隔离级别，其他的隔离级别都是基于 MVCC 实现。</p>
+<p>不过， SERIALIZABLE 之外的其他隔离级别可能也需要用到锁机制，就比如 REPEATABLE-READ 在当前读情况下需要使用加锁读来保证不会出现幻读</p>
+<p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 <strong>REPEATABLE-READ（可重读）</strong>。我们可以通过<code>SELECT @@tx_isolation;</code>命令来查看，MySQL 8.0 该命令改为<code>SELECT @@transaction_isolation;</code></p>
+<p><strong>InnoDB 实现的 REPEATABLE-READ 隔离级别其实是可以解决幻读问题发生的，主要有下面两种情况：</strong></p>
+<ul>
+<li><strong>快照读</strong> ：由 MVCC 机制来保证不出现幻读。</li>
+<li><strong>当前读</strong> ：使用 Next-Key Lock 进行加锁来保证不出现幻读，Next-Key Lock 是行锁（Record Lock）和间隙锁（Gap Lock）的结合，行锁只能锁住已经存在的行，为了避免插入新行，需要依赖间隙锁。</li>
+</ul>
+<p><strong>InnoDB 存储引擎在分布式事务的情况下一般会用到 SERIALIZABLE 隔离级别。</strong></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day20/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day19/">
+        <h2 class="post-title">day19</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>线程池使用了池化技术，将线程存放在 一个容器中，来了任务可以利用已有的空闲线程进行处理，处理完之后，归还到容器中，实现线程的复用，线程不够时可以动态的增加线程，多余线程空闲时亦可杀死线程</p>
+<h3 id="线程池的优点"><a href="#线程池的优点" class="headerlink" title="线程池的优点"></a>线程池的优点</h3><ul>
+<li>降低资源消耗：线程复用，降低线程创建和销毁的损耗</li>
+<li>提高响应速度：复用线程，省去了创建线程的时间</li>
+<li>使得线程可控：线程使稀缺资源，不能无限创建，线程池额能统一分配和监控线程</li>
+<li>拓展其他功能：比如定时线程池，能够定时执行任务</li>
+</ul>
+<h3 id="三大方法"><a href="#三大方法" class="headerlink" title="三大方法"></a>三大方法</h3><ul>
+<li>​		<strong>ExecutorService threadPool &#x3D; Executors.newSingleThreadExecutor();&#x2F;&#x2F; 单个线程</strong></li>
+<li>​        <strong>ExecutorService threadPool &#x3D; Executors.newFixedThreadPool(5); &#x2F;&#x2F; 创建一个固定的线程池的大小</strong></li>
+<li>​        <strong>ExecutorService threadPool &#x3D; Executors.newCachedThreadPool(); &#x2F;&#x2F; 可伸缩的，遇强则强，遇弱则弱</strong></li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231421007.png" alt="image-20220723142106296"></p>
+<pre><code class="java">import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+// Executors 工具类、3大方法
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();// 单个线程
+        // ExecutorService threadPool = Executors.newFixedThreadPool(5); // 创建一个固定的线程池的大小
+        // ExecutorService threadPool = Executors.newCachedThreadPool(); // 可伸缩的，遇强则强，遇弱则弱
+        try &#123;
+                for (int i = 0; i &lt; 100; i++) &#123;
+                // 使用了线程池之后，使用线程池来创建线程
+                    threadPool.execute(()-&gt;&#123;
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                    &#125;);
+                &#125;
+            &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            &#125; finally &#123;
+            // 线程池用完，程序结束，关闭线程池
+            threadPool.shutdown();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="七大参数"><a href="#七大参数" class="headerlink" title="七大参数"></a>七大参数</h3><p>源码分析</p>
+<pre><code class="java">public ThreadPoolExecutor(int corePoolSize,//核心线程池大小
+                              int maximumPoolSize,//最大核心线程池大小
+                              long keepAliveTime,//超时等待时间
+                              TimeUnit unit,//超时的时间单位
+                              BlockingQueue&lt;Runnable&gt; workQueue,//阻塞队列
+                              ThreadFactory threadFactory,//线程工厂，创建线程，一般不用动
+                              RejectedExecutionHandler handler) &#123;//拒绝策略
+        if (corePoolSize &lt; 0 ||
+            maximumPoolSize &lt;= 0 ||
+            maximumPoolSize &lt; corePoolSize ||
+            keepAliveTime &lt; 0)
+            throw new IllegalArgumentException();
+        if (workQueue == null || threadFactory == null || handler == null)
+            throw new NullPointerException();
+        this.acc = System.getSecurityManager() == null ?
+                null :
+                AccessController.getContext();
+        this.corePoolSize = corePoolSize;
+        this.maximumPoolSize = maximumPoolSize;
+        this.workQueue = workQueue;
+        this.keepAliveTime = unit.toNanos(keepAliveTime);
+        this.threadFactory = threadFactory;
+        this.handler = handler;
+    &#125;
+</code></pre>
+<h3 id="四种拒绝策略"><a href="#四种拒绝策略" class="headerlink" title="四种拒绝策略"></a>四种拒绝策略</h3><p>AbortPolicy（默认）：直接抛出 RejectedExecutionException异常阻止系统正常运知。<br>CallerRunsPolicy：”调用者运行”一种调节机制，该策略既不会抛弃任务，也不会抛出异常，而是将某些任务回退到调用者，从而降低新任务的流量。<br>DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入队列中尝试再次提交当前任务。<br>DiscardPolicy：直接丢弃任务，不予任何处理也不抛出异常。如果允许任务丢失，这是最好的一种方案</p>
+<ul>
+<li>new ThreadPoolExecutor.AbortPolicy() &#x2F;&#x2F; 银行满了，还有人进来，不处理这个人的，抛出异常</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231444934.png" alt="image-20220723144435888"></li>
+<li>new ThreadPoolExecutor.CallerRunsPolicy() &#x2F;&#x2F; 哪来的去哪里！(如下图所示)</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231441679.png" alt="image-20220723144139643"></li>
+<li>new ThreadPoolExecutor.DiscardPolicy() &#x2F;&#x2F;队列满了，丢掉任务，不会抛出异常！</li>
+<li><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231445988.png" alt="image-20220723144517942"></li>
+<li>new ThreadPoolExecutor.DiscardOldestPolicy() &#x2F;&#x2F;队列满了，尝试去和最早的竞争，也不会抛出异常！</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207231435823.png" alt="image-20220723143529754">	</p>
+<pre><code class="java">
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
+
+// Executors 工具类、3大方法
+
+/**
+ * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异常
+ * new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里！
+ * new ThreadPoolExecutor.DiscardPolicy() //队列满了，丢掉任务，不会抛出异常！
+ * new ThreadPoolExecutor.DiscardOldestPolicy() //队列满了，尝试去和最早的竞争，也不会抛出异常！
+ */
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+        // 自定义线程池！工作 ThreadPoolExecutor
+
+        // 最大线程到底该如何定义
+        // 1、CPU 密集型，几核，就是几，可以保持CPu的效率最高！
+        // 2、IO  密集型   &gt; 判断你程序中十分耗IO的线程，
+        // 程序   15个大型任务  io十分占用资源！线程池&gt;15
+
+        // 获取CPU的核数
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        List  list = new ArrayList();
+
+        ExecutorService threadPool = new ThreadPoolExecutor(
+                2,
+                5,
+                3,
+                TimeUnit.SECONDS,
+                new LinkedBlockingDeque&lt;&gt;(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardOldestPolicy());  //队列满了，尝试去和最早的竞争，也不会抛出异常！
+        try &#123;
+            // 最大承载：Deque + max
+            // 超过 RejectedExecutionException
+            for (int i = 1; i &lt;= 9; i++) &#123;
+                // 使用了线程池之后，使用线程池来创建线程
+                threadPool.execute(()-&gt;&#123;
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                &#125;);
+            &#125;
+
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            // 线程池用完，程序结束，关闭线程池
+            threadPool.shutdown();
+        &#125;
+
+    &#125;
+&#125;
+
+</code></pre>
+<h2 id="Java并发"><a href="#Java并发" class="headerlink" title="Java并发"></a>Java并发</h2><h3 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h3><p><strong>进程</strong></p>
+<p>进程是程序运行的一次过程，是系统运行程序的基本单位，进程是动态的，系统运行一个程序就是一个进程的创建，运行和销毁的过程</p>
+<p>在Java中，，启动main函数实际上就是在JVM中创建一个进程，main所在的线程称为这个进程的主线程</p>
+<p><strong>线程</strong></p>
+<p>一个进程的执行过程中可以产生多个线程，与进程不同的是，同一个进程的多个线程可以共享堆和方法区中的资源，但每个线程有自己的<strong>程序计数器</strong>，<strong>虚拟机栈和本地方法栈</strong>，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208290947688.png" alt="Java 运行时数据区域（JDK1.8 之后）"></p>
+<p>从上图可以看出：一个进程中可以有多个线程，多个线程共享进程的<strong>堆</strong>和<strong>方法区 (JDK1.8 之后的元空间)**资源，但是每个线程有自己的**程序计数器**、</strong>虚拟机栈** 和 <strong>本地方法栈</strong>。</p>
+<p><strong>总结：</strong> <strong>线程是进程划分成的更小的运行单位。线程和进程最大的不同在于基本上各进程是独立的，而各线程则不一定，因为同一进程中的线程极有可能会相互影响。线程执行开销小，但不利于资源的管理和保护；而进程正相反。</strong></p>
+<p>程序计数器私有主要是为了<strong>线程切换后能恢复到正确的执行位置</strong>。</p>
+<p>为了<strong>保证线程中的局部变量不被别的线程访问到</strong>，虚拟机栈和本地方法栈是线程私有的。</p>
+<h3 id="ReentrantLock的相关面试题"><a href="#ReentrantLock的相关面试题" class="headerlink" title="ReentrantLock的相关面试题"></a>ReentrantLock的相关面试题</h3><p><strong>1）ReentrantLock是如何实现可重入的？</strong><br>不管是公平锁还是非公平锁，在获取锁时调用的tryAcquire()方法，获取成功后会setExclusiveOwnerThread(current)。将本线程设置为主人，之后每次调用tryAcquire()时，发现当前线程就是主人，直接返回true。</p>
+<p><strong>2）简述公平锁与非公平锁的区别？</strong><br>从定义角度：<br>获取锁的顺序与请求锁的时间顺序一致就是公平锁，反之则为非公平锁。公平锁每次都是从同步队列中的第一个节点获取到锁，而非公平性锁则不一定，有可能刚释放锁的线程能再次获取到锁。<br>公平锁为了保证时间上的绝对顺序，需要频繁的上下文切换，而非公平锁会降低一定的上下文切换，降低性能开销。因此，ReentrantLock默认选择的是非公平锁，则是为了减少一部分上下文切换，保证了系统更大的吞吐量。<br>从源码角度：<br>当锁资源已经被占用时，请求每次有请求到达，就在等待队列中排队。此时如果锁资源被释放了，刚好新来一个线程，若是非公平锁则会直接CAS获取锁，成功则返回，不成功则加入到等待队列自旋获取，自旋过程中当前驱是队头，并且tryAcquire成功时则获取成功。<br>若是公平锁，则当前线程必须等待，锁必须给等待队列第一个线程，如果第一个线程被阻塞了，唤醒也是需要时间的，醒了才能拿锁。</p>
+<p><strong>3）AQS中有哪些资源访问模式？区别？</strong><br>独占模式和共享模式。<br>只有一个线程能持有这个锁就是独占模式，由Node节点中的nextWait来标识。<br>ReentrantLock就是一个独占锁；而WriteAndReadLock的读锁则能由多个线程同时获取，但它的写锁则只能由一个线程持有，因此它使用了两种模式。</p>
+<p><strong>4）为什么ReentrantLock.lock()方法不能被其他线程中断？</strong><br>因为当前线程前面可能还有等待线程，在AQS.acquireQueued()的循环里，线程会再次被阻塞。parkAndCheckInterrupt()返回的是Thread.interrupted()，不仅返回中断状态，还会清除中断状态，保证阻塞线程忽略中断。</p>
+<h2 id="手写单例模式"><a href="#手写单例模式" class="headerlink" title="手写单例模式"></a>手写单例模式</h2><pre><code class="java">package com.kuang.Singleton;
+
+/**
+ * @description:饿汉式单例,线程访问单例之前就已经创建好了，线程每次都只能拿到这个唯一的对象，所以是线程安全的
+ * @author:gong
+ * @create: 29/8/2022 下午5:06
+ */
+public class Hunger &#123;
+    private Hunger()&#123;&#125;
+    private static Hunger instance = new Hunger();
+    public static Hunger getInstance()&#123;
+        return instance;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>双检锁&#x2F;双重校验锁（DCL，即 double-checked locking）线程安全，效率高,</strong></p>
+<pre><code class="java">package com.kuang.Singleton;
+
+/**
+ * @description:懒汉式单例，加锁后安全
+ * @author:gong
+ * @create: 29/8/2022 下午5:09
+ */
+public class Lazy &#123;
+    private Lazy()&#123;&#125;
+    private static volatile Lazy instance = null;
+    /**
+     * 线程不安全
+     * */
+//    public static Lazy getInstance()&#123;
+//        if (instance==null)&#123;
+//            instance = new Lazy();
+//        &#125;
+//        return instance;
+//    &#125;
+    /**
+     * 加锁，线程安全但使用 synchronized效率低，每次使用都需要加锁
+     * */
+//    public static synchronized Lazy getInstance()&#123;
+//        if (instance==null)&#123;
+//            instance = new Lazy();
+//        &#125;
+//        return instance;
+//    &#125;
+    /**
+     *双检锁/双重校验锁（DCL，即 double-checked locking）线程安全，效率高,
+     * 此处的instance需要加上volatile：防止指令重排导致的一些错误
+     * 二次判断的原因：在多线程的情况下，A线程获取锁后创建对象，释放锁，
+     * B线程在等待A释放后后也获取到锁，如果不判断的话会导致单例对象的二次创建
+     * */
+    public static Lazy getInstance()&#123;
+        if (instance==null)&#123;
+            synchronized (Lazy.class)&#123;
+                if (instance==null)&#123;
+                    instance = new Lazy();
+                &#125;
+            &#125;
+        &#125;
+        return instance;
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h2><ul>
+<li>HTTP默认端口80，HTTPS默认端口443</li>
+<li>URL前缀不一样：HTTP前缀为http:&#x2F;&#x2F;，HTTPS为https:&#x2F;&#x2F;</li>
+<li>安全性和资源消耗不一样：HTTP的安全性没有HTTPS高，HTTPS比HTTP耗费更多服务器资源<ul>
+<li>HTTP协议属于运行在TCP协议上 的明文传输，客户端和服务端都无法验证其身份</li>
+<li>HTTPS协议运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP上，传输的内容经过加密处理，加密采用对称加密，但对称加密的密钥使用服务端的证书进行了非对称加密</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTPS的加密过程"><a href="#HTTPS的加密过程" class="headerlink" title="HTTPS的加密过程"></a>HTTPS的加密过程</h3><h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><p>SSL&#x2F;TLS 的核心要素是<strong>非对称加密</strong>。非对称加密采用两个密钥——一个公钥，一个私钥。在通信时，私钥仅由解密者保存，公钥由任何一个想与解密者通信的发送者（加密者）</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291518731.png" alt="img" style="zoom:80%;" />
+
+<h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><p>使用 SSL&#x2F;TLS 进行通信的双方需要使用非对称加密方案来通信，但是非对称加密设计了较为复杂的数学算法，在实际通信过程中，计算的代价较高，效率太低，因此，SSL&#x2F;TLS 实际对消息的加密使用的是对称加密</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291519414.png" alt="img"></p>
+<p>但以上两种加密方法在传输公钥是可能会出现以下情况</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208291521043.png" alt="img"></p>
+<p>导致用户数据泄露，所以为了解决公钥的传输问题，证书颁发机构（CA）应运而生</p>
+<p>带有证书的公钥传输机制如下：</p>
+<ol>
+<li>设有服务器 S，客户端 C，和第三方信赖机构 CA。</li>
+<li>S 信任 CA，CA 是知道 S 公钥的，CA 向 S 颁发证书。并附上 CA 私钥对消息摘要的加密签名。</li>
+<li>S 获得 CA 颁发的证书，将该证书传递给 C。</li>
+<li>C 获得 S 的证书，信任 CA 并知晓 CA 公钥，使用 CA 公钥对 S 证书上的签名解密，同时对消息进行散列处理，得到摘要。比较摘要，验证 S 证书的真实性。</li>
+<li>如果 C 验证 S 证书是真实的，则信任 S 的公钥（在 S 证书中）。</li>
+</ol>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p><strong>缓存穿透</strong></p>
+<p>指查询数据库中不存在的数据，因为这个数据不存在所以一定不会被缓存，所以每次都会去请求数据库</p>
+<p>解决方案</p>
+<blockquote>
+<p>缓存空结果</p>
+</blockquote>
+<p>如果系统发现 Redis 及 DB 中都不存在该资源，就缓存空结果一段时间。需要注意哈，这次的失效时间不能设置的太长，否则数据的实效性会产生很大的问题。</p>
+<blockquote>
+<p>用户合法性检验</p>
+</blockquote>
+<p>对用户请求的合法性进行检验，拦截恶意重复请求</p>
+<blockquote>
+<p>布隆过滤器</p>
+</blockquote>
+<p>暂不了解</p>
+<p><strong>缓存击穿</strong></p>
+<p>热点数据失效的瞬间产生大量的请求，从而产生大量的数据库请求，导致数据库崩溃</p>
+<p>解决方案</p>
+<blockquote>
+<p>热点数据永不过期</p>
+</blockquote>
+<p>比如：将某个key的过期时间设置为25小时，每隔24小时刷新一次热点 数据</p>
+<blockquote>
+<p>使用互斥锁</p>
+</blockquote>
+<p>但容易影响吞吐量</p>
+<p><strong>缓存雪崩</strong></p>
+<p>是指在我们设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部转发到数据库，最终导致数据库瞬时压力过大而崩溃。</p>
+<p>解决方案</p>
+<blockquote>
+<p>redis失效时间上加上随机数</p>
+</blockquote>
+<p>Redis 失效时间加上随机数，是一种比较取巧的解决方案。在一定程度上减轻了 DB 的瞬时压力，但是这种方案也在一定程度上增加了维护的成本。</p>
+<blockquote>
+<p>设置数据永不过期</p>
+</blockquote>
+<ul>
+<li>缓存穿透—穿过（绕过） Redis 和 DB 来搞你</li>
+<li>缓存击穿—定点打击来搞你</li>
+<li>缓存雪崩—多个热点 key 在某一个时刻同时失效</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day19/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day18/">
+        <h2 class="post-title">day18</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><h2 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h2><ul>
+<li><p>是一种基于token的认证授权机制</p>
+</li>
+<li><p>是一种规范化后的JSON结构的token </p>
+</li>
+<li><p>是目前最流行的跨域认证解决方案</p>
+</li>
+</ul>
+<p>token包含了身份验证所需的所有信息，因此服务端就不需要存储Session信息，符合RESTFUL的<strong>无状态原则</strong></p>
+<blockquote>
+<p>无状态原则：</p>
+<ul>
+<li>每个web请求之间是独立的</li>
+<li>客户端发送的请求必须包含能够让服务器理解的全部信息，包含请求的状态信息</li>
+<li>使得一个客户端的web请求能够被所有可用的服务端应答</li>
+</ul>
+<p>优点：让RESTful在分布式系统中得到了广泛的应用，它改善了分布式系统的可见性、可靠性以及可伸缩性，同时有效的降低了Client与Server之间的交互延迟。无状态的请求有利于实现负载均衡以及容错处理</p>
+</blockquote>
+<p>JWT由三部分组成</p>
+<ul>
+<li>Header<ul>
+<li>Type:令牌类型</li>
+<li>Algorithm:签名算法</li>
+<li>进行Base64编码,成为JWT的第一部分</li>
+</ul>
+</li>
+<li>Payload<ul>
+<li>存放Claims,包含JWT的相关信息</li>
+<li>默认不加密,所以不能存放隐私信息</li>
+<li>进行Base64编码,成为JWT的第二部分</li>
+</ul>
+</li>
+<li>Signature <ul>
+<li>对前两部分的签名,防止token被篡改</li>
+<li>Header+Payload+服务端的密钥 &#x3D; Signature</li>
+</ul>
+</li>
+</ul>
+<p>最后的出JWT是一串以<code>  .</code> 分割为三部分的字符串</p>
+<h2 id="如何基于JWT实现身份验证"><a href="#如何基于JWT实现身份验证" class="headerlink" title="如何基于JWT实现身份验证"></a>如何基于JWT实现身份验证</h2><p>服务端通过Header,Payload和密钥创建token,并将 token发送给客户端,客户端将token存放在本地(Cookie或localStorage),之后 用户每次请求都将携token</p>
+<p>具体实现流程</p>
+<ul>
+<li>用户向服务端发送用户名,密码,验证码等信息用于登录系统</li>
+<li>如果账号密码正确,服务端基于Header,Payload和密钥创建token并返回 给客户端</li>
+<li>客户端接收token并存放到本地,并且在每次请求时都在Header中携带这个token</li>
+<li>服务端检查token并从中获取用户信息</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208281625918.png" alt="图片"></p>
+<ol>
+<li>建议将 <code>Token</code> 存放在 localStorage 中，放在 Cookie 中会有 CSRF 风险。</li>
+<li>请求服务端并携带 Token 的常见做法是将 <code>Token</code> 放在 HTTP Header 的 <code>Authorization</code> 字段中（<code>Authorization: Bearer Token</code>）</li>
+</ol>
+<h2 id="如何防止token被篡改"><a href="#如何防止token被篡改" class="headerlink" title="如何防止token被篡改"></a>如何防止token被篡改</h2><p>服务端拿到token后或解析出Header、Payload 以及 Signature ,然后根据Header、Payload 重新生成一个Signature 与token中的Signature 进行比对,如果一样则表示token没有被修改.</p>
+<p><strong>注意:前是在服务端的密钥没被泄露的前提下</strong></p>
+<h2 id="如何加强JWT的安全性"><a href="#如何加强JWT的安全性" class="headerlink" title="如何加强JWT的安全性"></a>如何加强JWT的安全性</h2><ol>
+<li>使用安全系数高的加密算法。</li>
+<li>使用成熟的开源库，没必要造轮子。</li>
+<li>Token 存放在 localStorage 中而不是 Cookie 中，避免 CSRF 风险。</li>
+<li>一定不要将隐私信息存放在 Payload 当中。</li>
+<li>密钥一定保管好，一定不要泄露出去。JWT 安全的核心在于签名，签名安全的核心在密钥。</li>
+<li>Payload 要加入 <code>exp</code> （JWT 的过期时间），永久有效的 JWT 不合理。并且，JWT 的过期时间不易过长</li>
+</ol>
+<h1 id="HTTP协议1-x版本和HTTP协议2-x版本的区别是什么？"><a href="#HTTP协议1-x版本和HTTP协议2-x版本的区别是什么？" class="headerlink" title="HTTP协议1.x版本和HTTP协议2.x版本的区别是什么？"></a>HTTP协议1.x版本和HTTP协议2.x版本的区别是什么？</h1><p>HTTP1.x和HTTP2.0主要的区别主要HTTP2.0使用了二进制的数据传输方式、多路复用机制、头部缓存和服务器推送特点,</p>
+<p>具体而言:</p>
+<ul>
+<li>二进制格式（Binary Format）：HTTP1.x的解析是基于文本，但是基于文本协议的格式解析存在天然缺陷。文本的表现形式应该具有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。 </li>
+<li>多路复用（MultiPlexing）：连接共享，每一个请求都是是用作连接共享机制的。一个请求对应一个id，这样一个连接上可以有多个请求，每个连接的请求可以随机的混杂在一起，接收方可以根据请求的 id将请求再归属到各自不同的服务端请求里面。 </li>
+<li>头部压缩：HTTP1.x的头部带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的头部大小，通讯双方各自缓存一份头部表，既避免了重复头部的传输，又减小了需要传输的大小。 </li>
+<li>服务端推送（server push）：如果请求了index.html文件，服务器端会主动将它的依赖文件一起返回。</li>
+</ul>
+<h1 id="说一说HashMap的扩容机制"><a href="#说一说HashMap的扩容机制" class="headerlink" title="说一说HashMap的扩容机制"></a>说一说HashMap的扩容机制</h1><p>向HashMap中添加数据时,在以下三种情况中会发生扩容</p>
+<ul>
+<li><p>数组为空时,会触发首次扩容</p>
+</li>
+<li><p>将元素接入链表后,链表长度为8且数组长度小于64</p>
+</li>
+<li><p>添加数据后,数组元素超过阈值(阈值&#x3D; 容量 x 负载因子(0.75)),即比例超过0.75,则扩容</p>
+</li>
+</ul>
+<p>每次扩容是将原容量翻倍,然后再将旧数组中的数组迁移到新数组里。由于HashMap中数组的容量为2^N，所以可以用位移运算计算新容量，效率很高。</p>
+<h1 id="内存溢出问题该如何解决"><a href="#内存溢出问题该如何解决" class="headerlink" title="内存溢出问题该如何解决"></a>内存溢出问题该如何解决</h1><ul>
+<li>调整JVM启动参数,为其分配更多的内存</li>
+<li>检查错误日志,查看OOM错误前是否存在其他异常或错误</li>
+<li>对代码进行走查和分析找出可能导致内存溢出的地方</li>
+<li>使用内存查看工具动态查看内存的使用情况</li>
+</ul>
+<h1 id="说一说zset类型的底层数据结构"><a href="#说一说zset类型的底层数据结构" class="headerlink" title="说一说zset类型的底层数据结构"></a>说一说zset类型的底层数据结构</h1><p>zset底层使用了ziplist和skiplist,在同时满足有序集合保存的元素数量小于128个且元素的大小小于64个字节时使用ziplist,其他情况使用skiplist.压缩列表是Redis为了节约内存而开发的.</p>
+<h1 id="Redis的5种基本数据结构"><a href="#Redis的5种基本数据结构" class="headerlink" title="Redis的5种基本数据结构"></a>Redis的5种基本数据结构</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>一种安全的二进制的数据结构,可以用来存储任何类型的数据比如字符串、整数、浮点数、图片（图片的 base64 编码或者解码或者图片的路径）、序列化后的对象。</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SET key value</td>
+<td align="left">设置指定 key 的值</td>
+</tr>
+<tr>
+<td align="left">SETNX key value</td>
+<td align="left">只有在 key 不存在时设置 key 的值</td>
+</tr>
+<tr>
+<td align="left">GET key</td>
+<td align="left">获取指定 key 的值</td>
+</tr>
+<tr>
+<td align="left">MSET key1 value1 key2 value2 …</td>
+<td align="left">设置一个或多个指定 key 的值</td>
+</tr>
+<tr>
+<td align="left">MGET key1 key2 …</td>
+<td align="left">获取一个或多个指定 key 的值</td>
+</tr>
+<tr>
+<td align="left">STRLEN key</td>
+<td align="left">返回 key 所储存的字符串值的长度</td>
+</tr>
+<tr>
+<td align="left">INCR key</td>
+<td align="left">将 key 中储存的数字值增一</td>
+</tr>
+<tr>
+<td align="left">DECR key</td>
+<td align="left">将 key 中储存的数字值减一</td>
+</tr>
+<tr>
+<td align="left">EXISTS key</td>
+<td align="left">判断指定 key 是否存在</td>
+</tr>
+<tr>
+<td align="left">DEL key（通用）</td>
+<td align="left">删除指定的 key</td>
+</tr>
+<tr>
+<td align="left">EXPIRE key seconds（通用）</td>
+<td align="left">给指定 key 设置过期时间</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>存储常规数据</p>
+<ul>
+<li>缓存 session、token、图片地址、序列化后的对象(相比较于 Hash 存储更节省内存)。</li>
+</ul>
+</li>
+<li><p>需要计数的场景</p>
+<ul>
+<li>用户单位时间的请求数（简单限流可以用到）、页面单位时间的访问数。</li>
+</ul>
+</li>
+<li><p>分布式锁</p>
+<ul>
+<li>利用 <code>SETNX key value</code> 命令可以实现一个最简易的分布式锁（存在一些缺陷，通常不建议这样实现分布式锁）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>使用链表数据结构实现,Redis中使用的时双向链表,即可以支持反向查找和遍历，更方便操作，不过带来了部分额外的内存开销。</p>
+<p>双向链表跨域实现队列以及栈</p>
+<ul>
+<li><strong>通过 <code>RPUSH/LPOP</code> 或者 <code>LPUSH/RPOP</code>实现队列</strong> </li>
+<li><strong>通过 <code>RPUSH/RPOP</code>或者<code>LPUSH/LPOP</code> 实现栈</strong> </li>
+<li>通过 <code>LRANGE</code> 命令，你可以基于 List 实现分页查询，性能非常高！</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>RPUSH key value1 value2 …</th>
+<th>在指定列表的尾部（右边）添加一个或多个元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LPUSH key value1 value2 …</td>
+<td>在指定列表的头部（左边）添加一个或多个元素</td>
+</tr>
+<tr>
+<td>LSET key index value</td>
+<td>将指定列表索引 index 位置的值设置为 value</td>
+</tr>
+<tr>
+<td>LPOP key</td>
+<td>移除并获取指定列表的第一个元素(最左边)</td>
+</tr>
+<tr>
+<td>RPOP key</td>
+<td>移除并获取指定列表的最后一个元素(最右边)</td>
+</tr>
+<tr>
+<td>LLEN key</td>
+<td>获取列表元素数量</td>
+</tr>
+<tr>
+<td>LRANGE key start end</td>
+<td>获取列表 start 和 end 之间 的元素</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>最新文章,最新动态</li>
+<li>消息队列:<ul>
+<li>Redis List 数据结构可以用来做消息队列，只是功能过于简单且存在很多缺陷，不建议这样做。</li>
+<li>相对来说，Redis 5.0 新增加的一个数据结构 <code>Stream</code> 更适合做消息队列一些，只是功能依然非常简陋。和专业的消息队列相比，还是有很多欠缺的地方比如消息丢失和堆积问题不好解决。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><p>String类型的键值对的映射表,适合存储对象,可以直接修改对象中的字段值</p>
+<p>Hash 类似于 JDK1.8 前的 <code>HashMap</code>，内部实现也差不多(数组 + 链表)。不过，Redis 的 Hash 做了更多优化。</p>
+<table>
+<thead>
+<tr>
+<th>HSET key field value</th>
+<th>设置指定哈希表中指定字段的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HSETNX key field value</td>
+<td>只有指定字段不存在时设置指定字段的值</td>
+</tr>
+<tr>
+<td>HMSET key field1 value1 field2 value2 …</td>
+<td>同时将一个或多个 field-value (域-值)对设置到指定哈希表中</td>
+</tr>
+<tr>
+<td>HGET key field</td>
+<td>获取指定哈希表中指定字段的值</td>
+</tr>
+<tr>
+<td>HMGET key field1 field2 …</td>
+<td>获取指定哈希表中一个或者多个指定字段的值</td>
+</tr>
+<tr>
+<td>HGETALL key</td>
+<td>获取指定哈希表中所有的键值对</td>
+</tr>
+<tr>
+<td>HEXISTS key field</td>
+<td>查看指定哈希表中指定的字段是否存在</td>
+</tr>
+<tr>
+<td>HDEL key field1 field2 …</td>
+<td>删除一个或多个哈希表字段</td>
+</tr>
+<tr>
+<td>HLEN key</td>
+<td>获取指定哈希表中字段的数量</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h3><p>对象数据存储</p>
+<ul>
+<li>用户信息,商品信息,文章信息,购物车信息等等</li>
+</ul>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>无序不可重复</p>
+<p>Set 提供了判断某个元素是否在一个 Set 集合内的重要接口</p>
+<p> Set 能够轻易实现交集、并集、差集的操作,</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SADD key member1 member2 …</td>
+<td align="left">向指定集合添加一个或多个元素</td>
+</tr>
+<tr>
+<td align="left">SMEMBERS key</td>
+<td align="left">获取指定集合中的所有元素</td>
+</tr>
+<tr>
+<td align="left">SCARD key</td>
+<td align="left">获取指定集合的元素数量</td>
+</tr>
+<tr>
+<td align="left"><strong>SISMEMBER key member</strong></td>
+<td align="left"><strong>判断指定元素是否在指定集合中</strong></td>
+</tr>
+<tr>
+<td align="left">SINTER key1 key2 …</td>
+<td align="left">获取给定所有集合的交集</td>
+</tr>
+<tr>
+<td align="left">SINTERSTORE destination key1 key2 …</td>
+<td align="left">将给定所有集合的交集存储在 destination 中</td>
+</tr>
+<tr>
+<td align="left">SUNION key1 key2 …</td>
+<td align="left">获取给定所有集合的并集</td>
+</tr>
+<tr>
+<td align="left">SUNIONSTORE destination key1 key2 …</td>
+<td align="left">将给定所有集合的并集存储在 destination 中</td>
+</tr>
+<tr>
+<td align="left">SDIFF key1 key2 …</td>
+<td align="left">获取给定所有集合的差集</td>
+</tr>
+<tr>
+<td align="left">SDIFFSTORE destination key1 key2 …</td>
+<td align="left">将给定所有集合的差集存储在 destination 中</td>
+</tr>
+<tr>
+<td align="left">SPOP key count</td>
+<td align="left">随机移除并获取指定集合中一个或多个元素</td>
+</tr>
+<tr>
+<td align="left">SRANDMEMBER key count</td>
+<td align="left">随机获取指定集合中指定数量的元素</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景-3"><a href="#应用场景-3" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>需要存放数据不能重复</p>
+<ul>
+<li>网站UV统计（数据量巨大的场景还是 <code>HyperLogLog</code>更适合一些）、文章点赞、动态点赞等场景。</li>
+</ul>
+</li>
+<li><p>需要获取多个交集、并集、差集的场景</p>
+<ul>
+<li>共同好友(交集),共同关注(交集),好友推荐(差集)等等</li>
+</ul>
+</li>
+<li><p>需要随机获取数据源中的元素的场景</p>
+<ul>
+<li>抽奖</li>
+<li><code>SPOP</code>（随机获取集合中的元素并移除，适合不允许重复中奖的场景）、<code>SRANDMEMBER</code>（随机获取集合中的元素，适合允许重复中奖的场景）</li>
+</ul>
+</li>
+</ul>
+<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p>类似于Sort,但相比于Sort多了一个权重score并按照权重排序,通过权重范围获取元素</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ZADD key score1 member1 score2 member2 …</td>
+<td align="left">向指定有序集合添加一个或多个元素</td>
+</tr>
+<tr>
+<td align="left">ZCARD KEY</td>
+<td align="left">获取指定有序集合的元素数量</td>
+</tr>
+<tr>
+<td align="left">ZSCORE key member</td>
+<td align="left">获取指定有序集合中指定元素的 score 值</td>
+</tr>
+<tr>
+<td align="left">ZINTERSTORE destination numkeys key1 key2 …</td>
+<td align="left">将给定所有有序集合的交集存储在 destination 中，对相同元素对应的 score 值进行 SUM 聚合操作，numkeys 为集合数量</td>
+</tr>
+<tr>
+<td align="left">ZUNIONSTORE destination numkeys key1 key2 …</td>
+<td align="left">求并集，其它和 ZINTERSTORE 类似</td>
+</tr>
+<tr>
+<td align="left">ZDIFF destination numkeys key1 key2 …</td>
+<td align="left">求差集，其它和 ZINTERSTORE 类似</td>
+</tr>
+<tr>
+<td align="left">ZRANGE key start end</td>
+<td align="left">获取指定有序集合 start 和 end 之间的元素（score 从低到高）</td>
+</tr>
+<tr>
+<td align="left">ZREVRANGE key start end</td>
+<td align="left">获取指定有序集合 start 和 end 之间的元素（score 从高到底）</td>
+</tr>
+<tr>
+<td align="left">ZREVRANK key member</td>
+<td align="left">获取指定有序集合中指定元素的排名(score 从大到小排序)</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景-4"><a href="#应用场景-4" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>需要随机获取数据源中的元素根据某个权重进行排序的场景</p>
+<ul>
+<li>微信步数排行榜,热搜排行榜</li>
+</ul>
+</li>
+<li><p>需要存储的数据有优先级或者重要程度的场景。</p>
+<ul>
+<li>举例 ：优先级任务队列。</li>
+<li>相关命令 ：<code>ZRANGE</code> (从小到大排序) 、 <code>ZREVRANGE</code> （从大到小排序）、<code>ZREVRANK</code> (指定元素排名)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redis数据同步和数据迁移如何做？"><a href="#Redis数据同步和数据迁移如何做？" class="headerlink" title="Redis数据同步和数据迁移如何做？"></a>Redis数据同步和数据迁移如何做？</h2><p><code>数据迁移</code> 这种一般比较好做，可以直接从源redis导出rdb，再把rdb文件导入目标redis。如果需要实时增量同步就 需要引用第三方工具</p>
+<p>阿里云开源 的<code>redis-shake</code> 工具。</p>
+<h1 id="如何防止表单的重复提交"><a href="#如何防止表单的重复提交" class="headerlink" title="如何防止表单的重复提交"></a>如何防止表单的重复提交</h1><h2 id="1-前端实现"><a href="#1-前端实现" class="headerlink" title="1.前端实现"></a>1.前端实现</h2><p>js设置点击按钮后使按钮失效,防止表单重复提交</p>
+<p><strong>但js代码很容易被绕过。比如用户通过刷新页面方式，或使用postman等工具绕过前端页面仍能重复提交表单。因此不推荐此方法。</strong></p>
+<h2 id="2-给数据库添加唯一键约束"><a href="#2-给数据库添加唯一键约束" class="headerlink" title="2.给数据库添加唯一键约束"></a>2.给数据库添加唯一键约束</h2><p>重新设计表结构</p>
+<p>在代码中及时捕获异常</p>
+<p><strong>通过数据库加唯一键约束能有效避免数据库重复插入相同数据。但无法阻止恶意用户重复提交表单（攻击网站），服务器大量执行sql插入语句，增加服务器和数据库负荷。</strong></p>
+<h2 id="3-利用session防止表单重复提交"><a href="#3-利用session防止表单重复提交" class="headerlink" title="3.利用session防止表单重复提交"></a>3.利用session防止表单重复提交</h2><p>服务器返回表单页面时，会先生成一个subToken保存于session，并把该subToen传给表单页面。当表单提交时会带上subToken，服务器拦截器Interceptor会拦截该请求，拦截器判断session保存的subToken和表单提交subToken是否一致。若不一致或session的subToken为空或表单未携带subToken则不通过。</p>
+<p>首次提交表单时session的subToken与表单携带的subToken一致走正常流程，然后拦截器内会删除session保存的subToken。当再次提交表单时由于session的subToken为空则不通过。从而实现了防止表单重复提交。</p>
+<h2 id="4-使用AOP自定义切入实现"><a href="#4-使用AOP自定义切入实现" class="headerlink" title="4.使用AOP自定义切入实现"></a>4.使用AOP自定义切入实现</h2><ol>
+<li>自定义防止重复提交标记（@AvoidRepeatableCommit）。</li>
+<li>对需要防止重复提交的Congtroller里的mapping方法加上该注解。</li>
+<li>新增Aspect切入点，为@AvoidRepeatableCommit加入切入点。</li>
+<li>每次提交表单时，Aspect都会保存当前key到reids（须设置过期时间）。</li>
+<li>重复提交时Aspect会判断当前redis是否有该key，若有则拦截。</li>
+</ol>
+<pre><code class="java">import java.lang.annotation.*;	
+/**
+ * 避免重复提交
+ * @author hhz
+ * @version
+ * @since
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface AvoidRepeatableCommit &#123;
+    /**
+     * 指定时间内不可重复提交,单位毫秒
+     * @return
+     */
+    long timeout()  default 30000 ;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+* 重复提交aop
+* @author hhz
+* @version 
+* @since 
+*/
+@Aspect
+@Component
+public class AvoidRepeatableCommitAspect &#123;
+
+@Autowired
+private RedisTemplate redisTemplate;
+
+/**
+ * @param point
+ */
+@Around(&quot;@annotation(com.xwolf.boot.annotation.AvoidRepeatableCommit)&quot;)
+public Object around(ProceedingJoinPoint point) throws Throwable &#123;
+
+    HttpServletRequest request  = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+    String ip = IPUtil.getIP(request);
+    //获取注解
+    MethodSignature signature = (MethodSignature) point.getSignature();
+    Method method = signature.getMethod();
+    //目标类、方法
+    String className = method.getDeclaringClass().getName();
+    String name = method.getName();
+    String ipKey = String.format(&quot;%s#%s&quot;,className,name);
+    int hashCode = Math.abs(ipKey.hashCode());
+    String key = String.format(&quot;%s_%d&quot;,ip,hashCode);
+    log.info(&quot;ipKey=&#123;&#125;,hashCode=&#123;&#125;,key=&#123;&#125;&quot;,ipKey,hashCode,key);
+    AvoidRepeatableCommit avoidRepeatableCommit =  method.getAnnotation(AvoidRepeatableCommit.class);
+    long timeout = avoidRepeatableCommit.timeout();
+    if (timeout &lt; 0)&#123;
+                    //过期时间5分钟
+        timeout = 60*5;
+    &#125;
+    String value = (String) redisTemplate.opsForValue().get(key);
+    if (StringUtils.isNotBlank(value))&#123;
+        return &quot;请勿重复提交&quot;;
+    &#125;
+    redisTemplate.opsForValue().set(key, UUIDUtil.uuid(),timeout,TimeUnit.MILLISECONDS);
+    //执行方法
+    Object object = point.proceed();
+    return object;
+&#125;
+&#125;
+</code></pre>
+<h1 id="AOP-了解吗？有什么用？切面执行顺序如何控制？"><a href="#AOP-了解吗？有什么用？切面执行顺序如何控制？" class="headerlink" title="AOP 了解吗？有什么用？切面执行顺序如何控制？"></a>AOP 了解吗？有什么用？切面执行顺序如何控制？</h1><p>AOP(Aspect-Oriented Programming):面向切面编程,将那些与业务无关,但却被模块所共同调用的逻辑或责任,封装起来,有利于减少系统重复代码,降低模块间的耦合,也有利于后续的维护和扩展.</p>
+<p>SpringAOP是基于动态代理的,如果要代理的对象实现了某个接口,那么使用<code>JDKProxy</code>创建代理对象,对于没有实现接口的对象,无法使用<code>JDKProxy</code>,SpringAOP会使用<code>Cglib</code>生成一个代理对象的子类作为代理.</p>
+<blockquote>
+<h3 id="Spring-AOP-和-AspectJ-AOP-有什么区别？"><a href="#Spring-AOP-和-AspectJ-AOP-有什么区别？" class="headerlink" title="Spring AOP 和 AspectJ AOP 有什么区别？"></a>Spring AOP 和 AspectJ AOP 有什么区别？</h3><p>Spring AOP 是运行时增强,AspectJAOP是编译时增强</p>
+<p>SpringAOP基于代理(proxy),AspectJAOP基于字节码操作</p>
+<p>SpringAOP集成了AspectJAOP,AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。AspectJ 相比于 Spring AOP 功能更加强大，但是 SpringAOP 相对来说更简单，</p>
+<p>切面较少的情况下两者差别不大,当切面较多的时候建议使用AspectJAOP,速度比SpringAOP 快</p>
+</blockquote>
+<h2 id="AspectJAOP定义的通知类型"><a href="#AspectJAOP定义的通知类型" class="headerlink" title="AspectJAOP定义的通知类型"></a>AspectJAOP定义的通知类型</h2><ul>
+<li><strong>Before</strong>（前置通知）：目标对象的方法调用之前触发</li>
+<li><strong>After</strong> （后置通知）：目标对象的方法调用之后触发</li>
+<li><strong>AfterReturning</strong>（返回通知）：目标对象的方法调用完成，在返回结果值之后触发</li>
+<li><strong>AfterThrowing</strong>（异常通知） ：目标对象的方法运行中抛出 &#x2F; 触发异常后触发。AfterReturning 和 AfterThrowing 两者互斥。如果方法调用成功无异常，则会有返回值；如果方法抛出了异常，则不会有返回值。</li>
+<li><strong>Around</strong>：（环绕通知）编程式控制目标对象的方法调用。环绕通知是所有通知类型中可操作范围最大的一种，因为它可以直接拿到目标对象，以及要执行的方法，所以环绕通知可以任意的在目标对象的方法调用前后搞事，甚至不调用目标对象的方法</li>
+</ul>
+<h2 id="切面执行顺序控制"><a href="#切面执行顺序控制" class="headerlink" title="切面执行顺序控制"></a>切面执行顺序控制</h2><p>使用<code>@Order</code>注解直接定义切面顺序</p>
+<p>实现Order接口并重写getOrder方法</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day18/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day17/">
+        <h2 class="post-title">day17</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p><strong>EasyExcel所对应的实体类的属性一定要严格按照驼峰命名</strong></p>
+<p>在委托事件模型中，源生成事件并把它发送给一个或多个监听器，每个监听器必须向事件源注册</p>
+<p>在try中的代码可能会产生多种异常，需要多个catch进行捕获，catch中的参数由子父类关系，应该把子类异常放在父类异常之前捕获</p>
+<p>执行顺序</p>
+<p>静态代码块&gt;构造代码块&gt;构造方法</p>
+<h1 id="String字符串常见的题目"><a href="#String字符串常见的题目" class="headerlink" title="String字符串常见的题目"></a>String字符串常见的题目</h1><h2 id="奇怪的nullnull"><a href="#奇怪的nullnull" class="headerlink" title="奇怪的nullnull"></a>奇怪的<code>nullnull</code></h2><pre><code class="java">public class Test1 &#123;
+    private static String s1;
+    private static String s2;
+
+    public static void main(String[] args) &#123;
+        String s= s1+s2;
+        System.out.println(s);
+    &#125;
+&#125;
+</code></pre>
+<p>这段代码会输出<code>nullnull</code></p>
+<p>首先来查看为null字符串的打印方式</p>
+<pre><code class="java">public void print(String s) &#123;
+    if (s == null) &#123;
+        s = &quot;null&quot;;
+    &#125;
+    write(s);
+&#125;
+</code></pre>
+<p>可以看到，为null的字符串会被转换为字符串“null”然后输出</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112059750.png" alt="0aa00c3f-97fb-42b6-9297-812b2b0b7b60"></p>
+<p>编译器会对字符串相加的操作进行优化，转而使用StringBuilder的append方法拼接字符串。</p>
+<p>如果append的字符串为null则</p>
+<pre><code class="java">public AbstractStringBuilder append(String str) &#123;
+    if (str == null)
+        return appendNull();
+        //...
+&#125;
+</code></pre>
+<p>接着调用其父类AbstractStringBuilder的appendNull方法</p>
+<pre><code class="java">private AbstractStringBuilder appendNull() &#123;
+    int c = count;
+    ensureCapacityInternal(c + 4);
+    final char[] value = this.value;
+    value[c++] = &#39;n&#39;;
+    value[c++] = &#39;u&#39;;
+    value[c++] = &#39;l&#39;;
+    value[c++] = &#39;l&#39;;
+    count = c;
+    return this;
+&#125;
+</code></pre>
+<p>此处使用了char字符数组来存储null字符串的值，所以StringBuilder对null字符串进行了特殊的处理，会将null转换成”null”字符串并将其添加进字符数组，这也就导致了	两个为空的字符串相加后输出为<code>nullnull</code></p>
+<h2 id="String值的问题"><a href="#String值的问题" class="headerlink" title="String值的问题"></a>String值的问题</h2><pre><code class="java">String s=&quot;Hydra&quot;;
+s=&quot;Trunks&quot;;
+</code></pre>
+<p>虽然此处的s值被修改了，但实际上这是新创建了一个String对象，String的值是不可改变的,下面是String的源码</p>
+<pre><code class="java">private final char value[];
+</code></pre>
+<p>可以看书，String在本质上就是一个char数组，且被final修饰，说明不能被更改，这里的不能被更改指的是 无法修改其地址，其数组中的值还是可以被修改的。</p>
+<p>如下所示：</p>
+<pre><code class="JAVA">final char[] one=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;
+char[] two=&#123;&#39;d&#39;,&#39;e&#39;,&#39;f&#39;&#125;;
+one=two;
+</code></pre>
+<p>此处会报错<code>Cannot assign a value to final variable &#39;one&#39;</code>，说明被final修饰的数组的引用无法被修改</p>
+<p>但我们可以直接操作数组内的元素</p>
+<pre><code class="java">final char[] one=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;
+one[1]=&#39;z&#39;;
+</code></pre>
+<p>​	<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112006823.png" alt="img"></p>
+<p>我们直接用hashcode来查看引用指向的对象是否发生改变</p>
+<pre><code class="JAVA">public static void main(String[] args) &#123;
+    String s=&quot;Hydra&quot;;
+    System.out.println(s+&quot;:  &quot;+s.hashCode());
+    s=&quot;Trunks&quot;;
+    System.out.println(s+&quot;: &quot;+s.hashCode());
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112010720.png" alt="b1f213da-223c-4246-aece-e9392a454941"></p>
+<p>可以看到这两个对象的引用指向的对象不是同一个</p>
+<p>可以使用反射来实现不改变对象引用的情况下修改对象的值</p>
+<pre><code class="JAVA">public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException &#123;
+    String s=&quot;Hydra&quot;;
+    System.out.println(s+&quot;:  &quot;+s.hashCode());
+
+    Field field = String.class.getDeclaredField(&quot;value&quot;);
+    field.setAccessible(true);
+    field.set(s,new char[]&#123;&#39;T&#39;,&#39;r&#39;,&#39;u&#39;,&#39;n&#39;,&#39;k&#39;,&#39;s&#39;&#125;);
+    System.out.println(s+&quot;: &quot;+s.hashCode());
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112011534.png" alt="27f11d5a-4106-4aef-8df5-dc178d414470"></p>
+<h2 id="创建几个对象？"><a href="#创建几个对象？" class="headerlink" title="创建几个对象？"></a>创建几个对象？</h2><pre><code class="java">String s = new String(&quot;Hydra&quot;);
+</code></pre>
+<p>以上代码创建了几个对象？</p>
+<p>首先了解常量池的相关知识</p>
+<ul>
+<li>class 文件常量池：在 class 文件中保存了一份常量池（ Constant Pool ），主要 存储编译时确定的数据，包括代码中的字面量( literal )和符号引用 </li>
+<li>运行时常量池：位于方法区中，全局共享，class 文件常量池中的内容会在类加载后 存放到方法区的运行时常量池中。除此之外，在运行期间可以将新的变量放入运行 时常量池中，相对 class 文件常量池而言运行时常量池更具备动态性 </li>
+<li>字符串常量池：位于堆中，全局共享，这里可以先粗略的认为它存储的是 String 对 象的直接引用，而不是直接存放的对象，具体的实例对象是在堆中存放</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112028550.png" alt="28f7d214-c451-4e77-abe9-e65343c4f428"></p>
+<p>字符串常量池StringTable本质上是一张HashTable，运用数组+链表结构</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112028780.png" alt="1d8eb77b-3fb3-4598-865c-ab6792ea866f"></p>
+<p>使用字面量声明 String 对象时，也就是被双引号包围的字符串，在堆上创建对象， 并驻留到字符串常量池中（注意这个用词） </p>
+<p>调用 <strong>intern()</strong> 方法，当字符串常量池没有相等的字符串时，会保存该字符串的引 用</p>
+<p>简单来说，String对象的引用保存在字符串常量池中</p>
+<pre><code class="JAVA">public static void main(String[] args) &#123;
+    String s = &quot;Hydra&quot;;
+&#125;
+</code></pre>
+<p>反编译后：</p>
+<pre><code class="java">public static void main(java.lang.String[]);
+  descriptor: ([Ljava/lang/String;)V
+  flags: ACC_PUBLIC, ACC_STATIC
+  Code:
+    stack=1, locals=2, args_size=1
+       0: ldc           #2                  // String Hydra
+       2: astore_1
+       3: return
+</code></pre>
+<ul>
+<li>0: ldc ，查找后面索引为 #2 对应的项， #2 表示常量在常量池中的位置。在这 个过程中，会触发前面提到的lazy resolve，在 resolve 过程<strong>如果发现 StringTab le 已经有了内容匹配的 String 引用，则直接返回这个引用，反之如果 StringTa ble 里没有内容匹配的 String 对象的引用，则会在堆里创建一个对应内容的 String 对象</strong>，然后在 StringTable 驻留这个对象引用，并返回这个引用，之后再压入操 作数栈中 </li>
+<li>2: astore_1 ，弹出栈顶元素，并将栈顶引用类型值保存到局部变量 1 中，也就 是保存到变量 s 中 </li>
+<li>3: return ，执行 void 函数返回</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112036367.png" alt="92144f5e-a19f-42d1-8629-9cadf2371688"></p>
+<p>显而易见这种方式值创建了一个对象</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s = new String(&quot;Hydra&quot;);
+&#125;
+</code></pre>
+<p>反编译后：</p>
+<pre><code class="java">public static void main(java.lang.String[]);
+  descriptor: ([Ljava/lang/String;)V
+  flags: ACC_PUBLIC, ACC_STATIC
+  Code:
+    stack=3, locals=2, args_size=1
+       0: new           #2                  // class java/lang/String
+       3: dup
+       4: ldc           #3                  // String Hydra
+       6: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+       9: astore_1
+      10: return
+</code></pre>
+<p>和之前的不同之处：</p>
+<ul>
+<li>0: new ，在堆上创建一个 String 对象，并将它的引用压入操作数栈，<strong>注意这时的 对象还只是一个空壳</strong>，并没有调用类的构造方法进行初始化 </li>
+<li>3: dup ，复制栈顶元素，也就是复制了上面的对象引用，并将复制后的对象引用 压入栈顶。这里之所以要进行复制，是因为之后要执行的构造方法会从操作数栈弹 出需要的参数和这个对象引用本身（这个引用起到的作用就是构造方法中的 this 指针），如果不进行复制，在弹出后会无法得到初始化后的对象引用 </li>
+<li>4: ldc ，在堆上创建字符串对象，驻留到字符串常量池，并将字符串的引用压入 操作数栈</li>
+<li>6: invokespecial ，执行 String 的构造方法，这一步执行完成后得到一个完整 对象</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112037755.png" alt="820121d0-ca33-44d4-8968-69d5a9c889f5"></p>
+<p>创建了两个对象</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s = &quot;Hydra&quot;;
+    String s2 = new String(&quot;Hydra&quot;);
+&#125;
+</code></pre>
+<pre><code class="java">Code:
+  stack=3, locals=3, args_size=1
+     0: ldc           #2                  // String Hydra
+     2: astore_1
+     3: new           #3                  // class java/lang/String
+     6: dup
+     7: ldc           #2                  // String Hydra
+     9: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+    12: astore_2
+    13: return
+</code></pre>
+<p>值创建了一个对象</p>
+<p>可以看到两次执行 ldc 指令时后面索引相同，而 ldc 判断是否需要创建新的 String 实例的依据是根据 在第一次执行这条指令时， StringTable 是否已经保存了一个对应内容的 String 实例的引用。所以在 第一次执行 ldc 时会创建 String 实例，而在第二次 ldc 就会直接返回而不需要再创建实例了。</p>
+<h2 id="intern（）"><a href="#intern（）" class="headerlink" title="intern（）"></a>intern（）</h2><p>String 的 intern() 是一个本地方法，可以强制将 String 驻留进入字符串常量池，可 以分为两种情况： </p>
+<ul>
+<li>如果字符串常量池中已经驻留了一个等于此 String 对象内容的字符串引用，则返回 此字符串在常量池中的引用</li>
+<li>否则，在常量池中创建一个引用指向这个 String 对象，然后返回常量池中的这个引 用</li>
+</ul>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s1 = new String(&quot;Hydra&quot;);
+    String s2 = s1.intern();
+    System.out.println(s1 == s2);
+    System.out.println(s1 == &quot;Hydra&quot;);
+    System.out.println(s2 == &quot;Hydra&quot;);
+&#125;
+
+
+输出：
+false
+false
+true
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208112048992.png" alt="34a59f7f-c3ee-4fd9-ace8-8be54bc4838d"></p>
+<ul>
+<li><p>在创建 s1 的时候，其实堆里已经创建了两个字符串对象 StringObject1 和 Str ingObject2 ，并且在字符串常量池中驻留了 StringObject2 </p>
+</li>
+<li><p>当执行 s1.intern() 方法时，字符串常量池中已经存在内容等于 “Hydra” 的字 符串 StringObject2 ，直接返回这个引用并赋值给 s2 s1 和 s2 指向的是两个不同的 String 对象，因此返回 fasle</p>
+</li>
+<li><p>s2 指向的就是驻留在字符串常量池的 StringObject2 ，因此 s2&#x3D;&#x3D;”Hydra” 为 true，而 s1 指向的不是常量池中的对象引用所以返回 false</p>
+</li>
+<li><p>s1指向的是创建的对象，s2指向的是常量池中已经存在的对象的引用</p>
+</li>
+</ul>
+<pre><code class="java">public static void main(String[] args) &#123;
+    String s1 = new String(&quot;Hy&quot;) + new String(&quot;dra&quot;);
+    s1.intern();
+    String s2 = &quot;Hydra&quot;;
+    System.out.println(s1 == s2);
+&#125;
+
+输出结果：
+    true
+</code></pre>
+<p>第一步会在堆上创建 “Hy” 和 “dra” 的字符串对象，并驻留 到字符串常量池中。</p>
+<p> 接下来，完成字符串的拼接操作，前面我们说过，实际上 jvm 会把拼接优化成 String Builder 的 append 方法，并最终调用 toString 方法返回一个 String 对象。在完成 字符串的拼接后，字符串常量池中并没有驻留一个内容等于 “Hydra” 的字符串。</p>
+<p>所以，执行 s1.intern() 时，会在字符串常量池创建一个引用，指向前面 StringBuilder 创建的那 个字符串，也就是变量 s1 所指向的字符串对象</p>
+<p>String s2 &#x3D; “Hydra”;直接引用常量池中已经存在的字符串对象，所以s1,s2 指向的是同一个对象</p>
+<h2 id="常量折叠"><a href="#常量折叠" class="headerlink" title="常量折叠"></a>常量折叠</h2><p>常量折叠会把常量表达式的值求出来作为常量嵌在最终生成的代码中，这是 Javac 编译器会对源代码做的极少量优化措施之一(代码优化几乎都在即时编译器中进行)。</p>
+<p>对于 <code>String str3 = &quot;str&quot; + &quot;ing&quot;;</code> 编译器会给你优化成 <code>String str3 = &quot;string&quot;;</code></p>
+<p>并不是所有的常量都会进行折叠，只有在编译器能够确定值的常量才可以</p>
+<ul>
+<li>基本数据类型以及String类型</li>
+<li>final修饰的基本数据类型和字符串变量</li>
+<li>字符串的+拼接，基本数据类型的加减乘除和位运算</li>
+<li>声明时就已经初始化</li>
+<li>使用常量表达式进行初始化</li>
+</ul>
+<p>字符串使用final修时后可以让编译器当作常量来使用</p>
+<pre><code class="java">final String str1 = &quot;str&quot;;
+final String str2 = &quot;ing&quot;;
+// 下面两个表达式其实是等价的
+String c = &quot;str&quot; + &quot;ing&quot;;// 常量池中的对象
+String d = str1 + str2; // 常量池中的对象
+System.out.println(c == d);// true
+</code></pre>
+<pre><code class="java">public static void main(String[] args) &#123;
+    final String h1 = &quot;hello&quot;;
+    String h2 = &quot;hello&quot;;
+    String s1 = h1 + &quot;Hydra&quot;;
+    String s2 = h2 + &quot;Hydra&quot;;
+    System.out.println((s1 == &quot;helloHydra&quot;));
+    System.out.println((s2 == &quot;helloHydra&quot;));
+&#125;
+输出结果
+true
+false
+</code></pre>
+<p> <strong>引用的值在程序编译期是无法确定的，编译器无法对其进行优化</strong></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day17/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day16/">
+        <h2 class="post-title">day16</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <ul>
+<li>抽象类</li>
+</ul>
+<p>可以实现接口，也可以继承自抽象类 </p>
+<p>必须由“abstract class”修饰</p>
+<p>可以包含也可以不包含抽象方法</p>
+<p>和接口一样不能被实例化</p>
+<ul>
+<li>构造函数</li>
+</ul>
+<p>构造函数不能被继承只能被显式或隐式的调用</p>
+<p>比如子类用super调用父类的构造方法</p>
+<h2 id="maven与Ant"><a href="#maven与Ant" class="headerlink" title="maven与Ant"></a>maven与Ant</h2><h3 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a><strong>Ant</strong></h3><p>是一种基于Java的build工具</p>
+<ul>
+<li>能够用ant编译java类。生成class文件</li>
+<li>ant能够自己定义标签、配置文件，用于构建。</li>
+<li>ant能够把相关层构建成jar包 。</li>
+<li>ant把整个项目生成web包。并公布到Tomcat</li>
+</ul>
+<p>Ant的长处：</p>
+<ul>
+<li><p><strong>跨平台性</strong>：Ant是纯Java语言编写的，因此具有非常好的跨平台性。</p>
+</li>
+<li><p><strong>操作简单</strong>：Ant是由一个内置任务和可选任务组成的。Ant执行时需要一个XML文件(构建文件)。</p>
+</li>
+<li><p><strong>Ant通过调用target树，就能够运行各种task</strong>：每一个task实现了特定接口对象。因为Ant构建文件时XML格式的文件。所以非常easy维护和书写，并且结构非常清晰。</p>
+</li>
+<li><p><strong>Ant能够集成到开发环境中</strong>：因为Ant的跨平台性和操作简单的特点。它非常easy集成到一些开发环境中去。</p>
+</li>
+</ul>
+<h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a><strong>Maven</strong></h3><p>除了以程序构建能力为特色之外，还提供高级项目管理工具。 </p>
+<p>Maven除了具备Ant的功能外。还添加了下面基本的功能：</p>
+<ul>
+<li>使用Project Object Model来对软件项目管理。</li>
+<li>内置了很多其它的隐式规则，使得构建文件更加简单。</li>
+<li>内置依赖管理和Repository来实现依赖的管理和统一存储；</li>
+<li>内置了软件构建的生命周期；</li>
+</ul>
+<p>Maven的长处：</p>
+<ul>
+<li>拥有约定，知道你的代码在哪里，放到哪里去</li>
+<li>拥有一个生命周期，比如运行 mvn install就能够自己主动运行编译，測试。打包等构建过程</li>
+<li>仅仅须要定义一个pom.xml,然后把源代码放到默认的文件夹，Maven帮你处理其它事情</li>
+<li>拥有依赖管理。仓库管理</li>
+</ul>
+<p>总体的比较：</p>
+<p>​    Ant将提供了非常多能够重用的task，比如 copy, move, delete以及junit单元测试，Maven则提供了非常多能够重用的过程。</p>
+<h1 id="泛型-amp-通配符"><a href="#泛型-amp-通配符" class="headerlink" title="泛型&amp;通配符"></a>泛型&amp;通配符</h1><h2 id="什么是泛型"><a href="#什么是泛型" class="headerlink" title="什么是泛型"></a>什么是泛型</h2><p>泛型时JDK5引入的一个新特性，使用泛型可以增强代码的可读性和稳定性。</p>
+<blockquote>
+<p>作用</p>
+</blockquote>
+<p>编译器可以对泛型参数进行检测，并通过泛型参数指定传入的对象类型。没使用泛型前，原生的List的返回类型是Object，需要强转 ，使用了泛型后，编译器自动转换。</p>
+<h2 id="泛型的使用方式"><a href="#泛型的使用方式" class="headerlink" title="泛型的使用方式"></a>泛型的使用方式</h2><ul>
+<li>类</li>
+<li>接口</li>
+<li>方法</li>
+</ul>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><pre><code class="JAVA">//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt;&#123;
+
+    private T key;
+
+    public Generic(T key) &#123;
+        this.key = key;
+    &#125;
+
+    public T getKey()&#123;
+        return key;
+    &#125;
+&#125;
+</code></pre>
+<p>实例化泛型类必须指定具体的类型</p>
+<pre><code class="JAVA">Generic&lt;Integer&gt; genericInteger = new Generic&lt;Integer&gt;(123456);
+</code></pre>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><pre><code class="JAVA">public interface Generator&lt;T&gt; &#123;
+    public T method();
+&#125;
+</code></pre>
+<p>实现接口，不指定类型</p>
+<pre><code class="JAVA">class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public T method() &#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>实现接口，指定类型</p>
+<pre><code class="JAVA">class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public String method() &#123;
+        return &quot;hello&quot;;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><pre><code class="JAVA">   public static &lt; E &gt; void printArray( E[] inputArray )
+   &#123;
+         for ( E element : inputArray )&#123;
+            System.out.printf( &quot;%s &quot;, element );
+         &#125;
+         System.out.println();
+    &#125;
+</code></pre>
+<p>使用</p>
+<pre><code class="JAVA">// 创建不同类型数组： Integer, Double 和 Character
+Integer[] intArray = &#123; 1, 2, 3 &#125;;
+String[] stringArray = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;
+printArray( intArray  );
+printArray( stringArray  );
+</code></pre>
+<h2 id="项目中经常使用泛型的地方"><a href="#项目中经常使用泛型的地方" class="headerlink" title="项目中经常使用泛型的地方"></a>项目中经常使用泛型的地方</h2><h3 id="自定义统一的返回结果"><a href="#自定义统一的返回结果" class="headerlink" title="自定义统一的返回结果"></a>自定义统一的返回结果</h3><pre><code class="JAVA">package com.gong.util;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+/**
+ * @description:传给前端数据的封装
+ * @author:gong
+ * @create: 7/8/2022 下午2:29
+ */
+@Data
+@ApiModel(value = &quot;全局统一返回结果&quot;)
+public class Result&lt;T&gt; &#123;
+    @ApiModelProperty(value = &quot;返回码&quot;)
+    private Integer code;
+
+    @ApiModelProperty(value = &quot;返回消息&quot;)
+    private String message;
+
+    @ApiModelProperty(value = &quot;返回数据&quot;)
+    private T data;
+
+    public Result()&#123;&#125;
+
+    // 返回数据
+    protected static &lt;T&gt; Result&lt;T&gt; build(T data) &#123;
+        Result&lt;T&gt; result = new Result&lt;T&gt;();
+        if (data != null) &#123;
+            result.setData(data);
+        &#125;
+        return result;
+    &#125;
+
+    public static &lt;T&gt; Result&lt;T&gt; build(T body, ResultCodeEnum resultCodeEnum) &#123;
+        Result&lt;T&gt; result = build(body);
+        result.setCode(resultCodeEnum.getCode());
+        result.setMessage(resultCodeEnum.getMessage());
+        return result;
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; ok()&#123;
+        return Result.ok(null);
+    &#125;
+
+    /**
+     * 操作成功
+     * @param data
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; ok(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.SUCCESS);
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; fail()&#123;
+        return Result.fail(null);
+    &#125;
+
+    /**
+     * 操作失败
+     * @param data
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; fail(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.FAIL);
+    &#125;
+
+    public Result&lt;T&gt; message(String msg)&#123;
+        this.setMessage(msg);
+        return this;
+    &#125;
+
+    public Result&lt;T&gt; code(Integer code)&#123;
+        this.setCode(code);
+        return this;
+    &#125;
+
+    public boolean isOk() &#123;
+        if(this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) &#123;
+            return true;
+        &#125;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型"><a href="#定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型" class="headerlink" title="定义Excel处理类ExcelUtil用于动态指定Excel导出的数据类型"></a>定义Excel处理类ExcelUtil<T>用于动态指定Excel导出的数据类型</h3><h3 id="构建集合工具类"><a href="#构建集合工具类" class="headerlink" title="构建集合工具类"></a>构建集合工具类</h3><h2 id="泛型擦除"><a href="#泛型擦除" class="headerlink" title="泛型擦除"></a>泛型擦除</h2><p>Java的泛型是伪泛型，Java在编译期间会把所有的泛型信息擦除，这就是通常所说的泛型擦除</p>
+<p>编译器在编译期间会把泛型T擦除为Object类型，T  extends  xxx，会被擦除成xxx类型</p>
+<p>泛型本质上是编译器的行为，泛型擦除是为了保证引入泛型机制但不创建新的类型，减少虚拟机的运行开销，将泛型类转换成一般类</p>
+<pre><code class="JAVA">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+
+list.add(12);
+//1.编译期间直接添加会报错
+list.add(&quot;a&quot;);
+Class&lt;? extends List&gt; clazz = list.getClass();
+Method add = clazz.getDeclaredMethod(&quot;add&quot;, Object.class);
+//2.运行期间通过反射添加，是可以的
+add.invoke(list, &quot;kl&quot;);
+
+System.out.println(list)
+</code></pre>
+<p>这里可以看出在运行期间，泛型已经被擦除了。</p>
+<pre><code class="JAVA">public void print(List&lt;String&gt; list)  &#123; &#125;
+public void print(List&lt;Integer&gt; list) &#123; &#125;
+</code></pre>
+<p>由于擦除问题，导致该重载报错</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208102045850.png" alt="img"></p>
+<h4 id="既然编译器要擦除，那为什么还要用泛型呢？"><a href="#既然编译器要擦除，那为什么还要用泛型呢？" class="headerlink" title="既然编译器要擦除，那为什么还要用泛型呢？"></a>既然编译器要擦除，那为什么还要用泛型呢？</h4><ul>
+<li>使用泛型可以在编译器进行类型检测</li>
+<li>不需要手动添加类型转换，提高代码的可读性和稳定性</li>
+<li>泛型可以使用自限定类型比如 T extends xxx.</li>
+</ul>
+<h2 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h2><p>用于继承泛型类时保证多态</p>
+<pre><code class="JAVA">class Node&lt;T&gt; &#123;
+    public T data;
+    public Node(T data) &#123; this.data = data; &#125;
+    public void setData(T data) &#123;
+        System.out.println(&quot;Node.setData&quot;);
+        this.data = data;
+    &#125;
+&#125;
+
+class MyNode extends Node&lt;Integer&gt; &#123;
+    public MyNode(Integer data) &#123; super(data); &#125;
+
+      // Node&lt;T&gt; 泛型擦除后为 setData(Object data)，而子类 MyNode 中并没有重写该方法，所以编译器会加入该桥方法保证多态
+       public void setData(Object data) &#123;
+        setData((Integer) data);
+    &#125;
+
+    public void setData(Integer data) &#123;
+        System.out.println(&quot;MyNode.setData&quot;);
+        super.setData(data);
+    &#125;
+&#125;
+</code></pre>
+<p>桥方法由编译器自动生成，无需手动编写。</p>
+<h2 id="泛型的一些限制"><a href="#泛型的一些限制" class="headerlink" title="泛型的一些限制"></a>泛型的一些限制</h2><p>一般是因为擦除机制导致的</p>
+<ul>
+<li>只能声明，不能实例化T类型变量</li>
+<li>泛型参数不能是基本数据类型，因为基本数据类型不是Object的子类</li>
+<li>不能实例化泛型数组，擦除后Object无法进行类型判断。《Thinking in java》一书中指出，由于泛型具有擦除机制，在运行时的类型参数会被擦除，Java只知道存储的对象是一个Object而已，而对于Java的数组来说，他必须知道它持有的所有对象的具体类型，而泛型的这种运行时擦除机制违反了数组安全检查的原则。</li>
+<li>泛型无法使用<code>instance  of</code>和<code>getClass</code>判断类型</li>
+<li>不能实现两个不同泛型的同一接口，泛型擦除后多个父类的桥方法将产生冲突</li>
+<li>不能用static修饰泛型变量</li>
+</ul>
+<pre><code class="java">public final class Algorithm &#123;
+    public static &lt;T&gt; T max(T x, T y) &#123;
+        return x &gt; y ? x : y;
+    &#125;
+&#125;
+</code></pre>
+<p>这个代码无法编译，x,y,擦除后都是Object类型，无法用&gt; 进行比较</p>
+<h2 id="什么是通配符"><a href="#什么是通配符" class="headerlink" title="什么是通配符"></a>什么是通配符</h2><p>泛型类型是固定的，不太灵活，通配符可以类型参数变化，解决泛型无法<strong>协变</strong> 的问题。</p>
+<p><strong>协变</strong>指的就是如果Child是Parent的子类，那么List<Child> 也应该是List<Parent> 的子类，但是泛型是不支持的。</p>
+<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3><p>无界通配符可以接收任何泛型类型数据，用于实现不依赖于具体类型参数的简单方法，可以捕获参数类型并交与泛型方法处理</p>
+<pre><code class="JAVA">void testMethod(Person&lt;?&gt; p) &#123;
+  // 泛型方法自行处理
+&#125;
+</code></pre>
+<p>List&lt;?&gt; list :表示持有某种特定类型的List，但不知道具体是哪一种，因此，我们添加元素进去会 报错</p>
+<p>List list :表示元素的数据类型是Object，因此可以添加任何类型的对象</p>
+<pre><code class="JAVA">List&lt;?&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;sss&quot;);//报错
+List list2 = new ArrayList&lt;&gt;();
+list2.add(&quot;sss&quot;);//警告信息
+</code></pre>
+<h3 id="上界通配符"><a href="#上界通配符" class="headerlink" title="上界通配符"></a>上界通配符</h3><p>extends 可以实现泛型的向上转型，即传入的实参的类型必须是指定类型的 子类型</p>
+<pre><code class="JAVA">// 限制必须是 Person 类的子类
+&lt;? extends Person&gt;
+</code></pre>
+<p><strong>T extends xxx 和 ? extends xxx 又有什么区别?</strong></p>
+<p>T extends xxx 用于定义泛型类和方法,擦除后为 xxx 类型, ? extends xxx 用于声明方法形参，接收xxx和其子类型</p>
+<h3 id="下界通配符"><a href="#下界通配符" class="headerlink" title="下界通配符"></a>下界通配符</h3><p>super 与上边界通配符 extends刚好相反,它可以实现泛型的向下转型，即传入的类型实惨 必须是指定类型的父类型 </p>
+<pre><code class="JAVA">//  限制必须是 Employee 类的父类
+List&lt;? super Employee&gt;
+</code></pre>
+<p><strong>? extends xxx 和 ? super xxx 有什么区别?</strong></p>
+<p>接收的参数的范围不同，前者只能 get,后者只能set</p>
+<p>上边界通配符指明了父类型，不确定子类型，因此只能从父类取数据，不能存数据；下边界通配符指明了子类型，不确定父类型，因此只能子类存数据，不能子类取数据。</p>
+<p>Class&lt;?&gt;和Class 的区别</p>
+<p>直接使用Class会产生类型警告，使用Class&lt;?&gt;则没有，因为Class是一个泛型类，接收原生类型会产生警告</p>
+<pre><code class="JAVA">class Shape &#123; /* ... */ &#125;
+class Circle extends Shape &#123; /* ... */ &#125;
+class Rectangle extends Shape &#123; /* ... */ &#125;
+
+class Node&lt;T&gt; &#123; /* ... */ &#125;
+
+ChildNode&lt;Circle&gt; nc = new Node&lt;&gt;();
+Node&lt;Shape&gt;  ns = nc;
+</code></pre>
+<p>不能编译，因为 ChildNode<Circle> 不是 Node<Circle> 的子类</p>
+<pre><code class="java">class Shape &#123; /* ... */ &#125;
+class Circle extends Shape &#123; /* ... */ &#125;
+class Rectangle extends Shape &#123; /* ... */ &#125;
+
+class Node&lt;T&gt; &#123; /* ... */ &#125;
+class ChildNode&lt;T&gt; extends Node&lt;T&gt;&#123;
+
+&#125;
+ChildNode&lt;Circle&gt; nc = new ChildNode&lt;&gt;();
+Node&lt;Circle&gt;  ns = nc;
+</code></pre>
+<p>能编译，因为 ChildNode<Circle> 是 Node<Circle> 的子类</p>
+<pre><code class="JAVA">public static void print(List&lt;? extends Number&gt; list) &#123;
+    for (Number n : list)
+        System.out.print(n + &quot; &quot;);
+    System.out.println();
+&#125;
+</code></pre>
+<p>可以编译， List 可以往外取元素，但是无法调用 add() 添加元素。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day16/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day15/">
+        <h2 class="post-title">day15</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>常见的代码优化技术有：复写传播，删除死代码, 强度削弱，归纳变量删除</p>
+<p>servlet的生命周期</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208091937217.png" alt="image-20220809193728113"></p>
+<p>final修饰的变量不是一定要在定义时初始化，也可以在构造函数中完成初始化</p>
+<p>final修饰的方法不能被子类重写，但可以重载</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092043375.png" alt="image-20220809204315289" style="zoom:33%;" />
+
+<p>File类的一下常用方法和说明<br><strong>1.访问文件名相关方法：</strong></p>
+<p>String getName(); 返回此File对象所表示的文件名和路径名（如果是路径，则返回最后一级子路径名）。<br>String getPath(); 返回此File对象所对应的路径名。<br>File getAbsolutePath(); 返回此File对象所对应的绝对路径名。<br>String getParent(); 返回此File对象所对应目录（最后一级子目录）的父路径名。<br>boolean renameTo(File newName); 重命名此File对象所对应的文件或目录，如果重命名成功，则返回true:否则返回false.（A）<br><strong>2.文件检测相关方法</strong></p>
+<p>boolean exists(); 判断File对象所对应的文件或目录是否存在。<br>boolean canWrite(); 判断File对象所对应的目录或文件是否可写。<br>boolean canRead(); 判断File对象所对应的目录或文件是否可读。<br>boolean isFile(); 判断File对象所对应的是否是文件，而不是目录。<br>boolean isDirectory(); 判断File对象所对应的是否是目录，而不是文件。<br>boolean isAbsolute(); 判断File对象所对应的文件或目录是否是绝对路径。该方法消除了不同平台的差异，可以直接判断File对象是否为绝对路径。在UNIX&#x2F;Linux&#x2F;BSD等系统上，如果路径名开头是一条斜线（&#x2F;）,则表明该File对象对应一个绝对路径；在Windows等系统上，如果路径开头是盘符，则说明它是绝对路径。<br><strong>3.获取常规文件信息</strong></p>
+<p>long lastModified(); 返回文件最后修改时间。<br>long length(); 返回文件内容的长度。<br><strong>4.文件操作相关的方法</strong></p>
+<p>boolean createNewFile(); 当此File对象所对应的文件不存在时，该方法将新建的一个该File对象所指定的新文件，如果创建成功则返回true；否则返回false.(C)<br>boolean delete(); 删除File对象所对应的文件或路径。<br>static File CreateTempFile(String prefix,String suffix);在默认的临时文件目录创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。preFix参数必须至少是3个字节长。建议前缀使用一个短的、有意义的字符串。建议前缀使用一个短的、有意义的字符串，比如”hjb“ 或”main”. suffix参数可以为null,在这种情况下，将使用默认的后缀”.tmp”.<br>static File CreateTempFile(String prefix,String suffix,File directory);在directory所指定的目录中创建一个临时空文件，使用给定前缀、系统生成的随机数和给定后缀作为文件名。这是一个静态方法，可以直接通过File来调用。<br>void deleteOnExit(); 注册一个删除钩子，指定当Java虚拟机退出时，删除File对象随对应的文件和目录。<br><strong>5.目录操作相关方法（D）</strong></p>
+<p>boolean mkdir(); 试图创建一个File对象所对应的目录，如果创建成功，则返回true;否则返回false. 调用该方法时File对象必须对应一个路径，而不是一个文件。<br>String[] list(); 列出File对象的所有子文件名和路径名，返回String数组。<br>File[] listFiles(); 列出File对象的所有子文件和路径，返回File数组。<br>static File[] listRoots(); 列出系统所有的根路径。这是一个静态方法，可以直接通过File类来调用。</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092043004.png" alt="image-20220809204333910" style="zoom:33%;" />
+
+<p>1、为了更好地组织类，Java提供了包机制。包是类的容器，用于分隔类名空间。如果没有指定包名，所有的示例都属于一个默认的无名包。Java中的包一般均包含相关的类，java是跨平台的，所以java中的包和操作系统没有任何关系，java的包是用来组织文件的一种虚拟文件系统。A错</p>
+<ol start="2">
+<li>import语句并没有将对应的java源文件拷贝到此处仅仅是引入，告诉编译器有使用外部文件，编译的时候要去读取这个外部文件。B错3、Java提供的包机制与IDE没有关系。C错4、定义在同一个包（package）内的类可以不经过import而直接相互使用。</li>
+</ol>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="八中基本数据类型"><a href="#八中基本数据类型" class="headerlink" title="八中基本数据类型"></a>八中基本数据类型</h2><ol>
+<li>byte 占用一个字节 默认值为 0</li>
+<li>short 占用两个字节 默认值为 0</li>
+<li>int  占用四个字节 默认值为 0</li>
+<li>long 占用八个字节 默认值为 0L</li>
+<li>float 占用四个字节 默认值为 0f</li>
+<li>double 占用八个字节 默认值为 0d</li>
+<li>boolean 逻辑上占一位，实际情况中可能会有不同 默认值为 false</li>
+<li>char 占用两个字节 默认值为 ‘u0000’</li>
+</ol>
+<h2 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h2><ul>
+<li>Byte</li>
+<li>Short</li>
+<li>Integer</li>
+<li>Long</li>
+<li>Float</li>
+<li>Double</li>
+<li>Boolean</li>
+<li>Character</li>
+</ul>
+<h3 id="包装类和基本数据类型的区别"><a href="#包装类和基本数据类型的区别" class="headerlink" title="包装类和基本数据类型的区别"></a>包装类和基本数据类型的区别</h3><p>包装类不赋值默认为null，基本数据类型有默认值且不为null</p>
+<p>基本数据类型存放在JVM中的栈空间中的局部变量表中，包装类属于对象，我们知道几乎所有的对象都存放在堆中，相对于包装类，基本数据类型占用的空间非常小。</p>
+<h3 id="包装类中的常量池技术"><a href="#包装类中的常量池技术" class="headerlink" title="包装类中的常量池技术"></a>包装类中的常量池技术</h3><p>Byte，Short，Integer，Long都实现了常量池的技术，并默认创建了[-128~127]的相应类型的缓存，Character创建了[0,127]的缓存数据</p>
+<p>Boolean直接返回true或false</p>
+<p>例如：</p>
+<pre><code class="java">/**
+*此方法将始终缓存-128 到 127（包括端点）范围内的值，并可以缓存此范围之外的其他值。
+*/
+public static Integer valueOf(int i) &#123;
+    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+      return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+&#125;
+private static class IntegerCache &#123;
+    static final int low = -128;
+    static final int high;
+    static final Integer cache[];
+&#125;
+</code></pre>
+<p>如果超出对应的范围，还是会去创建新的对象，缓存的范围区间大小在性能和资源之间权衡</p>
+<p>Float和Double没有实现常量池技术</p>
+<pre><code class="java">Integer i1 = 33;
+Integer i2 = 33;
+System.out.println(i1 == i2);// 输出 true
+Float i11 = 333f;
+Float i22 = 333f;
+System.out.println(i11 == i22);// 输出 false
+Double i3 = 1.2;
+Double i4 = 1.2;
+System.out.println(i3 == i4);// 输出 false
+</code></pre>
+<p>所有包装类对象之间的比较，都用equals方法</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092010747.png" alt="img"></p>
+<h2 id="为什么要有包装类"><a href="#为什么要有包装类" class="headerlink" title="为什么要有包装类"></a>为什么要有包装类</h2><p>因为Java 本身就是一个面向对象的语言（OOP），对象时Java的灵魂</p>
+<p>让基本数据类型具有了对象的性质，并且为其添加了属性和方法，丰富了基本类型的操作。</p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h2><pre><code class="java">Integer i = 10;  //装箱
+int n = i;   //拆箱
+</code></pre>
+<p>对应的字节码 为</p>
+<pre><code class="JAVA">   L1
+    LINENUMBER 8 L1
+    ALOAD 0
+    BIPUSH 10
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    PUTFIELD AutoBoxTest.i : Ljava/lang/Integer;
+   L2
+    LINENUMBER 9 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD AutoBoxTest.i : Ljava/lang/Integer;
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    PUTFIELD AutoBoxTest.n : I
+    RETURN
+</code></pre>
+<p>可以看到装箱实际上就是调用了valueOf()的方法</p>
+<p>拆箱实际上就是调用了xxxValue()的方法</p>
+<h3 id="自动拆箱引发的NPE-NullPointException-问题"><a href="#自动拆箱引发的NPE-NullPointException-问题" class="headerlink" title="自动拆箱引发的NPE(NullPointException)问题"></a>自动拆箱引发的NPE(NullPointException)问题</h3><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092016526.png" alt="img"></p>
+<p><strong>数据库拆箱结果可能为NUll，因为自动拆箱，用基本数据类型有NEP的风险</strong></p>
+<pre><code class="JAVA">public class AutoBoxTest &#123;
+    @Test
+    void  should_Throw_NullPointerException()&#123;
+        long id = getNum();
+    &#125;
+    public Long getNum()&#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>​	等价于</p>
+<pre><code class="JAVA">long id = getBum().longValue;
+</code></pre>
+<p>因为getNum()为null，用null调用一个方法，报错NEP</p>
+<p>此外三目运算符也可能会产生NEP</p>
+<pre><code class="JAVA">public class Main &#123;
+    public static void main(String[] args) &#123;
+        Integer i = null;
+        Boolean flag = false;
+        System.out.println(flag ? 0 : i);
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092022418.png" alt="img"></p>
+<p>此时三木运算符中存在基本数据类型0，会产生自动拆箱的操作，i 被自动拆箱所以产生异常NEP</p>
+<p>正确写法如下：</p>
+<pre><code class="JAVA">Integer i = null;
+Boolean flag = false;
+System.out.println(flag ? new Integer(0) : i);// 两者类型一致就不会有拆箱导致的 NPE 问题了
+</code></pre>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208092023076.png" alt="img"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day15/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day14/">
+        <h2 class="post-title">day14</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>后端获取数据向前端输出的过程中，输出前应该采用信息安全部发布的XSSFilter进行相应的编码。XSS过滤器是前端的一种过滤方式。</p>
+<p>Java线程</p>
+<p>私有：虚拟机栈，程序计数器，本地方法站</p>
+<p>共享：堆，方法区</p>
+<p>运行时常量池</p>
+<ul>
+<li><p>常量池的大小受方法区大小的影响</p>
+</li>
+<li><p>存放了编译时期生成的各种字面量</p>
+</li>
+<li><p>存放编译时期生成的<strong>符号引用</strong></p>
+</li>
+</ul>
+<p>符号引用是以一组符号来描述所引用的目标，可以为任何形式的字面量，只要使用时无歧义即可。在解析阶段会将会将符号引用转换成直接引用。</p>
+<h2 id="浮点数的精度丢失问题："><a href="#浮点数的精度丢失问题：" class="headerlink" title="浮点数的精度丢失问题："></a>浮点数的精度丢失问题：</h2><p>计算机表示数字的宽度有限，无限循环的小鼠存在计算机中只能被截断，从而发生精度丢失的情况。</p>
+<p>为了便面精度丢失我们可以用<code>BigDecimal</code>来进行浮点运算，</p>
+<p>浮点数之间的判断不能用&#x3D;&#x3D;，包装类之间的判断不能哟个equals</p>
+<h3 id="创建BigDecimal对象："><a href="#创建BigDecimal对象：" class="headerlink" title="创建BigDecimal对象："></a>创建BigDecimal对象：</h3><p>推荐使用它的<code>BigDecimal(String val)</code>构造方法或者 <code>BigDecimal.valueOf(double val)</code> 静态方法来创建对象。</p>
+<p>在阿里巴巴Java开发手册中提到，禁止使用BigDecimal(double)吧double的值转换为BigDecimal对象</p>
+<p>加减乘除</p>
+<pre><code class="java">BigDecimal a = new BigDecimal(&quot;1.0&quot;);
+BigDecimal b = new BigDecimal(&quot;0.9&quot;);
+System.out.println(a.add(b));// 1.9
+System.out.println(a.subtract(b));// 0.1
+System.out.println(a.multiply(b));// 0.90
+System.out.println(a.divide(b));// 无法除尽，抛出 ArithmeticException 异常
+System.out.println(a.divide(b, 2, RoundingMode.HALF_UP));// 1.11
+</code></pre>
+<p>divide最好使用三个参数版本的并且<code>RoundingMode</code> 不要选择 <code>UNNECESSARY</code>，否则很可能会遇到 <code>ArithmeticException</code>（无法除尽出现无限循环小数的时候），其中<code>divisor</code>代表除数 <code>scale</code> 表示要保留几位小数，<code>roundingMode</code> 代表保留规则。</p>
+<pre><code class="java">public BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode) &#123;
+    return divide(divisor, scale, roundingMode.oldMode);
+&#125;
+</code></pre>
+<p>比较大小：</p>
+<p>使用compareTo() </p>
+<p>a.compareTo(b);结果为1表示a&gt;b,结果为0 表示a&#x3D;b,结果为-1表示a&lt;b</p>
+<p>可以通过setScale()设置保留的小数位数</p>
+<p><strong>注意BigDecimal对象建议使用compareTo比较，因为equals比较不光会比较大小，还会比较精度，而 compareTo会忽略精度</strong></p>
+<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><pre><code class="java">import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+/**
+ * 简化BigDecimal计算的小工具类
+ */
+public class BigDecimalUtil &#123;
+
+    /**
+     * 默认除法运算精度
+     */
+    private static final int DEF_DIV_SCALE = 10;
+
+    private BigDecimalUtil() &#123;
+    &#125;
+
+    /**
+     * 提供精确的加法运算。
+     *
+     * @param v1 被加数
+     * @param v2 加数
+     * @return 两个参数的和
+     */
+    public static double add(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.add(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的减法运算。
+     *
+     * @param v1 被减数
+     * @param v2 减数
+     * @return 两个参数的差
+     */
+    public static double subtract(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.subtract(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的乘法运算。
+     *
+     * @param v1 被乘数
+     * @param v2 乘数
+     * @return 两个参数的积
+     */
+    public static double multiply(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.multiply(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到
+     * 小数点以后10位，以后的数字四舍五入。
+     *
+     * @param v1 被除数
+     * @param v2 除数
+     * @return 两个参数的商
+     */
+    public static double divide(double v1, double v2) &#123;
+        return divide(v1, v2, DEF_DIV_SCALE);
+    &#125;
+
+    /**
+     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指
+     * 定精度，以后的数字四舍五入。
+     *
+     * @param v1    被除数
+     * @param v2    除数
+     * @param scale 表示表示需要精确到小数点以后几位。
+     * @return 两个参数的商
+     */
+    public static double divide(double v1, double v2, int scale) &#123;
+        if (scale &lt; 0) &#123;
+            throw new IllegalArgumentException(
+                    &quot;The scale must be a positive integer or zero&quot;);
+        &#125;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的小数位四舍五入处理。
+     *
+     * @param v     需要四舍五入的数字
+     * @param scale 小数点后保留几位
+     * @return 四舍五入后的结果
+     */
+    public static double round(double v, int scale) &#123;
+        if (scale &lt; 0) &#123;
+            throw new IllegalArgumentException(
+                    &quot;The scale must be a positive integer or zero&quot;);
+        &#125;
+        BigDecimal b = BigDecimal.valueOf(v);
+        BigDecimal one = new BigDecimal(&quot;1&quot;);
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Float)
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static float convertToFloat(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.floatValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Int)不进行四舍五入
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static int convertsToInt(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.intValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Long)
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static long convertsToLong(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.longValue();
+    &#125;
+
+    /**
+     * 返回两个数中大的一个值
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 返回两个数中大的一个值
+     */
+    public static double returnMax(double v1, double v2) &#123;
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(v2);
+        return b1.max(b2).doubleValue();
+    &#125;
+
+    /**
+     * 返回两个数中小的一个值
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 返回两个数中小的一个值
+     */
+    public static double returnMin(double v1, double v2) &#123;
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(v2);
+        return b1.min(b2).doubleValue();
+    &#125;
+
+    /**
+     * 精确对比两个数字
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 如果两个数一样则返回0，如果第一个数比第二个数大则返回1，反之返回-1
+     */
+    public static int compareTo(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.compareTo(b2);
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="Java-IO的常见面试题"><a href="#Java-IO的常见面试题" class="headerlink" title="Java IO的常见面试题"></a>Java IO的常见面试题</h2><h3 id="什么是IO"><a href="#什么是IO" class="headerlink" title="什么是IO"></a>什么是IO</h3><p>即输入与输出</p>
+<p>是计算机系统与外部设备通信的过程</p>
+<p>为了保证系统的稳定与安全，一个进程的地址空间分为用户空间和内核空间</p>
+<p>我们平常允许的应用程序都是在用户空间上运行，想要进行IO操作，需要借助内核空间的能力</p>
+<p>用户进程通过<code>系统调用</code>访问内核空间进行IO操作，<strong>应用程序只是发起系统调用，实际的IO操作还是由操作系统的内核来完成</strong></p>
+<p>常见的IO操作</p>
+<ul>
+<li>磁盘IO（读写文件）</li>
+<li>网络IO（网络请求和响应）</li>
+</ul>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><blockquote>
+<p>同步</p>
+</blockquote>
+<p>就是发起一个调用后，<strong>被调用者</strong>处理完请求前，调用不返回。</p>
+<blockquote>
+<p>异步</p>
+</blockquote>
+<p>就是发起一个调用后，立即得到<strong>被调用方</strong>的回响应表示已接受到请求，但此时被调用者还未返回结果，这个时候 我们可以处理其他请求，等 请求处理完成后，被调用者常常依靠事件，回调等方式通知调用者其返回结果。</p>
+<p>同步和异步最大的区别就在于，被调用方的<strong>执行方式</strong>和<strong>返回时机</strong>，同步是指被调用方执行完成之后再返回，异步是指被调用方先返回再执行，做完之后再想办法通知调用方。</p>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><blockquote>
+<p>阻塞</p>
+</blockquote>
+<p>发起一个请求，<strong>调用者</strong>一直等待请求结果返回，也就是说当前线程被挂起，无法执行其他任务，直到条件就绪才继续</p>
+<blockquote>
+<p>非阻塞</p>
+</blockquote>
+<p>发起一个请求，<strong>调用者</strong>不用一直等待，可以先去干别事情</p>
+<h3 id="同步，异步，阻塞，非阻塞的区别"><a href="#同步，异步，阻塞，非阻塞的区别" class="headerlink" title="同步，异步，阻塞，非阻塞的区别"></a>同步，异步，阻塞，非阻塞的区别</h3><p>同步与阻塞不是一回事，针对的对象不一样，</p>
+<p>阻塞和非阻塞针对的时<strong>调用者</strong>，</p>
+<p>同步和异步针对的时<strong>被调用者</strong></p>
+<h3 id="常见的IO模型"><a href="#常见的IO模型" class="headerlink" title="常见的IO模型"></a>常见的IO模型</h3><h4 id="Java中的"><a href="#Java中的" class="headerlink" title="Java中的"></a>Java中的</h4><p><strong>BIO</strong>（BLockingIO）</p>
+<p>属于同步阻塞IO，应用程序发起read请求后，会一致阻塞，直到 内核将数据拷贝到用户空间</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082056243.png" alt="img"></p>
+<p>在 用户IO操作交少时可以使用，一旦IO操作过大将堆系统的性能造成很大的影响。</p>
+<p><strong>NIO</strong>（No-blockingIO）</p>
+<p>非阻塞队列，再Java1.4中引入，对应java.nio包，支持面向缓冲 ，基于通道的IO操作，在高负载，高并发 的情况下一个使用NIO</p>
+<ul>
+<li>同步非阻塞队列：<br>  <img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082208284.png" alt="img"></li>
+</ul>
+<p>相对于同步阻塞队列而言，，同步阻塞队列可以一直向内核发送read请求直到内核把数据拷贝到用户空间</p>
+<p>通过这种轮询操作避免了一直阻塞</p>
+<p>但这样应用程序对IO系统调用轮询数据，判断其是否准备好对CPU的资源消耗较大</p>
+<ul>
+<li>IO多路复用</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082216512.jpg" alt="88ff862764024c3b8567367df11df6ab_tplv-k3u1fbpfcp-watermark (1)"></p>
+<p>首先发起 select调用，询问内核该数据是否就绪，准备好了则调用其IO操作，IO操作的过程还是阻塞的</p>
+<p>但减少了无效的系统调用，减少了对CPU的消耗</p>
+<p>NIO选择器（Selector）也被称为多路复用器，通过它只需一个线程便可管理多个客户端连接，</p>
+<p>当客户端数据到了之后才会为其服务</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082221008.png" alt="img"></p>
+<p><strong>AIO</strong></p>
+<p>异步IO是通过事件或回调实现的，应用操作之后会直接返回，当后台处理完成，操作系统会通知相应的线程进行后续的操作</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082225460.png" alt="img"></p>
+<h4 id="Linux中的"><a href="#Linux中的" class="headerlink" title="Linux中的"></a>Linux中的</h4><blockquote>
+<p>同步阻塞IO</p>
+</blockquote>
+<blockquote>
+<p>同步非阻塞IO</p>
+</blockquote>
+<blockquote>
+<p>多路复用IO</p>
+</blockquote>
+<blockquote>
+<p>信号驱动IO</p>
+</blockquote>
+<blockquote>
+<p>异步IO</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day14/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day13/">
+        <h2 class="post-title">day13</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="Java代理模式"><a href="#Java代理模式" class="headerlink" title="Java代理模式"></a>Java代理模式</h2><p>就是用代理对象来代替真实的对象访问，这样就可以在<strong>不修改真实对象的情况下提供额外的操作，扩展对象的功能</strong></p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>对目标方法 的增强都是手动实现的，非常不灵活，一旦接口发生改变，代理对象和目标对象都要做出修改</p>
+<p>而且对每个目标类都要单独写一个代理类</p>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>创建一个接口和其实现类</li>
+<li>创建一个代理对象也是按这个接口</li>
+<li>将目标对象注入到代理对象中</li>
+<li>在代理类中调用目标类中的方法，可以屏蔽目标对象的访问</li>
+</ul>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>从JVM的角度来说，动态代理实在运行时动态生成类字节码，并加载到JVM 中</p>
+<p>spring的AOP，RPC框架</p>
+<p><strong>动态代理在我们日常开发中使用的相对较少，但是在框架中的几乎是必用的一门技术。学会了动态代理之后，对于我们理解和学习各种框架的原理也非常有帮助。</strong></p>
+<h4 id="JDK动态代理机制"><a href="#JDK动态代理机制" class="headerlink" title="JDK动态代理机制"></a>JDK动态代理机制</h4><p><strong>在 Java 动态代理机制中 <code>InvocationHandler</code> 接口和 <code>Proxy</code> 类是核心。</strong></p>
+<p><code>Proxy</code> 类中使用频率最高的方法是：<code>newProxyInstance()</code> ，这个方法主要用来生成一个代理对象。</p>
+<pre><code class="java">    public static Object newProxyInstance(ClassLoader loader,
+                                          Class&lt;?&gt;[] interfaces,
+                                          InvocationHandler h)
+        throws IllegalArgumentException
+    &#123;
+        ......
+    &#125;
+</code></pre>
+<ol>
+<li><strong>loader</strong> :类加载器，用于加载代理对象。</li>
+<li><strong>interfaces</strong> : 被代理类实现的一些接口；</li>
+<li><strong>h</strong> : 实现了 <code>InvocationHandler</code> 接口的对象；(目标对象)</li>
+</ol>
+<p>要实现动态代理的话，还必须需要实现<code>InvocationHandler</code> 来自定义处理逻辑。 当我们的动态代理对象调用一个方法时，这个方法的调用就会被转发到实现<code>InvocationHandler</code> 接口类的 <code>invoke</code> 方法来调用。</p>
+<pre><code class="JAVA">public interface InvocationHandler &#123;
+
+    /**
+     * 当你使用代理对象调用方法的时候实际会调用到这个方法
+     */
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable;
+&#125;
+</code></pre>
+<ol>
+<li><strong>proxy</strong> :动态生成的代理类</li>
+<li><strong>method</strong> : 与代理类对象调用的方法相对应</li>
+<li><strong>args</strong> : 当前 method 方法的参数</li>
+</ol>
+<p>也就是说：<strong>你通过<code>Proxy</code> 类的 <code>newProxyInstance()</code> 创建的代理对象在调用方法的时候，实际会调用到实现<code>InvocationHandler</code> 接口的类的 <code>invoke()</code>方法。</strong> 你可以在 <code>invoke()</code> 方法中自定义处理逻辑，比如在方法执行前后做什么事情。</p>
+<p>使用步骤：</p>
+<ol>
+<li>定义一个接口及其实现类；</li>
+<li>自定义 <code>InvocationHandler</code> 并重写<code>invoke</code>方法，在 <code>invoke</code> 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑；</li>
+<li>通过 <code>Proxy.newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</code> 方法创建代理对象；</li>
+</ol>
+<h4 id="CGLIB动态代理"><a href="#CGLIB动态代理" class="headerlink" title="CGLIB动态代理"></a>CGLIB动态代理</h4><p><strong>JDK 动态代理有一个最致命的问题是其只能代理实现了接口的类。</strong></p>
+<p><strong>为了解决这个问题，我们可以用 CGLIB 动态代理机制来避免。</strong></p>
+<p><strong>在 CGLIB 动态代理机制中 <code>MethodInterceptor</code> 接口和 <code>Enhancer</code> 类是核心。</strong></p>
+<p>自定义MethodInterceptor，并重写Enhancer</p>
+<pre><code class="JAVA">public interface MethodInterceptor
+extends Callback&#123;
+    // 拦截被代理类中的方法
+    public Object intercept(Object obj, java.lang.reflect.Method method, Object[] args,MethodProxy proxy) throws Throwable;
+&#125;
+
+</code></pre>
+<ol>
+<li><strong>obj</strong> : 动态生成的代理对象</li>
+<li><strong>method</strong> : 被拦截的方法（需要增强的方法）</li>
+<li><strong>args</strong> : 方法入参</li>
+<li><strong>proxy</strong> : 用于调用原始方法</li>
+</ol>
+<p>你可以通过 <code>Enhancer</code>类来动态获取被代理类，当代理类调用方法的时候，实际调用的是 <code>MethodInterceptor</code> 中的 <code>intercept</code> 方法</p>
+<p>使用步骤：</p>
+<ol>
+<li>定义一个类；</li>
+<li>自定义 <code>MethodInterceptor</code> 并重写 <code>intercept</code> 方法，<code>intercept</code> 用于拦截增强被代理类的方法，和 JDK 动态代理中的 <code>invoke</code> 方法类似；</li>
+<li>通过 <code>Enhancer</code> 类的 <code>create()</code>创建代理类</li>
+</ol>
+<h3 id="JDK动态代理与CGLIB动态代理的对比"><a href="#JDK动态代理与CGLIB动态代理的对比" class="headerlink" title="JDK动态代理与CGLIB动态代理的对比"></a>JDK动态代理与CGLIB动态代理的对比</h3><ul>
+<li><strong>DK 动态代理只能代理实现了接口的类或者直接代理接口，而 CGLIB 可以代理未实现任何接口的类。</strong></li>
+<li>CGLIB是通过生成被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为 final 类型的类和方法</li>
+<li>就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK 版本的升级，这个优势更加明显。</li>
+</ul>
+<h3 id="静态代理与动态代理"><a href="#静态代理与动态代理" class="headerlink" title="静态代理与动态代理"></a>静态代理与动态代理</h3><ol>
+<li><strong>灵活性</strong> ：动态代理更加灵活，不需要必须实现接口，可以直接代理实现类，并且可以不需要针对每个目标类都创建一个代理类。另外，静态代理中，接口一旦新增加方法，目标对象和代理对象都要进行修改，这是非常麻烦的！</li>
+<li><strong>JVM 层面</strong> ：静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class 文件。而动态代理是在运行时动态生成类字节码，并加载到 JVM 中的</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day13/" class="go-post">阅读全文</a>
+</div>
+
 
             <div class="page-current">
     <div class="prev">
@@ -215,8 +2518,20 @@
         
         <span class="current">1</span>
         
+        <span>
+            <a class="page-num" href="/myblog.github.io/page/2/">2</a>
+            
+            <a class="page-num" href="/myblog.github.io/page/3">3</a>
+            
+            
+        </span>
+        
     </div>
     <div class="next">
+        
+        <a class="page-num" href="/myblog.github.io/page/2/">
+            <i class="fa-solid fa-caret-right fa-fw"></i>
+        </a>
         
     </div>
 </div>

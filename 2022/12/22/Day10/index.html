@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day10 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day10</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="字符串拼接使用“-”还是StringBuilder"><a href="#字符串拼接使用“-”还是StringBuilder" class="headerlink" title="字符串拼接使用“ + ”还是StringBuilder?"></a>字符串拼接使用“ + ”还是StringBuilder?</h2><p>Java语言本身不支持运算符重载，但+和+&#x3D;是专门为String重载过的运算符</p>
+<pre><code class="java">String str1 = &quot;he&quot;;
+String str2 = &quot;llo&quot;;
+String str3 = &quot;world&quot;;
+String str4 = str1 + str2 + str3;
+</code></pre>
+<p>对应以下字节码</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208040728564.png" alt="img"></p>
+<p>我们发现用+拼接字符串实际上就是通过StringBuilder的append方法实现的，拼接完成后调用toString方法的到一个字符串</p>
+<p>但这样做有一个明显的缺陷，就是在循环体中拼接时每次拼接都会创建一个StringBuilder对象</p>
+<p>直接使用StrigBuilder对象进行字符串拼接则不会产生这个问题</p>
+<h2 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h2><p>时JVM为了提升性能和减少内存消耗而专门为String字符串开辟的一块区域，<strong>主要目的时为了避免字符串的重复创建</strong></p>
+<pre><code class="java">// 在堆中创建字符串对象”ab“
+// 将字符串对象”ab“的引用保存在字符串常量池中
+String aa = &quot;ab&quot;;
+// 直接返回字符串常量池中字符串对象”ab“的引用
+String bb = &quot;ab&quot;;
+System.out.println(aa==bb);// true
+</code></pre>
+<h2 id="String-s1-x3D-new-String-“abc”-这句话创建了几个字符串对象？"><a href="#String-s1-x3D-new-String-“abc”-这句话创建了几个字符串对象？" class="headerlink" title="String s1 &#x3D; new String(“abc”);这句话创建了几个字符串对象？"></a>String s1 &#x3D; new String(“abc”);这句话创建了几个字符串对象？</h2><ol>
+<li>当字符串常量池中不存在字符串对象“abc”的引用时，会在堆中创建两个字符串对象</li>
+</ol>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208040737325.png" alt="img"></p>
+<p><code>ldc</code> 命令用于判断字符串常量池中是否保存了对应的字符串对象的引用，如果保存了的话直接返回，如果没有保存的话，会在堆中创建对应的字符串对象并将该字符串对象的引用保存到字符串常量池中。</p>
+<ol start="2">
+<li>当字符串常量池中存在该对象的引用时，只会创建一个字符串对象，并将该对象指向字符串常量池中字符串对象“abc”对应的引用。</li>
+</ol>
+<h2 id="intern-方法有什么作用"><a href="#intern-方法有什么作用" class="headerlink" title="intern 方法有什么作用?"></a>intern 方法有什么作用?</h2><p><code>String.intern()</code> 是一个 native（本地）方法，其作用是将指定的字符串对象的引用保存在字符串常量池中，可以简单分为两种情况：</p>
+<ul>
+<li>如果字符串常量池中保存了对应的字符串对象的引用，就直接返回该引用。</li>
+<li>如果字符串常量池中没有保存了对应的字符串对象的引用，那就在常量池中创建一个指向该字符串对象的引用并返回。</li>
+</ul>
+<pre><code class="java">// 在堆中创建字符串对象”Java“
+// 将字符串对象”Java“的引用保存在字符串常量池中
+String s1 = &quot;Java&quot;;
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s2 = s1.intern();
+// 会在堆中在单独创建一个字符串对象
+String s3 = new String(&quot;Java&quot;);
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s4 = s3.intern();
+// s1 和 s2 指向的是堆中的同一个对象
+System.out.println(s1 == s2); // true
+// s3 和 s4 指向的是堆中不同的对象
+System.out.println(s3 == s4); // false
+// s1 和 s4 指向的是堆中的同一个对象
+System.out.println(s1 == s4); //true
+</code></pre>
+<h2 id="String-类型的变量和常量做“-”运算时发生了什么？"><a href="#String-类型的变量和常量做“-”运算时发生了什么？" class="headerlink" title="String 类型的变量和常量做“+”运算时发生了什么？"></a>String 类型的变量和常量做“+”运算时发生了什么？</h2><p>先来看字符串不加 <code>final</code> 关键字拼接的情况（JDK1.8）：</p>
+<pre><code class="java">String str1 = &quot;str&quot;;
+String str2 = &quot;ing&quot;;
+String str3 = &quot;str&quot; + &quot;ing&quot;;
+String str4 = str1 + str2;
+String str5 = &quot;string&quot;;
+System.out.println(str3 == str4);//false
+System.out.println(str3 == str5);//true
+System.out.println(str4 == str5);//false
+</code></pre>
+<blockquote>
+<p>对于编译器就可以确定值得字符串，也就是字符串常量，JVM会将其加入字符串常量池。并且字符串拼接得到的字符串常量在编译阶段也加入了字符串常量池中，这得益于编译器的优化</p>
+</blockquote>
+<h3 id="常量折叠"><a href="#常量折叠" class="headerlink" title="常量折叠"></a>常量折叠</h3><p>常量折叠会把常量表达式的值求出来作为常量嵌在最终生成的代码中，这是 Javac 编译器会对源代码做的极少量优化措施之一(代码优化几乎都在即时编译器中进行)。</p>
+<p>对于 <code>String str3 = &quot;str&quot; + &quot;ing&quot;;</code> 编译器会给你优化成 <code>String str3 = &quot;string&quot;;</code> </p>
+<p>并不是所有的常量都会进行折叠，只有在编译器能够确定值的常量才可以</p>
+<ul>
+<li>基本数据类型以及String类型</li>
+<li>final修饰的基本数据类型和字符串变量</li>
+<li>字符串的+拼接，基本数据类型的加减乘除和位运算</li>
+</ul>
+<p>字符串使用final修时后可以让编译器当作常量来使用</p>
+<pre><code class="java">final String str1 = &quot;str&quot;;
+final String str2 = &quot;ing&quot;;
+// 下面两个表达式其实是等价的
+String c = &quot;str&quot; + &quot;ing&quot;;// 常量池中的对象
+String d = str1 + str2; // 常量池中的对象
+System.out.println(c == d);// true
+</code></pre>
+<p>​	<strong>引用的值在程序编译期是无法确定的，编译器无法对其进行优化。</strong></p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型时jdk5中引入的一个新特性，可以提高代码的可读性及稳定性</p>
+<p>编译器可以对泛型参数进行检测，通过泛型参数可以指定传入的对象类型</p>
+<h3 id="泛型的使用方式"><a href="#泛型的使用方式" class="headerlink" title="泛型的使用方式"></a>泛型的使用方式</h3><ul>
+<li>泛型类</li>
+</ul>
+<pre><code class="java">//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt;&#123;
+
+    private T key;
+
+    public Generic(T key) &#123;
+        this.key = key;
+    &#125;
+
+    public T getKey()&#123;
+        return key;
+    &#125;
+&#125;
+//实例化
+Generic&lt;Integer&gt; genericInteger = new Generic&lt;Integer&gt;(123456);
+</code></pre>
+<ul>
+<li>泛型接口</li>
+</ul>
+<pre><code class="java">public interface Generator&lt;T&gt; &#123;
+    public T method();
+&#125;
+//实例化，不指定类型
+class GeneratorImpl&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public T method() &#123;
+        return null;
+    &#125;
+&#125;
+//实例化，指定类型
+class GeneratorImpl&lt;T&gt; implements Generator&lt;String&gt;&#123;
+    @Override
+    public String method() &#123;
+        return &quot;hello&quot;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>泛型方法</li>
+</ul>
+<pre><code class="java">   public static &lt; E &gt; void printArray( E[] inputArray )
+   &#123;
+         for ( E element : inputArray )&#123;
+            System.out.printf( &quot;%s &quot;, element );
+         &#125;
+         System.out.println();
+    &#125;
+//实例化
+// 创建不同类型数组： Integer, Double 和 Character
+Integer[] intArray = &#123; 1, 2, 3 &#125;;
+String[] stringArray = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;
+printArray( intArray  );
+printArray( stringArray  );
+</code></pre>
+<blockquote>
+<p>注意: <code>public static &lt; E &gt; void printArray( E[] inputArray )</code> 一般被称为静态泛型方法;在 java 中泛型只是一个占位符，必须在传递类型后才能使用。类在实例化时才能真正的传递类型参数，由于静态方法的加载先于类的实例化，也就是说类中的泛型还没有传递真正的类型参数，静态的方法的加载就已经完成了，所以静态泛型方法是没有办法使用类上声明的泛型的。只能使用自己声明的 <code>&lt;E&gt;</code></p>
+</blockquote>
+<h3 id="一般在哪使用"><a href="#一般在哪使用" class="headerlink" title="一般在哪使用"></a>一般在哪使用</h3><ul>
+<li>自定义接口</li>
+<li>Excel处理类的不同数据类型的动态导出</li>
+<li>集合工具类</li>
+</ul>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射赋予了我们在运行时分析类以及执行类中方法的能力，通过反射可以获取一个类中的所有属性和方法，并且可以调用其方法和属性</p>
+<p>各大框架中都大量的使用到了反射机制</p>
+<p>各大框架中都大量使用到了<code> 动态代理</code>而动态代理依的实现赖于反射</p>
+<p>注解的实现也依赖于反射</p>
+<h3 id="获取Class对象的四种方式"><a href="#获取Class对象的四种方式" class="headerlink" title="获取Class对象的四种方式"></a>获取Class对象的四种方式</h3><ul>
+<li>知道类名的情况下</li>
+</ul>
+<pre><code class="java">    Class alunbarClass = TargetObject.class;
+</code></pre>
+<p>但一般情况下我们是不知道类名的，通过遍历包下的类来获取Class对象，通过此方法获取的Class对象不会初始化</p>
+<ul>
+<li>Class.forName()传入类的全路径获取</li>
+</ul>
+<pre><code class="java">Class myClass = Class.forName(&quot;com.gong.myTest&quot;);
+</code></pre>
+<ul>
+<li>通过对象实例instance.getClass()获取</li>
+</ul>
+<pre><code class="java"> myTest my = new myTest();
+ Class myClass = my.getClass();
+</code></pre>
+<ul>
+<li>通过类加载器**<code>xxxClassLoader.loadClass()</code>**传入类路径获取</li>
+</ul>
+<pre><code class="java">//通过类加载器获取 Class 对象不会进行初始化，意味着不进行包括初始化等一系列步骤，静态代码块和静态对象不会得到执行
+ ClassLoader.getSystemClassLoader.loadClass(&quot;com.gong.myTest&quot;);
+</code></pre>
+<p>基本操作演示：</p>
+<p>创建需要通过反射获取的类</p>
+<pre><code class="java">
+
+public class TargetObject &#123;
+    private String value;
+
+    public TargetObject() &#123;
+        value = &quot;JavaGuide&quot;;
+    &#125;
+
+    public void publicMethod(String s) &#123;
+        System.out.println(&quot;I love &quot; + s);
+    &#125;
+
+    private void privateMethod() &#123;
+        System.out.println(&quot;value is &quot; + value);
+    &#125;
+&#125;
+</code></pre>
+<p>反射获取这个类的方法以及参数</p>
+<pre><code class="java">
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class Main &#123;
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException &#123;
+        /**
+         * 获取 TargetObject 类的 Class 对象并且创建 TargetObject 类实例
+         */
+        Class&lt;?&gt; targetClass = Class.forName(&quot;cn.javaguide.TargetObject&quot;);
+        TargetObject targetObject = (TargetObject) targetClass.newInstance();
+        /**
+         * 获取 TargetObject 类中定义的所有方法
+         */
+        Method[] methods = targetClass.getDeclaredMethods();
+        for (Method method : methods) &#123;
+            System.out.println(method.getName());
+        &#125;
+
+        /**
+         * 获取指定方法并调用
+         */
+        Method publicMethod = targetClass.getDeclaredMethod(&quot;publicMethod&quot;,
+                String.class);
+
+        publicMethod.invoke(targetObject, &quot;JavaGuide&quot;);
+    
+        /**
+         * 获取指定参数并对参数进行修改
+         */
+        Field field = targetClass.getDeclaredField(&quot;value&quot;);
+        //为了对类中的参数进行修改我们取消安全检查
+        field.setAccessible(true);
+        field.set(targetObject, &quot;JavaGuide&quot;);
+
+        /**
+         * 调用 private 方法
+         */
+        Method privateMethod = targetClass.getDeclaredMethod(&quot;privateMethod&quot;);
+        //为了调用private方法我们取消安全检查
+        privateMethod.setAccessible(true);
+        privateMethod.invoke(targetObject);
+    &#125;
+&#125;
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="java">publicMethod
+privateMethod
+I love JavaGuide
+value is JavaGuide
+</code></pre>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p>Annotation（注解）是jdk5开始引入的新特性，注解可以看作是一个特殊的注释，主要用于修饰类，方法和变量，</p>
+<p>注解的本质就是继承了Annotation的特殊接口</p>
+<p>注解的解析方式</p>
+<ul>
+<li>编译期解析：编译Java代码是扫描并处理，比如@Overwrite</li>
+<li>运行期解析：框架中自带的注解比如Spring中的@Component通古果反射来进行处理</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

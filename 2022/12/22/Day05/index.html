@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day05 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/myblog.github.io/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>day05</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">面试题</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302024991.png" alt="image-20220730202445826" style="zoom:50%;" />
+
+<p>Java中&#x3D;&#x3D;比较的是地址，两个integer都是new创建的所以是两个不同的对象，所以&#x3D;&#x3D;返回false，！&#x3D;返回true</p>
+<img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302026124.png" alt="image-20220730202637031" style="zoom: 50%;" />
+
+<p>private 权限限于同一个类中； default 权限限于同一个包中，即包权限＝default权限；protected权限限于同一个包中，以及不在同一个包中的子类 public 权限在不同包中都可以</p>
+<p><strong>即public&gt;protected&gt;default&gt;private</strong></p>
+<p><strong>while()括号中的参数必须为布尔类型</strong></p>
+<h2 id="JSP-共有以下-6-种基本动作："><a href="#JSP-共有以下-6-种基本动作：" class="headerlink" title="JSP 共有以下 6 种基本动作："></a>JSP 共有以下 6 种基本动作：</h2><ul>
+<li>jsp:include：在页面被请求的时候引入一个文件；</li>
+<li>jsp:useBean：寻找或者实例化一个JavaBean。</li>
+<li>jsp:setProperty：设置 JavaBean 的属性。</li>
+<li>jsp:getProperty：输出某个 JavaBean 的属性；</li>
+<li>jsp:forward：把请求转到一个新的页面；</li>
+<li>jsp:plugin：根据浏览器类型为 Java 插件生成 OBJECT 或 EMBED 标记。</li>
+</ul>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><img src="C:/Users/gjh18/AppData/Roaming/Typora/typora-user-images/image-20220730203556853.png" alt="image-20220730203556853" style="zoom:50%;" />
+
+<ul>
+<li>final修饰的方法可以被重载使用</li>
+<li>接口不应该使用final修饰，没有意义，抽象类不能用final修饰；</li>
+<li>final修饰的方法不能被重写，是对的。将方法声明为final，那就说明你已经知道这个方法提供的功能已经满足你要求，不需要进行扩展，并且也不允许任何从此类继承的类来覆写这个方法，但是继承仍然可以继承这个方法，也就是说可以直接使用。</li>
+</ul>
+<h2 id="类型自动转换"><a href="#类型自动转换" class="headerlink" title="类型自动转换"></a>类型自动转换</h2><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207302042674.png" alt="image-20220730204211609" style="zoom:50%;" />
+
+<p>func1和func4报错分别是返回值错误和没有强转</p>
+<p>小转大不用强转，大转小需要强转（大小指精度）。因为大的精度更高，转成小的可能会有精度丢失。</p>
+<h2 id="静态变量的作用"><a href="#静态变量的作用" class="headerlink" title="静态变量的作用"></a>静态变量的作用</h2><p>静态变量可以被类的所有实例所共享，无论一个类创建了多少个变量，他们都共享同一份静态变量</p>
+<p>通常情况下静态变量会被<code> final</code>关键字修饰成常量</p>
+<h2 id="字符型常量与字符串常量的区别"><a href="#字符型常量与字符串常量的区别" class="headerlink" title="字符型常量与字符串常量的区别"></a>字符型常量与字符串常量的区别</h2><ul>
+<li>形式：字符型常量是用单引号括起来的一个字符，字符串常量是由双引号括起来的0个或多个字符</li>
+<li>含义：字符串常量相当于一个整形值（ASCll值）可参加表达式运算，字符串常量代表一个地址值（该字符串在内存中的地址）</li>
+<li>占内存大小;字符常量占2个字节大小，字符串常量占若干个字节</li>
+</ul>
+<h2 id="静态成员为什么不能调用非静态成员"><a href="#静态成员为什么不能调用非静态成员" class="headerlink" title="静态成员为什么不能调用非静态成员"></a>静态成员为什么不能调用非静态成员</h2><ul>
+<li>静态方法属于类，在类加载时就会分配内存，可以通过类名直接访问，而非静态成员属于实例对象，只有在对象实例化后才存在，需要通过实例对象取访问</li>
+<li>静态成员创建时非静态成员可能还未创建，此时调用内存中还未存在的非静态成员属于非法操作。</li>
+</ul>
+<h2 id="静态方法和实例方法的不同"><a href="#静态方法和实例方法的不同" class="headerlink" title="静态方法和实例方法的不同"></a>静态方法和实例方法的不同</h2><ul>
+<li>调用方式：静态方法既可以<code> 类名.方法名</code> 也可以<code> 对象名.方法名</code>, 但实例方法只能通过对象调用，但静态方法推荐使用类名调用，不易混淆</li>
+<li>静态方法只能访问静态成员变量和静态方法，而实例方法则没有这个限制。</li>
+</ul>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>发生在同一个类中（或父类和子类之间）除方法名不能修改外，参数签名，返回值类型，访问修饰符都可不同</p>
+<p>如果多个方法(比如 <code>StringBuilder</code> 的构造方法)有相同的名字、不同的参数， 便产生了重载。</p>
+<pre><code class="java">StringBuilder sb = new StringBuilder();
+StringBuilder sb2 = new StringBuilder(&quot;HelloWorld&quot;);
+</code></pre>
+<p>java允许重载任何方法</p>
+<p><strong>总而言之：重载就是在一个类中多个同名方法根据不同的传参执行不同的逻辑处理</strong></p>
+<h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ul>
+<li>重写发生在运行期间，是子类对父类中允许访问的方法的实现过程的重写编写</li>
+<li>方法名参数签名必须相同，子类的返回值类型应该小于等于父类的返回值类型，抛出的异常范围应该小于等于父类，子类的访问修饰符范围应该大于等于父类</li>
+<li>父类被<code> private ,static,final</code>修饰的方法不能被子类重写，但static修饰的方法能被再次声明</li>
+<li>构造方法无法被重写</li>
+<li>如果方法的返回类型是 void 和基本数据类型，则返回值重写时不可修改。但是如果方法的返回值是引用类型，重写时是可以返回该引用类型的子类的。</li>
+</ul>
+<p><strong>总而言之：重写就是子类对父类的重新改造，外部模样不能变，内部逻辑可以改变。</strong></p>
+<h2 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h2><p>重载是同一个方法能根据参数的不同而做出不同的处理	</p>
+<p>重写是子类继承了父类的方法，输入参数一致，但要做出与父类不一样的操作，这是就要重写该方法来覆盖父类的方法</p>
+<table>
+<thead>
+<tr>
+<th align="left">区别点</th>
+<th align="left">重载方法</th>
+<th align="left">重写方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">发生范围</td>
+<td align="left">同一个类</td>
+<td align="left">子类</td>
+</tr>
+<tr>
+<td align="left">参数列表</td>
+<td align="left">必须修改</td>
+<td align="left">一定不能修改</td>
+</tr>
+<tr>
+<td align="left">返回类型</td>
+<td align="left">可修改</td>
+<td align="left">子类方法返回值类型应比父类方法返回值类型更小或相等</td>
+</tr>
+<tr>
+<td align="left">异常</td>
+<td align="left">可修改</td>
+<td align="left">子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；</td>
+</tr>
+<tr>
+<td align="left">访问修饰符</td>
+<td align="left">可修改</td>
+<td align="left">一定不能做更严格的限制（可以降低限制）</td>
+</tr>
+<tr>
+<td align="left">发生阶段</td>
+<td align="left">编译期</td>
+<td align="left">运行期</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
