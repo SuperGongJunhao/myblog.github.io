@@ -165,191 +165,6 @@
             
 
 <div class="post">
-    <a href="/myblog.github.io/2022/12/22/Day12/">
-        <h2 class="post-title">day12</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/12/22
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <pre><code class="java">//a的值为2的ASCAII码值50
-int a = &#39;2&#39;;
-//常用的ASCAII 0是48，A是65，a是97
-</code></pre>
-<p>char类型的值只有在变为int的时候才会变为对应的ASCII码，其toString()方法和用String.ValueOf()方法都是将其转换为字符串</p>
-<p>ceil()向上取整，如果参数小于0大于-1，返回-0，如果是浮点型则是-0.0</p>
-<p>floor()向下取整，如果参数是NaN，无穷，+0，-0那么结果与参数相同</p>
-<p>如果是-0.0那么结果是-0.0</p>
-<h2 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h2><p>即Service Provider Interface服务调用方接口，提供给服务提供者和扩展框架功能的开发者使用的接口</p>
-<p>SPI将服务接口和具体的服务实现分开，将服务调用方和实现者解耦，能提升服务的 扩展性和可维护性，修改或替换服务实现并不需要修改服务调用方</p>
-<p>SPI与API</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062110301.png" alt="img"></p>
-<p>一般模块之间都是通过接口通信，在服务调用方与实现方引入一个接口</p>
-<p>由接口实现方定义的接口就是API</p>
-<p>由接口调用方定义的接口就是SPI</p>
-<p><strong>如何实现SPI</strong></p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7000572612535386125">https://juejin.cn/post/7000572612535386125</a></p>
-<p>SPI的优缺点：</p>
-<blockquote>
-<p>优点</p>
-</blockquote>
-<p>能大大提高接口设计的灵活性</p>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<p>需要遍历加载所有的实现类，不能做到按需加载，效率较低</p>
-<p>多线程情况下当多个 <code>ServiceLoader</code> 同时 <code>load</code> 时，存在并发问题</p>
-<h2 id="为什么Java只有值传递"><a href="#为什么Java只有值传递" class="headerlink" title="为什么Java只有值传递"></a>为什么Java只有值传递</h2><h3 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h3><ul>
-<li>值传递：方法接收的是实参的拷贝，会创建副本</li>
-<li>引用传递：方法接收的是实参所引用对象在堆中的地址，不会创建副本，对形参的修改将会影响到实参</li>
-</ul>
-<h3 id="Java中只有值传递"><a href="#Java中只有值传递" class="headerlink" title="Java中只有值传递"></a>Java中只有值传递</h3><p>传递基本数据类型</p>
-<pre><code class="java">public static void main(String[] args) &#123;
-    int num1 = 10;
-    int num2 = 20;
-    swap(num1, num2);
-    System.out.println(&quot;num1 = &quot; + num1);
-    System.out.println(&quot;num2 = &quot; + num2);
-&#125;
-
-public static void swap(int a, int b) &#123;
-    int temp = a;
-    a = b;
-    b = temp;
-    System.out.println(&quot;a = &quot; + a);
-    System.out.println(&quot;b = &quot; + b);
-&#125;
-</code></pre>
-<pre><code class="java">a = 20
-b = 10
-num1 = 10
-num2 = 20
-</code></pre>
-<p>以上可知a,b只是num1和num2的副本，副本怎么修改也不会影响到原件本身</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062135750.jpeg" alt="基本数据类型参数"></p>
-<p>一个方法不能修改一个基本数据类型的参数</p>
-<p>传递引用数据类型</p>
-<pre><code class="java">    public static void main(String[] args) &#123;
-      int[] arr = &#123; 1, 2, 3, 4, 5 &#125;;
-      System.out.println(arr[0]);
-      change(arr);
-      System.out.println(arr[0]);
-    &#125;
-
-    public static void change(int[] array) &#123;
-      // 将数组的第一个元素变为0
-      array[0] = 0;
-    &#125;
-</code></pre>
-<pre><code class="java">1
-0
-</code></pre>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062137468.jpeg" alt="引用数据类型参数1"></p>
-<p>此时change方法中传递的是arr（实参）的地址，array和arr指向的是同一个数组对象，所以方法内部对形参的修改会影响实参。</p>
-<p>传递引用数据类型</p>
-<pre><code class="java">public class Person &#123;
-    private String name;
-   // 省略构造函数、Getter&amp;Setter方法
-&#125;
-
-public static void main(String[] args) &#123;
-    Person xiaoZhang = new Person(&quot;小张&quot;);
-    Person xiaoLi = new Person(&quot;小李&quot;);
-    swap(xiaoZhang, xiaoLi);
-    System.out.println(&quot;xiaoZhang:&quot; + xiaoZhang.getName());
-    System.out.println(&quot;xiaoLi:&quot; + xiaoLi.getName());
-&#125;
-
-public static void swap(Person person1, Person person2) &#123;
-    Person temp = person1;
-    person1 = person2;
-    person2 = temp;
-    System.out.println(&quot;person1:&quot; + person1.getName());
-    System.out.println(&quot;person2:&quot; + person2.getName());
-&#125;
-</code></pre>
-<pre><code class="java">person1:小李
-person2:小张
-xiaoZhang:小张
-xiaoLi:小李
-</code></pre>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062141582.jpeg" alt="引用数据类型参数2"></p>
-<p>此时swap的形参只是拷贝实参的地址，形参之间的交换的是拷贝的地址 ，并不是实参的地址，所以不会影响到实参</p>
-<p>Java 中将实参传递给方法（或函数）的方式是 <strong>值传递</strong> ：</p>
-<ul>
-<li>如果参数是基本类型的话，很简单，传递的就是基本类型的字面量值的拷贝，会创建副本。</li>
-<li>如果参数是引用类型，传递的就是实参所引用的对象在堆中地址值的拷贝，同样也会创建副本。</li>
-</ul>
-<h2 id="Java序列化"><a href="#Java序列化" class="headerlink" title="Java序列化"></a>Java序列化</h2><ul>
-<li><p>序列化：将数据结构和对象转换成二进制字节流的过程</p>
-</li>
-<li><p>反序列化：将在序列化过程中生成的二进制字节流转换为数据结构即对象的过程</p>
-</li>
-</ul>
-<p>序列化的主要目的是为了将对象通过网络传输或者将其存储到文件系统，数据库或内存中</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062202800.png" alt="img"></p>
-<h3 id="需要序列化的场景"><a href="#需要序列化的场景" class="headerlink" title="需要序列化的场景"></a>需要序列化的场景</h3><ul>
-<li>网络传输对象</li>
-<li>对象在文件系统中的存取</li>
-<li>对象在缓存（缓存数据库如redis）中的存取</li>
-</ul>
-<h3 id="序列化协议在TCP-x2F-IP中的哪一层"><a href="#序列化协议在TCP-x2F-IP中的哪一层" class="headerlink" title="序列化协议在TCP&#x2F;IP中的哪一层"></a>序列化协议在TCP&#x2F;IP中的哪一层</h3><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208062207809.png" alt="TCP/IP 4层模型"></p>
-<p>这是OSI七层模型，对应TCP&#x2F;IP四层模型为</p>
-<ol>
-<li>数据链路层</li>
-<li>网络层</li>
-<li>传输层</li>
-<li>应用层</li>
-</ol>
-<p>如图所示，<strong>序列化与反序列化在OSI中的表示层和TCP&#x2F;IP的应用层中进行</strong></p>
-<h3 id="常见的序列化协议"><a href="#常见的序列化协议" class="headerlink" title="常见的序列化协议"></a>常见的序列化协议</h3><p>JDK 自带的序列化协议，只需实现java.io.Serializable接口即可</p>
-<p>但这种方法性能较差且不支持跨语言调用，所以一般不用</p>
-<p>Kryo</p>
-<p>Kryo 是一个高性能的序列化&#x2F;反序列化工具，由于其变长存储特性并使用了字节码生成机制，拥有较高的运行速度和较小的字节码体积。</p>
-<p>较为成熟</p>
-<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/EsotericSoftware/kryo">https://github.com/EsotericSoftware/kryoopen in new window</a> 。</p>
-<p>Protobuf</p>
-<p>性能较为优秀，支持跨平台，支持多中语言，但使用较为繁琐</p>
-<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/protocolbuffers/protobuf">https://github.com/protocolbuffers/protobufopen in new window</a>。</p>
-<p>ProtoStuff</p>
-<p>由于 Protobuf 的不易用性，它的哥哥 Protostuff 诞生了。</p>
-<p>protostuff 基于 Google protobuf，但是提供了更多的功能和更简易的用法。虽然更加易用，但是不代表 ProtoStuff 性能更差。</p>
-<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/protostuff/protostuff">https://github.com/protostuff/protostuffopen in new window</a>。</p>
-<p>hessian</p>
-<p>轻量级的自定义描述的二进制RPC 框架，Dubbo的默认序列化方式是hessian2，支持跨语言</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
-                面试题
-            </a>
-        </span>
-        
-    </div>
-    <a href="/myblog.github.io/2022/12/22/Day12/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
     <a href="/myblog.github.io/2022/12/22/Day11/">
         <h2 class="post-title">day11</h2>
     </a>
@@ -729,7 +544,7 @@ value is JavaGuide
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
@@ -1031,7 +846,7 @@ protected void finalize() throws Throwable &#123; &#125;
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -1417,7 +1232,7 @@ StringBuilder sb2 = new StringBuilder(&quot;HelloWorld&quot;);
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
                 面试题
             </a>
         </span>
@@ -1742,13 +1557,164 @@ System.out.println(++a);//先自增再输出，--a也一样先自减再输出
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
         
     </div>
     <a href="/myblog.github.io/2022/12/22/Day03/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day02/">
+        <h2 class="post-title">day02</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="java中的关键字"><a href="#java中的关键字" class="headerlink" title="java中的关键字"></a>java中的关键字</h2><p>Java中的关键字全是小写的，所以NULL不是关键字</p>
+<p>Java 关键字列表 所有的关键字都是小写</p>
+<p>abstract, assert,boolean, break, byte, case, catch, char, class, const, continue, default, do, double, else, enum,extends, final, finally, float, for, if, implements, import, instanceof, int, interface, long, native, new, package, private, protected, public, return, short, static, strictfp, super, switch, synchronized, this, throw, throws, transient, try, void, volatile, while</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java中只有栈帧没有堆帧，PC寄存器就是程序计数器</p>
+<p>程序计数器是一个以线程私有的一块较小的内存空间，用于记录所属线程所执行的字节码的行号指示器；字节码解释器工作时，通过改变程序计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳准、异常处理、线程恢复等基础功能都需要依赖程序计数器来完成<br><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220727201905352.png" alt="image-20220727201905352"></p>
+<h2 id="HashMap与Hashtable的区别"><a href="#HashMap与Hashtable的区别" class="headerlink" title="HashMap与Hashtable的区别"></a>HashMap与Hashtable的区别</h2><p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/image-20220727202057580.png" alt="image-20220727202057580"></p>
+<ul>
+<li>这两货继承的类不同，但是都实现了map接口。</li>
+<li>从线程安全的角度来看：</li>
+<li>Hashtable是线程安全的，它的每个方法中都加入了Synchronize方法。在多线程并发的环境下，可以直接使用Hashtable，不需要自己为它的方法实现同步</li>
+<li>HashMap不是线程安全的，在多线程并发的环境下，可能会产生死锁等问题。具体的原因在下一篇文章中会详细进行分析。使用HashMap时就必须要自己增加同步处理，</li>
+<li>虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。</li>
+<li>再来看看Properties的继承关系，发现d是对的。</li>
+<li>java.util类 Properties   java.lang.Object </li>
+<li>java.util.Dictionary </li>
+<li>java.util.Hashtable </li>
+<li>java.util.Properties</li>
+</ul>
+<h2 id="Java的三大特性"><a href="#Java的三大特性" class="headerlink" title="Java的三大特性"></a>Java的三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>把同一类事物对的共性抽离成为一个类，</p>
+<p>可以隐藏类的内部细节，用户无需了解其内部实现，只需调用对象提供的外部接口访问此类</p>
+<p>实现专业的分工，程序员可以按需调用</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>子类继承父类，子类可以拥有弗雷除私有属性，方法和构造方法外的所有的属性和方法</p>
+<p>继承堆修改关闭，对扩展开放，遵循里氏代换原则，子类可以写自己特有的属性和方法，也可以复写弗雷的方法，这就叫方法重写</p>
+<p><strong>继承可以实现代码的复用</strong></p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><strong>对象的多态性，父类的引用指向子类的对象（或子类的对象赋给父类的引用）</strong></p>
+<p>多态存在的三个必要条件</p>
+<ol>
+<li><p>继承</p>
+</li>
+<li><p>重写</p>
+</li>
+<li><p>父类引用指向子类对象</p>
+<p>相同的事物，使用相同的参数调用相同的方法，结果却不相同。</p>
+<p>子类以父类的身份出现时，需要向上转型，这是JVM自动实现的，是安全的，</p>
+<p>但向下转型是不安全的，需要强制转换，</p>
+<p>子类以父类身份出现时自己特有的属性和方法不能使用</p>
+</li>
+</ol>
+<h2 id="Java的基本数据类型以及包装类"><a href="#Java的基本数据类型以及包装类" class="headerlink" title="Java的基本数据类型以及包装类"></a>Java的基本数据类型以及包装类</h2><table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>大小（字节）</th>
+<th>默认值</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1</td>
+<td>(byte)0</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>(short)0</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>0</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8</td>
+<td>0L</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>0.0f</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>0.0d</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>-</td>
+<td>false</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2</td>
+<td>null(\u0000)</td>
+<td>Character</td>
+</tr>
+</tbody></table>
+<ul>
+<li>boolean在数组中只占1个字节，不在数组中是占4个字节</li>
+<li>基本数据类型所占用的空间是不变的，这也是Java具有可移植性的原因之一</li>
+<li>基本数据类型放在栈中，直接 存储</li>
+</ul>
+<p>为什么需要包装类</p>
+<ul>
+<li>基本类型不是类，不能new出来，因此不具备面对对象的功能，无法调用方法。</li>
+<li>在一个类或接口或方法中定义一个泛型的数据类型，当使用这个类、接口、方法时，要把泛型定义成具体的基本数据类型就必须使用基本数据类型对应的包装类进行定义。</li>
+</ul>
+<p>包装类与基本数据类型的不同</p>
+<ul>
+<li>基本类型只能按值传递，而封装类型按引用传递</li>
+<li>基本类型在栈中创建，而对于对象类型，对象在堆中创建，对象的引用在栈中创建，基本类型由于在栈中，执行效率会比较高，但可能存在内存泄漏的问题。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day02/" class="go-post">阅读全文</a>
 </div>
 
 
