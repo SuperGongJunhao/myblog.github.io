@@ -163,7 +163,7 @@
             
             <span class="tag">
                 
-                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">面试题</a>
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">面试题</a>
             </span>
             
         </span>
@@ -173,7 +173,7 @@
     <div class="content" v-pre>
         <p>后端获取数据向前端输出的过程中，输出前应该采用信息安全部发布的XSSFilter进行相应的编码。XSS过滤器是前端的一种过滤方式。</p>
 <p>Java线程</p>
-<p>私有：虚拟机栈，程序计数器，本地方法站</p>
+<p>私有：虚拟机栈，程序计数器，本地方法栈</p>
 <p>共享：堆，方法区</p>
 <p>运行时常量池</p>
 <ul>
@@ -185,11 +185,11 @@
 </li>
 </ul>
 <p>符号引用是以一组符号来描述所引用的目标，可以为任何形式的字面量，只要使用时无歧义即可。在解析阶段会将会将符号引用转换成直接引用。</p>
-<h2 id="浮点数的精度丢失问题："><a href="#浮点数的精度丢失问题：" class="headerlink" title="浮点数的精度丢失问题："></a>浮点数的精度丢失问题：</h2><p>计算机表示数字的宽度有限，无限循环的小鼠存在计算机中只能被截断，从而发生精度丢失的情况。</p>
-<p>为了便面精度丢失我们可以用<code>BigDecimal</code>来进行浮点运算，</p>
-<p>浮点数之间的判断不能用&#x3D;&#x3D;，包装类之间的判断不能哟个equals</p>
+<h2 id="浮点数的精度丢失问题："><a href="#浮点数的精度丢失问题：" class="headerlink" title="浮点数的精度丢失问题："></a>浮点数的精度丢失问题：</h2><p>计算机表示数字的宽度有限，无限循环的小数存在计算机中只能被截断，从而发生精度丢失的情况。</p>
+<p>为了避免精度丢失我们可以用<code>BigDecimal</code>来进行浮点运算，</p>
+<p>浮点数之间的判断不能用&#x3D;&#x3D;，包装类之间的判断用equals</p>
 <h3 id="创建BigDecimal对象："><a href="#创建BigDecimal对象：" class="headerlink" title="创建BigDecimal对象："></a>创建BigDecimal对象：</h3><p>推荐使用它的<code>BigDecimal(String val)</code>构造方法或者 <code>BigDecimal.valueOf(double val)</code> 静态方法来创建对象。</p>
-<p>在阿里巴巴Java开发手册中提到，禁止使用BigDecimal(double)吧double的值转换为BigDecimal对象</p>
+<p>在阿里巴巴Java开发手册中提到，禁止使用BigDecimal(double)把double的值转换为BigDecimal对象</p>
 <p>加减乘除</p>
 <pre><code class="java">BigDecimal a = new BigDecimal(&quot;1.0&quot;);
 BigDecimal b = new BigDecimal(&quot;0.9&quot;);

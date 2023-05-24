@@ -163,7 +163,7 @@
             
             <span class="tag">
                 
-                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">面试题</a>
+                <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">面试题</a>
             </span>
             
         </span>
@@ -224,7 +224,7 @@
 <li>请求服务端并携带 Token 的常见做法是将 <code>Token</code> 放在 HTTP Header 的 <code>Authorization</code> 字段中（<code>Authorization: Bearer Token</code>）</li>
 </ol>
 <h2 id="如何防止token被篡改"><a href="#如何防止token被篡改" class="headerlink" title="如何防止token被篡改"></a>如何防止token被篡改</h2><p>服务端拿到token后或解析出Header、Payload 以及 Signature ,然后根据Header、Payload 重新生成一个Signature 与token中的Signature 进行比对,如果一样则表示token没有被修改.</p>
-<p><strong>注意:前是在服务端的密钥没被泄露的前提下</strong></p>
+<p><strong>注意:前提是在服务端的密钥没被泄露的前提下</strong></p>
 <h2 id="如何加强JWT的安全性"><a href="#如何加强JWT的安全性" class="headerlink" title="如何加强JWT的安全性"></a>如何加强JWT的安全性</h2><ol>
 <li>使用安全系数高的加密算法。</li>
 <li>使用成熟的开源库，没必要造轮子。</li>
