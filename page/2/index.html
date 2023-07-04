@@ -165,6 +165,330 @@
             
 
 <div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day14/">
+        <h2 class="post-title">day14</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>后端获取数据向前端输出的过程中，输出前应该采用信息安全部发布的XSSFilter进行相应的编码。XSS过滤器是前端的一种过滤方式。</p>
+<p>Java线程</p>
+<p>私有：虚拟机栈，程序计数器，本地方法栈</p>
+<p>共享：堆，方法区</p>
+<p>运行时常量池</p>
+<ul>
+<li><p>常量池的大小受方法区大小的影响</p>
+</li>
+<li><p>存放了编译时期生成的各种字面量</p>
+</li>
+<li><p>存放编译时期生成的<strong>符号引用</strong></p>
+</li>
+</ul>
+<p>符号引用是以一组符号来描述所引用的目标，可以为任何形式的字面量，只要使用时无歧义即可。在解析阶段会将会将符号引用转换成直接引用。</p>
+<h2 id="浮点数的精度丢失问题："><a href="#浮点数的精度丢失问题：" class="headerlink" title="浮点数的精度丢失问题："></a>浮点数的精度丢失问题：</h2><p>计算机表示数字的宽度有限，无限循环的小数存在计算机中只能被截断，从而发生精度丢失的情况。</p>
+<p>为了避免精度丢失我们可以用<code>BigDecimal</code>来进行浮点运算，</p>
+<p>浮点数之间的判断不能用&#x3D;&#x3D;，包装类之间的判断用equals</p>
+<h3 id="创建BigDecimal对象："><a href="#创建BigDecimal对象：" class="headerlink" title="创建BigDecimal对象："></a>创建BigDecimal对象：</h3><p>推荐使用它的<code>BigDecimal(String val)</code>构造方法或者 <code>BigDecimal.valueOf(double val)</code> 静态方法来创建对象。</p>
+<p>在阿里巴巴Java开发手册中提到，禁止使用BigDecimal(double)把double的值转换为BigDecimal对象</p>
+<p>加减乘除</p>
+<pre><code class="java">BigDecimal a = new BigDecimal(&quot;1.0&quot;);
+BigDecimal b = new BigDecimal(&quot;0.9&quot;);
+System.out.println(a.add(b));// 1.9
+System.out.println(a.subtract(b));// 0.1
+System.out.println(a.multiply(b));// 0.90
+System.out.println(a.divide(b));// 无法除尽，抛出 ArithmeticException 异常
+System.out.println(a.divide(b, 2, RoundingMode.HALF_UP));// 1.11
+</code></pre>
+<p>divide最好使用三个参数版本的并且<code>RoundingMode</code> 不要选择 <code>UNNECESSARY</code>，否则很可能会遇到 <code>ArithmeticException</code>（无法除尽出现无限循环小数的时候），其中<code>divisor</code>代表除数 <code>scale</code> 表示要保留几位小数，<code>roundingMode</code> 代表保留规则。</p>
+<pre><code class="java">public BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode) &#123;
+    return divide(divisor, scale, roundingMode.oldMode);
+&#125;
+</code></pre>
+<p>比较大小：</p>
+<p>使用compareTo() </p>
+<p>a.compareTo(b);结果为1表示a&gt;b,结果为0 表示a&#x3D;b,结果为-1表示a&lt;b</p>
+<p>可以通过setScale()设置保留的小数位数</p>
+<p><strong>注意BigDecimal对象建议使用compareTo比较，因为equals比较不光会比较大小，还会比较精度，而 compareTo会忽略精度</strong></p>
+<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><pre><code class="java">import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+/**
+ * 简化BigDecimal计算的小工具类
+ */
+public class BigDecimalUtil &#123;
+
+    /**
+     * 默认除法运算精度
+     */
+    private static final int DEF_DIV_SCALE = 10;
+
+    private BigDecimalUtil() &#123;
+    &#125;
+
+    /**
+     * 提供精确的加法运算。
+     *
+     * @param v1 被加数
+     * @param v2 加数
+     * @return 两个参数的和
+     */
+    public static double add(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.add(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的减法运算。
+     *
+     * @param v1 被减数
+     * @param v2 减数
+     * @return 两个参数的差
+     */
+    public static double subtract(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.subtract(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的乘法运算。
+     *
+     * @param v1 被乘数
+     * @param v2 乘数
+     * @return 两个参数的积
+     */
+    public static double multiply(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.multiply(b2).doubleValue();
+    &#125;
+
+    /**
+     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到
+     * 小数点以后10位，以后的数字四舍五入。
+     *
+     * @param v1 被除数
+     * @param v2 除数
+     * @return 两个参数的商
+     */
+    public static double divide(double v1, double v2) &#123;
+        return divide(v1, v2, DEF_DIV_SCALE);
+    &#125;
+
+    /**
+     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指
+     * 定精度，以后的数字四舍五入。
+     *
+     * @param v1    被除数
+     * @param v2    除数
+     * @param scale 表示表示需要精确到小数点以后几位。
+     * @return 两个参数的商
+     */
+    public static double divide(double v1, double v2, int scale) &#123;
+        if (scale &lt; 0) &#123;
+            throw new IllegalArgumentException(
+                    &quot;The scale must be a positive integer or zero&quot;);
+        &#125;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的小数位四舍五入处理。
+     *
+     * @param v     需要四舍五入的数字
+     * @param scale 小数点后保留几位
+     * @return 四舍五入后的结果
+     */
+    public static double round(double v, int scale) &#123;
+        if (scale &lt; 0) &#123;
+            throw new IllegalArgumentException(
+                    &quot;The scale must be a positive integer or zero&quot;);
+        &#125;
+        BigDecimal b = BigDecimal.valueOf(v);
+        BigDecimal one = new BigDecimal(&quot;1&quot;);
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Float)
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static float convertToFloat(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.floatValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Int)不进行四舍五入
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static int convertsToInt(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.intValue();
+    &#125;
+
+    /**
+     * 提供精确的类型转换(Long)
+     *
+     * @param v 需要被转换的数字
+     * @return 返回转换结果
+     */
+    public static long convertsToLong(double v) &#123;
+        BigDecimal b = new BigDecimal(v);
+        return b.longValue();
+    &#125;
+
+    /**
+     * 返回两个数中大的一个值
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 返回两个数中大的一个值
+     */
+    public static double returnMax(double v1, double v2) &#123;
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(v2);
+        return b1.max(b2).doubleValue();
+    &#125;
+
+    /**
+     * 返回两个数中小的一个值
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 返回两个数中小的一个值
+     */
+    public static double returnMin(double v1, double v2) &#123;
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(v2);
+        return b1.min(b2).doubleValue();
+    &#125;
+
+    /**
+     * 精确对比两个数字
+     *
+     * @param v1 需要被对比的第一个数
+     * @param v2 需要被对比的第二个数
+     * @return 如果两个数一样则返回0，如果第一个数比第二个数大则返回1，反之返回-1
+     */
+    public static int compareTo(double v1, double v2) &#123;
+        BigDecimal b1 = BigDecimal.valueOf(v1);
+        BigDecimal b2 = BigDecimal.valueOf(v2);
+        return b1.compareTo(b2);
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="Java-IO的常见面试题"><a href="#Java-IO的常见面试题" class="headerlink" title="Java IO的常见面试题"></a>Java IO的常见面试题</h2><h3 id="什么是IO"><a href="#什么是IO" class="headerlink" title="什么是IO"></a>什么是IO</h3><p>即输入与输出</p>
+<p>是计算机系统与外部设备通信的过程</p>
+<p>为了保证系统的稳定与安全，一个进程的地址空间分为用户空间和内核空间</p>
+<p>我们平常允许的应用程序都是在用户空间上运行，想要进行IO操作，需要借助内核空间的能力</p>
+<p>用户进程通过<code>系统调用</code>访问内核空间进行IO操作，<strong>应用程序只是发起系统调用，实际的IO操作还是由操作系统的内核来完成</strong></p>
+<p>常见的IO操作</p>
+<ul>
+<li>磁盘IO（读写文件）</li>
+<li>网络IO（网络请求和响应）</li>
+</ul>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><blockquote>
+<p>同步</p>
+</blockquote>
+<p>就是发起一个调用后，<strong>被调用者</strong>处理完请求前，调用不返回。</p>
+<blockquote>
+<p>异步</p>
+</blockquote>
+<p>就是发起一个调用后，立即得到<strong>被调用方</strong>的回响应表示已接受到请求，但此时被调用者还未返回结果，这个时候 我们可以处理其他请求，等 请求处理完成后，被调用者常常依靠事件，回调等方式通知调用者其返回结果。</p>
+<p>同步和异步最大的区别就在于，被调用方的<strong>执行方式</strong>和<strong>返回时机</strong>，同步是指被调用方执行完成之后再返回，异步是指被调用方先返回再执行，做完之后再想办法通知调用方。</p>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><blockquote>
+<p>阻塞</p>
+</blockquote>
+<p>发起一个请求，<strong>调用者</strong>一直等待请求结果返回，也就是说当前线程被挂起，无法执行其他任务，直到条件就绪才继续</p>
+<blockquote>
+<p>非阻塞</p>
+</blockquote>
+<p>发起一个请求，<strong>调用者</strong>不用一直等待，可以先去干别事情</p>
+<h3 id="同步，异步，阻塞，非阻塞的区别"><a href="#同步，异步，阻塞，非阻塞的区别" class="headerlink" title="同步，异步，阻塞，非阻塞的区别"></a>同步，异步，阻塞，非阻塞的区别</h3><p>同步与阻塞不是一回事，针对的对象不一样，</p>
+<p>阻塞和非阻塞针对的时<strong>调用者</strong>，</p>
+<p>同步和异步针对的时<strong>被调用者</strong></p>
+<h3 id="常见的IO模型"><a href="#常见的IO模型" class="headerlink" title="常见的IO模型"></a>常见的IO模型</h3><h4 id="Java中的"><a href="#Java中的" class="headerlink" title="Java中的"></a>Java中的</h4><p><strong>BIO</strong>（BLockingIO）</p>
+<p>属于同步阻塞IO，应用程序发起read请求后，会一致阻塞，直到 内核将数据拷贝到用户空间</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082056243.png" alt="img"></p>
+<p>在 用户IO操作交少时可以使用，一旦IO操作过大将堆系统的性能造成很大的影响。</p>
+<p><strong>NIO</strong>（No-blockingIO）</p>
+<p>非阻塞队列，再Java1.4中引入，对应java.nio包，支持面向缓冲 ，基于通道的IO操作，在高负载，高并发 的情况下一个使用NIO</p>
+<ul>
+<li>同步非阻塞队列：<br>  <img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082208284.png" alt="img"></li>
+</ul>
+<p>相对于同步阻塞队列而言，，同步阻塞队列可以一直向内核发送read请求直到内核把数据拷贝到用户空间</p>
+<p>通过这种轮询操作避免了一直阻塞</p>
+<p>但这样应用程序对IO系统调用轮询数据，判断其是否准备好对CPU的资源消耗较大</p>
+<ul>
+<li>IO多路复用</li>
+</ul>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082216512.jpg" alt="88ff862764024c3b8567367df11df6ab_tplv-k3u1fbpfcp-watermark (1)"></p>
+<p>首先发起 select调用，询问内核该数据是否就绪，准备好了则调用其IO操作，IO操作的过程还是阻塞的</p>
+<p>但减少了无效的系统调用，减少了对CPU的消耗</p>
+<p>NIO选择器（Selector）也被称为多路复用器，通过它只需一个线程便可管理多个客户端连接，</p>
+<p>当客户端数据到了之后才会为其服务</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082221008.png" alt="img"></p>
+<p><strong>AIO</strong></p>
+<p>异步IO是通过事件或回调实现的，应用操作之后会直接返回，当后台处理完成，操作系统会通知相应的线程进行后续的操作</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082225460.png" alt="img"></p>
+<h4 id="Linux中的"><a href="#Linux中的" class="headerlink" title="Linux中的"></a>Linux中的</h4><blockquote>
+<p>同步阻塞IO</p>
+</blockquote>
+<blockquote>
+<p>同步非阻塞IO</p>
+</blockquote>
+<blockquote>
+<p>多路复用IO</p>
+</blockquote>
+<blockquote>
+<p>信号驱动IO</p>
+</blockquote>
+<blockquote>
+<p>异步IO</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day14/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/myblog.github.io/2022/12/22/Day13/">
         <h2 class="post-title">day13</h2>
     </a>
@@ -280,7 +604,7 @@ extends Callback&#123;
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
                 面试题
             </a>
         </span>
@@ -854,7 +1178,7 @@ value is JavaGuide
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -957,7 +1281,7 @@ value is JavaGuide
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -1156,7 +1480,7 @@ protected void finalize() throws Throwable &#123; &#125;
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
                 面试题
             </a>
         </span>
@@ -1241,7 +1565,7 @@ protected void finalize() throws Throwable &#123; &#125;
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
@@ -1404,7 +1728,7 @@ System.out.println(l + 1 == Long.MIN_VALUE); // true
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
                 面试题
             </a>
         </span>
@@ -1542,245 +1866,13 @@ StringBuilder sb2 = new StringBuilder(&quot;HelloWorld&quot;);
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
                 面试题
             </a>
         </span>
         
     </div>
     <a href="/myblog.github.io/2022/12/22/Day05/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/myblog.github.io/2022/12/22/Day04/">
-        <h2 class="post-title">day04</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/12/22
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="方法重写的规则"><a href="#方法重写的规则" class="headerlink" title="方法重写的规则"></a>方法重写的规则</h2><p>简单来说</p>
-<ul>
-<li>方法名相同，参数类型相同</li>
-<li>子类的返回类型等于父类的返回类型</li>
-<li>子类抛出的异常小于父类抛出的异常</li>
-<li>子类的访问权限大于等于父类的访问权限</li>
-</ul>
-<p>具体而言</p>
-<ol>
-<li>参数列表必须完全与被重写方法的相同；</li>
-<li>返回类型必须完全与被重写方法的返回类型相同；</li>
-<li>访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected。</li>
-<li>父类的成员方法只能被它的子类重写。</li>
-<li>声明为final的方法不能被重写。</li>
-<li>声明为static的方法不能被重写，但是能够被再次声明。</li>
-<li>子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法。</li>
-<li>子类和父类不在同一个包中，那么子类只能够重写父类的声明为public和protected的非final方法。</li>
-<li>重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</li>
-<li>构造方法不能被重写。</li>
-<li>如果不能继承一个方法，则不能重写这个方法。</li>
-</ol>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292146799.png" alt="image-20220729214630655"></p>
-<p>byte类型的变量在做运算时被会转换为int类型的值，故A、B左为byte，右为int，会报错；</p>
-<p>而C、D语句中用的是a+&#x3D;b的语句，此语句会将被赋值的变量自动强制转化为相对应的类型。</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292149113.png" alt="image-20220729214923027"></p>
-<p>string和char数组都是引用类型，引用类型是传地址的，会影响原变量的值，<strong>但是string是特殊引用类型</strong>，为什么呢？因为<strong>string类型的值是不可变的</strong>，为了考虑一些内存，安全等综合原因，把它设置成不可变的; 不可变是怎么实现的？</p>
-<p>Java在内存中专门为string开辟了一个<strong>字符串常量池，用来锁定数据不被篡改</strong>，所以题目中函数中的str变量和原来的str已经不是一个东西了，它是一个局部引用，指向一个testok的字符串，随着函数结束，它也就什么都没了，但是char数组是会改变原值的</p>
-<h2 id="Java和c-的区别"><a href="#Java和c-的区别" class="headerlink" title="Java和c++的区别"></a>Java和c++的区别</h2><p>Java不提供指针来直接访问内存，程序内存更加安全</p>
-<p>Java的类是单继承的，c++支持多继承</p>
-<p>Java又自动的垃圾回收机制GC，不需要程序员手动释放无用内存</p>
-<p>C++同时支持方法重载和操作符重载，但Java只支持方法重载（操作符重载增加了操作的复杂性，与Java最初的设计理念不符）</p>
-<h2 id="标识符与关键字"><a href="#标识符与关键字" class="headerlink" title="标识符与关键字"></a>标识符与关键字</h2><p>标识符就是一个名字</p>
-<p>关键字就是被Java已经使用了的名字，特殊的标识符</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">分类</td>
-<td>关键字</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">访问控制</td>
-<td>private</td>
-<td>protected</td>
-<td>public</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">类，方法和变量修饰符</td>
-<td>abstract</td>
-<td>class</td>
-<td>extends</td>
-<td>final</td>
-<td>implements</td>
-<td>interface</td>
-<td>native</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td>new</td>
-<td>static</td>
-<td>strictfp</td>
-<td>synchronized</td>
-<td>transient</td>
-<td>volatile</td>
-<td>enum</td>
-</tr>
-<tr>
-<td align="left">程序控制</td>
-<td>break</td>
-<td>continue</td>
-<td>return</td>
-<td>do</td>
-<td>while</td>
-<td>if</td>
-<td>else</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td>for</td>
-<td>instanceof</td>
-<td>switch</td>
-<td>case</td>
-<td>default</td>
-<td>assert</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">错误处理</td>
-<td>try</td>
-<td>catch</td>
-<td>throw</td>
-<td>throws</td>
-<td>finally</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">包相关</td>
-<td>import</td>
-<td>package</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">基本类型</td>
-<td>boolean</td>
-<td>byte</td>
-<td>char</td>
-<td>double</td>
-<td>float</td>
-<td>int</td>
-<td>long</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td>short</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">变量引用</td>
-<td>super</td>
-<td>this</td>
-<td>void</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">保留字</td>
-<td>goto</td>
-<td>const</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><code>所有的关键字都是小写的，在 IDE 中会以特殊颜色显示。</code></p>
-<p>&#96;&#96;default<code> 这个关键字很特殊，既属于程序控制，也属于类，方法和变量修饰符，还属于访问控制。</code></p>
-<ul>
-<li><code>在程序控制中，当在 </code>switch<code>中匹配不到任何情况时，可以使用</code>default<code> 来编写默认匹配的情况。</code></li>
-<li><code>在类，方法和变量修饰符中，从 JDK8 开始引入了默认方法，可以使用 </code>default<code> 关键字来定义一个方法的默认实现。</code></li>
-<li><code>在访问控制中，如果一个方法前没有任何修饰符，则默认会有一个修饰符 </code>default<code>，但是这个修饰符加上了就会报错。 </code></li>
-</ul>
-<p>⚠️ 注意 ：虽然 <code>true</code>, <code>false</code>, 和 <code>null</code> 看起来像关键字但实际上他们是字面值，但你也不可以作为标识符来使用。</p>
-<h2 id="自增自减运算符"><a href="#自增自减运算符" class="headerlink" title="自增自减运算符"></a>自增自减运算符</h2><pre><code class="java">System.out.println(a++);//先输出a再自增，a--一样先输出再自减
-
-System.out.println(++a);//先自增再输出，--a也一样先自减再输出
-</code></pre>
-<h2 id="continue，break，return的区别"><a href="#continue，break，return的区别" class="headerlink" title="continue，break，return的区别"></a>continue，break，return的区别</h2><p>continue:跳出此次的循环，继续下一次的循环</p>
-<p>break:跳出循环体，执行循环体外的代码</p>
-<p>return:直接跳出所在的方法，结束该方法的运行</p>
-<ul>
-<li>没有返回值直接return;</li>
-<li>有返回值return value;返回对应类型的值</li>
-</ul>
-<h2 id="成员变量与局部变量的区别"><a href="#成员变量与局部变量的区别" class="headerlink" title="成员变量与局部变量的区别"></a>成员变量与局部变量的区别</h2><ul>
-<li>成员变量属于类，局部变量属于某个代码块或方法中，成员变量可以被修饰符public，private，static等修饰，但 局部变量不能。但两者都能被final修饰</li>
-<li>如果成员变量被static修饰那么这个成员变量随类存储到Java堆中，如果没有使用static修饰，那么随实例存储到Java堆中（简言之：静态变量与常量随Class对象存储于Java堆中，实例常量随实例存储于堆中）</li>
-<li>成员变量随对象的创建而创建，是对象的一部分，局部变量随着方法的调用而自动生成，方法调用结束则销毁。</li>
-<li>成员变量再没有被final修饰符表示的时候如果没有赋初值，会自动以类型的默认值赋值。而局部变量不会以自动赋值。</li>
-</ul>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
-                面试题
-            </a>
-        </span>
-        
-    </div>
-    <a href="/myblog.github.io/2022/12/22/Day04/" class="go-post">阅读全文</a>
 </div>
 
 

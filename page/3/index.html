@@ -165,6 +165,238 @@
             
 
 <div class="post">
+    <a href="/myblog.github.io/2022/12/22/Day04/">
+        <h2 class="post-title">day04</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/12/22
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="方法重写的规则"><a href="#方法重写的规则" class="headerlink" title="方法重写的规则"></a>方法重写的规则</h2><p>简单来说</p>
+<ul>
+<li>方法名相同，参数类型相同</li>
+<li>子类的返回类型等于父类的返回类型</li>
+<li>子类抛出的异常小于父类抛出的异常</li>
+<li>子类的访问权限大于等于父类的访问权限</li>
+</ul>
+<p>具体而言</p>
+<ol>
+<li>参数列表必须完全与被重写方法的相同；</li>
+<li>返回类型必须完全与被重写方法的返回类型相同；</li>
+<li>访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected。</li>
+<li>父类的成员方法只能被它的子类重写。</li>
+<li>声明为final的方法不能被重写。</li>
+<li>声明为static的方法不能被重写，但是能够被再次声明。</li>
+<li>子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法。</li>
+<li>子类和父类不在同一个包中，那么子类只能够重写父类的声明为public和protected的非final方法。</li>
+<li>重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</li>
+<li>构造方法不能被重写。</li>
+<li>如果不能继承一个方法，则不能重写这个方法。</li>
+</ol>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292146799.png" alt="image-20220729214630655"></p>
+<p>byte类型的变量在做运算时被会转换为int类型的值，故A、B左为byte，右为int，会报错；</p>
+<p>而C、D语句中用的是a+&#x3D;b的语句，此语句会将被赋值的变量自动强制转化为相对应的类型。</p>
+<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207292149113.png" alt="image-20220729214923027"></p>
+<p>string和char数组都是引用类型，引用类型是传地址的，会影响原变量的值，<strong>但是string是特殊引用类型</strong>，为什么呢？因为<strong>string类型的值是不可变的</strong>，为了考虑一些内存，安全等综合原因，把它设置成不可变的; 不可变是怎么实现的？</p>
+<p>Java在内存中专门为string开辟了一个<strong>字符串常量池，用来锁定数据不被篡改</strong>，所以题目中函数中的str变量和原来的str已经不是一个东西了，它是一个局部引用，指向一个testok的字符串，随着函数结束，它也就什么都没了，但是char数组是会改变原值的</p>
+<h2 id="Java和c-的区别"><a href="#Java和c-的区别" class="headerlink" title="Java和c++的区别"></a>Java和c++的区别</h2><p>Java不提供指针来直接访问内存，程序内存更加安全</p>
+<p>Java的类是单继承的，c++支持多继承</p>
+<p>Java又自动的垃圾回收机制GC，不需要程序员手动释放无用内存</p>
+<p>C++同时支持方法重载和操作符重载，但Java只支持方法重载（操作符重载增加了操作的复杂性，与Java最初的设计理念不符）</p>
+<h2 id="标识符与关键字"><a href="#标识符与关键字" class="headerlink" title="标识符与关键字"></a>标识符与关键字</h2><p>标识符就是一个名字</p>
+<p>关键字就是被Java已经使用了的名字，特殊的标识符</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">分类</td>
+<td>关键字</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">访问控制</td>
+<td>private</td>
+<td>protected</td>
+<td>public</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">类，方法和变量修饰符</td>
+<td>abstract</td>
+<td>class</td>
+<td>extends</td>
+<td>final</td>
+<td>implements</td>
+<td>interface</td>
+<td>native</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>new</td>
+<td>static</td>
+<td>strictfp</td>
+<td>synchronized</td>
+<td>transient</td>
+<td>volatile</td>
+<td>enum</td>
+</tr>
+<tr>
+<td align="left">程序控制</td>
+<td>break</td>
+<td>continue</td>
+<td>return</td>
+<td>do</td>
+<td>while</td>
+<td>if</td>
+<td>else</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>for</td>
+<td>instanceof</td>
+<td>switch</td>
+<td>case</td>
+<td>default</td>
+<td>assert</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">错误处理</td>
+<td>try</td>
+<td>catch</td>
+<td>throw</td>
+<td>throws</td>
+<td>finally</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">包相关</td>
+<td>import</td>
+<td>package</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">基本类型</td>
+<td>boolean</td>
+<td>byte</td>
+<td>char</td>
+<td>double</td>
+<td>float</td>
+<td>int</td>
+<td>long</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>short</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">变量引用</td>
+<td>super</td>
+<td>this</td>
+<td>void</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">保留字</td>
+<td>goto</td>
+<td>const</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><code>所有的关键字都是小写的，在 IDE 中会以特殊颜色显示。</code></p>
+<p>&#96;&#96;default<code> 这个关键字很特殊，既属于程序控制，也属于类，方法和变量修饰符，还属于访问控制。</code></p>
+<ul>
+<li><code>在程序控制中，当在 </code>switch<code>中匹配不到任何情况时，可以使用</code>default<code> 来编写默认匹配的情况。</code></li>
+<li><code>在类，方法和变量修饰符中，从 JDK8 开始引入了默认方法，可以使用 </code>default<code> 关键字来定义一个方法的默认实现。</code></li>
+<li><code>在访问控制中，如果一个方法前没有任何修饰符，则默认会有一个修饰符 </code>default<code>，但是这个修饰符加上了就会报错。 </code></li>
+</ul>
+<p>⚠️ 注意 ：虽然 <code>true</code>, <code>false</code>, 和 <code>null</code> 看起来像关键字但实际上他们是字面值，但你也不可以作为标识符来使用。</p>
+<h2 id="自增自减运算符"><a href="#自增自减运算符" class="headerlink" title="自增自减运算符"></a>自增自减运算符</h2><pre><code class="java">System.out.println(a++);//先输出a再自增，a--一样先输出再自减
+
+System.out.println(++a);//先自增再输出，--a也一样先自减再输出
+</code></pre>
+<h2 id="continue，break，return的区别"><a href="#continue，break，return的区别" class="headerlink" title="continue，break，return的区别"></a>continue，break，return的区别</h2><p>continue:跳出此次的循环，继续下一次的循环</p>
+<p>break:跳出循环体，执行循环体外的代码</p>
+<p>return:直接跳出所在的方法，结束该方法的运行</p>
+<ul>
+<li>没有返回值直接return;</li>
+<li>有返回值return value;返回对应类型的值</li>
+</ul>
+<h2 id="成员变量与局部变量的区别"><a href="#成员变量与局部变量的区别" class="headerlink" title="成员变量与局部变量的区别"></a>成员变量与局部变量的区别</h2><ul>
+<li>成员变量属于类，局部变量属于某个代码块或方法中，成员变量可以被修饰符public，private，static等修饰，但 局部变量不能。但两者都能被final修饰</li>
+<li>如果成员变量被static修饰那么这个成员变量随类存储到Java堆中，如果没有使用static修饰，那么随实例存储到Java堆中（简言之：静态变量与常量随Class对象存储于Java堆中，实例常量随实例存储于堆中）</li>
+<li>成员变量随对象的创建而创建，是对象的一部分，局部变量随着方法的调用而自动生成，方法调用结束则销毁。</li>
+<li>成员变量再没有被final修饰符表示的时候如果没有赋初值，会自动以类型的默认值赋值。而局部变量不会以自动赋值。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+                面试题
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2022/12/22/Day04/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/myblog.github.io/2022/12/22/Day03/">
         <h2 class="post-title">day03</h2>
     </a>
@@ -248,7 +480,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
@@ -399,7 +631,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
@@ -458,7 +690,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>

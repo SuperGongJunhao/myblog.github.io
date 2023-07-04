@@ -165,6 +165,196 @@
             
 
 <div class="post">
+    <a href="/myblog.github.io/2023/07/04/vue%E5%8F%AF%E6%8B%96%E6%8B%BD%E8%A1%A8%E6%A0%BC%E5%AE%9E%E7%8E%B0/">
+        <h2 class="post-title">vue可拖拽表格实现</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/7/4
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>表格</p>
+<pre><code class="vue">&lt;a-table
+          :draggable=&quot;true&quot;
+          :customRow=&quot;customRow&quot;
+          rowKey=&#39;id&#39;
+            :columns=&quot;columns&quot;
+            :dataSource=&quot;data&quot;
+            :pagination=&quot;false&quot;
+            :rowSelection=&quot;&#123;selectedRowKeys: selectedRowKeys, onChange: onSelectChange&#125;&quot;
+          &gt;
+          &lt;!-- &lt;span slot=&quot;customTitle&quot;&gt;列值定位函数&lt;a @click=&quot;info&quot;&gt;&lt;a-icon  type=&quot;question-circle&quot; /&gt;&lt;/a&gt;&lt;/span&gt; --&gt;
+            &lt;template v-for=&quot;(col, i) in [&#39;ruleName&#39;, &#39;orderNum&#39;,&#39;createBy&#39;,&#39;datasourceId&#39;, &#39;outputTableName&#39;,&#39;exqueryId&#39;]&quot; :slot=&quot;col&quot; slot-scope=&quot;text, record, index&quot;&gt;
+              &lt;div v-html=&quot;text&quot; v-if=&quot;col==&#39;ruleName&#39;&quot;&gt;&lt;/div&gt;
+              &lt;template v-else-if=&quot;col==&#39;createBy&#39;&quot;&gt;
+                &lt;a
+                :key=&quot;col&quot;
+                style=&quot;margin: -5px 0&quot;
+                @click=&quot;showDBSQL(record)&quot;
+              &gt;查看&lt;/a&gt;
+              &lt;/template&gt;
+              &lt;template v-else-if=&quot;col==&#39;orderNum&#39;&quot; slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;a-input-number   @blur=&quot;getOrderNum($event,index)&quot;/&gt;
+              &lt;/template&gt;
+              &lt;template v-else-if=&quot;col==&#39;datasourceId&#39;&quot;  slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;j-dict-select-tag
+                :key=&quot;col&quot;
+                style=&quot;margin: -5px 0&quot;
+                :value=&quot;record.datasourceId&quot;
+                :defaultValue = &quot;record.datasourceId&quot;
+                placeholder=&quot;请选择数据源&quot;
+                @change=&quot;e =&gt; handleChange(e, record.id, col)&quot;
+                dictCode=&quot;ex_datasource,datasource_name,id&quot;
+              /&gt;
+              &lt;/template &gt;
+              &lt;template v-else-if=&quot;col==&#39;dataVerificationTemplate&#39;&quot;  slot-scope=&quot;text, record, index&quot;&gt;
+              &lt;div&gt;
+                &lt;a-select show-search
+                :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in dataVerificationTemplateList&quot;   @click=&quot;getdataVerificationTemplate(record,item)&quot;
+                  :key=&quot;index&quot; :value=item.text&gt;
+                  &#123;&#123;item.text&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+              &lt;/div&gt;
+            &lt;/template&gt;
+              &lt;template v-else slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;div v-if=&quot;isEdit&quot;&gt;
+                  &lt;a-select show-search
+                  :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  :defaultValue = &quot;record.outputTableName&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in record.outputTableNameArray&quot; @click=&quot;getTableName(record,item)&quot;
+                  :key=&quot;index&quot; :value=item&gt;
+                  &#123;&#123;item&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+                &lt;/div&gt;
+                &lt;div v-else&gt;
+                  &lt;a-select show-search
+                  :maxTagCount=&quot;2&quot;
+                  :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  :defaultValue = &quot;record.outputTableName&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in dataSourceTables&quot; @click=&quot;getTableName(record,item)&quot;
+                  :key=&quot;index&quot; :value=item&gt;
+                  &#123;&#123;item&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+                &lt;/div&gt;
+
+              &lt;/template&gt;
+
+            &lt;/template&gt;
+
+            &lt;template slot=&quot;operation&quot; slot-scope=&quot;text, record, index&quot;&gt;
+
+                &lt;!-- &lt;a-popconfirm title=&quot;是否要删除此行？&quot; @confirm=&quot;remove(record.id)&quot;&gt; --&gt;
+                  &lt;a @click=&quot;remove(record)&quot;&gt;删除&lt;/a&gt;
+                &lt;!-- &lt;/a-popconfirm&gt; --&gt;
+
+            &lt;/template&gt;
+          &lt;/a-table&gt;
+</code></pre>
+<p>方法</p>
+<pre><code class="js">         // 拖动排序
+    customRow(record, index) &#123;
+      return &#123;
+        // FIXME: draggable： true 不生效还不晓得是什么原因，先使用鼠标移入事件设置目标行的draggable属性
+        props: &#123;
+          draggable: &#39;true&#39;
+        &#125;,
+        style: &#123;
+          cursor: &#39;pointer&#39;
+        &#125;,
+        on: &#123;
+          // 鼠标移入
+          mouseenter: (event) =&gt; &#123;
+            // 兼容IE
+            var ev = event || window.event
+            ev.target.draggable = true
+          &#125;,
+          // 开始拖拽
+          dragstart: (event) =&gt; &#123;
+            this.startIndex = index
+            console.log(index)
+            // 兼容IE
+            var ev = event || window.event
+            // 阻止冒泡
+            ev.stopPropagation()
+            // 得到源目标数据
+            this.sourceObj = record
+            console.log(record)
+          &#125;,
+          // 拖动元素经过的元素
+          dragover: (event) =&gt; &#123;
+            // 兼容 IE
+            var ev = event || window.event
+            // 阻止默认行为
+            ev.preventDefault()
+          &#125;,
+          // 鼠标松开
+          drop: (event) =&gt; &#123;
+            this.endIndex = index
+            // 兼容IE
+            var ev = event || window.event
+            // 阻止冒泡
+            ev.stopPropagation()
+            // 得到目标数据
+            this.targetObj = record
+            console.log(record)
+            this.$set(this.data, this.endIndex, this.sourceObj)
+            this.$set(this.data, this.startIndex, this.targetObj)
+            // this.data[this.endIndex] = this.sourceObj
+            // this.data[this.startIndex] = this.targetObj
+            // console.log(index)
+          &#125;
+        &#125;
+      &#125;
+    &#125;,
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/myblog.github.io/tags/%E5%89%8D%E7%AB%AF/" style="color: #ffa2c4">
+                前端
+            </a>
+        </span>
+        
+    </div>
+    <a href="/myblog.github.io/2023/07/04/vue%E5%8F%AF%E6%8B%96%E6%8B%BD%E8%A1%A8%E6%A0%BC%E5%AE%9E%E7%8E%B0/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/myblog.github.io/2023/05/24/docker-compose%E9%83%A8%E7%BD%B2kafka+zookeeper%E9%A1%B9%E7%9B%AE/">
         <h2 class="post-title">docker-compose部署kafka+zookeeper项目</h2>
     </a>
@@ -267,7 +457,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
                 面试题
             </a>
         </span>
@@ -308,7 +498,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -349,7 +539,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
                 面试题
             </a>
         </span>
@@ -390,7 +580,7 @@
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -673,7 +863,7 @@ false
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00bcd4">
                 面试题
             </a>
         </span>
@@ -1037,7 +1227,7 @@ Node&lt;Circle&gt;  ns = nc;
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ffa2c4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
                 面试题
             </a>
         </span>
@@ -1205,337 +1395,13 @@ System.out.println(flag ? new Integer(0) : i);// 两者类型一致就不会有�
         
         <span class="tag">
             
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #03a9f4">
+            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #ff7d73">
                 面试题
             </a>
         </span>
         
     </div>
     <a href="/myblog.github.io/2022/12/22/Day15/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/myblog.github.io/2022/12/22/Day14/">
-        <h2 class="post-title">day14</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/12/22
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>后端获取数据向前端输出的过程中，输出前应该采用信息安全部发布的XSSFilter进行相应的编码。XSS过滤器是前端的一种过滤方式。</p>
-<p>Java线程</p>
-<p>私有：虚拟机栈，程序计数器，本地方法栈</p>
-<p>共享：堆，方法区</p>
-<p>运行时常量池</p>
-<ul>
-<li><p>常量池的大小受方法区大小的影响</p>
-</li>
-<li><p>存放了编译时期生成的各种字面量</p>
-</li>
-<li><p>存放编译时期生成的<strong>符号引用</strong></p>
-</li>
-</ul>
-<p>符号引用是以一组符号来描述所引用的目标，可以为任何形式的字面量，只要使用时无歧义即可。在解析阶段会将会将符号引用转换成直接引用。</p>
-<h2 id="浮点数的精度丢失问题："><a href="#浮点数的精度丢失问题：" class="headerlink" title="浮点数的精度丢失问题："></a>浮点数的精度丢失问题：</h2><p>计算机表示数字的宽度有限，无限循环的小数存在计算机中只能被截断，从而发生精度丢失的情况。</p>
-<p>为了避免精度丢失我们可以用<code>BigDecimal</code>来进行浮点运算，</p>
-<p>浮点数之间的判断不能用&#x3D;&#x3D;，包装类之间的判断用equals</p>
-<h3 id="创建BigDecimal对象："><a href="#创建BigDecimal对象：" class="headerlink" title="创建BigDecimal对象："></a>创建BigDecimal对象：</h3><p>推荐使用它的<code>BigDecimal(String val)</code>构造方法或者 <code>BigDecimal.valueOf(double val)</code> 静态方法来创建对象。</p>
-<p>在阿里巴巴Java开发手册中提到，禁止使用BigDecimal(double)把double的值转换为BigDecimal对象</p>
-<p>加减乘除</p>
-<pre><code class="java">BigDecimal a = new BigDecimal(&quot;1.0&quot;);
-BigDecimal b = new BigDecimal(&quot;0.9&quot;);
-System.out.println(a.add(b));// 1.9
-System.out.println(a.subtract(b));// 0.1
-System.out.println(a.multiply(b));// 0.90
-System.out.println(a.divide(b));// 无法除尽，抛出 ArithmeticException 异常
-System.out.println(a.divide(b, 2, RoundingMode.HALF_UP));// 1.11
-</code></pre>
-<p>divide最好使用三个参数版本的并且<code>RoundingMode</code> 不要选择 <code>UNNECESSARY</code>，否则很可能会遇到 <code>ArithmeticException</code>（无法除尽出现无限循环小数的时候），其中<code>divisor</code>代表除数 <code>scale</code> 表示要保留几位小数，<code>roundingMode</code> 代表保留规则。</p>
-<pre><code class="java">public BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode) &#123;
-    return divide(divisor, scale, roundingMode.oldMode);
-&#125;
-</code></pre>
-<p>比较大小：</p>
-<p>使用compareTo() </p>
-<p>a.compareTo(b);结果为1表示a&gt;b,结果为0 表示a&#x3D;b,结果为-1表示a&lt;b</p>
-<p>可以通过setScale()设置保留的小数位数</p>
-<p><strong>注意BigDecimal对象建议使用compareTo比较，因为equals比较不光会比较大小，还会比较精度，而 compareTo会忽略精度</strong></p>
-<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><pre><code class="java">import java.math.BigDecimal;
-import java.math.RoundingMode;
-
-/**
- * 简化BigDecimal计算的小工具类
- */
-public class BigDecimalUtil &#123;
-
-    /**
-     * 默认除法运算精度
-     */
-    private static final int DEF_DIV_SCALE = 10;
-
-    private BigDecimalUtil() &#123;
-    &#125;
-
-    /**
-     * 提供精确的加法运算。
-     *
-     * @param v1 被加数
-     * @param v2 加数
-     * @return 两个参数的和
-     */
-    public static double add(double v1, double v2) &#123;
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.add(b2).doubleValue();
-    &#125;
-
-    /**
-     * 提供精确的减法运算。
-     *
-     * @param v1 被减数
-     * @param v2 减数
-     * @return 两个参数的差
-     */
-    public static double subtract(double v1, double v2) &#123;
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.subtract(b2).doubleValue();
-    &#125;
-
-    /**
-     * 提供精确的乘法运算。
-     *
-     * @param v1 被乘数
-     * @param v2 乘数
-     * @return 两个参数的积
-     */
-    public static double multiply(double v1, double v2) &#123;
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.multiply(b2).doubleValue();
-    &#125;
-
-    /**
-     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到
-     * 小数点以后10位，以后的数字四舍五入。
-     *
-     * @param v1 被除数
-     * @param v2 除数
-     * @return 两个参数的商
-     */
-    public static double divide(double v1, double v2) &#123;
-        return divide(v1, v2, DEF_DIV_SCALE);
-    &#125;
-
-    /**
-     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指
-     * 定精度，以后的数字四舍五入。
-     *
-     * @param v1    被除数
-     * @param v2    除数
-     * @param scale 表示表示需要精确到小数点以后几位。
-     * @return 两个参数的商
-     */
-    public static double divide(double v1, double v2, int scale) &#123;
-        if (scale &lt; 0) &#123;
-            throw new IllegalArgumentException(
-                    &quot;The scale must be a positive integer or zero&quot;);
-        &#125;
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
-    &#125;
-
-    /**
-     * 提供精确的小数位四舍五入处理。
-     *
-     * @param v     需要四舍五入的数字
-     * @param scale 小数点后保留几位
-     * @return 四舍五入后的结果
-     */
-    public static double round(double v, int scale) &#123;
-        if (scale &lt; 0) &#123;
-            throw new IllegalArgumentException(
-                    &quot;The scale must be a positive integer or zero&quot;);
-        &#125;
-        BigDecimal b = BigDecimal.valueOf(v);
-        BigDecimal one = new BigDecimal(&quot;1&quot;);
-        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
-    &#125;
-
-    /**
-     * 提供精确的类型转换(Float)
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static float convertToFloat(double v) &#123;
-        BigDecimal b = new BigDecimal(v);
-        return b.floatValue();
-    &#125;
-
-    /**
-     * 提供精确的类型转换(Int)不进行四舍五入
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static int convertsToInt(double v) &#123;
-        BigDecimal b = new BigDecimal(v);
-        return b.intValue();
-    &#125;
-
-    /**
-     * 提供精确的类型转换(Long)
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static long convertsToLong(double v) &#123;
-        BigDecimal b = new BigDecimal(v);
-        return b.longValue();
-    &#125;
-
-    /**
-     * 返回两个数中大的一个值
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 返回两个数中大的一个值
-     */
-    public static double returnMax(double v1, double v2) &#123;
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
-        return b1.max(b2).doubleValue();
-    &#125;
-
-    /**
-     * 返回两个数中小的一个值
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 返回两个数中小的一个值
-     */
-    public static double returnMin(double v1, double v2) &#123;
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
-        return b1.min(b2).doubleValue();
-    &#125;
-
-    /**
-     * 精确对比两个数字
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 如果两个数一样则返回0，如果第一个数比第二个数大则返回1，反之返回-1
-     */
-    public static int compareTo(double v1, double v2) &#123;
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.compareTo(b2);
-    &#125;
-
-&#125;
-</code></pre>
-<h2 id="Java-IO的常见面试题"><a href="#Java-IO的常见面试题" class="headerlink" title="Java IO的常见面试题"></a>Java IO的常见面试题</h2><h3 id="什么是IO"><a href="#什么是IO" class="headerlink" title="什么是IO"></a>什么是IO</h3><p>即输入与输出</p>
-<p>是计算机系统与外部设备通信的过程</p>
-<p>为了保证系统的稳定与安全，一个进程的地址空间分为用户空间和内核空间</p>
-<p>我们平常允许的应用程序都是在用户空间上运行，想要进行IO操作，需要借助内核空间的能力</p>
-<p>用户进程通过<code>系统调用</code>访问内核空间进行IO操作，<strong>应用程序只是发起系统调用，实际的IO操作还是由操作系统的内核来完成</strong></p>
-<p>常见的IO操作</p>
-<ul>
-<li>磁盘IO（读写文件）</li>
-<li>网络IO（网络请求和响应）</li>
-</ul>
-<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><blockquote>
-<p>同步</p>
-</blockquote>
-<p>就是发起一个调用后，<strong>被调用者</strong>处理完请求前，调用不返回。</p>
-<blockquote>
-<p>异步</p>
-</blockquote>
-<p>就是发起一个调用后，立即得到<strong>被调用方</strong>的回响应表示已接受到请求，但此时被调用者还未返回结果，这个时候 我们可以处理其他请求，等 请求处理完成后，被调用者常常依靠事件，回调等方式通知调用者其返回结果。</p>
-<p>同步和异步最大的区别就在于，被调用方的<strong>执行方式</strong>和<strong>返回时机</strong>，同步是指被调用方执行完成之后再返回，异步是指被调用方先返回再执行，做完之后再想办法通知调用方。</p>
-<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><blockquote>
-<p>阻塞</p>
-</blockquote>
-<p>发起一个请求，<strong>调用者</strong>一直等待请求结果返回，也就是说当前线程被挂起，无法执行其他任务，直到条件就绪才继续</p>
-<blockquote>
-<p>非阻塞</p>
-</blockquote>
-<p>发起一个请求，<strong>调用者</strong>不用一直等待，可以先去干别事情</p>
-<h3 id="同步，异步，阻塞，非阻塞的区别"><a href="#同步，异步，阻塞，非阻塞的区别" class="headerlink" title="同步，异步，阻塞，非阻塞的区别"></a>同步，异步，阻塞，非阻塞的区别</h3><p>同步与阻塞不是一回事，针对的对象不一样，</p>
-<p>阻塞和非阻塞针对的时<strong>调用者</strong>，</p>
-<p>同步和异步针对的时<strong>被调用者</strong></p>
-<h3 id="常见的IO模型"><a href="#常见的IO模型" class="headerlink" title="常见的IO模型"></a>常见的IO模型</h3><h4 id="Java中的"><a href="#Java中的" class="headerlink" title="Java中的"></a>Java中的</h4><p><strong>BIO</strong>（BLockingIO）</p>
-<p>属于同步阻塞IO，应用程序发起read请求后，会一致阻塞，直到 内核将数据拷贝到用户空间</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082056243.png" alt="img"></p>
-<p>在 用户IO操作交少时可以使用，一旦IO操作过大将堆系统的性能造成很大的影响。</p>
-<p><strong>NIO</strong>（No-blockingIO）</p>
-<p>非阻塞队列，再Java1.4中引入，对应java.nio包，支持面向缓冲 ，基于通道的IO操作，在高负载，高并发 的情况下一个使用NIO</p>
-<ul>
-<li>同步非阻塞队列：<br>  <img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082208284.png" alt="img"></li>
-</ul>
-<p>相对于同步阻塞队列而言，，同步阻塞队列可以一直向内核发送read请求直到内核把数据拷贝到用户空间</p>
-<p>通过这种轮询操作避免了一直阻塞</p>
-<p>但这样应用程序对IO系统调用轮询数据，判断其是否准备好对CPU的资源消耗较大</p>
-<ul>
-<li>IO多路复用</li>
-</ul>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082216512.jpg" alt="88ff862764024c3b8567367df11df6ab_tplv-k3u1fbpfcp-watermark (1)"></p>
-<p>首先发起 select调用，询问内核该数据是否就绪，准备好了则调用其IO操作，IO操作的过程还是阻塞的</p>
-<p>但减少了无效的系统调用，减少了对CPU的消耗</p>
-<p>NIO选择器（Selector）也被称为多路复用器，通过它只需一个线程便可管理多个客户端连接，</p>
-<p>当客户端数据到了之后才会为其服务</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082221008.png" alt="img"></p>
-<p><strong>AIO</strong></p>
-<p>异步IO是通过事件或回调实现的，应用操作之后会直接返回，当后台处理完成，操作系统会通知相应的线程进行后续的操作</p>
-<p><img src="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202208082225460.png" alt="img"></p>
-<h4 id="Linux中的"><a href="#Linux中的" class="headerlink" title="Linux中的"></a>Linux中的</h4><blockquote>
-<p>同步阻塞IO</p>
-</blockquote>
-<blockquote>
-<p>同步非阻塞IO</p>
-</blockquote>
-<blockquote>
-<p>多路复用IO</p>
-</blockquote>
-<blockquote>
-<p>信号驱动IO</p>
-</blockquote>
-<blockquote>
-<p>异步IO</p>
-</blockquote>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/myblog.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="color: #00a596">
-                面试题
-            </a>
-        </span>
-        
-    </div>
-    <a href="/myblog.github.io/2022/12/22/Day14/" class="go-post">阅读全文</a>
 </div>
 
 

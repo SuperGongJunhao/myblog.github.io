@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>vue可拖拽表格实现 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="https://blog-picgo1-1312893782.cos.ap-shanghai.myqcloud.com//blog/202207200831813.jpeg" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/myblog.github.io/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/myblog.github.io/js/lib/highlight.js"></script>
+
+
+
+<script src="/myblog.github.io/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog.github.io/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/myblog.github.io/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/myblog.github.io/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/myblog.github.io/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/myblog.github.io/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/myblog.github.io/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/myblog.github.io/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/myblog.github.io/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/myblog.github.io/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/myblog.github.io/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>vue可拖拽表格实现</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/7/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/myblog.github.io/tags/%E5%89%8D%E7%AB%AF/" style="color: #00a596">前端</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>表格</p>
+<pre><code class="vue">&lt;a-table
+          :draggable=&quot;true&quot;
+          :customRow=&quot;customRow&quot;
+          rowKey=&#39;id&#39;
+            :columns=&quot;columns&quot;
+            :dataSource=&quot;data&quot;
+            :pagination=&quot;false&quot;
+            :rowSelection=&quot;&#123;selectedRowKeys: selectedRowKeys, onChange: onSelectChange&#125;&quot;
+          &gt;
+          &lt;!-- &lt;span slot=&quot;customTitle&quot;&gt;列值定位函数&lt;a @click=&quot;info&quot;&gt;&lt;a-icon  type=&quot;question-circle&quot; /&gt;&lt;/a&gt;&lt;/span&gt; --&gt;
+            &lt;template v-for=&quot;(col, i) in [&#39;ruleName&#39;, &#39;orderNum&#39;,&#39;createBy&#39;,&#39;datasourceId&#39;, &#39;outputTableName&#39;,&#39;exqueryId&#39;]&quot; :slot=&quot;col&quot; slot-scope=&quot;text, record, index&quot;&gt;
+              &lt;div v-html=&quot;text&quot; v-if=&quot;col==&#39;ruleName&#39;&quot;&gt;&lt;/div&gt;
+              &lt;template v-else-if=&quot;col==&#39;createBy&#39;&quot;&gt;
+                &lt;a
+                :key=&quot;col&quot;
+                style=&quot;margin: -5px 0&quot;
+                @click=&quot;showDBSQL(record)&quot;
+              &gt;查看&lt;/a&gt;
+              &lt;/template&gt;
+              &lt;template v-else-if=&quot;col==&#39;orderNum&#39;&quot; slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;a-input-number   @blur=&quot;getOrderNum($event,index)&quot;/&gt;
+              &lt;/template&gt;
+              &lt;template v-else-if=&quot;col==&#39;datasourceId&#39;&quot;  slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;j-dict-select-tag
+                :key=&quot;col&quot;
+                style=&quot;margin: -5px 0&quot;
+                :value=&quot;record.datasourceId&quot;
+                :defaultValue = &quot;record.datasourceId&quot;
+                placeholder=&quot;请选择数据源&quot;
+                @change=&quot;e =&gt; handleChange(e, record.id, col)&quot;
+                dictCode=&quot;ex_datasource,datasource_name,id&quot;
+              /&gt;
+              &lt;/template &gt;
+              &lt;template v-else-if=&quot;col==&#39;dataVerificationTemplate&#39;&quot;  slot-scope=&quot;text, record, index&quot;&gt;
+              &lt;div&gt;
+                &lt;a-select show-search
+                :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in dataVerificationTemplateList&quot;   @click=&quot;getdataVerificationTemplate(record,item)&quot;
+                  :key=&quot;index&quot; :value=item.text&gt;
+                  &#123;&#123;item.text&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+              &lt;/div&gt;
+            &lt;/template&gt;
+              &lt;template v-else slot-scope=&quot;text, record, index&quot;&gt;
+                &lt;div v-if=&quot;isEdit&quot;&gt;
+                  &lt;a-select show-search
+                  :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  :defaultValue = &quot;record.outputTableName&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in record.outputTableNameArray&quot; @click=&quot;getTableName(record,item)&quot;
+                  :key=&quot;index&quot; :value=item&gt;
+                  &#123;&#123;item&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+                &lt;/div&gt;
+                &lt;div v-else&gt;
+                  &lt;a-select show-search
+                  :maxTagCount=&quot;2&quot;
+                  :key=&quot;col&quot;
+                  placeholder=&quot;Select&quot;
+                  option-filter-prop=&quot;children&quot;
+                  style=&quot;width: 130px&quot;
+                  :defaultValue = &quot;record.outputTableName&quot;
+                  &gt;
+                  &lt;a-select-option v-for=&quot;(item,index) in dataSourceTables&quot; @click=&quot;getTableName(record,item)&quot;
+                  :key=&quot;index&quot; :value=item&gt;
+                  &#123;&#123;item&#125;&#125;
+                  &lt;/a-select-option&gt;
+                &lt;/a-select&gt;
+                &lt;/div&gt;
+
+              &lt;/template&gt;
+
+            &lt;/template&gt;
+
+            &lt;template slot=&quot;operation&quot; slot-scope=&quot;text, record, index&quot;&gt;
+
+                &lt;!-- &lt;a-popconfirm title=&quot;是否要删除此行？&quot; @confirm=&quot;remove(record.id)&quot;&gt; --&gt;
+                  &lt;a @click=&quot;remove(record)&quot;&gt;删除&lt;/a&gt;
+                &lt;!-- &lt;/a-popconfirm&gt; --&gt;
+
+            &lt;/template&gt;
+          &lt;/a-table&gt;
+</code></pre>
+<p>方法</p>
+<pre><code class="js">         // 拖动排序
+    customRow(record, index) &#123;
+      return &#123;
+        // FIXME: draggable： true 不生效还不晓得是什么原因，先使用鼠标移入事件设置目标行的draggable属性
+        props: &#123;
+          draggable: &#39;true&#39;
+        &#125;,
+        style: &#123;
+          cursor: &#39;pointer&#39;
+        &#125;,
+        on: &#123;
+          // 鼠标移入
+          mouseenter: (event) =&gt; &#123;
+            // 兼容IE
+            var ev = event || window.event
+            ev.target.draggable = true
+          &#125;,
+          // 开始拖拽
+          dragstart: (event) =&gt; &#123;
+            this.startIndex = index
+            console.log(index)
+            // 兼容IE
+            var ev = event || window.event
+            // 阻止冒泡
+            ev.stopPropagation()
+            // 得到源目标数据
+            this.sourceObj = record
+            console.log(record)
+          &#125;,
+          // 拖动元素经过的元素
+          dragover: (event) =&gt; &#123;
+            // 兼容 IE
+            var ev = event || window.event
+            // 阻止默认行为
+            ev.preventDefault()
+          &#125;,
+          // 鼠标松开
+          drop: (event) =&gt; &#123;
+            this.endIndex = index
+            // 兼容IE
+            var ev = event || window.event
+            // 阻止冒泡
+            ev.stopPropagation()
+            // 得到目标数据
+            this.targetObj = record
+            console.log(record)
+            this.$set(this.data, this.endIndex, this.sourceObj)
+            this.$set(this.data, this.startIndex, this.targetObj)
+            // this.data[this.endIndex] = this.sourceObj
+            // this.data[this.startIndex] = this.targetObj
+            // console.log(index)
+          &#125;
+        &#125;
+      &#125;
+    &#125;,
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/myblog.github.io/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
